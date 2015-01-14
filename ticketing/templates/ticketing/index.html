@@ -1,0 +1,101 @@
+{% extends 'common/base.html' %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block title %}
+    Tickets - Home
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% breadcrumb "Home" "homeview" %}
+{% endblock %}
+
+{% block navbar-contents %}
+    <li><a href="{% url 'contactview' %}">{% trans "Contact" %}</a></li>
+    {% if not user_info.isManagerOrHigher %}
+        <li><a href="{% url 'createticketview' %}">{% trans "Create a new ticket" %}</a></li>
+    {% endif %}
+    <li><a href="#">{% trans "Options" %}</a></li>
+    {% if user_info.isManagerOrHigher %}
+        <li><a href="/admin/">{% trans "Admin Panel" %}</a></li>
+    {% endif %}
+    <li class="bg-danger"><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    {% if user_info.isManagerOrHigher %}
+        <div class="well well-sm center-block" style="width: 90%;">
+            <form action="" method="post">
+                {% csrf_token %}
+                Options:
+                {% if request.session.show_unrelated_tickets == True %}
+                    <input type="submit" name="switchTicketVisibility" value="{% trans "Hide unrelated tickets" %}" class="btn btn-sm btn-danger" >
+                {% else %}
+                    <input type="submit" name="switchTicketVisibility" value="{% trans "Show unrelated tickets" %}" class="btn btn-sm btn-info" >
+                {% endif %}
+
+                {% if request.session.show_closed_tickets == True %}
+                    <input type="submit" name="switchClosedTicketVisibility" value="{% trans "Hide closed tickets" %}" class="btn btn-sm btn-danger" >
+                {% else %}
+                    <input type="submit" name="switchClosedTicketVisibility" value="{% trans "Show closed tickets" %}" class="btn btn-sm btn-info" >
+                {% endif %}
+            </form>
+        </div>
+
+        {% if all_queried_tickets %}
+            <table class="table table-responsive center-block" style="width: 90%; display: block;">
+            <thead>
+                <tr>
+                    <th>{% trans "Ticket code" %}</th>
+                    <th>{% trans "Renter" %}</th>
+                    <th>{% trans "Status" %}</th>
+                    <th>{% trans "Category" %}</th>
+                    <th>{% trans "Subcategory" %}</th>
+                    <th>{% trans "Building" %}</th>
+                    <th>{% trans "Manager" %}</th>
+                    <th>{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for ticket in all_queried_tickets %}
+                    <tr>
+                    <td>{{ ticket.ticket_code }}</td>
+                    <td>{{ ticket.fk_renter.get_full_name }}</td>
+                    <td>{{ ticket.fk_status.label }}</td>
+                    <td>{{ ticket.fk_category.getParentCategory.label }}</td>
+                    <td>{{ ticket.fk_category.label }}</td>
+                    <td>{{ ticket.fk_building.building_name }}</td>
+                    {% if ticket.fk_manager != None %}
+                        <td>{{ ticket.fk_manager.get_full_name }}</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
+                    <td>
+                        {% if ticket.fk_manager == None %}
+                            <form action="{% url 'assigntickettome' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="ticket_code" value="{{ ticket.ticket_code }}" />
+                                <input type="submit" name="assigntickettome" value="{% trans "Assign to me" %}" class="btn btn-sm btn-info" />
+                            </form>
+                        {% endif %}
+
+                        {% if ticket.fk_manager == user_info %}
+                            <form action="{% url 'ticketdetailview' ticket.pk %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="ticket_id" value="{{ ticket.pk }}" >
+                                <input type="submit" name="ticketdetailviewGo" value="{% trans "View ticket detail" %}" class="btn btn-sm btn-info" />
+                            </form>
+                        {% endif %}
+                    </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        {% endif %}
+    {% else %}
+        {% trans "(Please select an action from the above menu)" %}
+    {% endif %}
+{% endblock %}

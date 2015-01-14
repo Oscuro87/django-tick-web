@@ -1,0 +1,103 @@
+{% load staticfiles %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% block extrahead %}
+        <link rel="stylesheet" type="text/css" href="{% static 'common/css/bootstrap/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'common/css/bootstrap/css/bootstrap-theme.min.css' %}" />
+        <script src="{% static 'common/js/jquery-1.11.2.min.js' %}"></script>
+        <script src="{% static 'common/css/bootstrap/js/bootstrap.min.js' %}"></script>
+    {% endblock %}
+</head>
+
+<body>
+
+{% block navbar %}
+    <div class="navbar navbar-default" style="vertical-align: middle;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Nav</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    {% block navbar-contents %} {% endblock %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<ul class="breadcrumbs">
+    {% block breadcrumbs %}
+        {% clear_breadcrumbs %}
+        {% breadcrumb "Home" "/" %}
+    {% endblock %}
+</ul>
+
+{% block info_zone %}
+    {% if messages %}
+        {% for entry in messages %}
+            <div class="alert alert-{{ entry.tags }}" id="info_div">
+                {{ entry }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div style="width: 98%; margin-left: 2%">
+        {% render_breadcrumbs "django_bootstrap_breadcrumbs/bootstrap3.html" %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div style="font-size: 10px; position: relative; bottom: 0; min-height: 0%;
+                        height: 80px; width: 90%; margin-left: 5%;">
+        <span>Made by E.C. (2015)</span>
+
+        {% if request.user.is_authenticated %}
+        <span>
+            {% get_current_language as LANGUAGE_CODE %}
+            <!-- Current language: {{ LANGUAGE_CODE }} -->
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                <select name="language" onchange="this.form.submit();">
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                    {% endfor %}
+                </select>
+                </form>
+        </span>
+        {% endif %}
+
+        <span style="text-align: right; float: right;">
+            Powered by <a href="https://www.python.org/" target="_blank">Python</a>
+            & <a href="https://www.djangoproject.com/" target="_blank">Django</a>
+        </span>
+    </div>
+{% endblock %}
+</body>
+
+</html>
+
+{% block scriptBlock %}
+<script>
+    $(document).ready(
+            function()
+            {
+                $("div#info_div").delay(6000).fadeToggle();
+            }
+    );
+</script>
+{% endblock %}

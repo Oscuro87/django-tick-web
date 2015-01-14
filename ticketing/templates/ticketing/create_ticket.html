@@ -1,0 +1,176 @@
+{% extends 'common/base.html' %}
+
+{% load create_ticket_extras %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Ticket - Creation" %}
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% breadcrumb "Home" "homeview" %}
+    {% breadcrumb "Create" "#" %}
+    {% breadcrumb "Ticket" "createticketview" %}
+{% endblock %}
+
+{% block navbar-contents %}
+    <li class="bg-info"><a href="{% url 'homeview' %}">{% trans "Home" %}</a></li>
+    <li><a href="{% url 'contactview' %}">{% trans "Contact" %}</a></li>
+    <li><a href="#">{% trans "Options" %}</a></li>
+    {% if user_info.isManagerOrHigher %}
+        <li><a href="/admin/">{% trans "Admin Panel" %}</a></li>
+    {% endif %}
+    <li class="bg-danger"><a href="{% url 'homelogout' %}">{% trans "Logout" %}</a></li>
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="center-block" style="width: 90%; display: block;">
+        <div class="well well-sm">
+            <h2>Create a new ticket</h2>
+        </div>
+
+        <form action="" method="post" style="display: block; width: 50%;" class="center-block" name="createTicketForm">
+            {% csrf_token %}
+            <table class="table table-responsive">
+                <tr>
+                    <td>{% trans "Event category" %} *</td>
+                    <td>
+                        <select name="category" id="category" required="true">
+                            <option value="empty"></option>
+                            {% for item in categories|get_all_parent_categories %}
+                                <option name="category" value="{{ item.pk }}">{{ item.label }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>{% trans "Event sub-category" %} *</td>
+                    <td>
+                        <div id="subcategorydiv">
+                            {% trans "Please select a category first." %}
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>{% trans "Building" %} *</td>
+                    <td>
+                        {% if user_info.pk|get_all_buildings_for_user|count_entries != 0 %}
+                            <select name="building" id="building" required="true">
+                                {% for building in user_info.pk|get_all_buildings_for_user %}
+                                    <option name="building" value="{{ building.pk }}">{{ building.building_name }}</option>
+                                {% endfor %}
+                            </select>
+                        {% else %}
+                            {% trans "No building found for this user!" %}
+                            </select>
+                        {% endif %}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>{% trans "Floor" %}</td>
+                    <td><input type="text" name="floor" /></td>
+                </tr>
+
+                <tr>
+                    <td>{% trans "Office" %}</td>
+                    <td><input type="text" name="office"> </td>
+                </tr>
+
+                <tr>
+                    <td>{% trans "Description" %}</td>
+                    <td><textarea rows="4" cols="50" name="description">{% trans "No description." %}</textarea></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Create this ticket" name="ticketCreateGo" style="width:80%; display: block;" class="center-block btn btn-success"/>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+
+    </div>
+
+{% endblock %}
+
+{% block scriptBlock %}
+    {{ block.super }}
+    <script>
+        $(document).ready(
+                function()
+                {
+                    var subCatDiv = $("div#subcategorydiv");
+                    var catDiv = $("select#category");
+
+                    catDiv.change(
+                            function()
+                            {
+                                selectedValue = catDiv.find(":selected").val();
+                                if (selectedValue != "empty")
+                                {
+                                    subCatDiv.html("");
+                                    ajax_fillSubCategories(selectedValue);
+                                }
+                                else
+                                {
+                                    subCatDiv.html("{% trans "Please select a category first." %}");
+                                }
+                            }
+                    );
+                }
+        );
+
+    function ajax_fillSubCategories(selectedCategoryID)
+    {
+        var sendData = {
+            'csrfmiddlewaretoken': '{{ csrf_token }}',
+            'operation': 'GETSUBCATEGORIES',
+            'categoryID': parseInt(selectedCategoryID)
+        };
+
+        $.ajax({
+            url: '{% url 'createticketview' %}',
+            type: 'POST',
+            data: sendData,
+            success:
+                    function(json)
+                    {
+                        if(json.subcategories != null)
+                        {
+                            var subCatDiv = $("div#subcategorydiv");
+                            subCatDiv.html("");
+                            var subcategories = json['subcategories'];
+
+                            var selectBegin = "<select name='subcategory' id='subcatSelect' required='true'>";
+                            var selectEnd = "</select>";
+                            var options = '<option value="empty" selected="True"></option>';
+                            for (var i = 0; i < subcategories.length; i++) {
+                                options += '<option value="' + subcategories[i].pk + '">' + subcategories[i].label + '</option>';
+                            }
+
+                            subCatDiv.html(selectBegin + options + selectEnd);
+                        }
+                        else
+                        {
+                            alert("Error in ajax_fillSubCategories");
+                        }
+                    },
+            error:
+                    function(xhr, msg, err)
+                    {
+                        alert('Error in fillSubCategories: ' + msg);
+                    }
+        });
+    }
+    </script>
+{% endblock %}

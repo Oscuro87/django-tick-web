@@ -1,0 +1,101 @@
+{% extends 'common/base.html' %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block title %}
+    Ticket details
+{% endblock %}
+
+{% block navbar-contents %}
+    {{ block.super }}
+    <li><a href="{% url 'homeview' %}">{% trans "Home" %}</a></li>
+{% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Ticket" "#" %}
+    {% breadcrumb "Detail" "#" %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="well-sm center-block" style="width: 90%;">
+        <div style="width: 50%; display: inline-block; vertical-align: top;">
+            <div>
+                <h2>{% trans "Ticket details" %}: {{ ticket.ticket_code }}</h2>
+                <table class="table table-responsive center-block">
+                    <tr>
+                        <td>{% trans "Status" %}</td>
+                        <td>{% trans ticket.fk_status.label %}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Renter" %}</td>
+                        <td>{{ ticket.fk_renter.get_full_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Category" %}</td>
+                        <td>{{ ticket.fk_category.getParentCategory.label }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Sub-category" %}</td>
+                        <td>{{ ticket.fk_category.label }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Building" %}</td>
+                        <td>{{ ticket.fk_building.building_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Assigned to" %}</td>
+                        <td>{{ ticket.fk_manager.get_full_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Way of creation" %}</td>
+                        <td>{{ ticket.fk_channel.label }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div style="display: inline-block; vertical-align: top;">
+            <h2>{% trans "Ticket actions" %}:</h2>
+            <form action="" method="post" name="ticketAction">
+                {% csrf_token %}
+                <input type="hidden" name="ticket_id" value="{{ ticket.pk }}" />
+                <p><input type="submit" name="ticket-release" value="{% trans "Release ticket management" %}" class="btn btn-sm btn-danger"></p>
+                {% if ticket.fk_status_id == 1 %}
+                    <p><input type="submit" name="ticket-to-inProgress" value="{% trans "Put ticket in progress" %}" class="btn btn-sm btn-info"></p>
+                {% elif ticket.fk_status_id == 2 %}
+                    <p><input type="submit" name="ticket-to-closed" value="Close ticket" class="btn btn-sm btn-info"></p>
+                {% endif %}
+            </form>
+        </div>
+
+        <div style="display: block; width: 100%;">
+            <h2>{% trans "Ticket history" %}</h2>
+            <table class="table table-responsive center-block">
+                <thead>
+                <tr>
+                    <th>{% trans "Update date" %}</th>
+                    <th>{% trans "New status" %}</th>
+                    <th>{% trans "Reason" %}</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for history in ticket.getAllHistory %}
+                <tr>
+                    <td>{{ history.update_date }}</td>
+                    <td>{% trans history.fk_ticket_status.label %}</td>
+                    <td>{{ history.update_reason }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scriptBlock %}
+    {{ block.super }}
+{% endblock %}

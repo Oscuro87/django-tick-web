@@ -1,0 +1,71 @@
+{% extends 'common/base.html' %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block navbar-contents %}
+    <li class="bg-info"><a href="{% url 'homeview' %}">{% trans "Home" %}</a></li>
+    {% if not user_info.isManagerOrHigher %}
+        <li><a href="{% url 'createticketview' %}">{% trans "Create a new ticket" %}</a></li>
+    {% endif %}
+    <li><a href="#">{% trans "Options" %}</a></li>
+    {% if user_info.isManagerOrHigher %}
+        <li><a href="/admin/">{% trans "Admin Panel" %}</a></li>
+    {% endif %}
+    <li class="bg-danger"><a href="{% url 'homelogout' %}">{% trans "Logout" %}</a></li>
+{% endblock %}
+
+{% block title %}
+    Tickets - Contact
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% breadcrumb "Home" "homeview" %}
+    {% breadcrumb "Contact" "contactview" %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <div style="width:50%; margin-left: 25%;" class="table-responsive">
+        <div class="well-lg">
+            <h2>{% trans "Contact form" %}</h2>
+            <h5>{% trans "If you have business inquiries or other questions, please fill out the following form to contact us. Thank you." %}</h5>
+            {% trans "The fields marked with an * are required." %}
+        </div>
+
+        <form action="" method="post" class="form-group" style="margin-left: 2%;">
+            <table class="table table-responsive">
+                <tr>
+                    <td>{% trans "Your email" %}</td>
+                    <td><input type="text" value="{{ user_info.email }}" name="email" disabled /></td>
+                </tr>
+                <tr>
+                    <td>
+                        {% trans "Subject" %} *
+                    </td>
+                    <td>
+                        {{ contact_form.subject }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% trans "Message" %} *
+                    </td>
+                    <td>
+                        {{ contact_form.content }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{% trans "Captcha" %} *</td>
+                    <td>{{ contact_form.captcha }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="{% trans "Submit your message" %}" name="contactGo"
+                                class="btn btn-success" style="margin-left: 10%; width: 80%;"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{% endblock %}

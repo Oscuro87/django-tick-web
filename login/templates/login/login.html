@@ -1,0 +1,55 @@
+{% extends 'common/base.html' %}
+
+{% load staticfiles %}
+
+{% load django_bootstrap_breadcrumbs %}
+
+{% block title %}
+    Tickets - Login
+{% endblock %}
+
+{% block navbar-contents %}
+    {{ block.super }}
+    <li><a href="{% url 'loginview' %}">Login</a></li>
+{% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% if not user.is_authenticated %}
+        {% breadcrumb "Login" "loginview" %}
+    {% else %}
+        More to come...
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="well-sm" style="width: 40%;" >
+        <form action="" method="post" name="loginForm">
+            {% csrf_token %}
+            <table class="table table-responsive">
+                <tbody>
+                <tr>
+                    <td>Your email:</td>
+                    <td>{{ loginform.email }}</td>
+                </tr>
+                <tr>
+                    <td>Your password:</td>
+                    <td>{{ loginform.password }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Connection" name="loginGo"
+                               class="btn btn-success" style="width: 50%; margin-left: 25%"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ block.super }}
+{% endblock %}
+
