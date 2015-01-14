@@ -25,14 +25,14 @@
     {% if user_info.isManagerOrHigher %}
         <li><a href="/admin/">{% trans "Admin Panel" %}</a></li>
     {% endif %}
-    <li class="bg-danger"><a href="{% url 'homelogout' %}">{% trans "Logout" %}</a></li>
+    <li class="bg-danger"><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
 {% endblock %}
 
 {% block content %}
     {{ block.super }}
     <div class="center-block" style="width: 90%; display: block;">
         <div class="well well-sm">
-            <h2>Create a new ticket</h2>
+            <h2>{% trans "Create a new ticket" %}</h2>
         </div>
 
         <form action="" method="post" style="display: block; width: 50%;" class="center-block" name="createTicketForm">

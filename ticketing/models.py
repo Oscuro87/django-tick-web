@@ -139,13 +139,24 @@ class Ticket(models.Model):
     description = models.TextField(verbose_name=_("Event description"), null=True, blank=True,
                                   default=_("No description available."))
 
-
+    def delete(self, using=None):
+        self.visible = False
+        self.save(reason="Ticket soft deletion.")
 
     def save(self, *args, **kwargs):
+        reason = kwargs.pop('reason', None)
         if not self.ticket_code:
             self.ticket_code = self.generateTicketCode()
 
         super(Ticket, self).save(*args, **kwargs)
+
+        th = TicketHistory()
+        th.fk_manager = self.fk_manager
+        th.fk_ticket = self
+        th.fk_ticket_status = self.fk_status
+        if reason != None:
+            th.update_reason = reason
+        th.save()
 
     def generateTicketCode(self):
         count = self.countAmountOfTickets() + 1

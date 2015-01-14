@@ -12,7 +12,7 @@
     {% if user_info.isManagerOrHigher %}
         <li><a href="/admin/">{% trans "Admin Panel" %}</a></li>
     {% endif %}
-    <li class="bg-danger"><a href="{% url 'homelogout' %}">{% trans "Logout" %}</a></li>
+    <li class="bg-danger"><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
 {% endblock %}
 
 {% block title %}
@@ -37,7 +37,7 @@
             <table class="table table-responsive">
                 <tr>
                     <td>{% trans "Your email" %}</td>
-                    <td><input type="text" value="{{ user_info.email }}" name="email" disabled /></td>
+                    <td>{{ user_info.email }}</td>
                 </tr>
                 <tr>
                     <td>

@@ -106,7 +106,7 @@ class CreateTicketView(TemplateView):
         t.office = office
         t.description = description
 
-        t.save()
+        t.save(reason=_("Creating new ticket."))
 
         messages.add_message(self.request, messages.SUCCESS, "You successfully created a ticket!")
         return redirect('homeview')
@@ -148,7 +148,7 @@ class HomeView(TemplateView):
         data['user_info'] = self.request.user
 
         if self.request.user.isManagerOrHigher():
-            selection = Ticket.objects.all()
+            selection = Ticket.objects.filter(visible__exact=True)
 
             if not self.request.session.get('show_unrelated_tickets', False):
                 selection = selection.filter(Q(fk_manager=self.request.user) | Q(fk_manager=None))
@@ -167,7 +167,7 @@ class HomeView(TemplateView):
             ticket = Ticket.objects.get(ticket_code=code)
             if ticket.fk_manager is None:
                 ticket.fk_manager = user
-                ticket.save()
+                ticket.save(reason=_("Assigned to manager: " + user.get_full_name()))
             else:
                 messages.add_message(self.request, messages.ERROR, _("This ticket is already assigned to someone!"))
         except Ticket.DoesNotExist:
@@ -223,7 +223,7 @@ class TicketView(TemplateView):
         try:
             ticket_obj = Ticket.objects.get(pk=ticket_id)
             ticket_obj.fk_manager = None
-            ticket_obj.save()
+            ticket_obj.save(reason=_("Manager released ticket management."))
             messages.add_message(self.request, messages.SUCCESS, _("You no longer manage this ticket."))
             return redirect('homeview')
         except Ticket.DoesNotExist:
@@ -236,7 +236,7 @@ class TicketView(TemplateView):
             ticket_obj = Ticket.objects.get(pk=ticket_id)
             status_obj = TicketStatus.objects.get(label=to)
             ticket_obj.fk_status = status_obj
-            ticket_obj.save()
+            ticket_obj.save(reason=_("Ticket status changed to {0}".format(status_obj.label)))
             messages.add_message(self.request, messages.SUCCESS, _("Ticket successfully updated."))
         except Ticket.DoesNotExist:
             messages.add_message(self.request, messages.ERROR, _("Cannot execute this action."))
