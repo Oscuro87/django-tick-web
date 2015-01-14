@@ -96,7 +96,10 @@ class CreateTicketView(TemplateView):
         description = self.request.POST.get('description')
 
         tm = TicketManager()
-        tm.create_ticket(batimentID, subcategoryID, creatorID, channelID, statusID, priorityID, floor, office, description)
+        if tm.create_ticket(batimentID, subcategoryID, creatorID, channelID, statusID, priorityID, floor, office, description) == True:
+            messages.add_message(self.request, messages.SUCCESS, _("You successfully created a ticket!"))
+        else:
+            messages.add_message(self.request, messages.ERROR, _("Ticket creation failed."))
         # t = Ticket()
         # t.fk_building_id = batimentID
         # t.fk_category_id = subcategoryID
@@ -108,9 +111,8 @@ class CreateTicketView(TemplateView):
         # t.office = office
         # t.description = description
 
-        t.save()
+        # t.save()
 
-        messages.add_message(self.request, messages.SUCCESS, "You successfully created a ticket!")
         return redirect('homeview')
 
 

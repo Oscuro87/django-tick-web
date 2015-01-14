@@ -125,7 +125,27 @@ class TicketManager(models.Manager):
     def all(self):
         return super(TicketManager, self).get_queryset()
 
-    #def create_ticket(self):
+    def create_ticket(self, batimentID, subcategoryID, creatorID, channelID, statusID, priorityID, floor, office, description):
+        t = Ticket()
+        t.fk_building_id = batimentID
+        t.fk_category_id = subcategoryID
+        t.fk_renter_id = creatorID
+        t.fk_channel_id = channelID
+        t.fk_status_id = statusID
+        t.fk_priority_id = priorityID
+        t.floor = floor
+        t.office = office
+        t.description = description
+        t.save()
+
+        newHistory = TicketHistory()
+        newHistory.fk_ticket = self
+        newHistory.fk_ticket_status = self.fk_status
+        newHistory.fk_manager = self.fk_manager
+        newHistory.update_reason = _("Ticket creation.")
+        newHistory.save()
+
+        return True
 
 
 class Ticket(models.Model):
@@ -154,13 +174,6 @@ class Ticket(models.Model):
             self.ticket_code = self.generateTicketCode()
 
         super(Ticket, self).save(*args, **kwargs)
-
-        newHistory = TicketHistory()
-        newHistory.fk_ticket = self
-        newHistory.fk_ticket_status = self.fk_status
-        newHistory.fk_manager = self.fk_manager
-        newHistory.update_reason = ""
-        newHistory.save()
 
     def generateTicketCode(self):
         count = self.countAmountOfTickets() + 1
