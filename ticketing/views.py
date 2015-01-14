@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from django.db.models import Q
 from django.contrib.auth.models import AnonymousUser
 from ticketing.forms import ContactForm
-from ticketing.models import EventCategory, TicketManager, TicketStatus
+from ticketing.models import EventCategory, Ticket, TicketStatus
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 import json
@@ -95,24 +95,20 @@ class CreateTicketView(TemplateView):
         office = self.request.POST.get('office')
         description = self.request.POST.get('description')
 
-        tm = TicketManager()
-        if tm.create_ticket(batimentID, subcategoryID, creatorID, channelID, statusID, priorityID, floor, office, description) == True:
-            messages.add_message(self.request, messages.SUCCESS, _("You successfully created a ticket!"))
-        else:
-            messages.add_message(self.request, messages.ERROR, _("Ticket creation failed."))
-        # t = Ticket()
-        # t.fk_building_id = batimentID
-        # t.fk_category_id = subcategoryID
-        # t.fk_renter_id = creatorID
-        # t.fk_channel_id = channelID
-        # t.fk_status_id = statusID
-        # t.fk_priority_id = priorityID
-        # t.floor = floor
-        # t.office = office
-        # t.description = description
+        t = Ticket()
+        t.fk_building_id = batimentID
+        t.fk_category_id = subcategoryID
+        t.fk_renter_id = creatorID
+        t.fk_channel_id = channelID
+        t.fk_status_id = statusID
+        t.fk_priority_id = priorityID
+        t.floor = floor
+        t.office = office
+        t.description = description
 
-        # t.save()
+        t.save()
 
+        messages.add_message(self.request, messages.SUCCESS, "You successfully created a ticket!")
         return redirect('homeview')
 
 
