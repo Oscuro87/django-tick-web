@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-14 20:04+0100\n"
+"POT-Creation-Date: 2015-01-16 17:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -385,8 +385,13 @@ msgstr "Voir les détails du ticket"
 msgid "(Please select an action from the above menu)"
 msgstr "(Veuillez sélectionner une action depuis le menu ci-dessus)"
 
-#: .\ticketing\templates\ticketing\ticket_view.html:26
+#: .\ticketing\templates\ticketing\ticket_view.html:7
 msgid "Ticket details"
+msgstr "Détails du ticket"
+
+#: .\ticketing\templates\ticketing\ticket_view.html:26
+#| msgid "View ticket detail"
+msgid "View ticket details"
 msgstr "Voir les détails du ticket"
 
 #: .\ticketing\templates\ticketing\ticket_view.html:41
@@ -416,6 +421,10 @@ msgstr "Libérer la gestion de ce ticket"
 #: .\ticketing\templates\ticketing\ticket_view.html:71
 msgid "Put ticket in progress"
 msgstr "Passer ce ticket En cours"
+
+#: .\ticketing\templates\ticketing\ticket_view.html:73
+msgid "Close ticket"
+msgstr "Clôturer le ticket"
 
 #: .\ticketing\templates\ticketing\ticket_view.html:79
 msgid "Ticket history"

@@ -1,10 +1,18 @@
 {% extends 'common/base.html' %}
 
+{% load staticfiles %}
 {% load django_bootstrap_breadcrumbs %}
 {% load i18n %}
 
+{% block extrahead %}
+    {{ block.super }}
+    <script src="{% static 'common/js/datatables.js' %}"></script>
+    <script src="{% static 'common/js/datatables-tabletools.js' %}"></script>
+    <script src="{% static 'common/js/datatables-bootstrap.js' %}"></script>
+{% endblock %}
+
 {% block title %}
-    Ticket details
+    {% trans "Ticket details" %}
 {% endblock %}
 
 {% block navbar-contents %}
@@ -23,8 +31,8 @@
     <div class="well-sm center-block" style="width: 90%;">
         <div style="width: 50%; display: inline-block; vertical-align: top;">
             <div>
-                <h2>{% trans "Ticket details" %}: {{ ticket.ticket_code }}</h2>
-                <table class="table table-responsive center-block">
+                <h2>{% trans "View ticket details" %}: {{ ticket.ticket_code }}</h2>
+                <table class="table table-responsive center-block" id="tickets_table">
                     <tr>
                         <td>{% trans "Status" %}</td>
                         <td>{% trans ticket.fk_status.label %}</td>
@@ -70,14 +78,14 @@
                 {% if ticket.fk_status_id == 1 %}
                     <p><input type="submit" name="ticket-to-inProgress" value="{% trans "Put ticket in progress" %}" class="btn btn-sm btn-info"></p>
                 {% elif ticket.fk_status_id == 2 %}
-                    <p><input type="submit" name="ticket-to-closed" value="Close ticket" class="btn btn-sm btn-info"></p>
+                    <p><input type="submit" name="ticket-to-closed" value="{% trans "Close ticket" %}" class="btn btn-sm btn-info"></p>
                 {% endif %}
             </form>
         </div>
 
         <div style="display: block; width: 100%;">
             <h2>{% trans "Ticket history" %}</h2>
-            <table class="table table-responsive center-block">
+            <table class="table table-responsive center-block" id="history_table">
                 <thead>
                 <tr>
                     <th>{% trans "Update date" %}</th>
@@ -102,4 +110,19 @@
 
 {% block scriptBlock %}
     {{ block.super }}
+    <script>
+    $(document).ready(
+            function(){
+                options = {
+                    "bFilter": false,
+                    "bLengthChange": false,
+                    "bInfo": false,
+                    "bAutoWidth": false,
+                    "iDisplayLength": 4,
+                    "sDom": "tp"
+                };
+                $("#history_table").dataTable(options);
+            }
+    );
+    </script>
 {% endblock %}

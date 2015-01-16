@@ -1,7 +1,16 @@
 {% extends 'common/base.html' %}
 
+{% load staticfiles %}
 {% load django_bootstrap_breadcrumbs %}
 {% load i18n %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="{% static 'common/js/datatables.js' %}"></script>
+    <script src="{% static 'common/js/datatables-tabletools.js' %}"></script>
+    <script src="{% static 'common/js/datatables-bootstrap.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'ticketing/css/main.css' %}">
+{% endblock %}
 
 {% block title %}
     Tickets - Home
@@ -45,7 +54,7 @@
         </div>
 
         {% if all_queried_tickets %}
-            <table class="table table-responsive center-block" style="width: 90%; display: block;">
+            <table class="table table-responsive center-block" style="width: 90%;" id="tickets_table">
             <thead>
                 <tr>
                     <th>{% trans "Ticket code" %}</th>
@@ -98,4 +107,21 @@
     {% else %}
         {% trans "(Please select an action from the above menu)" %}
     {% endif %}
+{% endblock %}
+
+
+{% block scriptBlock %}
+    {{ block.super }}
+    <script>
+        $(document).ready(
+            function()
+            {
+                options = {
+                    "bAutoWidth": false,
+                    //"sDom": '<lf>t<i><p>'
+                };
+                $("#tickets_table").dataTable(options);
+            }
+        );
+    </script>
 {% endblock %}
