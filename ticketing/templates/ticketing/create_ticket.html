@@ -70,7 +70,6 @@
                             </select>
                         {% else %}
                             {% trans "No building found for this user!" %}
-                            </select>
                         {% endif %}
                     </td>
                 </tr>
@@ -130,47 +129,47 @@
                 }
         );
 
-    function ajax_fillSubCategories(selectedCategoryID)
-    {
-        var sendData = {
-            'csrfmiddlewaretoken': '{{ csrf_token }}',
-            'operation': 'GETSUBCATEGORIES',
-            'categoryID': parseInt(selectedCategoryID)
-        };
+        function ajax_fillSubCategories(selectedCategoryID)
+        {
+            var sendData = {
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'operation': 'GETSUBCATEGORIES',
+                'categoryID': parseInt(selectedCategoryID)
+            };
 
-        $.ajax({
-            url: '{% url 'createticketview' %}',
-            type: 'POST',
-            data: sendData,
-            success:
-                    function(json)
-                    {
-                        if(json.subcategories != null)
+            $.ajax({
+                url: '{% url 'createticketview' %}',
+                type: 'POST',
+                data: sendData,
+                success:
+                        function(json)
                         {
-                            var subCatDiv = $("div#subcategorydiv");
-                            subCatDiv.html("");
-                            var subcategories = json['subcategories'];
+                            if(json.subcategories != null)
+                            {
+                                var subCatDiv = $("div#subcategorydiv");
+                                subCatDiv.html("");
+                                var subcategories = json['subcategories'];
 
-                            var selectBegin = "<select name='subcategory' id='subcatSelect' required='true'>";
-                            var selectEnd = "</select>";
-                            var options = '<option value="empty" selected="True"></option>';
-                            for (var i = 0; i < subcategories.length; i++) {
-                                options += '<option value="' + subcategories[i].pk + '">' + subcategories[i].label + '</option>';
+                                var selectBegin = "<select name='subcategory' id='subcatSelect' required='true'>";
+                                var selectEnd = "</select>";
+                                var options = '<option value="empty" selected="True"></option>';
+                                for (var i = 0; i < subcategories.length; i++) {
+                                    options += '<option value="' + subcategories[i].pk + '">' + subcategories[i].label + '</option>';
+                                }
+
+                                subCatDiv.html(selectBegin + options + selectEnd);
                             }
-
-                            subCatDiv.html(selectBegin + options + selectEnd);
-                        }
-                        else
+                            else
+                            {
+                                alert("Error in ajax_fillSubCategories");
+                            }
+                        },
+                error:
+                        function(xhr, msg, err)
                         {
-                            alert("Error in ajax_fillSubCategories");
+                            alert('Error in fillSubCategories: ' + msg);
                         }
-                    },
-            error:
-                    function(xhr, msg, err)
-                    {
-                        alert('Error in fillSubCategories: ' + msg);
-                    }
-        });
-    }
+            });
+        }
     </script>
 {% endblock %}
