@@ -40,7 +40,9 @@ class TicketsUserManager(BaseUserManager):
         else:
             return TicketsUser.objects.filter(groups__name__exact="Renter")#TODO
 
-
+"""
+Cette classe représente soit un utilisateur "lambda", soit un membre du staff (gestionnaire de ticket, admin, ...)
+"""
 class TicketsUser(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = _('user')
@@ -78,19 +80,19 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
     def email_user(self, subject, message, from_email=None):
         send_mail(subject, message, from_email, [self.email])
 
+    def get_group_name(self):
+        try:
+            return self.groups.values_list('name', flat=True)[0]
+        except IndexError:
+            return None
+
+    def is_manager_or_higher(self):
+        g_name = self.get_group_name()
+        return True if (g_name=="Manager" or g_name=="Administrator" or g_name=="Root") else False
+
     def __str__(self):
         try:
             group_name = self.groups.values_list('name', flat=True)[0]
             return group_name + ": " + self.get_full_name() + " (" + self.email + ")"
         except IndexError:
             return "Ungrouped!: " + self.get_full_name() + " (" + self.email + ")"
-
-    def getGroupName(self):
-        try:
-            return self.groups.values_list('name', flat=True)[0]
-        except IndexError:
-            return None
-
-    def isManagerOrHigher(self):
-        g_name = self.getGroupName()
-        return True if (g_name=="Manager" or g_name=="Administrator" or g_name=="Root") else False

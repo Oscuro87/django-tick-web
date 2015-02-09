@@ -22,11 +22,11 @@
 
 {% block navbar-contents %}
     <li><a href="{% url 'contactview' %}">{% trans "Contact" %}</a></li>
-    {% if not user_info.isManagerOrHigher %}
+    {% if not user_info.is_manager_or_higher %}
         <li><a href="{% url 'createticketview' %}">{% trans "Create a new ticket" %}</a></li>
     {% endif %}
     <li><a href="#">{% trans "Options" %}</a></li>
-    {% if user_info.isManagerOrHigher %}
+    {% if user_info.is_manager_or_higher %}
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% trans "Create..." %}<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
@@ -39,7 +39,7 @@
 
 {% block content %}
     {{ block.super }}
-    {% if user_info.isManagerOrHigher %}
+    {% if user_info.is_manager_or_higher %}
         <div class="well well-sm center-block" style="width: 90%;">
             <form action="" method="post">
                 {% csrf_token %}
@@ -58,12 +58,13 @@
             </form>
         </div>
 
+        <div class="well well-sm" style="margin-left: 5%; width: 60%;">
         {% if all_queried_tickets %}
             <table class="table table-responsive center-block" style="width: 90%;" id="tickets_table">
             <thead>
                 <tr>
                     <th>{% trans "Ticket code" %}</th>
-                    <th>{% trans "Renter" %}</th>
+                    <th>{% trans "Reporter" %}</th>
                     <th>{% trans "Status" %}</th>
                     <th>{% trans "Category" %}</th>
                     <th>{% trans "Subcategory" %}</th>
@@ -77,7 +78,7 @@
                 {% for ticket in all_queried_tickets %}
                     <tr>
                     <td>{{ ticket.ticket_code }}</td>
-                    <td>{{ ticket.fk_renter.get_full_name }}</td>
+                    <td>{{ ticket.fk_reporter.get_full_name }}</td>
                     <td>{{ ticket.fk_status.label }}</td>
                     <td>{{ ticket.fk_category.getParentCategory.label }}</td>
                     <td>{{ ticket.fk_category.label }}</td>
@@ -109,6 +110,7 @@
             </tbody>
             </table>
         {% endif %}
+        </div>
     {% else %}
         {% trans "(Please select an action from the above menu)" %}
     {% endif %}
@@ -122,8 +124,7 @@
             function()
             {
                 options = {
-                    "bAutoWidth": false,
-                    //"sDom": '<lf>t<i><p>'
+                    "bAutoWidth": false
                 };
                 $("#tickets_table").dataTable(options);
             }

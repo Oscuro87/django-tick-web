@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2788864932">
+    <data-source source="LOCAL" name="SQLite -" uuid="f92f256f-d540-4748-b749-51a0dfda7ebc">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:J:\CODING\repos\git\py\tickets\db.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

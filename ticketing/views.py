@@ -39,7 +39,7 @@ class CreateTicketView(TemplateView):
         if isinstance(request.user, AnonymousUser):
             return redirect('loginview')
 
-        if request.user.isManagerOrHigher():
+        if request.user.is_manager_or_higher():
             return redirect('loginview')
 
         return self.renderPlainCTView()
@@ -48,7 +48,7 @@ class CreateTicketView(TemplateView):
         if isinstance(request.user, AnonymousUser):
             return redirect('loginview')
 
-        if request.user.isManagerOrHigher():
+        if request.user.is_manager_or_higher():
             return redirect('loginview')
 
         if "operation" in request.POST:
@@ -98,7 +98,7 @@ class CreateTicketView(TemplateView):
         t = Ticket()
         t.fk_building_id = batimentID
         t.fk_category_id = subcategoryID
-        t.fk_renter_id = creatorID
+        t.fk_reporter_id = creatorID
         t.fk_channel_id = channelID
         t.fk_status_id = statusID
         t.fk_priority_id = priorityID
@@ -147,7 +147,7 @@ class HomeView(TemplateView):
 
         data['user_info'] = self.request.user
 
-        if self.request.user.isManagerOrHigher():
+        if self.request.user.is_manager_or_higher():
             selection = Ticket.objects.filter(visible__exact=True)
 
             if not self.request.session.get('show_unrelated_tickets', False):
@@ -212,7 +212,7 @@ class TicketView(TemplateView):
                 messages.add_message(self.request, messages.ERROR, _("You are not managing this ticket, so you cannot see its details."))
                 return redirect('homeview')
             data['ticket'] = ticket_obj
-            data['ticket_history'] = ticket_obj.getAllHistory()
+            data['ticket_history'] = ticket_obj.get_ticket_history()
             return render_to_response(self.template_name, data, RequestContext(self.request))
         except Ticket.DoesNotExist:
             messages.add_message(self.request, messages.ERROR, _("This ticket ID {0} doesn't exist.".format(ticket_id)))

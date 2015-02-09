@@ -2,8 +2,12 @@ from django.db import models
 from django.utils.translation import ugettext as _
 
 from login.models import TicketsUser
+from ticketing.custom_exceptions.TodoException import TodoException
 
-
+"""
+Représente le statut d'un ticket.
+Valeurs prédéfinies: "Open" "In progress" "Closed"
+"""
 class TicketStatus(models.Model):
     label = models.CharField(verbose_name=_("Status"), max_length=64, null=False, blank=False)
 
@@ -13,7 +17,10 @@ class TicketStatus(models.Model):
     class Meta:
         verbose_name_plural = _("Ticket statuses")
 
-
+"""
+Représente la priorité d'un ticket.
+Valeurs prédéfinies: "Low", "Medium", "High"
+"""
 class TicketPriority(models.Model):
     label = models.CharField(verbose_name=_("Priority"), max_length=64, null=False, blank=False)
 
@@ -24,6 +31,10 @@ class TicketPriority(models.Model):
         verbose_name_plural = _("Ticket priorities")
 
 
+"""
+Le moyen de création du ticket.
+Valeurs prédéfinies: "Web", "Phone", "Android"
+"""
 class Channel(models.Model):
     label = models.CharField(verbose_name=_("Way of ticket creation"), max_length=64, null=False, blank=False)
 
@@ -31,6 +42,9 @@ class Channel(models.Model):
         return self.label
 
 
+"""
+Représente un bâtiment dans lequel un ou plusieurs utilisateurs se trouvent.
+"""
 class Building(models.Model):
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
@@ -49,6 +63,9 @@ class Building(models.Model):
         ordering = ["building_name",]
 
 
+"""
+Fais le lien entre un utilisateur et un bâtiment.
+"""
 class Place(models.Model):
     fk_building = models.ForeignKey(Building)
     fk_renter = models.OneToOneField(TicketsUser)
@@ -75,6 +92,9 @@ class CompanyManager(models.Manager):
             return Company.objects.none()
 
 
+"""
+Représente une entreprise pouvant être appelée par un gestionnaire de ticket pour résoudre un problème.
+"""
 class Company(models.Model):
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
@@ -91,6 +111,9 @@ class Company(models.Model):
         verbose_name_plural = "Companies"
 
 
+"""
+Représente soit une catégorie, soit une sous-catégorie d'évènement.
+"""
 class EventCategory(models.Model):
     label = models.CharField(verbose_name=_("Incident label"), max_length=45, blank=False, null=False)
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
@@ -121,11 +144,14 @@ class EventCategory(models.Model):
         verbose_name_plural = _("Event categories")
 
 
+"""
+Représente un ticket.
+"""
 class Ticket(models.Model):
-    fk_building = models.ForeignKey(Building, verbose_name=_("Building"), null=False, blank=False)
+    fk_building = models.ForeignKey(Building, verbose_name=_("Building"), null=True, blank=True)
     fk_channel = models.ForeignKey(Channel, verbose_name=_("Channel"), null=False, blank=False)
     fk_category = models.ForeignKey(EventCategory, verbose_name=_("Category"), null=False, blank=False)
-    fk_renter = models.ForeignKey(TicketsUser, verbose_name=_("Renter"), related_name="locataire", null=False, blank=False)
+    fk_reporter = models.ForeignKey(TicketsUser, verbose_name=_("Reporter"), related_name="rapporteur", null=False, blank=False)
     fk_priority = models.ForeignKey(TicketPriority, verbose_name=_("Priority"), null=False, blank=False)
     fk_status = models.ForeignKey(TicketStatus, verbose_name=_("Status"), null=False, blank=False)  # TODO: default=1
 
@@ -145,8 +171,9 @@ class Ticket(models.Model):
 
     def save(self, *args, **kwargs):
         reason = kwargs.pop('reason', None)
+
         if not self.ticket_code:
-            self.ticket_code = self.generateTicketCode()
+            self.ticket_code = self.__generate_ticket_code()
 
         super(Ticket, self).save(*args, **kwargs)
 
@@ -158,16 +185,24 @@ class Ticket(models.Model):
             th.update_reason = reason
         th.save()
 
-    def generateTicketCode(self):
-        count = self.countAmountOfTickets() + 1
-        code = self.fk_building.building_code + "-" + str(count)
-        print(code)
+    """ Génère un code ticket unique """
+    def __generate_ticket_code(self):
+        if self.fk_building_id != '':
+            count = self.__count_amount_of_tickets_for_building() + 1
+            code = self.fk_building.building_code + "-" + str(count)
+        else:
+            count = self.__count_amount_of_buildingless_tickets() + 1
+            code ="NOBLD-" + str(count)
         return code
 
-    def countAmountOfTickets(self):
+    def __count_amount_of_buildingless_tickets(self):
+        return len(Ticket.objects.filter(fk_building__exact=None))
+
+    """ :returns Le nombre de tickets existants pour le bâtiment assigné à ce ticket """
+    def __count_amount_of_tickets_for_building(self):
         return len(Ticket.objects.filter(fk_building__exact=self.fk_building.pk))
 
-    def getAllHistory(self):
+    def get_ticket_history(self):
         return TicketHistory.objects.filter(fk_ticket=self)
 
     def __str__(self):
@@ -178,6 +213,10 @@ class Ticket(models.Model):
             ret += ", not managed by anyone."
         return ret
 
+
+"""
+Représente l'historique ticket dans lequel chaque opération sur un ticket est enregistrée, avec une raison.
+"""
 class TicketHistory(models.Model):
     update_date = models.DateTimeField(verbose_name=_("Updated on..."), blank=True, null=False, auto_now_add=True)
     update_reason = models.CharField(verbose_name=_("Update reason"), max_length=200, blank=True, null=False, default=_("No reason given."))
@@ -190,9 +229,19 @@ class TicketHistory(models.Model):
         verbose_name_plural = "Ticket histories"
 
     def __str__(self):
-        return "" + self.fk_ticket.ticket_code + " changed to " + self.fk_ticket_status.label + " on " + str(self.update_date)
+        return "" + self.fk_ticket.ticket_code + " changed to " \
+               + self.fk_ticket_status.label + " on " + str(self.update_date)
 
+    """
+    :returns Une liste d'historiques, tous tickets confondus, avec une limite d'entrées maximale à récupérer.
+    """
+    # TODO get_history_with_limit(self, limit=None)
+    def get_history_with_limit(self, limit=None):
+        raise TodoException("Pas encore implémenté!")
 
+"""
+Plus utilisé
+"""
 class Language(models.Model):
     language_name = models.CharField(max_length=50, blank=False, null=False, default="English")
     language_code = models.CharField(max_length=5, blank=False, null=False, default="en-us")

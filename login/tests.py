@@ -51,4 +51,4 @@ class LoginTest(TestCase):
         self.assertTrue(self.__test_user_object.get_full_name()==self.__test_first_name + " " + self.__test_last_name)
 
     def test_permission_ungrouped(self):
-        self.assertTrue(self.__test_user_object.getGroupName()==None)
+        self.assertTrue(self.__test_user_object.get_group_name()==None)
