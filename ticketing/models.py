@@ -238,10 +238,3 @@ class TicketHistory(models.Model):
     # TODO get_history_with_limit(self, limit=None)
     def get_history_with_limit(self, limit=None):
         raise TodoException("Pas encore implémenté!")
-
-"""
-Plus utilisé
-"""
-class Language(models.Model):
-    language_name = models.CharField(max_length=50, blank=False, null=False, default="English")
-    language_code = models.CharField(max_length=5, blank=False, null=False, default="en-us")
