@@ -1,4 +1,7 @@
 Changes
 *******
 
+- App android
 - fk_company à 1 ou plusieurs types de problèmes que l'entreprise peut résoudre
+- Ajout partie commentaires sur vue ticket
+- Intégration google distance matrix API
