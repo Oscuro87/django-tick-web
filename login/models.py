@@ -34,11 +34,11 @@ class TicketsUserManager(BaseUserManager):
         findgroup = ["Manager", "Root"]
         return TicketsUser.objects.filter(groups__name__in=findgroup)
 
-    def get_renters_for_building_id(self, building_id=None):
+    def get_users_for_building_id(self, building_id=None):
         if building_id is None:
-            return TicketsUser.objects.filter(groups__name__exact="Renter")
+            return TicketsUser.objects.filter(groups__name__exact="User")
         else:
-            return TicketsUser.objects.filter(groups__name__exact="Renter")#TODO
+            return TicketsUser.objects.filter(groups__name__exact="User")#TODO
 
 """
 Cette classe représente soit un utilisateur "lambda", soit un membre du staff (gestionnaire de ticket, admin, ...)
