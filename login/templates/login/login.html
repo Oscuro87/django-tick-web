@@ -24,32 +24,59 @@
 
 {% block content %}
     {{ block.super }}
-    <div class="well-sm" style="width: 40%;" >
-        <form action="" method="post" name="loginForm">
-            {% csrf_token %}
-            <table class="table table-responsive">
-                <tbody>
-                <tr>
-                    <td>Your email:</td>
-                    <td>{{ loginform.email }}</td>
-                </tr>
-                <tr>
-                    <td>Your password:</td>
-                    <td>{{ loginform.password }}</td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="Connection" name="loginGo"
-                               class="btn btn-success" style="width: 50%; margin-left: 25%"/>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </form>
+    <div name="left-margin" class="col-md-4"><!-- Empty --></div>
+
+    <div class="row">
+        <div name="login" class="well-sm col-md-4" >
+
+            <div name="login-title" class="text-center">
+                <h3>Login</h3>
+            </div>
+
+            <form action="" method="post" name="loginForm">
+                {% csrf_token %}
+                <table class="table table-responsive">
+                    <tbody>
+                    <tr>
+                        <td>Your email:</td>
+                        <td>{{ loginform.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Your password:</td>
+                        <td>{{ loginform.password }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="Register" name="registerSwitch" class="btn btn-info" />
+                        </td>
+                        <td>
+                            <input type="submit" value="Connection" name="loginGo"
+                                   class="btn btn-success" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <div class="register" class="well-sm">
+
+        </div>
     </div>
 {% endblock %}
 
 {% block footer %}
     {{ block.super }}
+{% endblock %}
+
+{% block scriptBlock %}
+    {{ block.super }}
+
+    <script>
+    function switchLoginRegister()
+    {
+        //TODO
+    }
+    </script>
 {% endblock %}
 
