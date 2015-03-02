@@ -1,0 +1,4 @@
+Changes
+*******
+
+- fk_company à 1 ou plusieurs types de problèmes que l'entreprise peut résoudre
