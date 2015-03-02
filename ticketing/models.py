@@ -96,6 +96,7 @@ class CompanyManager(models.Manager):
 Représente une entreprise pouvant être appelée par un gestionnaire de ticket pour résoudre un problème.
 """
 class Company(models.Model):
+    fk_event_category = models.ForeignKey('EventCategory', null=True)
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
     postcode = models.IntegerField(verbose_name=_("Postcode"), null=False, blank=False, default="0")
@@ -109,6 +110,10 @@ class Company(models.Model):
 
     class Meta:
         verbose_name_plural = "Companies"
+
+    def get_all_companies_for_category(self, category):
+        pass
+        # TODO récupérer les entreprises en fonction de la catégorie passée en param
 
 
 """
@@ -144,6 +149,10 @@ class EventCategory(models.Model):
         verbose_name_plural = _("Event categories")
 
 
+class TicketComment(models.Model):
+    pass
+
+
 """
 Représente un ticket.
 """
@@ -158,7 +167,6 @@ class Ticket(models.Model):
     ticket_code = models.CharField(verbose_name=_("Ticket code"), max_length=10, null=False, blank=True, unique=True)
     fk_manager = models.ForeignKey(TicketsUser, verbose_name=_("Manager"), related_name="gestionnaire", null=True, blank=True)
     fk_company = models.ForeignKey(Company, verbose_name=_("Company"), null=True, blank=True)
-
     floor = models.CharField(max_length=45, null=True, blank=True, default="")
     office = models.CharField(max_length=45, null=True, blank=True, default="")
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
@@ -205,6 +213,10 @@ class Ticket(models.Model):
 
     def get_ticket_history(self):
         return TicketHistory.objects.filter(fk_ticket=self)
+
+    def get_all_ticket_comments(self):
+        # TODO get all tickets commments method
+        pass
 
     def __str__(self):
         ret = "Ticket " + self.ticket_code + " created by " + self.fk_renter.get_full_name()
