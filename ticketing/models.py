@@ -158,6 +158,7 @@ class Ticket(models.Model):
     ticket_code = models.CharField(verbose_name=_("Ticket code"), max_length=10, null=False, blank=True, unique=True)
     fk_manager = models.ForeignKey(TicketsUser, verbose_name=_("Manager"), related_name="gestionnaire", null=True, blank=True)
     fk_company = models.ForeignKey(Company, verbose_name=_("Company"), null=True, blank=True)
+
     floor = models.CharField(max_length=45, null=True, blank=True, default="")
     office = models.CharField(max_length=45, null=True, blank=True, default="")
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)

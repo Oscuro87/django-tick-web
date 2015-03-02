@@ -51,7 +51,7 @@
                 </tr>
 
                 <tr>
-                    <td>{% trans "Event sub-category" %} *</td>
+                    <td>{% trans "Event sub-category" %}</td>
                     <td>
                         <div id="subcategorydiv">
                             {% trans "Please select a category first." %}
@@ -60,18 +60,17 @@
                 </tr>
 
                 <tr>
-                    <td>{% trans "Building (optional)" %} *</td>
+                    <td>{% trans "Location" %}</td>
                     <td>
                         {% if user_info.pk|get_all_buildings_for_user|count_entries != 0 %}
                             <select name="building" id="building">
                                     <option name="emtpy" value=""></option>
                                 {% for building in user_info.pk|get_all_buildings_for_user %}
-                                    <option name="building"
-                                            value="{{ building.pk }}">{{ building.building_name }}</option>
+                                    <option name="building" value="{{ building.pk }}">{{ building.building_name }}</option>
                                 {% endfor %}
                             </select>
                         {% else %}
-                            {% trans "No building found for this user!" %}
+                            {% trans "No location found for this user!" %}
                         {% endif %}
                     </td>
                 </tr>

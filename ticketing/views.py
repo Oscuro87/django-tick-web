@@ -1,12 +1,14 @@
-from django.shortcuts import render, HttpResponse, render_to_response, RequestContext, redirect, get_object_or_404
+import json
+
+from django.shortcuts import HttpResponse, render_to_response, RequestContext, redirect, get_object_or_404
 from django.views.generic import TemplateView
 from django.db.models import Q
 from django.contrib.auth.models import AnonymousUser
-from ticketing.forms import ContactForm
-from ticketing.models import EventCategory, Ticket, TicketStatus
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-import json
+
+from ticketing.forms import ContactForm
+from ticketing.models import EventCategory, Ticket, TicketStatus
 
 
 class ContactView(TemplateView):
@@ -88,8 +90,8 @@ class CreateTicketView(TemplateView):
         batimentID = self.request.POST.get('building')
         subcategoryID = self.request.POST.get('subcategory')
         creatorID = self.request.user.pk
-        channelID = 1 # Web!
-        statusID = 1 # open!
+        channelID = 1  # Web!
+        statusID = 1  # open!
         priorityID = EventCategory.objects.get(pk=subcategoryID).fk_priority.pk
         floor = self.request.POST.get('floor')
         office = self.request.POST.get('office')
@@ -157,6 +159,15 @@ class HomeView(TemplateView):
                 fk_status_closed = TicketStatus.objects.get(label="Closed")
                 selection = selection.exclude(fk_status__exact=fk_status_closed)
             data['all_queried_tickets'] = selection
+        else:
+            selection = Ticket.objects.filter(visible__exact=True)
+            selection = selection.filter(fk_reporter__exact=self.request.user)
+            data['all_queried_tickets'] = selection
+
+            if not self.request.session.get('show_closed_tickets'):
+                fk_status_closed = TicketStatus.objects.get(label="Closed")
+                selection = selection.exclude(fk_status__exact=fk_status_closed)
+            data['all_queried_tickets'] = selection
 
         return render_to_response(self.template_name, data, RequestContext(self.request))
 
@@ -180,7 +191,7 @@ class TicketView(TemplateView):
     template_name = "ticketing/ticket_view.html"
 
     def get(self, request, *args, **kwargs):
-        
+
         if "ticket_id" in kwargs:
             return self.show(kwargs['ticket_id'])
 
@@ -209,7 +220,8 @@ class TicketView(TemplateView):
         try:
             ticket_obj = Ticket.objects.get(pk=ticket_id)
             if ticket_obj.fk_manager != self.request.user:
-                messages.add_message(self.request, messages.ERROR, _("You are not managing this ticket, so you cannot see its details."))
+                messages.add_message(self.request, messages.ERROR,
+                                     _("You are not managing this ticket, so you cannot see its details."))
                 return redirect('homeview')
             data['ticket'] = ticket_obj
             data['ticket_history'] = ticket_obj.get_ticket_history()
