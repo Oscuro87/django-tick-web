@@ -29,9 +29,9 @@
 {% block content %}
     {{ block.super }}
     <div class="well-sm center-block" style="width: 90%;">
-        <div style="width: 50%; display: inline-block; vertical-align: top;">
+        <div class="well well-sm" style="width: 45%; display: inline-block; vertical-align: top;">
             <div>
-                <h2>{% trans "View ticket details" %}: {{ ticket.ticket_code }}</h2>
+                <h4>{% trans "View ticket details" %}: {{ ticket.ticket_code }}</h4>
                 <table class="table table-responsive center-block" id="tickets_table">
                     <tr>
                         <td>{% trans "Status" %}</td>
@@ -69,60 +69,100 @@
             </div>
         </div>
 
-        <div style="display: inline-block; vertical-align: top;">
-            <h2>{% trans "Ticket actions" %}:</h2>
+        <div style="display: inline-block; vertical-align: top; margin-left: 1%;">
+            <h4>{% trans "Ticket actions" %}:</h4>
+
             <form action="" method="post" name="ticketAction">
                 {% csrf_token %}
-                <input type="hidden" name="ticket_id" value="{{ ticket.pk }}" />
-                <p><input type="submit" name="ticket-release" value="{% trans "Release ticket management" %}" class="btn btn-sm btn-danger"></p>
+                <input type="hidden" name="ticket_id" value="{{ ticket.pk }}"/>
+
+                <p><input type="submit" name="ticket-release" value="{% trans "Release ticket management" %}"
+                          class="btn btn-sm btn-danger"></p>
                 {% if ticket.fk_status_id == 1 %}
-                    <p><input type="submit" name="ticket-to-inProgress" value="{% trans "Put ticket in progress" %}" class="btn btn-sm btn-info"></p>
+                    <p><input type="submit" name="ticket-to-inProgress" value="{% trans "Put ticket in progress" %}"
+                              class="btn btn-sm btn-info"></p>
                 {% elif ticket.fk_status_id == 2 %}
-                    <p><input type="submit" name="ticket-to-closed" value="{% trans "Close ticket" %}" class="btn btn-sm btn-info"></p>
+                    <p><input type="submit" name="ticket-to-closed" value="{% trans "Close ticket" %}"
+                              class="btn btn-sm btn-info"></p>
                 {% endif %}
             </form>
         </div>
 
-        <div style="display: block; width: 100%;">
-            <h2>{% trans "Ticket history" %}</h2>
-            <table class="table table-responsive center-block" id="history_table">
-                <thead>
-                <tr>
-                    <th>{% trans "Update date" %}</th>
-                    <th>{% trans "New status" %}</th>
-                    <th>{% trans "Reason" %}</th>
-                </tr>
-                </thead>
+        <div id="comment-div" class="well well-sm" style="display: block; width: 45%">
+            <div id="title">
+                <span id="comment-title"><h4>{% trans "Comments" %} <small>({% trans "click to expand/collapse" %})</small></h4></span>
+            </div>
+            <div id="content">
+                <hr>
+                <div id="comment-panel">
+                    <form action="{% url 'ticketdetailview' ticket.pk %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="ticket_id" value="{{ ticket.pk }}"/>
+                        <textarea name="comment-body" onclick="this.value = '';" onfocus="this.value = ''" required="required"
+                                  title="Your comment: " rows="3" cols="60">{% trans 'Type your comment here' %}</textarea><br/>
+                        <input type="submit" value="{% trans 'Send comment' %}" name="send-comment" class="btn btn-success">
+                    </form>
+                </div>
+                <hr>
+                <div id="existing-comments">
+                    {% if ticket_comments %}
+                        <table class="table table-responsive">
+                        <thead>
+                        <tr>
+                            <th>{% trans "Commenter" %}</th>
+                            <th>{% trans "Date" %}</th>
+                            <th>{% trans "Message" %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for comm in ticket_comments %}
+                                <tr>
+                                    <td>{{ comm.fk_commenter.get_full_name }}</td>
+                                    <td>{{ comm.date_created }}</td>
+                                    <td>{{ comm.comment }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                    {% else %}
+                        {% trans "No comment for this ticket." %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
-                <tbody>
-                {% for history in ticket.get_ticket_history %}
-                <tr>
-                    <td>{{ history.update_date }}</td>
-                    <td>{% trans history.fk_ticket_status.label %}</td>
-                    <td>{{ history.update_reason }}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+        <div id="history-div" class="well well-sm" style="display: block; width: 45%;">
+            <div id="title">
+                <h4>{% trans "Ticket history" %}
+                    <span id="history-title-span"><small>({% trans "click to collapse/expand" %})</small></span>
+                </h4>
+            </div>
+            <div id="content">
+                <table class="table table-responsive center-block" id="history_table">
+                    <thead>
+                    <tr>
+                        <th>{% trans "Update date" %}</th>
+                        <th>{% trans "New status" %}</th>
+                        <th>{% trans "Reason" %}</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for history in ticket.get_ticket_history %}
+                        <tr>
+                            <td>{{ history.update_date }}</td>
+                            <td>{% trans history.fk_ticket_status.label %}</td>
+                            <td>{{ history.update_reason }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 {% endblock %}
 
 {% block scriptBlock %}
     {{ block.super }}
-    <script>
-    $(document).ready(
-            function(){
-                options = {
-                    "bFilter": false,
-                    "bLengthChange": false,
-                    "bInfo": false,
-                    "bAutoWidth": false,
-                    "iDisplayLength": 4,
-                    "sDom": "tp"
-                };
-                $("#history_table").dataTable(options);
-            }
-    );
-    </script>
+    <script src="{% static 'ticketing/js/ticket_view.js' %}"></script>
 {% endblock %}

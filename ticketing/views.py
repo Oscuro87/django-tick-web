@@ -7,7 +7,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 
-from ticketing.forms import ContactForm
+from ticketing.forms import ContactForm, TicketCommentForm
 from ticketing.models import EventCategory, Ticket, TicketStatus
 
 
@@ -177,8 +177,7 @@ class HomeView(TemplateView):
             code = self.request.POST.get('ticket_code')
             ticket = Ticket.objects.get(ticket_code=code)
             if ticket.fk_manager is None:
-                ticket.fk_manager = user
-                ticket.save(reason=_("Assigned to manager: " + user.get_full_name()))
+                ticket.setTicketManager(user)
             else:
                 messages.add_message(self.request, messages.ERROR, _("This ticket is already assigned to someone!"))
         except Ticket.DoesNotExist:
@@ -206,6 +205,8 @@ class TicketView(TemplateView):
                 return self.processTicketStatusChange("In progress")
             elif "ticket-to-closed" in request.POST:
                 return self.processTicketStatusChange("Closed")
+            elif "comment-body" in request.POST:
+                return self.createNewTicketComment()
             else:
                 theID = self.request.POST.get('ticket_id')
                 return self.show(theID)
@@ -219,24 +220,45 @@ class TicketView(TemplateView):
 
         try:
             ticket_obj = Ticket.objects.get(pk=ticket_id)
+            assert isinstance(ticket_obj, Ticket)
             if ticket_obj.fk_manager != self.request.user:
                 messages.add_message(self.request, messages.ERROR,
                                      _("You are not managing this ticket, so you cannot see its details."))
                 return redirect('homeview')
+
             data['ticket'] = ticket_obj
             data['ticket_history'] = ticket_obj.get_ticket_history()
+            data['ticket_comments'] = ticket_obj.getAllTicketComments()
+            data['comment_form'] = TicketCommentForm()
+
             return render_to_response(self.template_name, data, RequestContext(self.request))
         except Ticket.DoesNotExist:
             messages.add_message(self.request, messages.ERROR, _("This ticket ID {0} doesn't exist.".format(ticket_id)))
             return redirect('homeview')
 
+    def createNewTicketComment(self):
+        request = self.request
+        ticketID = self.request.POST.get('ticket_id')
+        ticketObject = Ticket.objects.get(pk=ticketID)
+        assert isinstance(ticketObject, Ticket)
+        if ticketObject != None:
+            commentBody = self.request.POST.get('comment-body', "No comment body!")
+            ticketObject.createComment(request.user, commentBody)
+            messages.success(request, _("The comment has been posted."))
+        else:
+            messages.error(request, _("This ticket does not exist!"))
+            return redirect("homeview")
+
+        return self.show(ticketID)
+
     def releaseTicketManagement(self):
         ticket_id = self.request.POST.get('ticket_id')
         try:
             ticket_obj = Ticket.objects.get(pk=ticket_id)
-            ticket_obj.fk_manager = None
-            ticket_obj.save(reason=_("Manager released ticket management."))
+            assert isinstance(ticket_obj, Ticket)
+            ticket_obj.releaseTicketManagement()
             messages.add_message(self.request, messages.SUCCESS, _("You no longer manage this ticket."))
+
             return redirect('homeview')
         except Ticket.DoesNotExist:
             messages.add_message(self.request, messages.ERROR, _("Cannot execute this action."))
@@ -247,8 +269,8 @@ class TicketView(TemplateView):
         try:
             ticket_obj = Ticket.objects.get(pk=ticket_id)
             status_obj = TicketStatus.objects.get(label=to)
-            ticket_obj.fk_status = status_obj
-            ticket_obj.save(reason=_("Ticket status changed to {0}".format(status_obj.label)))
+            assert isinstance(ticket_obj, Ticket)
+            ticket_obj.changeTicketStatus(status_obj)
             messages.add_message(self.request, messages.SUCCESS, _("Ticket successfully updated."))
         except Ticket.DoesNotExist:
             messages.add_message(self.request, messages.ERROR, _("Cannot execute this action."))
