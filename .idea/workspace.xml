@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list id="fc2e5f00-34be-4d62-aa84-8c5c858a7b92" name="Default" comment="">
+    <list default="true" id="3fbda6d4-138f-41e1-be42-a8e9b96a905d" name="Ajout partie commentaire sur la vue ticket" comment="Ajout partie commentaire sur la vue ticket">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list default="true" id="3fbda6d4-138f-41e1-be42-a8e9b96a905d" name="Ajout partie commentaire sur la vue ticket" comment="Ajout partie commentaire sur la vue ticket" />
     <list id="7d8c8af0-350b-4d2c-816b-d1742e9a9ea0" name="Une entreprise contient les problèmes qu'elle peut régler" comment="Une entreprise contient les problèmes qu'elle peut régler" />
     <ignored path="tickets.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="rapport tfe/.~lock.rapport_TFE.odt#" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -661,7 +659,7 @@
   </component>
   <component name="TaskManager">
     <task id="Default" summary="Default task">
-      <changelist id="fc2e5f00-34be-4d62-aa84-8c5c858a7b92" name="Default" comment="" />
+      <changelist id="" name="Default" comment="" />
       <created>1420473414789</created>
       <option name="number" value="Default" />
       <updated>1425303032263</updated>
@@ -795,7 +793,13 @@
       <option name="project" value="LOCAL" />
       <updated>1425853594051</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Default">
+      <created>1425853613711</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1425853613711</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -902,7 +906,8 @@
     <MESSAGE value="Update rapport" />
     <MESSAGE value="Ajout partie commentaire sur la vue ticket" />
     <MESSAGE value="Update listes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update listes" />
+    <MESSAGE value="Default" />
+    <option name="LAST_COMMIT_MESSAGE" value="Default" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
