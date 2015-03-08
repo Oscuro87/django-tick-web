@@ -1,5 +1,0 @@
-ISSUES
-******
-
-- Limitations google distance matrix API
-- MySQL vs SQLite

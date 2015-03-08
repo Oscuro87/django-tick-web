@@ -1,7 +1,44 @@
-Changes
-*******
+Changes to do (par ordre d'importance)
+*************
 
-- App android
+Légende
+*******
+- en cours
+v fait
+x problème (voir commentaire(s))
+* Commentaire
+
+SITE
+****
+
 - fk_company à 1 ou plusieurs types de problèmes que l'entreprise peut résoudre
-- Ajout partie commentaires sur vue ticket
+- Un manager doit pouvoir aussi créer un ticket (pour lui-même)
+    - Par contre, un manager ne peut pas créer de ticket pour un utilisateur ou un autre manager (protection contre la falsification)
+- Flexibilité de l'appli
+    - Ajout de nouvelles catégories d'incidents à la volée (popup? Nouveau formulaire?)
+    - Ajout de nouveaux lieux et bâtiment à la volée (popup? Nouveau formulaire?)
+    - Ajout d'entreprises via admin panel (uniquement pour les managers et admins! Sinon anarchie)
+    - Assignation d'entreprises à des catégories ticket réservée aux admins et managers (même raison que ci-dessus)
+V Ajout partie commentaires sur vue ticket
+    * Pourquoi? Interaction utilisateur et gestionnaire de son ticket
+    - Mail envoyé au deux protagonistes lors d'un nouveau commentaire (voir module de mailing de django + créer compte mail pour l'occasion)
 - Intégration google distance matrix API
+    - Elle sera utilisée pour calculer la distance entre le client et les entreprises potentiellement en mesure de régler le ticket.
+    - Les limites d'utilisation de l'API nécéssitent un filtrage préalable des entreprises dans l'app web!
+
+APP ANDROID (demo sur genymotion)
+***********
+
+- Créer projet avec intellij (+ push sur github)
+- Vue login
+- Vue index
+- Vue création ticket + ajout feature photo (android uniquement)
+    - Stockage de la photo sur le serveur
+    - Url de la photo liée au ticket
+    - Affichage de la photo sur la vue ticket (web & android)
+- Vue ticket avec possibilité de commenter (et de gérer le ticket, pour les managers)
+
+Rapport TFE
+***********
+
+- Ecrire chaque jour!
