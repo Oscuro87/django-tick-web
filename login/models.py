@@ -86,7 +86,7 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
         except IndexError:
             return None
 
-    def is_manager_or_higher(self):
+    def isAdmin(self):
         g_name = self.get_group_name()
         return True if (g_name=="Manager" or g_name=="Administrator" or g_name=="Root") else False
 

@@ -3,6 +3,7 @@ from django.utils.translation import ugettext as _
 
 from login.models import TicketsUser
 from ticketing.custom_exceptions.TodoException import TodoException
+from django.contrib import messages
 
 
 """
@@ -169,6 +170,28 @@ class TicketComment(models.Model):
     date_created = models.DateTimeField(verbose_name=_("Comment date"), blank=True, null=True, auto_now_add=True)
     comment = models.TextField(verbose_name=_("Comment"), blank=False, null=False, default="No comment provided.")
 
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        super().save(force_insert, force_update, using, update_fields)
+        self.__sendEmailToCommenters()
+
+    def __sendEmailToCommenters(self):
+        relatedComments = TicketComment.objects.filter(fk_ticket=self.fk_ticket)
+        sendList = list()
+        for comment in relatedComments:
+            user = comment.fk_commenter
+            if user not in sendList:
+                sendList.append(user)
+        for user in sendList:
+            assert isinstance(user, TicketsUser)
+            subject = "A comment has been posted on one of your tickets"
+            message = "<p>The following ticket has a new comment: {}</p>" \
+                      "<p>The comment is: \"{}\"</p>".format(self.fk_ticket.ticket_code, self.comment)
+            try:
+                user.email_user(subject, message)
+            except ConnectionRefusedError:
+                print("Cannot send email to commenters, connection to email provider is impossible.")
+
     def __str__(self):
         return "" + self.fk_commenter.get_full_name() + " commented on " + self.date_created.__str__() + " for ticket id " + self.fk_ticket.ticket_code
 
@@ -204,7 +227,7 @@ class Ticket(models.Model):
         reason = kwargs.pop('reason', None)
 
         if not self.ticket_code:
-            self.ticket_code = self.__generate_ticket_code()
+            self.ticket_code = self.__generateTicketCode()
 
         super(Ticket, self).save(*args, **kwargs)
 
@@ -217,26 +240,26 @@ class Ticket(models.Model):
         th.save()
 
 
-    def __generate_ticket_code(self):
+    def __generateTicketCode(self):
         """
         Génère un code ticket unique
         :returns Le nombre de tickets existants pour le bâtiment assigné à ce ticket
         """
         if self.fk_building_id != '':
-            count = self.__count_amount_of_tickets_for_building() + 1
+            count = self.__countAmountOfTicketsForBuilding() + 1
             code = self.fk_building.building_code + "-" + str(count)
         else:
-            count = self.__count_amount_of_buildingless_tickets() + 1
+            count = self.__countAmountOfBuildinglessTickets() + 1
             code = "NOBLD-" + str(count)
         return code
 
-    def __count_amount_of_buildingless_tickets(self):
+    def __countAmountOfBuildinglessTickets(self):
         return len(Ticket.objects.filter(fk_building__exact=None))
 
-    def __count_amount_of_tickets_for_building(self):
+    def __countAmountOfTicketsForBuilding(self):
         return len(Ticket.objects.filter(fk_building__exact=self.fk_building.pk))
 
-    def get_ticket_history(self):
+    def getTicketHistory(self):
         return TicketHistory.objects.filter(fk_ticket=self)
 
     def getAllTicketComments(self):
@@ -299,5 +322,5 @@ class TicketHistory(models.Model):
     :returns Une liste d'historiques, tous tickets confondus, avec une limite d'entrées maximale à récupérer.
     """
     # TODO get_history_with_limit(self, limit=None)
-    def get_history_with_limit(self, limit=None):
+    def getHistoryWithLimit(self, limit=None):
         raise TodoException()

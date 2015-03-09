@@ -4,14 +4,15 @@ Changes to do (par ordre d'importance)
 Légende
 *******
 - en cours
-v fait
-x problème (voir commentaire(s))
+V fait
+T à tester
+! problème (voir commentaire(s))
 * Commentaire
 
 SITE
 ****
 
-- fk_company à 1 ou plusieurs types de problèmes que l'entreprise peut résoudre
+- La classe Company à 1 ou plusieurs types de problèmes que l'entreprise peut résoudre
 - Un manager doit pouvoir aussi créer un ticket (pour lui-même)
     - Par contre, un manager ne peut pas créer de ticket pour un utilisateur ou un autre manager (protection contre la falsification)
 - Flexibilité de l'appli
@@ -21,10 +22,11 @@ SITE
     - Assignation d'entreprises à des catégories ticket réservée aux admins et managers (même raison que ci-dessus)
 V Ajout partie commentaires sur vue ticket
     * Pourquoi? Interaction utilisateur et gestionnaire de son ticket
-    - Mail envoyé au deux protagonistes lors d'un nouveau commentaire (voir module de mailing de django + créer compte mail pour l'occasion)
+    T Mail envoyé au deux protagonistes lors d'un nouveau commentaire (voir module de mailing de django + créer compte mail pour l'occasion)
 - Intégration google distance matrix API
     - Elle sera utilisée pour calculer la distance entre le client et les entreprises potentiellement en mesure de régler le ticket.
     - Les limites d'utilisation de l'API nécéssitent un filtrage préalable des entreprises dans l'app web!
+- Débroussailler le code en général (best practices, etc...)
 
 APP ANDROID (demo sur genymotion)
 ***********
@@ -42,3 +44,8 @@ Rapport TFE
 ***********
 
 - Ecrire chaque jour!
+
+Sources
+*******
+
+https://developers.google.com/api-client-library/python/ (Installation API google)

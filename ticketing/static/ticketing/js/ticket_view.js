@@ -1,5 +1,3 @@
-var historyTable = $("#history_table");
-
 var commentTitleSpan = $("#comment-title");
 var commentDivContent = $("#comment-div #content");
 
@@ -17,18 +15,19 @@ $(document).ready(
             "iDisplayLength": 4,
             "sDom": "tp"
         };
-        historyTable.dataTable(options);
+        $("#history_table").dataTable(options);
 
         // Expand / collapse
         historyDivContent.hide();
         historyTitleSpan.click(function () {
-                historyDivContent.toggle();
+                historyDivContent.slideToggle();
             }
         );
 
+        commentDivContent.hide();
         commentTitleSpan.click(function()
         {
-            commentDivContent.toggle();
+            commentDivContent.slideToggle();
         });
     }
 );

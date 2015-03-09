@@ -69,6 +69,7 @@
             </div>
         </div>
 
+        {% if request.user.isAdmin %}
         <div style="display: inline-block; vertical-align: top; margin-left: 1%;">
             <h4>{% trans "Ticket actions" %}:</h4>
 
@@ -87,6 +88,7 @@
                 {% endif %}
             </form>
         </div>
+        {% endif %}
 
         <div id="comment-div" class="well well-sm" style="display: block; width: 45%">
             <div id="title">
@@ -138,7 +140,7 @@
                 </h4>
             </div>
             <div id="content">
-                <table class="table table-responsive center-block" id="history_table">
+                <table id="history_table" class="table table-responsive center-block">
                     <thead>
                     <tr>
                         <th>{% trans "Update date" %}</th>
@@ -148,7 +150,7 @@
                     </thead>
 
                     <tbody>
-                    {% for history in ticket.get_ticket_history %}
+                    {% for history in ticket_history %}
                         <tr>
                             <td>{{ history.update_date }}</td>
                             <td>{% trans history.fk_ticket_status.label %}</td>

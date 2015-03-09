@@ -41,7 +41,7 @@ class CreateTicketView(TemplateView):
         if isinstance(request.user, AnonymousUser):
             return redirect('loginview')
 
-        if request.user.is_manager_or_higher():
+        if request.user.isAdmin():
             return redirect('loginview')
 
         return self.renderPlainCTView()
@@ -50,7 +50,7 @@ class CreateTicketView(TemplateView):
         if isinstance(request.user, AnonymousUser):
             return redirect('loginview')
 
-        if request.user.is_manager_or_higher():
+        if request.user.isAdmin():
             return redirect('loginview')
 
         if "operation" in request.POST:
@@ -90,8 +90,8 @@ class CreateTicketView(TemplateView):
         batimentID = self.request.POST.get('building')
         subcategoryID = self.request.POST.get('subcategory')
         creatorID = self.request.user.pk
-        channelID = 1  # Web!
-        statusID = 1  # open!
+        channelID = 1  # Web
+        statusID = 1  # open
         priorityID = EventCategory.objects.get(pk=subcategoryID).fk_priority.pk
         floor = self.request.POST.get('floor')
         office = self.request.POST.get('office')
@@ -149,7 +149,7 @@ class HomeView(TemplateView):
 
         data['user_info'] = self.request.user
 
-        if self.request.user.is_manager_or_higher():
+        if self.request.user.isAdmin():
             selection = Ticket.objects.filter(visible__exact=True)
 
             if not self.request.session.get('show_unrelated_tickets', False):
@@ -221,13 +221,15 @@ class TicketView(TemplateView):
         try:
             ticket_obj = Ticket.objects.get(pk=ticket_id)
             assert isinstance(ticket_obj, Ticket)
+            """
             if ticket_obj.fk_manager != self.request.user:
                 messages.add_message(self.request, messages.ERROR,
                                      _("You are not managing this ticket, so you cannot see its details."))
                 return redirect('homeview')
+            """
 
             data['ticket'] = ticket_obj
-            data['ticket_history'] = ticket_obj.get_ticket_history()
+            data['ticket_history'] = ticket_obj.getTicketHistory()
             data['ticket_comments'] = ticket_obj.getAllTicketComments()
             data['comment_form'] = TicketCommentForm()
 
