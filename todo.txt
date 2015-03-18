@@ -8,25 +8,31 @@ V fait
 T à tester
 ! problème (voir commentaire(s))
 * Commentaire
+C Changement cosmétique ou ergonomie
 
 SITE
 ****
 
-- La classe Company à 1 ou plusieurs types de problèmes que l'entreprise peut résoudre
-- Un manager doit pouvoir aussi créer un ticket (pour lui-même)
-    - Par contre, un manager ne peut pas créer de ticket pour un utilisateur ou un autre manager (protection contre la falsification)
+V La classe Company à 1-n catégorie(s) d'incident que l'entreprise peut résoudre
+    - Permettre de changer l'assignation d'une entreprise à un ticket via vue ticket (manager+ only)
+V Un manager doit pouvoir aussi créer un ticket (pour lui-même)
+    V Par contre, un manager ne peut pas créer de ticket pour un utilisateur ou un autre manager (protection contre la falsification)
 - Flexibilité de l'appli
-    - Ajout de nouvelles catégories d'incidents à la volée (popup? Nouveau formulaire?)
+    V Ajout de nouvelles catégories d'incidents à la volée (popup? Nouveau formulaire?)
+        * Via interface admin. Un user ne peut pas ajouter une (sous-)catégorie lui-même (danger de spam, ...)
     - Ajout de nouveaux lieux et bâtiment à la volée (popup? Nouveau formulaire?)
-    - Ajout d'entreprises via admin panel (uniquement pour les managers et admins! Sinon anarchie)
-    - Assignation d'entreprises à des catégories ticket réservée aux admins et managers (même raison que ci-dessus)
+        * Via un interface admin (manager+) OU via un bouton dans le menu "Créer... Lieu" dans la barre de nav (User+)
+    * Ajout d'entreprises via admin panel (uniquement pour les managers et admins! Sinon anarchie)
+    * Assignation d'entreprises à des catégories ticket réservée aux admins et managers (même raison que ci-dessus)
 V Ajout partie commentaires sur vue ticket
     * Pourquoi? Interaction utilisateur et gestionnaire de son ticket
-    T Mail envoyé au deux protagonistes lors d'un nouveau commentaire (voir module de mailing de django + créer compte mail pour l'occasion)
+    V Mail envoyé au deux protagonistes lors d'un nouveau commentaire (voir module de mailing de django + créer compte mail pour l'occasion)
 - Intégration google distance matrix API
     - Elle sera utilisée pour calculer la distance entre le client et les entreprises potentiellement en mesure de régler le ticket.
     - Les limites d'utilisation de l'API nécéssitent un filtrage préalable des entreprises dans l'app web!
 - Débroussailler le code en général (best practices, etc...)
+C Faire en sorte que les éléments "étage" et "bureau" n'apparaissent que si un bâtiment est sélectionné dans la création ticket.
+    C Même chose sur la vue ticket
 
 APP ANDROID (demo sur genymotion)
 ***********
