@@ -1,23 +1,27 @@
 
-\documentclass{report}
+\documentclass[12pt,table,a4paper]{report}
+\usepackage{lmodern}
 \usepackage[tmargin=1.25in,bmargin=1.25in,lmargin=1.25in,rmargin=1.25in]{geometry}
-\renewcommand{\rmdefault}{phv}
-\renewcommand{\sfdefault}{phv}
-\setlength{\parindent}{0pt}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fancyhdr}
 \usepackage[french]{babel}
-\pagestyle{fancy}
+\usepackage[none]{hyphenat}
 
 \title{TFE: Plateforme de ticketing}
 \author{Emmanuel CAPELLE}
 \date{}
 
+\DeclareUnicodeCharacter{00A0}{ }
+\pagestyle{fancy}
 \lhead{Plateforme de ticketing}
-
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
+% \setcounter{secnumdepth}{2} % only chapter and sections will be numbered
+% \setcounter{tocdepth}{4}    % entries down to \subsubsections in the TOC
+\setlength{\parindent}{0pt}
 
 \begin{document}
 
@@ -38,11 +42,11 @@ Il existe sur le web plusieurs solutions, appelées “systèmes de ticketing”
 
 Lors de mon stage en entreprise, j’ai eu pour tâche de développer une application web permettant de gérer en ligne des tickets concernant des appartements habités par les utilisateurs de cette plateforme.
 
-Il existe d’autres exemple de plateformes déjà existantes, tel que “Mantis Bug Tracker”\footnote{https://www.mantisbt.org/}, qui se focalise quant à elle sur l’assistance au développement d’applications informatique.
+Il existe d’autres exemple de plateformes déjà existantes, tel que "Mantis Bug Tracker"\footnote{https://www.mantisbt.org/}, qui se focalise quant à elle sur l’assistance au développement d’applications informatique.
 
 J’ai abordé ce sujet de TFE avec plusieurs problêmes en tête:
 \begin{enumerate}
-\item{La vitesse d’exécution du framework utilisé lors de mon stage\footnote{"YII": http://www.yiiframework.com/} s’avérait être très lent, malgré l’utilisation rigoureuse des best-practices préconisés par les créateurs dudit framework.}
+\item{La vitesse d’exécution du framework utilisé lors de mon stage\footnote{YII: http://www.yiiframework.com/} s’avérait être très lent, malgré l’utilisation rigoureuse des best-practices préconisés par les créateurs dudit framework.}
 \item{La flexibilité de ces différentes plateformes reste assez limitée, j’aimerais créer une plateforme extensible à souhait, pouvant se métamorphoser en une plateforme adaptée aux besoins de ses utilisateurs.}
 \item{J’aimerais ajouter une capacité d’ubiquité à ma plateforme en lui ajoutant une application Android permettant de créer et/ou gérer des tickets, peu importe la localisation de ses utilisateurs.}
 \end{enumerate}
@@ -72,30 +76,30 @@ D'autre part, une application android a été créée en tant que support pour l
 
 \chapter{Approche théorique et technique}
 \section{Outils et méthodes utilisés}
-Environnements de travail :
+Environnements de travail:
 
-Développement du site web : IDE PyCharm – community edition de JetBrains.\footnote{https://www.jetbrains.com/pycharm/}
+Développement du site web: IDE PyCharm – community edition de JetBrains.\footnote{https://www.jetbrains.com/pycharm/}
 
-Développement de l'app Android : IDE Intellij IDEA – community edition de JetBrains.\footnote{https://www.jetbrains.com/idea/}
+Développement de l'app Android: IDE Intellij IDEA – community edition de JetBrains.\footnote{https://www.jetbrains.com/idea/}
 
-\section{Langage de programmation utilisé : Python}
-« Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development [...] »\footnote{https://www.python.org/doc/essays/blurb/}
+\section{Langage de programmation utilisé: Python}
+"Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development [...]"\footnote{https://www.python.org/doc/essays/blurb/}
 
-Pourquoi ai-je choisi Python ? 
+Pourquoi ai-je choisi Python? 
 
 Je connais bien Python en tant que langage de programmation. Je l'utilise souvent pour créer des scripts de tout type. C'est un langage très flexible et adaptable à de nombreuses situations.
 
-C'est pourquoi j'ai voulu approfondir ma connaissance de ce langage en lui découvrant une nouvelle facette : La programmation web.
+C'est pourquoi j'ai voulu approfondir ma connaissance de ce langage en lui découvrant une nouvelle facette: La programmation web.
 
-\section{Le framework utilisé : Django}
+\section{Le framework utilisé: Django}
 Django est un framework orienté web créé en Python.
 
-Ce framework permet le développement non seulement rapide, mais aussi modulaire d'applications web, enlevant à cette occasion la nécéssité de « réinventer la roue ».
+Ce framework permet le développement non seulement rapide, mais aussi modulaire d'applications web, enlevant à cette occasion la nécéssité de "réinventer la roue".
 
 \subsection{Pourquoi Django?}
 Dans le domaine des frameworks web pour développement rapide de sites web, Django a beaucoup de concurrence (CodeIgniter, Laravel, Yii, ruby on rails, ASP.NET,... Pour ne citer que quelques uns des frameworks les plus connus dans le milieu).
 
-Dans un contexte de popularité du framework par rapport à ses concurrents, Django se place dans le haut du classement (Au moment de l'écriture de ce rapport).\footnote{http://hotframeworks.com/#top-frameworks}
+Dans un contexte de popularité du framework par rapport à ses concurrents, Django se place dans le haut du classement (Au moment de l'écriture de ce rapport).\footnote{http://hotframeworks.com/\#top-frameworks}
 
 Il existe de nombreuses offres d'emploi requérant la connaissance de Django, certes, pas autant que d'autres frameworks tel que ASP.NET, mais Django se place de manière très respectable sur le marché du travail.
 
@@ -110,9 +114,9 @@ Django à comme spécificité d'être modulable à l'extrème. En effet, il est 
 
 La seule exigence du framework est que l'application web doit posséder un module de base, standardisé, et créé d'office lors de la création de l'application web via Django-admin (voir chapitre précédent).
 
-Ce système apporte beaucoup de choses bénéfiques au développement web, et la non-nécéssité de devoir « réinventer la roue » à chaque démarrage de projet.
+Ce système apporte beaucoup de choses bénéfiques au développement web, et la non-nécéssité de devoir "réinventer la roue" à chaque démarrage de projet.
 
-Ce système, très efficace, permet le développement de « plugins »1 et une utilisation rapide de ceux-ci dans des applications existantes.
+Ce système, très efficace, permet le développement de "plugins"\footnote{Plugin : Extension que l'on peut ajouter à une application principale pour en étendre les fonctionnalités.} et une utilisation rapide de ceux-ci dans des applications existantes.
 Par exemple, il est possible qu'une entreprise ai créé son propre système de login sécurisé et réutilisable, il lui est donc très facile d'intégrer ce module dans un projet déjà existant, permettant ainsi de développer plus rapidement de nouveaux modules.
 
 \subsubsection{Architecture MVC}
@@ -124,21 +128,21 @@ La vue quant à elle sert à définir l'interface homme-machine de l'application
 
 Pour terminer, le contrôlleur, qui s'occupe de la gestion et de la validation des interactions faites par les utilisateurs via les vues de la plateforme.
 
-Il est à noter que Django utilise une nomenclature propre pour désigner les différentes parties du modèle MVC : Le modèle s'appelle toujours modèle, par contre la vue s'appelera « template », et le contrôleur s'appellera « views », pour cause, le fichier s'occupant de la partie contrôlleur de l'application s'appelle...  « views.py ». C'est d'ailleurs ce que j'ai trouvé déroutant lorsque j'ai découvert le framework.
+Il est à noter que Django utilise une nomenclature propre pour désigner les différentes parties du modèle MVC: Le modèle s'appelle toujours modèle, par contre la vue s'appelera "template", et le contrôleur s'appellera "views", pour cause, le fichier s'occupant de la partie contrôlleur de l'application s'appelle... "views.py". C'est d'ailleurs ce que j'ai trouvé déroutant lorsque j'ai découvert le framework.
 
-\subsubsection{Les modèles : Un ORM très efficace}
+\subsubsection{Les modèles: Un ORM très efficace}
 Avec Django, un modèle est obligatoirement représenté par une classe.
 
 Ceci est dû à l'ORM propre à Django
 
 \subsubsection{Les vues}
-Il y a deux façons d'aborder la création de vues avec Django (fonctionnel & classes)
+Il y a deux façons d'aborder la création de vues avec Django (fonctionnel et classes)
 
-\subsubsection{Les contrôlleurs}
+\subsubsection{Les contrôleurs}
 TODO
 
 \subsection{SQLite versus MySQL}
-SQLite est un type de base de données léger, stocké dans un fichier « .db », ce qui rend cette base de données portable : Un simple copier-coller la relocalise. C'est une très bonne base de données pour tester les applications en développement.
+SQLite est un type de base de données léger, stocké dans un fichier ".db", ce qui rend cette base de données portable: Un simple copier-coller la relocalise. C'est une très bonne base de données pour tester les applications en développement.
 
 Cependant, SQLite ne possède aucun système de gestion des utilisateurs SQL, de fait il n'y a qu'un seul utilisateur, en tout et pour tout, pouvant effectuer des opérations sur la base de données SQLite.
 
