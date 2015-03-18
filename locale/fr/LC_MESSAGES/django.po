@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-18 15:35+0100\n"
+"POT-Creation-Date: 2015-03-18 16:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,7 +108,7 @@ msgid "Your comment"
 msgstr "Votre commentaire"
 
 #: .\ticketing\models.py:16 .\ticketing\models.py:209
-#: .\ticketing\templates\ticketing\index.html:70
+#: .\ticketing\templates\ticketing\index.html:78
 #: .\ticketing\templates\ticketing\ticket_view.html:37
 msgid "Status"
 msgstr "Statut"
@@ -186,7 +186,6 @@ msgstr "Catégories d'évènement"
 
 #: .\ticketing\models.py:169
 #: .\ticketing\templates\ticketing\ticket_view.html:114
-#| msgid "Renter"
 msgid "Commenter"
 msgstr "Posteur"
 
@@ -207,21 +206,21 @@ msgstr "Bâtiment"
 msgid "Channel"
 msgstr "Canal"
 
-#: .\ticketing\models.py:205 .\ticketing\templates\ticketing\index.html:71
+#: .\ticketing\models.py:205 .\ticketing\templates\ticketing\index.html:79
 #: .\ticketing\templates\ticketing\ticket_view.html:45
 msgid "Category"
 msgstr "Catégorie"
 
-#: .\ticketing\models.py:206 .\ticketing\templates\ticketing\index.html:69
+#: .\ticketing\models.py:206 .\ticketing\templates\ticketing\index.html:77
 #: .\ticketing\templates\ticketing\ticket_view.html:41
 msgid "Reporter"
 msgstr "Reporteur"
 
-#: .\ticketing\models.py:211 .\ticketing\templates\ticketing\index.html:68
+#: .\ticketing\models.py:211 .\ticketing\templates\ticketing\index.html:76
 msgid "Ticket code"
 msgstr "Code du ticket"
 
-#: .\ticketing\models.py:212 .\ticketing\templates\ticketing\index.html:73
+#: .\ticketing\models.py:212 .\ticketing\templates\ticketing\index.html:81
 msgid "Manager"
 msgstr "Gestionnaire"
 
@@ -242,7 +241,6 @@ msgid "No description available."
 msgstr "Pas de description disponible."
 
 #: .\ticketing\models.py:270
-#| msgid "Assigned to manager: "
 msgid "Assigned to manager: {}"
 msgstr "Assigné au gestionnaire: {}"
 
@@ -251,7 +249,6 @@ msgid "Manager released ticket management."
 msgstr "Le gestionnaire ne gère plus ce ticket."
 
 #: .\ticketing\models.py:280
-#| msgid "Ticket status changed to {0}"
 msgid "Ticket status changed to {}"
 msgstr "Statut du ticket changé en {}"
 
@@ -279,13 +276,13 @@ msgstr "Accueil"
 
 #: .\ticketing\templates\ticketing\contact.html:9
 #: .\ticketing\templates\ticketing\create_ticket.html:36
-#: .\ticketing\templates\ticketing\index.html:25
+#: .\ticketing\templates\ticketing\index.html:31
 msgid "Create a new ticket"
 msgstr "Créer un nouveau ticket"
 
 #: .\ticketing\templates\ticketing\contact.html:11
 #: .\ticketing\templates\ticketing\create_ticket.html:25
-#: .\ticketing\templates\ticketing\index.html:26
+#: .\ticketing\templates\ticketing\index.html:25
 msgid "Options"
 msgstr "Options"
 
@@ -296,7 +293,7 @@ msgstr "Panneau d'admin."
 
 #: .\ticketing\templates\ticketing\contact.html:15
 #: .\ticketing\templates\ticketing\create_ticket.html:29
-#: .\ticketing\templates\ticketing\index.html:28
+#: .\ticketing\templates\ticketing\index.html:36
 msgid "Logout"
 msgstr "Déconnection"
 
@@ -359,12 +356,10 @@ msgid "Please select a category first."
 msgstr "Veuillez d'abord sélectionner une catégorie"
 
 #: .\ticketing\templates\ticketing\create_ticket.html:64
-#| msgid "Actions"
 msgid "Location"
 msgstr "Lieu"
 
 #: .\ticketing\templates\ticketing\create_ticket.html:75
-#| msgid "No building found for this user!"
 msgid "No location found for this user!"
 msgstr "Il n'y a pas de lieu pour cet utilisateur"
 
@@ -384,43 +379,52 @@ msgstr "Description"
 msgid "No description."
 msgstr "Aucune description."
 
-#: .\ticketing\templates\ticketing\index.html:27
+#: .\ticketing\templates\ticketing\index.html:26
 msgid "Dashboard"
 msgstr "Tableau de contrôle"
 
-#: .\ticketing\templates\ticketing\index.html:41
+#: .\ticketing\templates\ticketing\index.html:28
+msgid "Create..."
+msgstr "Créer..."
+
+#: .\ticketing\templates\ticketing\index.html:32
+#| msgid "Create a new ticket"
+msgid "Create a new location for you"
+msgstr "Créer un nouveau lieu pour vous"
+
+#: .\ticketing\templates\ticketing\index.html:49
 msgid "Hide unrelated tickets"
 msgstr "Cacher les tickets sans rapport avec vous"
 
-#: .\ticketing\templates\ticketing\index.html:44
+#: .\ticketing\templates\ticketing\index.html:52
 msgid "Show unrelated tickets"
 msgstr "Montrer les tickets sans rapport avec vous"
 
-#: .\ticketing\templates\ticketing\index.html:50
+#: .\ticketing\templates\ticketing\index.html:58
 msgid "Hide closed tickets"
 msgstr "Cacher les tickets fermés"
 
-#: .\ticketing\templates\ticketing\index.html:53
+#: .\ticketing\templates\ticketing\index.html:61
 msgid "Show closed tickets"
 msgstr "Montrer les tickets fermés"
 
-#: .\ticketing\templates\ticketing\index.html:72
+#: .\ticketing\templates\ticketing\index.html:80
 msgid "Subcategory"
 msgstr "Sous-catégorie"
 
-#: .\ticketing\templates\ticketing\index.html:75
+#: .\ticketing\templates\ticketing\index.html:83
 msgid "Actions"
 msgstr "Actions"
 
-#: .\ticketing\templates\ticketing\index.html:92
+#: .\ticketing\templates\ticketing\index.html:100
 msgid "None"
 msgstr "Aucun(e)"
 
-#: .\ticketing\templates\ticketing\index.html:102
+#: .\ticketing\templates\ticketing\index.html:110
 msgid "Assign to me"
 msgstr "Gérer ce ticket"
 
-#: .\ticketing\templates\ticketing\index.html:113
+#: .\ticketing\templates\ticketing\index.html:121
 msgid "View ticket detail"
 msgstr "Voir les détails du ticket"
 
@@ -485,7 +489,6 @@ msgid "Date"
 msgstr "Date"
 
 #: .\ticketing\templates\ticketing\ticket_view.html:130
-#| msgid "You no longer manage this ticket."
 msgid "No comment for this ticket."
 msgstr "Pas de commentaire pour ce ticket."
 
@@ -536,7 +539,6 @@ msgid "The comment has been posted."
 msgstr "Le commentaire a été posté."
 
 #: .\ticketing\views.py:265
-#| msgid "This ticket {0} doesn't exist!"
 msgid "This ticket does not exist!"
 msgstr "Ce ticket n'existe pas!"
 
@@ -554,9 +556,6 @@ msgstr "Ticket mis à jour avec succès."
 
 #~ msgid "Building (optional)"
 #~ msgstr "Bâtiment (optionnel)"
-
-#~ msgid "Create..."
-#~ msgstr "Créer..."
 
 #~ msgid "(Please select an action from the above menu)"
 #~ msgstr "(Veuillez sélectionner une action depuis le menu ci-dessus)"
