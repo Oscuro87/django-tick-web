@@ -245,7 +245,7 @@ class Ticket(models.Model):
         Génère un code ticket unique
         :returns Le nombre de tickets existants pour le bâtiment assigné à ce ticket
         """
-        if self.fk_building_id != '':
+        if self.fk_building != None:
             count = self.__countAmountOfTicketsForBuilding() + 1
             code = self.fk_building.building_code + "-" + str(count)
         else:

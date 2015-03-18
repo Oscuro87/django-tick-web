@@ -6,6 +6,7 @@ from django.db.models import Q
 from django.contrib.auth.models import AnonymousUser
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from ticketing.custom_exceptions.TicketCreationException import TicketCreationException
 
 from ticketing.forms import ContactForm, TicketCommentForm
 from ticketing.models import EventCategory, Ticket, TicketStatus
@@ -41,16 +42,10 @@ class CreateTicketView(TemplateView):
         if isinstance(request.user, AnonymousUser):
             return redirect('loginview')
 
-        if request.user.isAdmin():
-            return redirect('loginview')
-
         return self.renderPlainCTView()
 
     def post(self, request, *args, **kwargs):
         if isinstance(request.user, AnonymousUser):
-            return redirect('loginview')
-
-        if request.user.isAdmin():
             return redirect('loginview')
 
         if "operation" in request.POST:
@@ -87,19 +82,38 @@ class CreateTicketView(TemplateView):
         return HttpResponse(json.dumps(returnData), content_type="application/json")
 
     def doCreateTicket(self):
+        try:
+            ticket = self.preBuildNewTicket()
+            ticket.save(reason=_("Creating new ticket."))
+            messages.add_message(self.request, messages.SUCCESS, "You successfully created a ticket!")
+            return redirect('homeview')
+        except TicketCreationException as err:
+            messages.error(self.request, err.getMessage())
+            return self.renderPlainCTView()
+
+    def preBuildNewTicket(self):
         batimentID = self.request.POST.get('building')
+        categoryID = self.request.POST.get('category')
+        if categoryID == 'empty':
+            raise TicketCreationException(_("The main category cannot be empty!"))
         subcategoryID = self.request.POST.get('subcategory')
         creatorID = self.request.user.pk
         channelID = 1  # Web
         statusID = 1  # open
-        priorityID = EventCategory.objects.get(pk=subcategoryID).fk_priority.pk
+        if subcategoryID != 'empty':
+            priorityID = EventCategory.objects.get(pk=subcategoryID).fk_priority.pk
+        else:
+            priorityID = EventCategory.objects.get(pk=categoryID).fk_priority.pk
         floor = self.request.POST.get('floor')
         office = self.request.POST.get('office')
         description = self.request.POST.get('description')
 
         t = Ticket()
         t.fk_building_id = batimentID
-        t.fk_category_id = subcategoryID
+        if(subcategoryID != 'empty'):
+            t.fk_category_id = subcategoryID
+        else:
+            t.fk_category_id = categoryID
         t.fk_reporter_id = creatorID
         t.fk_channel_id = channelID
         t.fk_status_id = statusID
@@ -108,10 +122,7 @@ class CreateTicketView(TemplateView):
         t.office = office
         t.description = description
 
-        t.save(reason=_("Creating new ticket."))
-
-        messages.add_message(self.request, messages.SUCCESS, "You successfully created a ticket!")
-        return redirect('homeview')
+        return t
 
 
 class HomeView(TemplateView):
@@ -124,25 +135,28 @@ class HomeView(TemplateView):
         return self.showPlainHomeView()
 
     def post(self, request, *args, **kwargs):
-        if isinstance(request.user, AnonymousUser):
+        self.checkRedirections()
+
+        return self.showPlainHomeView()
+
+    def checkRedirections(self):
+        if isinstance(self.request.user, AnonymousUser):
             return redirect('loginview')
 
-        if "switchTicketVisibility" in request.POST:
+        if "switchTicketVisibility" in self.request.POST:
             if self.request.session.get('show_unrelated_tickets', False):
                 self.request.session['show_unrelated_tickets'] = False
             else:
                 self.request.session['show_unrelated_tickets'] = True
 
-        if "switchClosedTicketVisibility" in request.POST:
+        if "switchClosedTicketVisibility" in self.request.POST:
             if self.request.session.get('show_closed_tickets', False):
                 self.request.session['show_closed_tickets'] = False
             else:
                 self.request.session['show_closed_tickets'] = True
 
-        if "assigntickettome" in request.POST:
+        if "assigntickettome" in self.request.POST:
             return self.assignTicketToMe()
-
-        return self.showPlainHomeView()
 
     def showPlainHomeView(self):
         data = dict()

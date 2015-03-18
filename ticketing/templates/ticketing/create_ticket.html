@@ -1,5 +1,6 @@
 {% extends 'common/base.html' %}
 
+{% load staticfiles %}
 {% load create_ticket_extras %}
 {% load django_bootstrap_breadcrumbs %}
 {% load i18n %}
@@ -22,7 +23,7 @@
     <li class="bg-info"><a href="{% url 'homeview' %}">{% trans "Home" %}</a></li>
     <li><a href="{% url 'contactview' %}">{% trans "Contact" %}</a></li>
     <li><a href="#">{% trans "Options" %}</a></li>
-    {% if user_info.isManagerOrHigher %}
+    {% if user_info.isAdmin %}
         <li><a href="/admin/">{% trans "Admin Panel" %}</a></li>
     {% endif %}
     <li class="bg-danger"><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
@@ -64,9 +65,10 @@
                     <td>
                         {% if user_info.pk|get_all_buildings_for_user|count_entries != 0 %}
                             <select name="building" id="building">
-                                    <option name="emtpy" value=""></option>
+                                <option name="emtpy" value=""></option>
                                 {% for building in user_info.pk|get_all_buildings_for_user %}
-                                    <option name="building" value="{{ building.pk }}">{{ building.building_name }}</option>
+                                    <option name="building"
+                                            value="{{ building.pk }}">{{ building.building_name }}</option>
                                 {% endfor %}
                             </select>
                         {% else %}
@@ -107,81 +109,41 @@
 {% block scriptBlock %}
     {{ block.super }}
     <script>
-    $(document).ready(
-            function () {
-                // Activation des champs étage et bureau quand un bâtiment est sélectionné
-                var batimentSelect = $("select#building");
-                batimentSelect.change(
-                        function() {
-                            var selected = batimentSelect.find(":selected").val();
-                            var floorField = $("#floor");
-                            var officeField = $("#office");
-                            if(selected != "")
-                            {
-                                floorField.prop("disabled", false);
-                                officeField.prop("disabled", false);
-                            }
-                            else
-                            {
-                                floorField.prop("disabled", true);
-                                officeField.prop("disabled", true);
-                            }
+        function ajax_fillSubCategories(selectedCategoryID) {
+            var sendData = {
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'operation': 'GETSUBCATEGORIES',
+                'categoryID': parseInt(selectedCategoryID)
+            };
+
+            $.ajax({
+                url: '{% url "createticketview" %}',
+                type: 'POST',
+                data: sendData,
+                success: function (json) {
+                    if (json.subcategories != null) {
+                        var subCatDiv = $("div#subcategorydiv");
+                        subCatDiv.html("");
+                        var subcategories = json['subcategories'];
+
+                        var selectBegin = "<select name='subcategory' id='subcatSelect' required='true'>";
+                        var selectEnd = "</select>";
+                        var options = '<option value="empty" selected="True"></option>';
+                        for (var i = 0; i < subcategories.length; i++) {
+                            options += '<option value="' + subcategories[i].pk + '">' + subcategories[i].label + '</option>';
                         }
-                );
 
-                // Chargement des sous-catégories via ajax quand une catégorie est sélectionnée.
-                var subCatDiv = $("div#subcategorydiv");
-                var catDiv = $("select#category");
-
-                catDiv.change(
-                        function () {
-                            selectedValue = catDiv.find(":selected").val();
-                            if (selectedValue != "empty") {
-                                subCatDiv.html("");
-                                ajax_fillSubCategories(selectedValue);
-                            }
-                            else {
-                                subCatDiv.html("{% trans "Please select a category first." %}");
-                            }
-                        }
-                );
-            }
-    );
-
-    function ajax_fillSubCategories(selectedCategoryID) {
-        var sendData = {
-            'csrfmiddlewaretoken': '{{ csrf_token }}',
-            'operation': 'GETSUBCATEGORIES',
-            'categoryID': parseInt(selectedCategoryID)
-        };
-
-        $.ajax({
-            url: '{% url 'createticketview' %}',
-            type: 'POST',
-            data: sendData,
-            success: function (json) {
-                if (json.subcategories != null) {
-                    var subCatDiv = $("div#subcategorydiv");
-                    subCatDiv.html("");
-                    var subcategories = json['subcategories'];
-
-                    var selectBegin = "<select name='subcategory' id='subcatSelect' required='true'>";
-                    var selectEnd = "</select>";
-                    var options = '<option value="empty" selected="True"></option>';
-                    for (var i = 0; i < subcategories.length; i++) {
-                        options += '<option value="' + subcategories[i].pk + '">' + subcategories[i].label + '</option>';
+                        subCatDiv.html(selectBegin + options + selectEnd);
                     }
-
-                    subCatDiv.html(selectBegin + options + selectEnd);
+                    else {
+                        alert("Error in ajax_fillSubCategories");
+                    }
+                },
+                error: function (xhr, msg, err) {
+                    alert('Error in fillSubCategories: ' + xhr);
                 }
-                else {
-                    alert("Error in ajax_fillSubCategories");
-                }
-            },
-            error: function (xhr, msg, err) {
-                alert('Error in fillSubCategories: ' + msg);
-            }
-        });
-    }
+            });
+        }
     </script>
+    <script src="{% static 'ticketing/js/create_ticket.js' %}"></script>
 {% endblock %}

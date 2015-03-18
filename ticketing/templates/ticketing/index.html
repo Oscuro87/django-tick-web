@@ -22,20 +22,9 @@
 
 {% block navbar-contents %}
     <li><a href="{% url 'contactview' %}">{% trans "Contact" %}</a></li>
-    {% if not user_info.is_manager_or_higher %}
-        <li><a href="{% url 'createticketview' %}">{% trans "Create a new ticket" %}</a></li>
-    {% endif %}
+    <li><a href="{% url 'createticketview' %}">{% trans "Create a new ticket" %}</a></li>
     <li><a href="#">{% trans "Options" %}</a></li>
     <li><a href="#">{% trans "Dashboard" %}</a></li>
-    {% if user_info.is_manager_or_higher %}
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-               aria-expanded="false">{% trans "Create..." %}<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Under construction</a></li>
-            </ul>
-        </li>
-    {% endif %}
     <li class="bg-danger"><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
 {% endblock %}
 
@@ -47,7 +36,7 @@
             <form action="" method="post">
                 {% csrf_token %}
                 Options:
-                {% if user_info.is_manager_or_higher %}
+                {% if user_info.isAdmin %}
                     {% if request.session.show_unrelated_tickets == True %}
                         <input type="submit" name="switchTicketVisibility" value="{% trans "Hide unrelated tickets" %}"
                                class="btn btn-sm btn-danger">
@@ -82,7 +71,7 @@
                         <th>{% trans "Category" %}</th>
                         <th>{% trans "Subcategory" %}</th>
                         <th>{% trans "Manager" %}</th>
-                        {% if user_info.is_manager_or_higher %}
+                        {% if user_info.isAdmin %}
                             <th>{% trans "Actions" %}</th>
                         {% endif %}
                     </tr>
@@ -103,7 +92,7 @@
                                 <td>{% trans "None" %}</td>
                             {% endif %}
 
-                            {% if user_info.is_manager_or_higher %}
+                            {% if user_info.isAdmin %}
                                 <td>
                                     {% if ticket.fk_manager == None %}
                                         <form action="{% url 'assigntickettome' %}" method="post">
