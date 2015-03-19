@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        {% if request.user.isAdmin %}
+        {% if request.user.isAdmin and ticket.fk_manager == request.user %}
         <div style="display: inline-block; vertical-align: top; margin-left: 1%;">
             <h4>{% trans "Ticket actions" %}:</h4>
 

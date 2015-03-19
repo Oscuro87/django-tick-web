@@ -15,7 +15,7 @@ def get_all_buildings_for_user(user_pk):
     try:
         user = TicketsUser.objects.get(pk=user_pk)
         assert isinstance(user, TicketsUser)
-        pre_selection = Place.objects.filter(fk_renter__exact=user.pk)
+        pre_selection = Place.objects.filter(fk_owner__exact=user.pk)
         selection = []
         for p in pre_selection:
             assert isinstance(p, Place)

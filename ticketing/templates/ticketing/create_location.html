@@ -1,0 +1,54 @@
+{% extends 'common/base.html' %}
+
+{% load staticfiles %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block extrahead %}
+    {{ block.super }}
+{% endblock %}
+
+{% block title %}
+    {{ block.super }}
+    {% trans "Creation of a location" %}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Create Location" "createlocationview" %}
+{% endblock %}
+
+{% block navbar-contents %}
+    <li><a href="{% url 'homeview' %}">{% trans "Home" %}</a></li>
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+    ((TODO: améliorer visuel))
+    </div>
+    <div class="col-md-1"></div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-1"></div>
+    <div id="creationForm" class="well well-sm center-block col-md-10">
+        <form action="{% url 'createlocationview' %}" method="post">
+            {% csrf_token %}
+            <table class="table table-responsive center-block">
+                {{ form.as_table }}
+                <td></td>
+                <td><input type="submit" value='{% trans "Create this building for you" %}' name="createBuilding" class="btn btn-sm btn-success"></td>
+            </table>
+        </form>
+    </div>
+    <div class="col-md-1"></div>
+    </div>
+{% endblock %}
+
+{% block scriptBlock %}
+    {{ block.super }}
+
+{% endblock %}

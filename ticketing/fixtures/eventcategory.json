@@ -1,0 +1,24 @@
+[
+  {
+    "model": "ticketing.EventCategory",
+    "id": 1,
+    "fields": {
+      "label": "Other",
+      "visible": 1,
+      "fk_parent_category": null,
+      "fk_priority": 1,
+      "fk_company": null
+    }
+  },
+  {
+    "model": "ticketing.EventCategory",
+    "id": 2,
+    "fields": {
+      "label": "Other incident",
+      "visible": 1,
+      "fk_parent_category": 1,
+      "fk_priority": 1,
+      "fk_company": null
+    }
+  }
+]

@@ -15,12 +15,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Building',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('address', models.CharField(verbose_name='Street', unique=True, max_length=45)),
-                ('vicinity', models.CharField(verbose_name='Vicinity name', max_length=45, default='')),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('address', models.CharField(max_length=45, verbose_name='Street', unique=True)),
+                ('vicinity', models.CharField(max_length=45, verbose_name='Vicinity name', default='')),
                 ('postcode', models.IntegerField(verbose_name='Postcode', default='0')),
-                ('building_name', models.CharField(verbose_name='Building name', unique=True, max_length=45, default='')),
-                ('building_code', models.CharField(verbose_name='Building code', unique=True, max_length=4, default='')),
+                ('building_name', models.CharField(max_length=45, verbose_name='Building name', default='', unique=True)),
+                ('building_code', models.CharField(max_length=4, verbose_name='Building code', default='', unique=True)),
                 ('visible', models.BooleanField(verbose_name='Is visible?', default=True)),
             ],
             options={
@@ -32,8 +32,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Channel',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('label', models.CharField(verbose_name='Way of ticket creation', max_length=64)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('label', models.CharField(max_length=64, verbose_name='Way of ticket creation')),
             ],
             options={
             },
@@ -42,13 +42,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Company',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('address', models.CharField(verbose_name='Street', unique=True, max_length=45)),
-                ('vicinity', models.CharField(verbose_name='Vicinity name', max_length=45, default='')),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('address', models.CharField(max_length=45, verbose_name='Street', unique=True)),
+                ('vicinity', models.CharField(max_length=45, verbose_name='Vicinity name', default='')),
                 ('postcode', models.IntegerField(verbose_name='Postcode', default='0')),
-                ('phone_number', models.CharField(verbose_name='Telephone number', null=True, max_length=45, blank=True, default='')),
-                ('name', models.CharField(verbose_name='Company name', max_length=45)),
-                ('vat_number', models.CharField(verbose_name='VAT Number', unique=True, max_length=45)),
+                ('phone_number', models.CharField(max_length=45, null=True, verbose_name='Telephone number', default='', blank=True)),
+                ('name', models.CharField(max_length=45, verbose_name='Company name')),
+                ('vat_number', models.CharField(max_length=45, verbose_name='VAT Number', unique=True)),
                 ('visible', models.BooleanField(verbose_name='Is visible?', default=True)),
             ],
             options={
@@ -59,11 +59,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='EventCategory',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('label', models.CharField(verbose_name='Incident label', max_length=45)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('label', models.CharField(max_length=45, verbose_name='Incident label')),
                 ('visible', models.BooleanField(verbose_name='Is visible?', default=True)),
-                ('fk_company', models.OneToOneField(null=True, to='ticketing.Company', default=None)),
-                ('fk_parent_category', models.OneToOneField(null=True, to='ticketing.EventCategory', default=None)),
+                ('fk_company', models.ForeignKey(unique=True, to='ticketing.Company')),
+                ('fk_parent_category', models.ForeignKey(default=None, null=True, blank=True, to='ticketing.EventCategory')),
             ],
             options={
                 'verbose_name_plural': 'Event categories',
@@ -73,9 +73,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Place',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
                 ('visible', models.BooleanField(verbose_name='Is visible?', default=True)),
-                ('fk_building', models.OneToOneField(to='ticketing.Building')),
+                ('fk_building', models.ForeignKey(to='ticketing.Building')),
                 ('fk_renter', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -85,18 +85,31 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Ticket',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('description', models.TextField(verbose_name='Event description', null=True, blank=True, default='No description available.')),
-                ('intervention_date', models.DateField(verbose_name='Date of intervention', null=True, blank=True, default=None)),
-                ('ticket_code', models.CharField(verbose_name='Ticket code', unique=True, max_length=10)),
-                ('floor', models.CharField(null=True, max_length=45, blank=True, default='')),
-                ('office', models.CharField(null=True, max_length=45, blank=True, default='')),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('ticket_code', models.CharField(max_length=10, verbose_name='Ticket code', blank=True, unique=True)),
+                ('floor', models.CharField(max_length=45, null=True, default='', blank=True)),
+                ('office', models.CharField(max_length=45, null=True, default='', blank=True)),
                 ('visible', models.BooleanField(verbose_name='Is visible?', default=True)),
-                ('fk_building', models.OneToOneField(to='ticketing.Building')),
-                ('fk_category', models.OneToOneField(to='ticketing.EventCategory')),
-                ('fk_channel', models.OneToOneField(to='ticketing.Channel')),
-                ('fk_company', models.OneToOneField(null=True, to='ticketing.Company', blank=True)),
-                ('fk_manager', models.OneToOneField(null=True, related_name='gestionnaire', blank=True, to=settings.AUTH_USER_MODEL)),
+                ('intervention_date', models.DateField(null=True, verbose_name='Date of intervention', default=None, blank=True)),
+                ('description', models.TextField(null=True, verbose_name='Event description', default='No description available.', blank=True)),
+                ('fk_building', models.ForeignKey(verbose_name='Building', null=True, blank=True, to='ticketing.Building')),
+                ('fk_category', models.ForeignKey(verbose_name='Category', to='ticketing.EventCategory')),
+                ('fk_channel', models.ForeignKey(verbose_name='Channel', to='ticketing.Channel')),
+                ('fk_company', models.ForeignKey(verbose_name='Company', null=True, blank=True, to='ticketing.Company')),
+                ('fk_manager', models.ForeignKey(verbose_name='Manager', null=True, to=settings.AUTH_USER_MODEL, blank=True, related_name='gestionnaire')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='TicketComment',
+            fields=[
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('date_created', models.DateTimeField(verbose_name='Comment date', auto_now_add=True, null=True)),
+                ('comment', models.TextField(verbose_name='Comment', default='No comment provided.')),
+                ('fk_commenter', models.ForeignKey(verbose_name='Commenter', default=None, to=settings.AUTH_USER_MODEL)),
+                ('fk_ticket', models.ForeignKey(verbose_name='Ticket', default=None, to='ticketing.Ticket')),
             ],
             options={
             },
@@ -105,10 +118,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='TicketHistory',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
                 ('update_date', models.DateTimeField(verbose_name='Updated on...', auto_now_add=True)),
-                ('fk_manager', models.OneToOneField(verbose_name='Who changed the status', to=settings.AUTH_USER_MODEL)),
-                ('fk_ticket', models.OneToOneField(to='ticketing.Ticket')),
+                ('update_reason', models.CharField(max_length=200, verbose_name='Update reason', default='No reason given.', blank=True)),
+                ('fk_manager', models.ForeignKey(verbose_name='Who changed the status', null=True, blank=True, to=settings.AUTH_USER_MODEL)),
+                ('fk_ticket', models.ForeignKey(to='ticketing.Ticket')),
             ],
             options={
                 'verbose_name_plural': 'Ticket histories',
@@ -118,8 +132,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='TicketPriority',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('label', models.CharField(verbose_name='Priority', max_length=64)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('label', models.CharField(max_length=64, verbose_name='Priority')),
             ],
             options={
                 'verbose_name_plural': 'Ticket priorities',
@@ -129,8 +143,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='TicketStatus',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('label', models.CharField(verbose_name='Status', max_length=64)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('label', models.CharField(max_length=64, verbose_name='Status')),
             ],
             options={
                 'verbose_name_plural': 'Ticket statuses',
@@ -140,31 +154,31 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='tickethistory',
             name='fk_ticket_status',
-            field=models.OneToOneField(to='ticketing.TicketStatus'),
+            field=models.ForeignKey(to='ticketing.TicketStatus'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='ticket',
             name='fk_priority',
-            field=models.OneToOneField(to='ticketing.TicketPriority'),
+            field=models.ForeignKey(verbose_name='Priority', to='ticketing.TicketPriority'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='ticket',
-            name='fk_renter',
-            field=models.OneToOneField(related_name='locataire', to=settings.AUTH_USER_MODEL),
+            name='fk_reporter',
+            field=models.ForeignKey(verbose_name='Reporter', related_name='rapporteur', to=settings.AUTH_USER_MODEL),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='ticket',
             name='fk_status',
-            field=models.OneToOneField(to='ticketing.TicketStatus'),
+            field=models.ForeignKey(verbose_name='Status', default=1, to='ticketing.TicketStatus'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='eventcategory',
             name='fk_priority',
-            field=models.OneToOneField(to='ticketing.TicketPriority'),
+            field=models.ForeignKey(to='ticketing.TicketPriority'),
             preserve_default=True,
         ),
     ]

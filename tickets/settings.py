@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'django_bootstrap_breadcrumbs',
     'modeltranslation',
     'simplemathcaptcha',
+    'django_countries',
     'common',
     'login',
     'ticketing',

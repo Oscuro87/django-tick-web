@@ -1,0 +1,23 @@
+[
+  {
+    "model": "ticketing.TicketStatus",
+    "pk": 1,
+    "fields": {
+      "label": "Open"
+    }
+  },
+  {
+    "model": "ticketing.TicketStatus",
+    "pk": 2,
+    "fields": {
+      "label": "In Progress"
+    }
+  },
+  {
+    "model": "ticketing.TicketStatus",
+    "pk": 3,
+    "fields": {
+      "label": "Closed"
+    }
+  }
+]

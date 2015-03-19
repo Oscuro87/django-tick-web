@@ -29,7 +29,7 @@
                 class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
             <li><a href="{% url 'createticketview' %}">{% trans "Create a new ticket" %}</a></li>
-            <li><a href="#">{% trans "Create a new location for you" %}</a></li>
+            <li><a href="{% url 'createlocationview' %}">{% trans "Create a new location for you" %}</a></li>
         </ul>
     </li>
 
@@ -101,24 +101,22 @@
                             {% endif %}
 
                             {% if user_info.isAdmin %}
+                                <td>
                                 {% if ticket.fk_manager == None %}
-                                    <td>
                                         <form action="{% url 'assigntickettome' %}" method="post">
                                             {% csrf_token %}
                                             <input type="hidden" name="ticket_code" value="{{ ticket.ticket_code }}"/>
                                             <input type="submit" name="assigntickettome"
                                                    value="{% trans "Assign to me" %}"
-                                                   class="btn btn-sm btn-info"/>
+                                                   class="btn btn-xs btn-info"/>
                                         </form>
-                                    </td>
                                 {% endif %}
                             {% endif %}
-                            <td>
                                 <form action="{% url 'ticketdetailview' ticket.pk %}" method="post">
                                     {% csrf_token %}
                                     <input type="hidden" name="ticket_id" value="{{ ticket.pk }}">
                                     <input type="submit" name="ticketdetailviewGo"
-                                           value="{% trans "View ticket detail" %}" class="btn btn-sm btn-info"/>
+                                           value="{% trans "View ticket detail" %}" class="btn btn-xs btn-info"/>
                                 </form>
                             </td>
                         </tr>

@@ -7,14 +7,14 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ticketing', '0003_auto_20150107_0028'),
+        ('ticketing', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='ticket',
-            name='fk_status',
-            field=models.ForeignKey(to='ticketing.TicketStatus'),
+            model_name='eventcategory',
+            name='fk_company',
+            field=models.ForeignKey(to='ticketing.Company', unique=True, null=True),
             preserve_default=True,
         ),
     ]

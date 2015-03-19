@@ -3,8 +3,7 @@ from django.utils.translation import ugettext as _
 
 from login.models import TicketsUser
 from ticketing.custom_exceptions.TodoException import TodoException
-from django.contrib import messages
-
+from django_countries.fields import CountryField
 
 """
 Représente le statut d'un ticket.
@@ -57,6 +56,7 @@ Représente un bâtiment dans lequel un ou plusieurs utilisateurs se trouvent.
 
 
 class Building(models.Model):
+    country = CountryField()
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
     postcode = models.IntegerField(verbose_name=_("Postcode"), null=False, blank=False, default="0")
@@ -79,11 +79,11 @@ class Place(models.Model):
     Fais le lien entre un utilisateur et un bâtiment.
     """
     fk_building = models.ForeignKey(Building)
-    fk_renter = models.OneToOneField(TicketsUser)
+    fk_owner = models.OneToOneField(TicketsUser)
     visible = models.BooleanField(verbose_name=_("Is visible?"), default=True, null=False, blank=False)
 
     def __str__(self):
-        return "" + self.fk_renter.get_full_name() + " @ " + self.fk_building.building_name
+        return "{} @ {}".format(self.fk_owner.get_full_name(), self.fk_building.building_name)
 
 
 class CompanyManager(models.Manager):
@@ -107,7 +107,7 @@ class Company(models.Model):
     """
     Représente une entreprise pouvant être appelée par un gestionnaire de ticket pour résoudre un problème.
     """
-    fk_event_category = models.ForeignKey('EventCategory', null=True, blank=True, default=None)
+    country = CountryField()
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
     postcode = models.IntegerField(verbose_name=_("Postcode"), null=False, blank=False, default="0")
@@ -118,14 +118,10 @@ class Company(models.Model):
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
 
     def __str__(self):
-        return self.name + " (" + self.vat_number + ")"
+        return "{} ({})".format(self.name, self.vat_number)
 
     class Meta:
         verbose_name_plural = "Companies"
-
-    def get_all_companies_for_category(self, category):
-        raise TodoException()
-        # TODO récupérer les entreprises en fonction de la catégorie passée en param
 
 
 class EventCategory(models.Model):
@@ -136,7 +132,7 @@ class EventCategory(models.Model):
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
     fk_parent_category = models.ForeignKey('self', null=True, blank=True, default=None)
     fk_priority = models.ForeignKey(TicketPriority, null=False)
-    fk_company = models.ForeignKey(Company, null=True, blank=True, default=None)
+    fk_company = models.ForeignKey(Company, unique=True, null=True)
 
     def __str__(self):
         if self.fk_parent_category is not None:
@@ -288,8 +284,16 @@ class Ticket(models.Model):
         newComment.save()
         return newComment
 
+    def getAllSuitableCompanies(self):
+        """
+        Récupère une liste d'entreprises susceptibles de pouvoir résoudre le problème de ce ticket, en fonction de
+            la catégorie et sous-catégorie du ticket.
+        """
+
+        pass
+
     def __str__(self):
-        ret = "Ticket " + self.ticket_code + " created by " + self.fk_renter.get_full_name()
+        ret = "Ticket " + self.ticket_code + " created by " + self.fk_reporter.get_full_name()
         if self.fk_manager is not None:
             ret += " managed by " + self.fk_manager.get_full_name()
         else:

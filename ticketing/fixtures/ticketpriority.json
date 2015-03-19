@@ -1,0 +1,23 @@
+[
+  {
+    "model": "ticketing.TicketPriority",
+    "id": 1,
+    "fields": {
+      "label": "Low"
+    }
+  },
+  {
+    "model": "ticketing.TicketPriority",
+    "id": 2,
+    "fields": {
+      "label": "Medium"
+    }
+  },
+  {
+    "model": "ticketing.TicketPriority",
+    "id": 3,
+    "fields": {
+      "label": "High"
+    }
+  }
+]

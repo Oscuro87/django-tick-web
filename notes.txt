@@ -1,3 +1,0 @@
-Architecture MVC
-L'architecture suivie par Django est le modèle MVC.
-Cette architecture sépare l'application en trois grandes parties, le modèle qui s'occupe de la partie applicative logique,

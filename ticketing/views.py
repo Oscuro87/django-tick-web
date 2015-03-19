@@ -8,8 +8,8 @@ from django.contrib import messages
 from django.utils.translation import ugettext as _
 from ticketing.custom_exceptions.TicketCreationException import TicketCreationException
 
-from ticketing.forms import ContactForm, TicketCommentForm
-from ticketing.models import EventCategory, Ticket, TicketStatus
+from ticketing.forms import ContactForm, TicketCommentForm, BuildingCreationForm
+from ticketing.models import EventCategory, Ticket, TicketStatus, Building, Place
 
 
 class ContactView(TemplateView):
@@ -294,3 +294,44 @@ class TicketView(TemplateView):
             messages.add_message(self.request, messages.ERROR, _("Cannot execute this action."))
 
         return self.show(ticket_id)
+
+
+class CreateLocationView(TemplateView):
+    template_name = "ticketing/create_location.html"
+
+    def get(self, request, *args, **kwargs):
+        return self.show()
+
+    def post(self, request, *args, **kwargs):
+        print(self.request.POST)
+
+        if "createBuilding" in request.POST:
+            return self.createABuilding()
+
+        return self.show()
+
+    def show(self):
+        data = {}
+        data["form"] = self.prepareBuildingCreationForm()
+
+        return render_to_response(self.template_name, data, RequestContext(self.request))
+
+    def prepareBuildingCreationForm(self):
+        return BuildingCreationForm()
+
+    def createABuilding(self):
+        sourceForm = BuildingCreationForm(self.request.POST)
+        if sourceForm.is_valid():
+            newBuilding = sourceForm.save()
+            # Il faut maintenant créer un nouveau "Place" pour assigner ce bâtiment à l'utilisateur qui l'a créé.
+            newLocation = Place()
+            newLocation.fk_building = newBuilding
+            newLocation.fk_owner = self.request.user # = la personne qui l'a créé
+            newLocation.save()
+            messages.success(self.request, _("The building was created successfully."))
+            return redirect("homeview")
+        else:
+            messages.error(self.request, _("There were errors in the form you filled, please try again."))
+            return self.show()
+
+        return self.show()
