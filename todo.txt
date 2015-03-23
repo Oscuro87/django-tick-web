@@ -11,9 +11,30 @@ A annulé (voir raison en comm)
 * Commentaire
 C Changement cosmétique ou ergonomie
 
+DÉPENDANCES (Les sous-dépendences sont gérées par PIP)
+***********
+
+- Django 1.7.x
+- django-bootstrap3
+- django-bootstrap-breadcrumbs
+- django-modeltranslation
+- django-simple-math-captcha
+- django-countries
+- djangorestframework
+- django-admin2
+- GeoPy
+
 SITE
 ****
 
+- Création de compte manuelle
+    * Faire le formulaire
+    * Backend
+- Préparer le serveur de queries pour Android
+    * Pistes:
+        * django-piston : https://bitbucket.org/jespern/django-piston/wiki/Home <--
+        * SOAP
+        * REST
 V La classe Company à 1-n catégorie(s) d'incident que l'entreprise peut résoudre
 - Permettre de changer l'assignation d'une entreprise à un ticket via vue ticket (manager+ only)
     * Besoin de l'intégration de GeoPy (google api) pour la distance
@@ -45,6 +66,7 @@ C Faire en sorte que les éléments "étage" et "bureau" n'apparaissent que si u
 APP ANDROID (demo sur genymotion)
 ***********
 
+- Sencha Touch? http://www.sencha.com/products/touch
 - Créer projet avec intellij (+ push sur github)
 - Vue login
 - Vue index
@@ -58,6 +80,8 @@ Rapport TFE
 ***********
 
 - Ajouter un chapitre sur le fonctionnement de Geopy
+    * GeoPy utilise les API de google maps, bing maps, etc..., donc plusieurs API en une seule.
+    * Fonctionnement d'une query
 
 Sources
 *******

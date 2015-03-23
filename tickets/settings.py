@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
+    'rest_framework',
     'django_bootstrap_breadcrumbs',
     'modeltranslation',
     'simplemathcaptcha',

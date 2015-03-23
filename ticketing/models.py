@@ -44,6 +44,15 @@ class Channel(models.Model):
         return self.label
 
 
+class BuildingManager(models.Manager):
+    def get_users_for_building(self, building_id):
+        places = Place.objects.filter(fk_building__exact=building_id)
+        users = list()
+        for key, p in places:
+            if not users.__contains__(p):
+                users.append(p.fk_owner)
+        return users
+
 class Building(models.Model):
     """
     Représente un bâtiment dans lequel un ou plusieurs utilisateurs se trouvent.
@@ -142,7 +151,7 @@ class EventCategory(models.Model):
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
     fk_parent_category = models.ForeignKey('self', null=True, blank=True, default=None)
     fk_priority = models.ForeignKey(TicketPriority, null=False)
-    fk_company = models.ForeignKey(Company, unique=True, null=True)
+    fk_company = models.ForeignKey(Company, null=True, blank=True)
 
     def __str__(self):
         if self.fk_parent_category is not None:
@@ -226,6 +235,7 @@ class Ticket(models.Model):
                                    default=_("No description available."))
 
     def delete(self, using=None):
+        # Ne pas appeler le delete de la classe mère sinon l'entrée sera vraiment delete!
         self.visible = False
         self.save(reason="Ticket soft deletion.")
 

@@ -34,12 +34,6 @@ class TicketsUserManager(BaseUserManager):
         findgroup = ["Manager", "Root"]
         return TicketsUser.objects.filter(groups__name__in=findgroup)
 
-    def get_users_for_building_id(self, building_id=None):
-        if building_id is None:
-            return TicketsUser.objects.filter(groups__name__exact="User")
-        else:
-            return TicketsUser.objects.filter(groups__name__exact="User")#TODO
-
 """
 Cette classe représente soit un utilisateur "lambda", soit un membre du staff (gestionnaire de ticket, admin, ...)
 """
@@ -93,6 +87,6 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         try:
             group_name = self.groups.values_list('name', flat=True)[0]
-            return group_name + ": " + self.get_full_name() + " (" + self.email + ")"
+            return "{} ({}) (Group name = {})".format(self.get_full_name(), self.email, group_name)
         except IndexError:
             return "Ungrouped!: " + self.get_full_name() + " (" + self.email + ")"

@@ -1,7 +1,10 @@
+from django.forms import ModelChoiceField
 from simplemathcaptcha.fields import MathCaptchaField
 from django import forms
 from django.utils.translation import ugettext as _
 from django_countries.widgets import CountrySelectWidget
+from login.models import TicketsUserManager
+from ticketing.models import CompanyManager, BuildingManager
 from ticketing.models import Building
 
 
@@ -30,3 +33,15 @@ class BuildingCreationForm(forms.ModelForm):
             'postcode': _('Postcode'),
             'building_name': _('Name of the building'),
         }
+
+class TicketAdminForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        tum = TicketsUserManager()
+        bm = BuildingManager()
+        compMan = CompanyManager()
+        self.fields['fk_manager'].queryset = tum.get_managers_only()
+        mcf = self.fields['fk_building']
+        assert isinstance(mcf, ModelChoiceField)
+        #self.fields['fk_reporter'].queryset = bm.get_users_for_building(self.fields['fk_building'])
+        self.fields['fk_company'].queryset = compMan.get_companies_for_event_category(self.fields['fk_category'].queryset.last())
