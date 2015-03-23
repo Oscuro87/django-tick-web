@@ -16,12 +16,13 @@ SITE
 
 V La classe Company à 1-n catégorie(s) d'incident que l'entreprise peut résoudre
 - Permettre de changer l'assignation d'une entreprise à un ticket via vue ticket (manager+ only)
+    * Besoin de l'intégration de GeoPy (google api) pour la distance
 - Permettre le changement de catégorie sur la vue ticket
     * Attention à la sous catégorie...
 V Sur la vue ticket, le menu d'action apparaît même si le manager qui le visionne n'est pas gestionnaire de ce ticket.
 V Un manager doit pouvoir aussi créer un ticket (pour lui-même)
     V Par contre, un manager ne peut pas créer de ticket pour un utilisateur ou un autre manager (protection contre la falsification)
-- Flexibilité de l'appli
+V Flexibilité de l'appli
     V Ajout de nouvelles catégories d'incidents à la volée (popup? Nouveau formulaire?)
         * Via interface admin. Un user ne peut pas ajouter une (sous-)catégorie lui-même (danger de spam, ...)
     V Ajout de nouveaux lieux et bâtiment à la volée (popup? Nouveau formulaire?)

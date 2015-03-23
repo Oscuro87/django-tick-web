@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list id="fc2e5f00-34be-4d62-aa84-8c5c858a7b92" name="Default" comment="" />
-    <list id="b893c016-c458-4858-8c4d-d16e021575e8" name="Assignation entreprise à ticket via vue ticket (manager+ only)" comment="" />
-    <list default="true" id="015abfb8-1be1-4ffc-a39a-62fd407abc63" name="Ajout bouton &quot;Créer lieu puis créer un ticket&quot;" comment="Push migration files" />
-    <list id="098b69ba-d34e-42d7-b3bb-47c45caa0b12" name="GeoPy API integration" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/geolocation/Geolocator.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/geolocation/Tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/geolocation/__init__.py" />
-      <change type="DELETED" beforePath="J:\CODING\repos\git\py\tickets\googleapi\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="J:\CODING\repos\git\py\tickets\googleapi\admin.py" afterPath="" />
-      <change type="DELETED" beforePath="J:\CODING\repos\git\py\tickets\googleapi\googleapi.py" afterPath="" />
-      <change type="DELETED" beforePath="J:\CODING\repos\git\py\tickets\googleapi\migrations\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="J:\CODING\repos\git\py\tickets\googleapi\models.py" afterPath="" />
-      <change type="DELETED" beforePath="J:\CODING\repos\git\py\tickets\googleapi\tests.py" afterPath="" />
-      <change type="DELETED" beforePath="J:\CODING\repos\git\py\tickets\googleapi\views.py" afterPath="" />
+    <list default="true" id="fc2e5f00-34be-4d62-aa84-8c5c858a7b92" name="Default" comment="">
+      <change type="DELETED" beforePath="J:\CODING\repos\git\py\tickets\geolocation\Geolocator.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/geolocation/Tests.py" afterPath="$PROJECT_DIR$/geolocation/Tests.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo.txt" afterPath="$PROJECT_DIR$/todo.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+    <list id="b893c016-c458-4858-8c4d-d16e021575e8" name="Assignation entreprise à ticket via vue ticket (manager+ only)" comment="" />
     <ignored path="tickets.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -72,52 +62,20 @@
       <file leaf-file-name="todo.txt" pinned="true" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todo.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1757">
-              <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1737">
+              <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ticket_view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticketing/templates/ticketing/ticket_view.html">
+      <file leaf-file-name="GeoPyInterface.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/geolocation/GeoPyInterface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614" vertical-offset="1190" max-vertical-offset="3479">
-              <caret line="71" column="73" selection-start-line="71" selection-start-column="73" selection-end-line="71" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tickets/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="2740">
-              <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Geolocator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geolocation/Geolocator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1417">
+            <state vertical-scroll-proportion="0.34052387" vertical-offset="0" max-vertical-offset="1380">
               <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tests.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/geolocation/Tests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7596302" vertical-offset="0" max-vertical-offset="1244">
-              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -290,7 +248,7 @@
       <recent name="J:\CODING\repos\git\py\tickets\login\static\common" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Test Geolocation">
+  <component name="RunManager" selected="Django server.tickets">
     <configuration default="false" name="Test: ticketing.tests" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -627,11 +585,11 @@
     <configuration />
   </component>
   <component name="TaskManager">
-    <task id="Default" summary="Default task">
+    <task active="true" id="Default" summary="Default task">
       <changelist id="fc2e5f00-34be-4d62-aa84-8c5c858a7b92" name="Default" comment="" />
       <created>1420473414789</created>
       <option name="number" value="Default" />
-      <updated>1426780484046</updated>
+      <updated>1427118582359</updated>
     </task>
     <task id="LOCAL-00001" summary="vcs">
       <created>1421258618655</created>
@@ -670,7 +628,7 @@
       <updated>1423502477932</updated>
     </task>
     <task id="LOCAL-00007" summary="Google API integration">
-      <changelist id="098b69ba-d34e-42d7-b3bb-47c45caa0b12" name="Google API integration" comment="" />
+      <changelist id="" name="Google API integration" comment="" />
       <created>1425908772200</created>
       <option name="number" value="00007" />
       <option name="project" value="LOCAL" />
@@ -712,15 +670,15 @@
       <option name="project" value="LOCAL" />
       <updated>1426780438614</updated>
     </task>
-    <task active="true" id="LOCAL-00014" summary="Assignation entreprise à ticket via vue ticket (manager+ only)">
+    <task id="LOCAL-00014" summary="Assignation entreprise à ticket via vue ticket (manager+ only)">
       <changelist id="b893c016-c458-4858-8c4d-d16e021575e8" name="Assignation entreprise à ticket via vue ticket (manager+ only)" comment="" />
       <created>1426780484004</created>
       <option name="number" value="00014" />
       <option name="project" value="LOCAL" />
-      <updated>1426780484059</updated>
+      <updated>1427118582301</updated>
     </task>
     <task id="LOCAL-00015" summary="Ajout bouton &quot;Créer lieu puis créer un ticket&quot;">
-      <changelist id="015abfb8-1be1-4ffc-a39a-62fd407abc63" name="Ajout bouton &quot;Créer lieu puis créer un ticket&quot;" comment="" />
+      <changelist id="" name="Ajout bouton &quot;Créer lieu puis créer un ticket&quot;" comment="" />
       <created>1426780634881</created>
       <option name="number" value="00015" />
       <option name="project" value="LOCAL" />
@@ -738,7 +696,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427114439537</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="GeoPy API integration">
+      <created>1427118573424</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1427118573424</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
@@ -822,7 +786,8 @@
     <MESSAGE value="Push du jour: Fix de plusieurs bugs, ajout pays (pour google api plus tard), création d'un bâtiment à la volée." />
     <MESSAGE value="Formulaire création bâtiment pour soi" />
     <MESSAGE value="Push migration files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Push migration files" />
+    <MESSAGE value="GeoPy API integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="GeoPy API integration" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -834,7 +799,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="53" />
+      <option name="time" value="52" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1187,30 +1152,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1757">
-          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geolocation/Geolocator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1417">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/geolocation/Tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7596302" vertical-offset="0" max-vertical-offset="1244">
           <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1737">
+          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geolocation/GeoPyInterface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34052387" vertical-offset="0" max-vertical-offset="1380">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>

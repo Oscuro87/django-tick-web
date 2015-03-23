@@ -1,5 +1,5 @@
 import unittest
-from geolocation.Geolocator import Geolocator, ResultType
+from geolocation.GeoPyInterface import Geolocator, ResultType
 
 class TestGeolocator(unittest.TestCase):
     def setUp(self):
