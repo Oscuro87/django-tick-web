@@ -1,4 +1,4 @@
-Changes to do (par ordre d'importance)
+Changes to do
 *************
 
 Légende
@@ -6,6 +6,7 @@ Légende
 - en cours
 V fait
 T à tester
+A annulé (voir raison en comm)
 ! problème (voir commentaire(s))
 * Commentaire
 C Changement cosmétique ou ergonomie
@@ -30,9 +31,12 @@ V Un manager doit pouvoir aussi créer un ticket (pour lui-même)
 V Ajout partie commentaires sur vue ticket
     * Pourquoi? Interaction utilisateur et gestionnaire de son ticket
     V Mail envoyé au deux protagonistes lors d'un nouveau commentaire (voir module de mailing de django + créer compte mail pour l'occasion)
-- Intégration google distance matrix API
-    - Elle sera utilisée pour calculer la distance entre le client et les entreprises potentiellement en mesure de régler le ticket.
-    - Les limites d'utilisation de l'API nécéssitent un filtrage préalable des entreprises dans l'app web!
+A Intégration google distance matrix API
+    * Annulation: Utilisation de Geopy! La limite d'utilisation est bien plus grande et son utilisation beaucoup plus simple.
+    * Elle sera utilisée pour calculer la distance entre le client et les entreprises potentiellement en mesure de régler le ticket.
+    * Les limites d'utilisation de l'API nécéssitent un filtrage préalable des entreprises dans l'app web!
+V Intégration de Geopy
+    * Voir ci-dessus
 - Débroussailler le code en général (best practices, etc...)
 C Faire en sorte que les éléments "étage" et "bureau" n'apparaissent que si un bâtiment est sélectionné dans la création ticket.
     C Même chose sur la vue ticket
@@ -52,7 +56,7 @@ APP ANDROID (demo sur genymotion)
 Rapport TFE
 ***********
 
-- Ecrire chaque jour!
+- Ajouter un chapitre sur le fonctionnement de Geopy
 
 Sources
 *******
