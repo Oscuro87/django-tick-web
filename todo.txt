@@ -27,9 +27,11 @@ DÉPENDANCES (Les sous-dépendences sont gérées par PIP)
 SITE
 ****
 
-- Création de compte manuelle
+- Création manuelle de compte ? (risque de spam et de faux comptes)
+    * Solution alternative: rendre cette création de compte optionnelle. (toggle dans les options)
     * Faire le formulaire
     * Backend
+- Faire en sorte que le formulaire de contact fonctionne vraiment
 - Préparer le serveur de queries pour Android
     * Pistes:
         * django-piston : https://bitbucket.org/jespern/django-piston/wiki/Home <--

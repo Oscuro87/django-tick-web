@@ -1,10 +1,7 @@
 from django.contrib import admin
-from django import forms
-from django.forms.utils import ErrorList
 
 from ticketing.models import Building, Channel, EventCategory, Company, TicketHistory, Place, \
-    TicketPriority, TicketStatus, Ticket
-from login.models import TicketsUserManager
+    TicketPriority, TicketStatus, Ticket, TicketComment
 from ticketing.forms import TicketAdminForm
 
 
@@ -22,6 +19,7 @@ admin.site.register(Channel)
 admin.site.register(EventCategory, EventCategoryAdmin)
 admin.site.register(Company)
 admin.site.register(TicketHistory)
+admin.site.register(TicketComment)
 admin.site.register(Place)
 admin.site.register(TicketPriority)
 admin.site.register(TicketStatus)

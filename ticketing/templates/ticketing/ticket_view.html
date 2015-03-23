@@ -51,7 +51,15 @@
                     </tr>
                     <tr>
                         <td>{% trans "Building" %}</td>
-                        <td>{{ ticket.fk_building.building_name }}</td>
+                        <td>
+                            {{ ticket.fk_building.building_name }}
+                            {% if ticket.floor != "" %}
+                                | {% trans "Floor" %} : {{ ticket.floor }}
+                            {% endif %}
+                            {% if ticket.office != "" %}
+                                | {% trans "Office" %} : {{ ticket.office }}
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <td>{% trans "Assigned to" %}</td>

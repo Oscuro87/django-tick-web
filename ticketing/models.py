@@ -4,6 +4,8 @@ from django.utils.translation import ugettext as _
 from login.models import TicketsUser
 from ticketing.custom_exceptions.TodoException import TodoException
 from django_countries.fields import CountryField
+from django.core.mail import send_mail
+from django.conf import settings
 
 class TicketStatus(models.Model):
     """
@@ -52,6 +54,7 @@ class BuildingManager(models.Manager):
             if not users.__contains__(p):
                 users.append(p.fk_owner)
         return users
+
 
 class Building(models.Model):
     """
@@ -199,16 +202,17 @@ class TicketComment(models.Model):
                 sendList.append(user)
         for user in sendList:
             assert isinstance(user, TicketsUser)
-            subject = "A comment has been posted on one of your tickets"
-            message = "<p>The following ticket has a new comment: {}</p>" \
-                      "<p>The comment is: \"{}\"</p>".format(self.fk_ticket.ticket_code, self.comment)
+            subject = _("A comment has been posted on one of your tickets")
+            message = _("<p>The following ticket has a new comment: {}</p>"
+                        "</p>The comment is: \"{}\"</p>"
+                        "<p><a href=\"{}\">Ticketing platform</a></p>").format(self.fk_ticket.ticket_code, self.comment, settings.MY_EMAIL_SITE_LINK)
             try:
-                user.email_user(subject, message)
-            except ConnectionRefusedError:
-                print("Cannot send email to commenters, connection to email provider is impossible.")
+                send_mail(subject, "", "ticketing.platform@gmail.com", [user.email], fail_silently=False, html_message=message)
+            except ConnectionRefusedError as e:
+                print("Cannot send email to commenters, connection to email provider is impossible: \n{}".format(e.__str__()))
 
     def __str__(self):
-        return "" + self.fk_commenter.get_full_name() + " commented on " + self.date_created.__str__() + " for ticket id " + self.fk_ticket.ticket_code
+        return "{} commented on {} for ticket id {})".format(self.fk_commenter.get_full_name(), self.date_created.__str__(), self.fk_ticket.ticket_code)
 
 
 class Ticket(models.Model):
@@ -301,7 +305,7 @@ class Ticket(models.Model):
         newComment.comment = message
         newComment.fk_commenter = commenter
         newComment.fk_ticket = self
-        newComment.save()
+        newComment.save(_("A comment has been posted."))
         return newComment
 
     def getAllSuitableCompanies(self):
@@ -309,8 +313,10 @@ class Ticket(models.Model):
         Récupère une liste d'entreprises susceptibles de pouvoir résoudre le problème de ce ticket, en fonction de
             la catégorie et sous-catégorie du ticket.
         """
-
-        pass
+        raise NotImplemented()
+        #TODO getAllSuitableCompanies
+        preselection = list() # Pré sélection des entreprises en fonction de la catégorie
+        # Ensuite filtrer les entreprises en fonction de la distance en utilisant geopy
 
     def __str__(self):
         ret = "Ticket " + self.ticket_code + " created by " + self.fk_reporter.get_full_name()
@@ -321,12 +327,10 @@ class Ticket(models.Model):
         return ret
 
 
-"""
-Représente l'historique ticket dans lequel chaque opération sur un ticket est enregistrée, avec une raison.
-"""
-
-
 class TicketHistory(models.Model):
+    """
+    Représente l'historique ticket dans lequel chaque opération sur un ticket est enregistrée, avec une raison.
+    """
     update_date = models.DateTimeField(verbose_name=_("Updated on..."), blank=True, null=False, auto_now_add=True)
     update_reason = models.CharField(verbose_name=_("Update reason"), max_length=200, blank=True, null=False,
                                      default=_("No reason given."))

@@ -234,13 +234,6 @@ class TicketView(TemplateView):
 
         try:
             ticket_obj = Ticket.objects.get(pk=ticket_id)
-            assert isinstance(ticket_obj, Ticket)
-            """
-            if ticket_obj.fk_manager != self.request.user:
-                messages.add_message(self.request, messages.ERROR,
-                                     _("You are not managing this ticket, so you cannot see its details."))
-                return redirect('homeview')
-            """
 
             data['ticket'] = ticket_obj
             data['ticket_history'] = ticket_obj.getTicketHistory()
