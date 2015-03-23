@@ -1,9 +1,9 @@
 import unittest
-from geolocation.GeoPyInterface import Geolocator, ResultType
+from geolocation.GeoPyInterface import GeoPyInterface, ResultType
 
 class TestGeolocator(unittest.TestCase):
     def setUp(self):
-        self.geolocator = Geolocator()
+        self.geolocator = GeoPyInterface()
 
     def tearDown(self):
         pass
@@ -18,7 +18,7 @@ class TestGeolocator(unittest.TestCase):
 
     def test_distance(self):
         address1 = "2 avenue charles thielemans 1150 bruxelles"
-        address2 = "1 clos des artistes 1030 bruxelles"
+        address2 = "paris france"
         location1 = self.geolocator.findLocationByAddress(address1)
         location2 = self.geolocator.findLocationByAddress(address2)
         if location1["result"] == ResultType.OK and location2["result"] == ResultType.OK:
