@@ -5,13 +5,11 @@ from login.models import TicketsUser
 from ticketing.custom_exceptions.TodoException import TodoException
 from django_countries.fields import CountryField
 
-"""
-Représente le statut d'un ticket.
-Valeurs prédéfinies: "Open" "In progress" "Closed"
-"""
-
-
 class TicketStatus(models.Model):
+    """
+    Représente le statut d'un ticket.
+    Valeurs prédéfinies: "Open" "In progress" "Closed"
+    """
     label = models.CharField(verbose_name=_("Status"), max_length=64, null=False, blank=False)
 
     def __str__(self):
@@ -21,13 +19,11 @@ class TicketStatus(models.Model):
         verbose_name_plural = _("Ticket statuses")
 
 
-"""
-Représente la priorité d'un ticket.
-Valeurs prédéfinies: "Low", "Medium", "High"
-"""
-
-
 class TicketPriority(models.Model):
+    """
+    Représente la priorité d'un ticket.
+    Valeurs prédéfinies: "Low", "Medium", "High"
+    """
     label = models.CharField(verbose_name=_("Priority"), max_length=64, null=False, blank=False)
 
     def __str__(self):
@@ -37,34 +33,48 @@ class TicketPriority(models.Model):
         verbose_name_plural = _("Ticket priorities")
 
 
-"""
-Le moyen de création du ticket.
-Valeurs prédéfinies: "Web", "Phone", "Android"
-"""
-
-
 class Channel(models.Model):
+    """
+    Le moyen de création du ticket.
+    Valeurs prédéfinies: "Web", "Phone", "Android"
+    """
     label = models.CharField(verbose_name=_("Way of ticket creation"), max_length=64, null=False, blank=False)
 
     def __str__(self):
         return self.label
 
 
-"""
-Représente un bâtiment dans lequel un ou plusieurs utilisateurs se trouvent.
-"""
-
-
 class Building(models.Model):
+    """
+    Représente un bâtiment dans lequel un ou plusieurs utilisateurs se trouvent.
+    """
     country = CountryField()
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
     postcode = models.IntegerField(verbose_name=_("Postcode"), null=False, blank=False, default="0")
     building_name = models.CharField(verbose_name=_("Building name"), max_length=45, blank=False, null=False,
                                      unique=True, default="")
-    building_code = models.CharField(verbose_name=_("Building code"), max_length=4, null=False, blank=False,
+    building_code = models.CharField(verbose_name=_("Building code"), max_length=10, null=False, blank=False,
                                      unique=True, default="")
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        super().save(force_insert, force_update, using, update_fields)
+        while self.building_code == "":
+            self.building_code = self.createCode()
+            self.save()
+
+    def createCode(self):
+        result = self.building_code
+        nameSplit = self.building_name.split(" ", 6)
+        if len(nameSplit) != 1:
+            for piece in nameSplit:
+                result += piece[0]
+        else:
+            result = nameSplit[0]
+        result += str(self.pk)
+        return result
 
     def __str__(self):
         return self.building_name + " (" + self.building_code + ")"

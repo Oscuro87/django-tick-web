@@ -308,6 +308,10 @@ class CreateLocationView(TemplateView):
         if "createBuilding" in request.POST:
             return self.createABuilding()
 
+        if "createBuildingThenTicket" in request.POST:
+            self.createABuilding()
+            return redirect("createticketview")
+
         return self.show()
 
     def show(self):
@@ -333,5 +337,3 @@ class CreateLocationView(TemplateView):
         else:
             messages.error(self.request, _("There were errors in the form you filled, please try again."))
             return self.show()
-
-        return self.show()
