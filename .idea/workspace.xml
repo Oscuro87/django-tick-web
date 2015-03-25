@@ -7,14 +7,7 @@
     <list id="fc2e5f00-34be-4d62-aa84-8c5c858a7b92" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo.txt" afterPath="$PROJECT_DIR$/todo.txt" />
     </list>
-    <list default="true" id="b893c016-c458-4858-8c4d-d16e021575e8" name="Assignation entreprise à ticket via vue ticket (manager+ only)" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/geolocation/GeoPyInterface.py" afterPath="$PROJECT_DIR$/geolocation/GeoPyInterface.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/forms.py" afterPath="$PROJECT_DIR$/ticketing/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/models.py" afterPath="$PROJECT_DIR$/ticketing/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/templates/ticketing/ticket_view.html" afterPath="$PROJECT_DIR$/ticketing/templates/ticketing/ticket_view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/static/ticketing/js/ticket_view.js" afterPath="$PROJECT_DIR$/ticketing/static/ticketing/js/ticket_view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/views.py" afterPath="$PROJECT_DIR$/ticketing/views.py" />
+    <list default="true" id="b893c016-c458-4858-8c4d-d16e021575e8" name="Assignation entreprise à ticket via vue ticket (manager+ only)" comment="Assignation entreprise à ticket via vue ticket (manager+ only)">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tickets.iws" />
@@ -810,7 +803,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427296624882</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Assignation entreprise à ticket via vue ticket (manager+ only)">
+      <created>1427302886210</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1427302886210</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
@@ -901,7 +900,8 @@
     <MESSAGE value="Intégration de GeoPy" />
     <MESSAGE value="Update todo" />
     <MESSAGE value="Update settings.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update settings.py" />
+    <MESSAGE value="Assignation entreprise à ticket via vue ticket (manager+ only)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Assignation entreprise à ticket via vue ticket (manager+ only)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
