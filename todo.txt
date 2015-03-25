@@ -38,10 +38,8 @@ SITE
     * Backend
 - Préparer le serveur REST pour Android
     * Pistes:
-        * django rest framework : http://www.django-rest-framework.org/
+        * --> django rest framework : http://www.django-rest-framework.org/
         * django-piston : https://bitbucket.org/jespern/django-piston/wiki/Home
-        * SOAP
-        * REST
 - Débroussailler le code en général (best practices, etc...)
 C Faire en sorte que les éléments "étage" et "bureau" n'apparaissent que si un bâtiment est sélectionné dans la création ticket.
     C Même chose sur la vue ticket
@@ -69,7 +67,6 @@ V Intégration de Geopy
 APP ANDROID (demo sur genymotion)
 ***********
 
-- Sencha Touch? http://www.sencha.com/products/touch
 - Créer projet avec intellij (+ push sur github)
 - Vue login
 - Vue index
