@@ -137,3 +137,5 @@ EMAIL_PORT = 587
 MY_EMAIL_SITE_LINK = "127.0.0.1/home/"
 # Est-ce que les nouveaux comptes créés manuellement sont acceptés? (défaut: False)
 MY_REGISTRATION_ENABLED = False
+# PATH du dossier racine pour les images tickets postées via Android
+MY_ANDROID_PICTURES_PATH = "restserver/static/restserver/android/pictures"
