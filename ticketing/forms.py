@@ -41,7 +41,4 @@ class TicketAdminForm(forms.ModelForm):
         bm = BuildingManager()
         compMan = CompanyManager()
         self.fields['fk_manager'].queryset = tum.get_managers_only()
-        mcf = self.fields['fk_building']
-        assert isinstance(mcf, ModelChoiceField)
         #self.fields['fk_reporter'].queryset = bm.get_users_for_building(self.fields['fk_building'])
-        self.fields['fk_company'].queryset = compMan.get_companies_for_event_category(self.fields['fk_category'].queryset.last())

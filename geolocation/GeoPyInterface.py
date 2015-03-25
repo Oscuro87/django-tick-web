@@ -2,6 +2,7 @@ from geopy.geocoders import Nominatim
 from geopy.distance import vincenty
 from geopy import exc
 import enum
+import math
 
 """
 Documentation de Geopy 1.9.1 @ https://geopy.readthedocs.org/en/1.9.1/
@@ -42,4 +43,5 @@ class GeoPyInterface:
         # Cette methode est "offline" donc pas besoin de gérer les exceptions de connection, quota, etc...
         location1 = (lat1, long1)
         location2 = (lat2, long2)
-        return vincenty(location1, location2).kilometers
+        distance = vincenty(location1, location2).kilometers
+        return math.floor(distance * 100.0) / 100.0

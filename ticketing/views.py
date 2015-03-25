@@ -220,7 +220,9 @@ class TicketView(TemplateView):
             elif "ticket-to-closed" in request.POST:
                 return self.processTicketStatusChange("Closed")
             elif "comment-body" in request.POST:
-                return self.createNewTicketComment()
+                return self.createTicketComment()
+            elif "changeCompany" in request.POST:
+                return self.changeTicketCompanyAssignment()
             else:
                 theID = self.request.POST.get('ticket_id')
                 return self.show(theID)
@@ -235,6 +237,7 @@ class TicketView(TemplateView):
         try:
             ticket_obj = Ticket.objects.get(pk=ticket_id)
 
+            data['suitableCompanies'] = ticket_obj.getAllSuitableCompanies()
             data['ticket'] = ticket_obj
             data['ticket_history'] = ticket_obj.getTicketHistory()
             data['ticket_comments'] = ticket_obj.getAllTicketComments()
@@ -245,7 +248,7 @@ class TicketView(TemplateView):
             messages.add_message(self.request, messages.ERROR, _("This ticket ID {0} doesn't exist.".format(ticket_id)))
             return redirect('homeview')
 
-    def createNewTicketComment(self):
+    def createTicketComment(self):
         request = self.request
         ticketID = self.request.POST.get('ticket_id')
         ticketObject = Ticket.objects.get(pk=ticketID)
@@ -288,6 +291,19 @@ class TicketView(TemplateView):
 
         return self.show(ticket_id)
 
+    def changeTicketCompanyAssignment(self):
+        ticket_id = self.request.POST.get('ticket_id')
+        company_id = self.request.POST.get('changeCompany')
+        try:
+            ticket_obj = Ticket.objects.get(pk=ticket_id)
+            ticket_obj = ticket_obj.changeCompanyAssignment(company_id)
+            messages.success(self.request, _("You successfully changed the company assigned to this ticket."))
+        except Ticket.DoesNotExist:
+            messages.add_message(self.request, messages.ERROR, _("Cannot execute this action."))
+        except TicketStatus.DoesNotExist:
+            messages.add_message(self.request, messages.ERROR, _("Cannot execute this action."))
+
+        return self.show(ticket_id)
 
 class CreateLocationView(TemplateView):
     template_name = "ticketing/create_location.html"

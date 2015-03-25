@@ -6,7 +6,7 @@ var historyDivContent = $("#history-div #content");
 
 $(document).ready(
     function () {
-        // History datatable (see plugin)
+        // History datatable (voir plugin)
         options = {
             "bFilter": false,
             "bLengthChange": false,

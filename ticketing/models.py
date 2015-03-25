@@ -1,11 +1,13 @@
 from django.db import models
 from django.utils.translation import ugettext as _
-
-from login.models import TicketsUser
-from ticketing.custom_exceptions.TodoException import TodoException
 from django_countries.fields import CountryField
 from django.core.mail import send_mail
 from django.conf import settings
+
+from login.models import TicketsUser
+from ticketing.custom_exceptions.TodoException import TodoException
+from geolocation.GeoPyInterface import GeoPyInterface, ResultType
+
 
 class TicketStatus(models.Model):
     """
@@ -17,8 +19,9 @@ class TicketStatus(models.Model):
     def __str__(self):
         return self.label
 
-    class Meta:
-        verbose_name_plural = _("Ticket statuses")
+
+class Meta:
+    verbose_name_plural = _("Ticket statuses")
 
 
 class TicketPriority(models.Model):
@@ -129,6 +132,8 @@ class Company(models.Model):
     """
     Représente une entreprise pouvant être appelée par un gestionnaire de ticket pour résoudre un problème.
     """
+    fk_suitableEventCategories = models.ManyToManyField("EventCategory", verbose_name=_("Suitable Event Categories"),
+                                                        null=True, blank=True)
     country = CountryField()
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
@@ -136,7 +141,7 @@ class Company(models.Model):
     phone_number = models.CharField(verbose_name=_("Telephone number"), max_length=45, blank=True, null=True,
                                     default="")
     name = models.CharField(verbose_name=_("Company name"), max_length=45, null=False, blank=False)
-    vat_number = models.CharField(verbose_name=_("VAT Number"), max_length=45, null=False, blank=False, unique=True)
+    vat_number = models.CharField(verbose_name=_("VAT Number"), max_length=45, null=True, blank=True, unique=True)
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
 
     def __str__(self):
@@ -154,7 +159,6 @@ class EventCategory(models.Model):
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
     fk_parent_category = models.ForeignKey('self', null=True, blank=True, default=None)
     fk_priority = models.ForeignKey(TicketPriority, null=False)
-    fk_company = models.ForeignKey(Company, null=True, blank=True)
 
     def __str__(self):
         if self.fk_parent_category is not None:
@@ -205,14 +209,17 @@ class TicketComment(models.Model):
             subject = _("A comment has been posted on one of your tickets")
             message = _("<p>The following ticket has a new comment: {}</p>"
                         "</p>The comment is: \"{}\"</p>"
-                        "<p><a href=\"{}\">Ticketing platform</a></p>").format(self.fk_ticket.ticket_code, self.comment, settings.MY_EMAIL_SITE_LINK)
+                        "<p><a href=\"{}\">Ticketing platform</a></p>").format(self.fk_ticket.ticket_code, self.comment,
+                                                                               settings.MY_EMAIL_SITE_LINK)
             try:
-                send_mail(subject, "", "ticketing.platform@gmail.com", [user.email], fail_silently=False, html_message=message)
+                send_mail(subject, "", "ticketing.platform@gmail.com", [user.email], fail_silently=False,
+                          html_message=message)
             except ConnectionRefusedError as e:
                 print("Cannot send email to commenters, connection to email provider is impossible: \n{}".format(e.__str__()))
 
     def __str__(self):
-        return "{} commented on {} for ticket id {})".format(self.fk_commenter.get_full_name(), self.date_created.__str__(), self.fk_ticket.ticket_code)
+        return "{} commented on {} for ticket id {})".format(self.fk_commenter.get_full_name(),
+            self.date_created.__str__(), self.fk_ticket.ticket_code)
 
 
 class Ticket(models.Model):
@@ -313,10 +320,47 @@ class Ticket(models.Model):
         Récupère une liste d'entreprises susceptibles de pouvoir résoudre le problème de ce ticket, en fonction de
             la catégorie et sous-catégorie du ticket.
         """
-        raise NotImplemented()
-        #TODO getAllSuitableCompanies
-        preselection = list() # Pré sélection des entreprises en fonction de la catégorie
+        result = list()
+        unavailableAddressWeight = 1000000000
+        geopy = GeoPyInterface()
+
+        # Pré sélection des entreprises en fonction de la sous-catégorie
+        preselection_subcat = Company.objects.filter(fk_suitableEventCategories__exact=self.fk_category)
+
         # Ensuite filtrer les entreprises en fonction de la distance en utilisant geopy
+        for company in preselection_subcat.all():
+            if self.fk_building != None:
+                if company.address is None:
+                    result.append((company, unavailableAddressWeight))
+                else:
+                    companyAddress = "{} {} {}".format(company.address, company.postcode, company.country)
+                    ticketAddress = "{} {} {}".format(self.fk_building.address, self.fk_building.postcode, self.fk_building.country)
+                    companyCoords = geopy.findLocationByAddress(companyAddress)
+                    ticketCoords = geopy.findLocationByAddress(ticketAddress)
+                    if companyCoords["result"] == ResultType.OK and ticketCoords["result"] == ResultType.OK:
+                        distanceInKM = geopy.getDistanceBetweenTwoCoordinates(
+                            ticketCoords["location"].latitude,
+                            ticketCoords["location"].longitude,
+                            companyCoords["location"].latitude,
+                            companyCoords["location"].longitude)
+                        result.append((company, distanceInKM))
+                    else:
+                        result.append((company, unavailableAddressWeight))
+            else:
+                result.append((company, unavailableAddressWeight))
+
+        return self.__sortSuitableCompaniesList(result)
+
+    def __sortSuitableCompaniesList(self, list):
+        return sorted(list, key=lambda x: x[1])  # On classe la liste par
+
+    def changeCompanyAssignment(self, company_id):
+        if company_id == "None":
+            self.fk_company = None
+        else:
+            self.fk_company_id = company_id
+        self.save()
+        return self
 
     def __str__(self):
         ret = "Ticket " + self.ticket_code + " created by " + self.fk_reporter.get_full_name()
