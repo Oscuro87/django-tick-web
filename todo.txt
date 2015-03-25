@@ -11,7 +11,7 @@ A annulé (voir raison en comm)
 * Commentaire
 C Changement cosmétique ou ergonomie
 
-DÉPENDANCES (Les sous-dépendences sont gérées par PIP)
+DÉPENDANCES (Les sous-dépendances sont gérées par PIP)
 ***********
 
 - Django 1.7.x
@@ -27,21 +27,25 @@ DÉPENDANCES (Les sous-dépendences sont gérées par PIP)
 SITE
 ****
 
+- Permettre de changer l'assignation d'une entreprise à un ticket via vue ticket (manager+ only)
+    * Besoin de l'intégration de GeoPy (google api) pour la distance
+- Permettre le changement de catégorie sur la vue ticket
+    * Attention à la sous catégorie... (la mettre à null si catégorie parente est changée)
+- Faire en sorte que le formulaire de contact fonctionne vraiment
 - Création manuelle de compte ? (risque de spam et de faux comptes)
     * Solution alternative: rendre cette création de compte optionnelle. (toggle dans les options)
     * Faire le formulaire
     * Backend
-- Faire en sorte que le formulaire de contact fonctionne vraiment
-- Préparer le serveur de queries pour Android
+- Préparer le serveur REST pour Android
     * Pistes:
-        * django-piston : https://bitbucket.org/jespern/django-piston/wiki/Home <--
+        * django rest framework : http://www.django-rest-framework.org/
+        * django-piston : https://bitbucket.org/jespern/django-piston/wiki/Home
         * SOAP
         * REST
+- Débroussailler le code en général (best practices, etc...)
+C Faire en sorte que les éléments "étage" et "bureau" n'apparaissent que si un bâtiment est sélectionné dans la création ticket.
+    C Même chose sur la vue ticket
 V La classe Company à 1-n catégorie(s) d'incident que l'entreprise peut résoudre
-- Permettre de changer l'assignation d'une entreprise à un ticket via vue ticket (manager+ only)
-    * Besoin de l'intégration de GeoPy (google api) pour la distance
-- Permettre le changement de catégorie sur la vue ticket
-    * Attention à la sous catégorie...
 V Sur la vue ticket, le menu d'action apparaît même si le manager qui le visionne n'est pas gestionnaire de ce ticket.
 V Un manager doit pouvoir aussi créer un ticket (pour lui-même)
     V Par contre, un manager ne peut pas créer de ticket pour un utilisateur ou un autre manager (protection contre la falsification)
@@ -61,9 +65,6 @@ A Intégration google distance matrix API
     * Les limites d'utilisation de l'API nécéssitent un filtrage préalable des entreprises dans l'app web!
 V Intégration de Geopy
     * Voir ci-dessus
-- Débroussailler le code en général (best practices, etc...)
-C Faire en sorte que les éléments "étage" et "bureau" n'apparaissent que si un bâtiment est sélectionné dans la création ticket.
-    C Même chose sur la vue ticket
 
 APP ANDROID (demo sur genymotion)
 ***********
