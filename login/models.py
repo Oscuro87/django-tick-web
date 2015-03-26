@@ -43,16 +43,16 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _('users')
 
     objects = TicketsUserManager()
-    first_name = models.CharField(_('first name'), max_length=30, blank=False, null=False, default="")
-    last_name = models.CharField(_('last name'), max_length=30, blank=False, null=False, default="")
+    firstName = models.CharField(_('first name'), max_length=30, blank=False, null=False, default="")
+    lastName = models.CharField(_('last name'), max_length=30, blank=False, null=False, default="")
     email = models.EmailField(_('email address'), max_length=255, null=False, blank=False, default="", unique=True)
-    is_staff = models.BooleanField(_('staff status'), default=False,
+    isStaff = models.BooleanField(_('staff status'), default=False,
                                    help_text=_('Designates whether the user can log into this admin site.'))
-    is_active = models.BooleanField(_('active'), default=True,
+    isActive = models.BooleanField(_('active'), default=True,
                                     help_text=_(
                                         'Designates whether this user should be treated as active. Unselect this instead of deleting accounts.'))
-    date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
-    receive_newsletter = models.BooleanField(_('receive newsletter'), default=False)
+    dateJoined = models.DateTimeField(_('date joined'), default=timezone.now)
+    receiveNewsletter = models.BooleanField(_('receive newsletter'), default=False)
 
     USERNAME_FIELD = 'email'
 
@@ -62,14 +62,14 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
         super(TicketsUser, self).save(*args, **kwargs)
 
     def get_full_name(self):
-        full_name = '%s %s' % (self.first_name, self.last_name)
+        full_name = '%s %s' % (self.firstName, self.lastName)
         return full_name.strip()
 
     def get_short_name(self):
-        return self.first_name
+        return self.firstName
 
     def get_last_name(self):
-        return self.last_name
+        return self.lastName
 
     def email_user(self, subject, message, from_email=None):
         send_mail(subject, message, from_email, [self.email])

@@ -1,0 +1,1 @@
+#TODO: urls.py pour rest server (voir http://www.django-rest-framework.org/tutorial/quickstart/)

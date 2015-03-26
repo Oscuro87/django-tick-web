@@ -132,6 +132,10 @@ EMAIL_HOST_USER = "ticketing.platform@gmail.com"
 EMAIL_HOST_PASSWORD = "aK#7s8%P"
 EMAIL_PORT = 587
 
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10,
+}
+
 # Settings personnalisés
 # Définit le lien inclus dans les emails envoyés par le site aux users. (défaut: "127.0.0.1/home/")
 MY_EMAIL_SITE_LINK = "127.0.0.1/home/"
