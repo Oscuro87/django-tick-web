@@ -1,7 +1,7 @@
 from login.models import TicketsUser
 from rest_framework import serializers
 
-class TicketsUserSerializer(serializers.HyperlinkedModelSerializer):
+class UserLoginSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TicketsUser
-        fields = ('firstName', 'lastName', 'email', 'isStaff', 'isActive', 'dateJoined', 'receiveNewsletter')
+        fields = ('first_name', 'last_name', 'email', 'is_active', 'is_staff')

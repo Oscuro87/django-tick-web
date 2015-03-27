@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
+    'rest_framework.authtoken',
     'rest_framework',
     'django_bootstrap_breadcrumbs',
     'modeltranslation',
@@ -134,6 +135,12 @@ EMAIL_PORT = 587
 
 REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+   'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
 }
 
 # Settings personnalisés

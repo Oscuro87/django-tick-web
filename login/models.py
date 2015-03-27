@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.core.mail import send_mail
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, Group, GroupManager
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, Group
 
 
 class TicketsUserManager(BaseUserManager):
@@ -34,25 +34,28 @@ class TicketsUserManager(BaseUserManager):
         findgroup = ["Manager", "Root"]
         return TicketsUser.objects.filter(groups__name__in=findgroup)
 
-"""
-Cette classe représente soit un utilisateur "lambda", soit un membre du staff (gestionnaire de ticket, admin, ...)
-"""
+
 class TicketsUser(AbstractBaseUser, PermissionsMixin):
+    """
+    Cette classe représente soit un utilisateur "lambda", soit un membre du staff (gestionnaire de ticket, admin, ...)
+    """
+
     class Meta:
         verbose_name = _('user')
         verbose_name_plural = _('users')
 
     objects = TicketsUserManager()
-    firstName = models.CharField(_('first name'), max_length=30, blank=False, null=False, default="")
-    lastName = models.CharField(_('last name'), max_length=30, blank=False, null=False, default="")
-    email = models.EmailField(_('email address'), max_length=255, null=False, blank=False, default="", unique=True)
-    isStaff = models.BooleanField(_('staff status'), default=False,
+    first_name = models.CharField(verbose_name=_('first name'), max_length=30, blank=False, null=False, default="")
+    last_name = models.CharField(verbose_name=_('last name'), max_length=30, blank=False, null=False, default="")
+    email = models.EmailField(verbose_name=_('email address'), max_length=255, null=False, blank=False, default="",
+                              unique=True)
+    is_staff = models.BooleanField(verbose_name=_('staff status'), default=False,
                                    help_text=_('Designates whether the user can log into this admin site.'))
-    isActive = models.BooleanField(_('active'), default=True,
+    is_active = models.BooleanField(verbose_name=_('active'), default=True,
                                     help_text=_(
                                         'Designates whether this user should be treated as active. Unselect this instead of deleting accounts.'))
-    dateJoined = models.DateTimeField(_('date joined'), default=timezone.now)
-    receiveNewsletter = models.BooleanField(_('receive newsletter'), default=False)
+    date_joined = models.DateTimeField(verbose_name=_('date joined'), default=timezone.now)
+    receive_newsletter = models.BooleanField(verbose_name=_('receive newsletter'), default=False)
 
     USERNAME_FIELD = 'email'
 
@@ -62,14 +65,14 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
         super(TicketsUser, self).save(*args, **kwargs)
 
     def get_full_name(self):
-        full_name = '%s %s' % (self.firstName, self.lastName)
+        full_name = '%s %s' % (self.first_name, self.last_name)
         return full_name.strip()
 
     def get_short_name(self):
-        return self.firstName
+        return self.first_name
 
     def get_last_name(self):
-        return self.lastName
+        return self.last_name
 
     def email_user(self, subject, message, from_email=None):
         send_mail(subject, message, from_email, [self.email])
@@ -82,7 +85,7 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
 
     def isAdmin(self):
         g_name = self.get_group_name()
-        return True if (g_name=="Manager" or g_name=="Administrator" or g_name=="Root") else False
+        return True if (g_name == "Manager" or g_name == "Administrator" or g_name == "Root") else False
 
     def __str__(self):
         try:
