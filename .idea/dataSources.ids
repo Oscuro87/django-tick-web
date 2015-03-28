@@ -32,6 +32,13 @@
       <exported-key name="#FAKE_login_ticketsuser_user_permissions_1" table="login_ticketsuser_user_permissions" schema="" catalog="" columns="permission_id"/>
       <index name="auth_permission_417f1b1c" unique="true" columns="content_type_id"/>
     </table>
+    <table name="authtoken_token" schema="" catalog="" type="TABLE">
+      <column name="key" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="created" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="user_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="key"/>
+      <foreign-key name="#FAKE_authtoken_token_1" columns="user_id" ref-table="login_ticketsuser" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+    </table>
     <table name="countries_plus_country" schema="" catalog="" type="TABLE">
       <column name="iso" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="iso3" sqlType="VARCHAR(3)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
@@ -106,6 +113,7 @@
       <column name="date_joined" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="receive_newsletter" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <primary-key columns="id"/>
+      <exported-key name="#FAKE_authtoken_token_1" table="authtoken_token" schema="" catalog="" columns="user_id"/>
       <exported-key name="#FAKE_django_admin_log_1" table="django_admin_log" schema="" catalog="" columns="user_id"/>
       <exported-key name="#FAKE_login_ticketsuser_groups_2" table="login_ticketsuser_groups" schema="" catalog="" columns="ticketsuser_id"/>
       <exported-key name="#FAKE_login_ticketsuser_user_permissions_2" table="login_ticketsuser_user_permissions" schema="" catalog="" columns="ticketsuser_id"/>
