@@ -40,6 +40,7 @@ class RESTLogin(APIView):
         data["authtoken"] = token.key
         data["success"] = True
         data["reason"] = "Login successful"
+        data["is_staff"] = user.isAdmin()
         for key, val in UserSerializer(user).data.items():
             data[key] = val
 
