@@ -91,6 +91,8 @@ V Vue "login" fonctionnelle
 
 R Authentication par token (+ header http, etc...)
 R Bus event pour dissocier activité et opérations asynchrones (ex.: requête REST asynchrone (login, etc...))
+R Approche POJO (transformation du JSON ou JSONSchema en objet Java lors de la lecture des données reçues par un web service)
+    * http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/
 
 Rapport TFE (+ toutes les entrées marquées R)
 ***********
@@ -106,3 +108,4 @@ Sources
 https://developers.google.com/api-client-library/python/ (Installation API google)
 http://www.django-rest-framework.org/
 http://square.github.io/otto/
+http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/

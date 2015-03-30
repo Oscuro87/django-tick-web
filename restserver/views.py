@@ -1,5 +1,5 @@
-from django.contrib.sessions.models import Session
 from rest_framework.authentication import TokenAuthentication
+
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -8,7 +8,9 @@ from django.contrib import auth
 from rest_framework.views import APIView
 
 from login.models import TicketsUser
-from restserver.serializers import UserSerializer
+
+from restserver.serializers import UserSerializer, SimpleTicketSerializer
+from ticketing.models import Ticket
 
 
 class RESTLogin(APIView):
@@ -38,7 +40,10 @@ class RESTLogin(APIView):
         data["authtoken"] = token.key
         data["success"] = True
         data["reason"] = "Login successful"
-        data["userdata"] = UserSerializer(user).data
+        for key, val in UserSerializer(user).data.items():
+            data[key] = val
+
+        print(data)
 
         return data
 
@@ -58,21 +63,40 @@ class RESTLogout(APIView):
             return Response({"disconnected": False})
 
 
-class RESTSimpleTicket(APIView):
+class RESTSimpleTicketList(APIView):
     """
     Classe retournant la version simplifiée de tous les tickets d'un utilisateur.
     Ceci permet une transaction plus légère entre le client et ce serveur, lorsque toutes les informations
-        ticket ne sont pas nécéssaires.
+                                                                                        ticket ne sont pas nécéssaires.
     """
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
-    def get(self, request, *args, **kwargs):
-        pass
+    def post(self, request):
+        user = request.user
+        data = {"success": False}
 
-def _getUserBySessionKey(request, key):
-    session = Session.objects.get(session_key=key)
-    uid = session.get_decoded().get('_auth_user_id')
-    user = TicketsUser.objects.get(pk=uid)
-    request.user = user
-    return user
+        if "ticketType" in request.POST:
+            assert isinstance(user, TicketsUser)
+            data["tickets"] = self.__gatherUserTickets(user)
+            data["success"] = True
+
+        return Response(data)
+
+    def __gatherUserTickets(self, user):
+        assert isinstance(user, TicketsUser)
+        answer = []
+        allTickets = Ticket.objects.all()
+
+        # Si l'user est admin, on ajoute les tickets managés / non managés
+        if user.isAdmin():
+            #TODO
+            pass
+
+        result = allTickets.filter(fk_reporter__exact=user)
+        for tick in result:
+            tickRedux = SimpleTicketSerializer(tick)
+            answer.append(tickRedux.data)
+
+        # return data with tickets corresponding to user position
+        return answer
