@@ -66,7 +66,7 @@ class Building(models.Model):
     country = CountryField()
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
-    postcode = models.IntegerField(verbose_name=_("Postcode"), null=False, blank=False, default="0")
+    postcode = models.CharField(verbose_name=_("Postcode"), null=False, blank=False, default="", max_length=10)
     building_name = models.CharField(verbose_name=_("Building name"), max_length=45, blank=False, null=False,
                                      unique=True, default="")
     building_code = models.CharField(verbose_name=_("Building code"), max_length=10, null=False, blank=False,
@@ -233,11 +233,11 @@ class Ticket(models.Model):
                                     blank=False)
     fk_priority = models.ForeignKey(TicketPriority, verbose_name=_("Priority"), null=False, blank=False)
     fk_status = models.ForeignKey(TicketStatus, verbose_name=_("Status"), null=False, blank=False, default=1)
-
-    ticket_code = models.CharField(verbose_name=_("Ticket code"), max_length=10, null=False, blank=True, unique=True)
     fk_manager = models.ForeignKey(TicketsUser, verbose_name=_("Manager"), related_name="gestionnaire", null=True,
                                    blank=True)
     fk_company = models.ForeignKey(Company, verbose_name=_("Company"), null=True, blank=True)
+
+    ticket_code = models.CharField(verbose_name=_("Ticket code"), max_length=10, null=False, blank=True, unique=True)
     floor = models.CharField(max_length=45, null=True, blank=True, default="")
     office = models.CharField(max_length=45, null=True, blank=True, default="")
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
