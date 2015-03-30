@@ -7,6 +7,7 @@ Légende
 V fait
 T à tester
 A annulé (voir raison en comm)
+R Inclure dans le rapport
 ! problème (voir commentaire(s))
 * Commentaire
 C Changement cosmétique ou ergonomie
@@ -14,15 +15,15 @@ C Changement cosmétique ou ergonomie
 DÉPENDANCES (Les sous-dépendances sont gérées par PIP)
 ***********
 
-- Django 1.7.x
-- django-bootstrap3
-- django-bootstrap-breadcrumbs
-- django-modeltranslation
-- django-simple-math-captcha
-- django-countries
-- djangorestframework
-- django-admin2
-- GeoPy
+Django 1.7.x
+//django-bootstrap3 (optionnel)
+django-bootstrap-breadcrumbs
+django-modeltranslation (checker si optionnel)
+django-simple-math-captcha
+django-countries
+djangorestframework
+django-admin2
+GeoPy
 
 SITE
 ****
@@ -32,15 +33,17 @@ SITE
 - Permettre le changement de catégorie sur la vue ticket
     * Attention à la sous catégorie... (la mettre à null si catégorie parente est changée)
 - Faire en sorte que le formulaire de contact fonctionne vraiment
+    - Ce formulaire doit envoyer un mail à tous les gestionnaires et admins
 - Création manuelle de compte ? (risque de spam et de faux comptes)
     * Solution alternative: rendre cette création de compte optionnelle. (toggle dans les options)
     * Faire le formulaire
     * Backend
-- Préparer le serveur REST pour Android
-    * Pistes:
-        * --> django rest framework : http://www.django-rest-framework.org/
-        * django-piston : https://bitbucket.org/jespern/django-piston/wiki/Home
 - Débroussailler le code en général (best practices, etc...)
+
+V Préparer le serveur REST pour Android
+    * Pistes:
+        V --> django rest framework : http://www.django-rest-framework.org/
+        A django-piston : https://bitbucket.org/jespern/django-piston/wiki/Home
 C Faire en sorte que les éléments "étage" et "bureau" n'apparaissent que si un bâtiment est sélectionné dans la création ticket.
     C Même chose sur la vue ticket
 V La classe Company à 1-n catégorie(s) d'incident que l'entreprise peut résoudre
@@ -63,20 +66,33 @@ A Intégration google distance matrix API
     * Les limites d'utilisation de l'API nécéssitent un filtrage préalable des entreprises dans l'app web!
 V Intégration de Geopy
     * Voir ci-dessus
+    R Fonctionnement de GeoPy
 
 APP ANDROID (demo sur genymotion)
 ***********
 
-- Créer projet avec intellij (+ push sur github)
-- Vue login
-- Vue index
+- Vue "home"
+    * Les tickets seront des icônes. Lorsque l'utilisateur clique sur une icône, la vue ticket complète apparaît
+    - Fragment représentant un ticket
+    * Menu options (via bouton menu)
+        V Logout
+        - Créer ticket
+        - Créer bâtiment pour soi
+- Vue ticket avec possibilité de commenter (et de gérer le ticket, pour les managers)
+    - Possibilité de laisser un commentaire
+    - Possibilité pour le manager du ticket de gérer le ticket affiché
 - Vue création ticket + ajout feature photo (android uniquement)
     - Stockage de la photo sur le serveur
     - Url de la photo liée au ticket
     - Affichage de la photo sur la vue ticket (web & android)
-- Vue ticket avec possibilité de commenter (et de gérer le ticket, pour les managers)
 
-Rapport TFE
+V Créer projet avec Android Studio (+ push sur github)
+V Vue "login" fonctionnelle
+
+R Authentication par token (+ header http, etc...)
+R Bus event pour dissocier activité et opérations asynchrones (ex.: requête REST asynchrone (login, etc...))
+
+Rapport TFE (+ toutes les entrées marquées R)
 ***********
 
 - Ajouter un chapitre sur le fonctionnement de Geopy
@@ -87,5 +103,6 @@ Rapport TFE
 
 Sources
 *******
-
 https://developers.google.com/api-client-library/python/ (Installation API google)
+http://www.django-rest-framework.org/
+http://square.github.io/otto/
