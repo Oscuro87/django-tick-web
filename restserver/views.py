@@ -44,8 +44,6 @@ class RESTLogin(APIView):
         for key, val in UserSerializer(user).data.items():
             data[key] = val
 
-        print(data)
-
         return data
 
 
@@ -75,12 +73,11 @@ class RESTSimpleTicketList(APIView):
 
     def post(self, request):
         user = request.user
-        data = {"success": False}
+        data = {}
 
         if "ticketType" in request.POST:
             assert isinstance(user, TicketsUser)
             data["tickets"] = self.__gatherUserTickets(user)
-            data["success"] = True
 
         return Response(data)
 
@@ -98,6 +95,8 @@ class RESTSimpleTicketList(APIView):
         for tick in result:
             tickRedux = SimpleTicketSerializer(tick)
             answer.append(tickRedux.data)
+
+        print(answer)
 
         # return data with tickets corresponding to user position
         return answer

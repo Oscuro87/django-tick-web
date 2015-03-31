@@ -69,24 +69,28 @@
                         <td>{% trans "Assigned company" %}</td>
                         <td>
                             <!-- TODO afficher le menu déroulant (remplacer les lignes ci-dessous par un for si entreprise trouvée pendant le for, la mettre comme sélection par défaut -->
-                            <form action="{% url 'ticketdetailview' ticket.pk %}" method="post">
-                                {% csrf_token %}
-                                <input type="hidden" name="ticket_id" value="{{ ticket.pk }}"/>
-                                <select name="changeCompany" onchange="this.form.submit();">
-                                    <option name="None" value="None">{% trans "None" %}</option>
-                                    {% for entry in suitableCompanies %}
-                                        {% if entry.0 == ticket.fk_company %}
-                                            <option name="companyID" value="{{ entry.0.pk }}" selected="selected">
-                                                {{ entry.0.name }} | {{ entry.1 }}km
-                                            </option>
-                                        {% else %}
-                                            <option name="companyID" value="{{ entry.0.pk }}">
-                                                {{ entry.0.name }} | {{ entry.1 }}km
-                                            </option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-                            </form>
+                            {% if ticket.fk_manager == request.user %}
+                                <form action="{% url 'ticketdetailview' ticket.pk %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="ticket_id" value="{{ ticket.pk }}"/>
+                                    <select name="changeCompany" onchange="this.form.submit();">
+                                        <option name="None" value="None">{% trans "None" %}</option>
+                                        {% for entry in suitableCompanies %}
+                                            {% if entry.0 == ticket.fk_company %}
+                                                <option name="companyID" value="{{ entry.0.pk }}" selected="selected">
+                                                    {{ entry.0.name }} | {{ entry.1 }}km
+                                                </option>
+                                            {% else %}
+                                                <option name="companyID" value="{{ entry.0.pk }}">
+                                                    {{ entry.0.name }} | {{ entry.1 }}km
+                                                </option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </form>
+                            {% else %}
+                                {{ ticket.fk_company }}
+                            {% endif %}
                         </td>
                     </tr>
                     <tr>

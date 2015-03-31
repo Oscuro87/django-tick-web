@@ -359,7 +359,12 @@ class Ticket(models.Model):
             self.fk_company = None
         else:
             self.fk_company_id = company_id
-        self.save()
+
+        if company_id != "None":
+            reason = _("Assigned a new company to the ticket.")
+        else:
+            reason = _("Unassigned company from this ticket.")
+        self.save(reason=reason)
         return self
 
     def __str__(self):

@@ -167,7 +167,7 @@ class HomeView(TemplateView):
             selection = Ticket.objects.filter(visible__exact=True)
 
             if not self.request.session.get('show_unrelated_tickets', False):
-                selection = selection.filter(Q(fk_manager=self.request.user) | Q(fk_manager=None))
+                selection = selection.filter(Q(fk_manager=self.request.user) | Q(fk_manager=None) | Q(fk_reporter=self.request.user))
 
             if not self.request.session.get('show_closed_tickets'):
                 fk_status_closed = TicketStatus.objects.get(label="Closed")

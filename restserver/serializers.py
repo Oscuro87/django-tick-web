@@ -16,9 +16,8 @@ class TicketStatusSerializer(serializers.ModelSerializer):
 
 
 class SimpleTicketSerializer(serializers.ModelSerializer):
-    fk_status = serializers.PrimaryKeyRelatedField(read_only=True)
     fk_reporter = UserSerializer(many=False, read_only=True)
-    fk_manager = UserSerializer(many=True, read_only=True)
+    fk_manager = UserSerializer(many=False, read_only=True)
     fk_status = TicketStatusSerializer(many=False, read_only=True)
 
     class Meta:
