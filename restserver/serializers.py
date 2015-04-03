@@ -116,6 +116,12 @@ class FullTicketSerializer(serializers.ModelSerializer):
         )
 
 
+class TicketCommentDietSerializer(serializers.Serializer):
+    comment = serializers.CharField()
+    date_created = serializers.DateTimeField()
+    commenter_name = serializers.CharField()
+
+
 class TicketCommentSerializer(serializers.ModelSerializer):
     fk_ticket = FullTicketSerializer(many=False, read_only=True)
     fk_commenter = UserSerializer(many=False, read_only=True)
@@ -128,6 +134,12 @@ class TicketCommentSerializer(serializers.ModelSerializer):
             'date_created',
             'comment',
         )
+
+
+class TicketHistoryDietSerializer(serializers.Serializer):
+    new_status = serializers.CharField()
+    update_date = serializers.DateTimeField()
+    update_reason = serializers.CharField()
 
 
 class TicketHistorySerializer(serializers.ModelSerializer):

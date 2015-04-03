@@ -1,5 +1,4 @@
 from django.core.exceptions import ObjectDoesNotExist
-
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
@@ -9,8 +8,10 @@ from django.contrib import auth
 from rest_framework.views import APIView
 
 from login.models import TicketsUser
-from restserver.serializers import UserSerializer, SimpleTicketSerializer, FullTicketSerializer
-from ticketing.models import Ticket
+from restserver.serializers import UserSerializer, SimpleTicketSerializer, FullTicketSerializer, \
+    TicketCommentDietSerializer, TicketHistoryDietSerializer
+from ticketing.models import Ticket, TicketComment, TicketHistory
+
 
 class RESTLogin(APIView):
     authentication_classes = (TokenAuthentication,)
@@ -123,3 +124,65 @@ class RESTFullTicket(APIView):
             except ObjectDoesNotExist:
                 return Response({"reason": "Ticket not found"}, status=404)
         return Response({"reason": "Unauthorized action!"}, status=501)
+
+
+class RESTFullTicketComment(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        if "ticketCode" in request.POST:
+            code = request.POST.get('ticketCode', None)
+            try:
+                pk = _getTicketPKByCode(code)
+                # orderby date_created DESC LIMIT 10
+                commentsQueryset = TicketComment.objects.filter(fk_ticket=pk).order_by('-date_created')[:10]
+                commentsEssentialInfos = list()
+                for comm in commentsQueryset.all():
+                    assert isinstance(comm, TicketComment)
+                    comment = {"comment": comm.comment, "date_created": comm.date_created, "commenter_name": comm.fk_commenter.get_full_name()}
+                    commentsEssentialInfos.append(comment)
+                serializedComments = TicketCommentDietSerializer(commentsEssentialInfos, many=True)
+                return Response(serializedComments.data, status=200)
+            except ObjectDoesNotExist:
+                return Response({"reason": "This ticket does not exist."}, status=404)
+        return Response({"reason": "Invalid send method."}, status=500)
+
+
+class RESTPostTicketComment(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        pass
+
+class RESTFullTicketHistory(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        if "ticketCode" in request.POST:
+            code = request.POST.get('ticketCode', None)
+            try:
+                pk = _getTicketPKByCode(code)
+                historyQueryset = TicketHistory.objects.filter(fk_ticket=pk).order_by('-update_date')[:10]
+                historyRedux = list()
+                for hist in historyQueryset.all():
+                    history = {"new_status": hist.fk_ticket_status.label, "update_date": hist.update_date, "update_reason": hist.update_reason}
+                    historyRedux.append(history)
+                serializedHistory = TicketHistoryDietSerializer(historyRedux, many=True)
+                return Response(serializedHistory.data, status=200)
+            except ObjectDoesNotExist:
+                return Response({'reason': 'Ticket does not exist.'}, status=404)
+        else:
+            return Response({"reason": "Invalid method or request."}, status=500)
+
+
+# Méthodes communes à toutes les classes
+
+
+def _getTicketPKByCode(ticketCode):
+        if ticketCode is None:
+            return None
+        else:
+            return Ticket.objects.get(ticket_code=ticketCode).pk

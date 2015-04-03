@@ -132,8 +132,7 @@ class Company(models.Model):
     """
     Représente une entreprise pouvant être appelée par un gestionnaire de ticket pour résoudre un problème.
     """
-    fk_suitableEventCategories = models.ManyToManyField("EventCategory", verbose_name=_("Suitable Event Categories"),
-                                                        null=True, blank=True)
+    fk_suitableEventCategories = models.ManyToManyField("EventCategory", verbose_name=_("Suitable Event Categories"), blank=True)
     country = CountryField()
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")

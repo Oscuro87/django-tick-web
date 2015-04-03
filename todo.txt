@@ -68,35 +68,13 @@ V Intégration de Geopy
     * Voir ci-dessus
     R Fonctionnement de GeoPy
 
-APP ANDROID (demo sur genymotion)
-***********
-
-- Vue "home"
-    * Les tickets seront des icônes. Lorsque l'utilisateur clique sur une icône, la vue ticket complète apparaît
-    - Fragment représentant un ticket
-    * Menu options (via bouton menu)
-        V Logout
-        - Créer ticket
-        - Créer bâtiment pour soi
-- Vue ticket avec possibilité de commenter (et de gérer le ticket, pour les managers)
-    - Possibilité de laisser un commentaire
-    - Possibilité pour le manager du ticket de gérer le ticket affiché
-- Vue création ticket + ajout feature photo (android uniquement)
-    - Stockage de la photo sur le serveur
-    - Url de la photo liée au ticket
-    - Affichage de la photo sur la vue ticket (web & android)
-
-V Créer projet avec Android Studio (+ push sur github)
-V Vue "login" fonctionnelle
-
-R Authentication par token (+ header http, etc...)
-R Bus event pour dissocier activité et opérations asynchrones (ex.: requête REST asynchrone (login, etc...))
-R Approche POJO (transformation du JSON ou JSONSchema en objet Java lors de la lecture des données reçues par un web service)
-    * http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/
-
 Rapport TFE (+ toutes les entrées marquées R)
 ***********
 
+- Authentication par token (+ header http, etc...)
+- Bus event pour dissocier activité et opérations asynchrones (ex.: requête REST asynchrone (login, etc...))
+- Approche POJO (transformation du JSON ou JSONSchema en objet Java lors de la lecture des données reçues par un web service)
+    * http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/
 - Ajouter un chapitre sur le fonctionnement de Geopy
     * GeoPy utilise les API de google maps, bing maps, etc..., donc plusieurs API en une seule.
     * Fonctionnement d'une query
