@@ -1,5 +1,6 @@
-from rest_framework.authentication import TokenAuthentication
+from django.core.exceptions import ObjectDoesNotExist
 
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -8,10 +9,8 @@ from django.contrib import auth
 from rest_framework.views import APIView
 
 from login.models import TicketsUser
-
-from restserver.serializers import UserSerializer, SimpleTicketSerializer
+from restserver.serializers import UserSerializer, SimpleTicketSerializer, FullTicketSerializer
 from ticketing.models import Ticket
-
 
 class RESTLogin(APIView):
     authentication_classes = (TokenAuthentication,)
@@ -48,6 +47,9 @@ class RESTLogin(APIView):
 
 
 class RESTLogout(APIView):
+    """
+    Classe permettant à l'utilisateur de se déconnecter.
+    """
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated, )
 
@@ -56,6 +58,8 @@ class RESTLogout(APIView):
 
     def __processLogout(self):
         if self.request.user.is_authenticated():
+            # Destruction token?
+            # Déco
             auth.logout(self.request)
             return Response({"disconnected": True})
         else:
@@ -88,7 +92,7 @@ class RESTSimpleTicketList(APIView):
 
         # Si l'user est admin, on ajoute les tickets managés / non managés
         if user.isAdmin():
-            #TODO
+            # TODO
             pass
 
         result = allTickets.filter(fk_reporter__exact=user)
@@ -96,7 +100,26 @@ class RESTSimpleTicketList(APIView):
             tickRedux = SimpleTicketSerializer(tick)
             answer.append(tickRedux.data)
 
-        print(answer)
-
         # return data with tickets corresponding to user position
         return answer
+
+
+class RESTFullTicket(APIView):
+    """
+    Cette classe retourne les informations complètes pour un seul ticket.
+    La primary key du ticket requis est passé dans la requête REST sous l'identifiant "ticketPK".
+    Si cet identifiant n'est pas présent, ou que le ticket n'est pas trouvé dans la DB, retourne une erreur 401.
+    """
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        if "ticketCode" in request.POST:
+            ticketCode = request.POST.get('ticketCode', None)
+            try:
+                ticketObject = Ticket.objects.get(ticket_code=str(ticketCode))
+                serializedTicket = FullTicketSerializer(ticketObject)
+                return Response(serializedTicket.data, status=200)
+            except ObjectDoesNotExist:
+                return Response({"reason": "Ticket not found"}, status=404)
+        return Response({"reason": "Unauthorized action!"}, status=501)

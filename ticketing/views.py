@@ -110,6 +110,8 @@ class CreateTicketView(TemplateView):
 
         t = Ticket()
         t.fk_building_id = batimentID
+        if t.fk_building_id == '':
+            t.fk_building = None
         if(subcategoryID != 'empty'):
             t.fk_category_id = subcategoryID
         else:

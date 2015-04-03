@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'auth', views.RESTLogin.as_view(), name="REST-login"),
     url(r'logout', views.RESTLogout.as_view(), name="REST-logout"),
     url(r'tickets/simple', views.RESTSimpleTicketList.as_view(), name="REST-simple-tickets"),
+    url(r'tickets/full', views.RESTFullTicket.as_view(), name="REST-full-ticket"),
 
 
     # Config

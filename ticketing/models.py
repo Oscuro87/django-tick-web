@@ -155,10 +155,10 @@ class EventCategory(models.Model):
     """
     Représente soit une catégorie, soit une sous-catégorie d'évènement.
     """
-    label = models.CharField(verbose_name=_("Incident label"), max_length=45, blank=False, null=False)
-    visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
     fk_parent_category = models.ForeignKey('self', null=True, blank=True, default=None)
     fk_priority = models.ForeignKey(TicketPriority, null=False)
+    label = models.CharField(verbose_name=_("Incident label"), max_length=45, blank=False, null=False)
+    visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
 
     def __str__(self):
         if self.fk_parent_category is not None:
@@ -215,7 +215,8 @@ class TicketComment(models.Model):
                 send_mail(subject, "", "ticketing.platform@gmail.com", [user.email], fail_silently=False,
                           html_message=message)
             except ConnectionRefusedError as e:
-                print("Cannot send email to commenters, connection to email provider is impossible: \n{}".format(e.__str__()))
+                print("Cannot send email to commenters, connection to email provider is impossible: \n{}".format(
+                    e.__str__()))
 
     def __str__(self):
         return "{} commented on {} for ticket id {})".format(self.fk_commenter.get_full_name(),
@@ -281,33 +282,57 @@ class Ticket(models.Model):
         return code
 
     def __countAmountOfBuildinglessTickets(self):
+        """
+        Compte le nombre de bâtiments sans ticket.
+        """
         return len(Ticket.objects.filter(fk_building__exact=None))
 
     def __countAmountOfTicketsForBuilding(self):
+        """
+        Compte le nombre de tickets pour le bâtiment donné
+        """
         return len(Ticket.objects.filter(fk_building__exact=self.fk_building.pk))
 
     def getTicketHistory(self):
+        """
+        Retourne l'historique du ticket en cours
+        """
         return TicketHistory.objects.filter(fk_ticket=self)
 
     def getAllTicketComments(self):
+        """
+        Retourne l'entièreté des commentaires liés à ce ticket
+        """
         return TicketComment.objects.filter(fk_ticket=self).order_by("-date_created")
 
     def setTicketManager(self, manager):
+        """
+        Change le gestionnaire de ce ticket
+        """
         self.fk_manager = manager
         self.save(reason=_("Assigned to manager: {}".format(manager.get_full_name())))
         return self
 
     def releaseTicketManagement(self):
+        """
+        Enlève la gestion du ticket de son manager
+        """
         self.fk_manager = None
         self.save(reason=_("Manager released ticket management."))
         return self
 
     def changeTicketStatus(self, targetStatus):
+        """
+        Change le statut courant du ticket
+        """
         self.fk_status = targetStatus
         self.save(reason=_("Ticket status changed to {}".format(targetStatus.label)))
         return self
 
     def createComment(self, commenter, message):
+        """
+        Crée un nouveau commentaire pour ce ticket
+        """
         newComment = TicketComment()
         newComment.comment = message
         newComment.fk_commenter = commenter
@@ -319,9 +344,10 @@ class Ticket(models.Model):
         """
         Récupère une liste d'entreprises susceptibles de pouvoir résoudre le problème de ce ticket, en fonction de
             la catégorie et sous-catégorie du ticket.
+        La sélection est ensuite triée par distance par rapport au bâtiment lié à ce ticket, s'il y en a un, sinon l'ordre est aléatoire.
         """
         result = list()
-        unavailableAddressWeight = 1000000000
+        unavailableAddressWeight = 99999
         geopy = GeoPyInterface()
 
         # Pré sélection des entreprises en fonction de la sous-catégorie
@@ -334,7 +360,8 @@ class Ticket(models.Model):
                     result.append((company, unavailableAddressWeight))
                 else:
                     companyAddress = "{} {} {}".format(company.address, company.postcode, company.country)
-                    ticketAddress = "{} {} {}".format(self.fk_building.address, self.fk_building.postcode, self.fk_building.country)
+                    ticketAddress = "{} {} {}".format(self.fk_building.address, self.fk_building.postcode,
+                                                      self.fk_building.country)
                     companyCoords = geopy.findLocationByAddress(companyAddress)
                     ticketCoords = geopy.findLocationByAddress(ticketAddress)
                     if companyCoords["result"] == ResultType.OK and ticketCoords["result"] == ResultType.OK:
@@ -355,6 +382,9 @@ class Ticket(models.Model):
         return sorted(list, key=lambda x: x[1])  # On classe la liste par
 
     def changeCompanyAssignment(self, company_id):
+        """
+        Modifie la compagnie assignée à la gestion du problème lié à ce ticket
+        """
         if company_id == "None":
             self.fk_company = None
         else:
@@ -380,13 +410,14 @@ class TicketHistory(models.Model):
     """
     Représente l'historique ticket dans lequel chaque opération sur un ticket est enregistrée, avec une raison.
     """
-    update_date = models.DateTimeField(verbose_name=_("Updated on..."), blank=True, null=False, auto_now_add=True)
-    update_reason = models.CharField(verbose_name=_("Update reason"), max_length=200, blank=True, null=False,
-                                     default=_("No reason given."))
     fk_ticket = models.ForeignKey(Ticket, null=False, blank=False, on_delete=models.CASCADE)
     fk_ticket_status = models.ForeignKey(TicketStatus, null=False, blank=False)
     fk_manager = models.ForeignKey(TicketsUser, verbose_name=_("Who changed the status"), null=True,
                                    blank=True)
+
+    update_date = models.DateTimeField(verbose_name=_("Updated on..."), blank=True, null=False, auto_now_add=True)
+    update_reason = models.CharField(verbose_name=_("Update reason"), max_length=200, blank=True, null=False,
+                                     default=_("No reason given."))
 
     class Meta:
         verbose_name_plural = "Ticket histories"
