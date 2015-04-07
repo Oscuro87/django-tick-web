@@ -2,6 +2,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.request import Request
 from rest_framework.response import Response
 from django.contrib.auth.models import AnonymousUser
 from django.contrib import auth
@@ -9,7 +10,7 @@ from rest_framework.views import APIView
 
 from login.models import TicketsUser
 from restserver.serializers import UserSerializer, SimpleTicketSerializer, FullTicketSerializer, \
-    TicketCommentDietSerializer, TicketHistoryDietSerializer
+    TicketCommentDietSerializer, TicketHistoryDietSerializer, TicketCommentSerializer, PlainResponseSerializer
 from ticketing.models import Ticket, TicketComment, TicketHistory
 
 
@@ -120,10 +121,11 @@ class RESTFullTicket(APIView):
             try:
                 ticketObject = Ticket.objects.get(ticket_code=str(ticketCode))
                 serializedTicket = FullTicketSerializer(ticketObject)
+                print(serializedTicket.data)
                 return Response(serializedTicket.data, status=200)
             except ObjectDoesNotExist:
-                return Response({"reason": "Ticket not found"}, status=404)
-        return Response({"reason": "Unauthorized action!"}, status=501)
+                return Response({"success": False, "reason": "Ticket not found"}, status=404)
+        return Response({"success": False, "reason": "Unauthorized action!"}, status=501)
 
 
 class RESTFullTicketComment(APIView):
@@ -145,16 +147,27 @@ class RESTFullTicketComment(APIView):
                 serializedComments = TicketCommentDietSerializer(commentsEssentialInfos, many=True)
                 return Response(serializedComments.data, status=200)
             except ObjectDoesNotExist:
-                return Response({"reason": "This ticket does not exist."}, status=404)
-        return Response({"reason": "Invalid send method."}, status=500)
+                return Response({"success": False, "reason": "This ticket does not exist."}, status=404)
+        return Response({"success": False, "reason": "Invalid send method."}, status=500)
 
 
-class RESTPostTicketComment(APIView):
+class RESTCreateTicketComment(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        pass
+        responseData = {}
+        if "commentCreation" in request.data:
+            serializer = TicketCommentSerializer(data=request.data)
+            if(serializer.is_valid(False)):
+                serializer.save()
+                responseData = {"success": True, "reason": "Comment created."}
+            else:
+                responseData = {"success": False, "reason": "The comment was malformed."}
+        else:
+            responseData = {"success": False, "reason": "Problem saving the ticket's comment."}
+        serializedResponseData = PlainResponseSerializer(responseData)
+        return Response(serializedResponseData.data, status=200)
 
 class RESTFullTicketHistory(APIView):
     authentication_classes = (TokenAuthentication,)
@@ -173,9 +186,9 @@ class RESTFullTicketHistory(APIView):
                 serializedHistory = TicketHistoryDietSerializer(historyRedux, many=True)
                 return Response(serializedHistory.data, status=200)
             except ObjectDoesNotExist:
-                return Response({'reason': 'Ticket does not exist.'}, status=404)
+                return Response({'success': False, 'reason': 'Ticket does not exist.'}, status=404)
         else:
-            return Response({"reason": "Invalid method or request."}, status=500)
+            return Response({"success": False, "reason": "Invalid method or request."}, status=500)
 
 
 # Méthodes communes à toutes les classes

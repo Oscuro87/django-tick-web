@@ -88,6 +88,7 @@ class CompanySerializer(serializers.ModelSerializer):
 
 
 class FullTicketSerializer(serializers.ModelSerializer):
+    pk = serializers.IntegerField()
     fk_building = BuildingSerializer(many=False, read_only=True)
     fk_channel = ChannelSerializer(many=False, read_only=True)
     fk_category = CategorySerializer(many=False, read_only=True)
@@ -100,6 +101,7 @@ class FullTicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
         fields = (
+            'pk',
             'fk_building',
             'fk_channel',
             'fk_category',
@@ -111,7 +113,6 @@ class FullTicketSerializer(serializers.ModelSerializer):
             'ticket_code',
             'floor',
             'office',
-            'intervention_date',
             'description',
         )
 
@@ -123,14 +124,14 @@ class TicketCommentDietSerializer(serializers.Serializer):
 
 
 class TicketCommentSerializer(serializers.ModelSerializer):
-    fk_ticket = FullTicketSerializer(many=False, read_only=True)
-    fk_commenter = UserSerializer(many=False, read_only=True)
+    fk_ticket_id = serializers.IntegerField()
+    fk_commenter_id = serializers.IntegerField()
 
     class Meta:
         model = TicketComment
         fields = (
-            'fk_ticket',
-            'fk_commenter',
+            'fk_ticket_id',
+            'fk_commenter_id',
             'date_created',
             'comment',
         )
@@ -156,3 +157,7 @@ class TicketHistorySerializer(serializers.ModelSerializer):
             'update_date',
             'update_reason',
         )
+
+class PlainResponseSerializer(serializers.Serializer):
+    success = serializers.BooleanField()
+    reason = serializers.CharField()

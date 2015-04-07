@@ -69,7 +69,7 @@ class Building(models.Model):
     postcode = models.CharField(verbose_name=_("Postcode"), null=False, blank=False, default="", max_length=10)
     building_name = models.CharField(verbose_name=_("Building name"), max_length=45, blank=False, null=False,
                                      unique=True, default="")
-    building_code = models.CharField(verbose_name=_("Building code"), max_length=10, null=False, blank=False,
+    building_code = models.CharField(verbose_name=_("Building code"), max_length=10, null=False, blank=True,
                                      unique=True, default="")
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
 
@@ -140,7 +140,7 @@ class Company(models.Model):
     phone_number = models.CharField(verbose_name=_("Telephone number"), max_length=45, blank=True, null=True,
                                     default="")
     name = models.CharField(verbose_name=_("Company name"), max_length=45, null=False, blank=False)
-    vat_number = models.CharField(verbose_name=_("VAT Number"), max_length=45, null=True, blank=True, unique=True)
+    vat_number = models.CharField(verbose_name=_("VAT Number"), max_length=45, null=True, blank=True)
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
 
     def __str__(self):
@@ -218,8 +218,11 @@ class TicketComment(models.Model):
                     e.__str__()))
 
     def __str__(self):
-        return "{} commented on {} for ticket id {})".format(self.fk_commenter.get_full_name(),
-            self.date_created.__str__(), self.fk_ticket.ticket_code)
+        if self.fk_commenter is not None:
+            return "{} commented on {} for ticket id {})".format(self.fk_commenter.get_full_name(),
+                self.date_created.__str__(), self.fk_ticket.ticket_code)
+        else:
+            return "Problem"
 
 
 class Ticket(models.Model):
@@ -261,6 +264,8 @@ class Ticket(models.Model):
         th = TicketHistory()
         th.fk_manager = self.fk_manager
         th.fk_ticket = self
+        print(self.fk_status_id)
+        print(self.fk_status)
         th.fk_ticket_status = self.fk_status
         if reason != None:
             th.update_reason = reason
