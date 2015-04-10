@@ -102,7 +102,6 @@
     <table name="login_ticketsuser" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="password" sqlType="VARCHAR(128)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="last_login" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="is_superuser" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="first_name" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="last_name" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
@@ -111,12 +110,13 @@
       <column name="is_active" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="date_joined" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="receive_newsletter" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="last_login" sqlType="DATETIME" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <primary-key columns="id"/>
       <exported-key name="#FAKE_authtoken_token_1" table="authtoken_token" schema="" catalog="" columns="user_id"/>
       <exported-key name="#FAKE_django_admin_log_1" table="django_admin_log" schema="" catalog="" columns="user_id"/>
       <exported-key name="#FAKE_login_ticketsuser_groups_2" table="login_ticketsuser_groups" schema="" catalog="" columns="ticketsuser_id"/>
       <exported-key name="#FAKE_login_ticketsuser_user_permissions_2" table="login_ticketsuser_user_permissions" schema="" catalog="" columns="ticketsuser_id"/>
-      <exported-key name="#FAKE_ticketing_place_2" table="ticketing_place" schema="" catalog="" columns="fk_owner_id"/>
+      <exported-key name="#FAKE_ticketing_place_1" table="ticketing_place" schema="" catalog="" columns="fk_owner_id"/>
       <exported-key name="#FAKE_ticketing_ticket_2" table="ticketing_ticket" schema="" catalog="" columns="fk_reporter_id"/>
       <exported-key name="#FAKE_ticketing_ticket_4" table="ticketing_ticket" schema="" catalog="" columns="fk_manager_id"/>
       <exported-key name="#FAKE_ticketing_ticketcomment_2" table="ticketing_ticketcomment" schema="" catalog="" columns="fk_commenter_id"/>
@@ -153,15 +153,15 @@
     </table>
     <table name="ticketing_building" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="postcode" sqlType="VARCHAR(10)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="address" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="vicinity" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="postcode" sqlType="VARCHAR(10)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="building_name" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="building_code" sqlType="VARCHAR(10)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="visible" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="country" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="vicinity" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <primary-key columns="id"/>
-      <exported-key name="#FAKE_ticketing_place_1" table="ticketing_place" schema="" catalog="" columns="fk_building_id"/>
+      <exported-key name="#FAKE_ticketing_place_2" table="ticketing_place" schema="" catalog="" columns="fk_building_id"/>
       <exported-key name="#FAKE_ticketing_ticket_8" table="ticketing_ticket" schema="" catalog="" columns="fk_building_id"/>
     </table>
     <table name="ticketing_channel" schema="" catalog="" type="TABLE">
@@ -181,18 +181,18 @@
       <column name="country" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="vat_number" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <primary-key columns="id"/>
-      <exported-key name="#FAKE_ticketing_company_fk_suitableEventCategories_1" table="ticketing_company_fk_suitableEventCategories" schema="" catalog="" columns="company_id"/>
+      <exported-key name="#FAKE_ticketing_company_fk_suitableEventCategories_2" table="ticketing_company_fk_suitableEventCategories" schema="" catalog="" columns="company_id"/>
       <exported-key name="#FAKE_ticketing_ticket_5" table="ticketing_ticket" schema="" catalog="" columns="fk_company_id"/>
     </table>
     <table name="ticketing_company_fk_suitableEventCategories" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="eventcategory_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="company_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="eventcategory_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <primary-key columns="id"/>
-      <foreign-key name="#FAKE_ticketing_company_fk_suitableEventCategories_1" columns="company_id" ref-table="ticketing_company" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <foreign-key name="#FAKE_ticketing_company_fk_suitableEventCategories_2" columns="eventcategory_id" ref-table="ticketing_eventcategory" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <index name="ticketing_company_fk_suitableEventCategories_447d3092" unique="true" columns="company_id"/>
+      <foreign-key name="#FAKE_ticketing_company_fk_suitableEventCategories_1" columns="eventcategory_id" ref-table="ticketing_eventcategory" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_ticketing_company_fk_suitableEventCategories_2" columns="company_id" ref-table="ticketing_company" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
       <index name="ticketing_company_fk_suitableEventCategories_6423d5e1" unique="true" columns="eventcategory_id"/>
+      <index name="ticketing_company_fk_suitableEventCategories_447d3092" unique="true" columns="company_id"/>
     </table>
     <table name="ticketing_eventcategory" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
@@ -203,7 +203,7 @@
       <primary-key columns="id"/>
       <foreign-key name="#FAKE_ticketing_eventcategory_1" columns="fk_priority_id" ref-table="ticketing_ticketpriority" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
       <foreign-key name="#FAKE_ticketing_eventcategory_2" columns="fk_parent_category_id" ref-table="ticketing_eventcategory" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <exported-key name="#FAKE_ticketing_company_fk_suitableEventCategories_2" table="ticketing_company_fk_suitableEventCategories" schema="" catalog="" columns="eventcategory_id"/>
+      <exported-key name="#FAKE_ticketing_company_fk_suitableEventCategories_1" table="ticketing_company_fk_suitableEventCategories" schema="" catalog="" columns="eventcategory_id"/>
       <exported-key name="#FAKE_ticketing_eventcategory_2" table="ticketing_eventcategory" schema="" catalog="" columns="fk_parent_category_id"/>
       <exported-key name="#FAKE_ticketing_ticket_7" table="ticketing_ticket" schema="" catalog="" columns="fk_category_id"/>
       <index name="ticketing_eventcategory_410f5907" unique="true" columns="fk_priority_id"/>
@@ -211,12 +211,13 @@
     </table>
     <table name="ticketing_place" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="fk_owner_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="visible" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="fk_building_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="fk_owner_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <primary-key columns="id"/>
-      <foreign-key name="#FAKE_ticketing_place_1" columns="fk_building_id" ref-table="ticketing_building" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <foreign-key name="#FAKE_ticketing_place_2" columns="fk_owner_id" ref-table="login_ticketsuser" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_ticketing_place_1" columns="fk_owner_id" ref-table="login_ticketsuser" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_ticketing_place_2" columns="fk_building_id" ref-table="ticketing_building" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="ticketing_place_bd5f89c7" unique="true" columns="fk_owner_id"/>
       <index name="ticketing_place_a774be59" unique="true" columns="fk_building_id"/>
     </table>
     <table name="ticketing_ticket" schema="" catalog="" type="TABLE">
@@ -235,6 +236,7 @@
       <column name="fk_priority_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="fk_reporter_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="fk_status_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="image_folder_name" sqlType="VARCHAR(128)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <primary-key columns="id"/>
       <foreign-key name="#FAKE_ticketing_ticket_1" columns="fk_status_id" ref-table="ticketing_ticketstatus" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
       <foreign-key name="#FAKE_ticketing_ticket_2" columns="fk_reporter_id" ref-table="login_ticketsuser" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>

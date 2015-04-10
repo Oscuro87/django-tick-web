@@ -1,8 +1,9 @@
 from django.core.exceptions import ObjectDoesNotExist
+
+from django.db import IntegrityError
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.request import Request
 from rest_framework.response import Response
 from django.contrib.auth.models import AnonymousUser
 from django.contrib import auth
@@ -10,8 +11,9 @@ from rest_framework.views import APIView
 
 from login.models import TicketsUser
 from restserver.serializers import UserSerializer, SimpleTicketSerializer, FullTicketSerializer, \
-    TicketCommentDietSerializer, TicketHistoryDietSerializer, TicketCommentSerializer, PlainResponseSerializer
-from ticketing.models import Ticket, TicketComment, TicketHistory
+    TicketCommentDietSerializer, TicketHistoryDietSerializer, TicketCommentSerializer, PlainResponseSerializer, \
+    NewBuildingSerializer, CategorySerializer, BuildingSerializer
+from ticketing.models import Ticket, TicketComment, TicketHistory, Place, EventCategory, Building
 
 
 class RESTLogin(APIView):
@@ -88,6 +90,7 @@ class RESTSimpleTicketList(APIView):
         return Response(data)
 
     def __gatherUserTickets(self, user):
+        #TODO: Refaire la façon dont sont envoyés les tickets simplifiés
         assert isinstance(user, TicketsUser)
         answer = []
         allTickets = Ticket.objects.all()
@@ -142,7 +145,8 @@ class RESTFullTicketComment(APIView):
                 commentsEssentialInfos = list()
                 for comm in commentsQueryset.all():
                     assert isinstance(comm, TicketComment)
-                    comment = {"comment": comm.comment, "date_created": comm.date_created, "commenter_name": comm.fk_commenter.get_full_name()}
+                    comment = {"comment": comm.comment, "date_created": comm.date_created,
+                               "commenter_name": comm.fk_commenter.get_full_name()}
                     commentsEssentialInfos.append(comment)
                 serializedComments = TicketCommentDietSerializer(commentsEssentialInfos, many=True)
                 return Response(serializedComments.data, status=200)
@@ -159,7 +163,7 @@ class RESTCreateTicketComment(APIView):
         responseData = {}
         if "commentCreation" in request.data:
             serializer = TicketCommentSerializer(data=request.data)
-            if(serializer.is_valid(False)):
+            if (serializer.is_valid(False)):
                 serializer.save()
                 responseData = {"success": True, "reason": "Comment created."}
             else:
@@ -168,6 +172,7 @@ class RESTCreateTicketComment(APIView):
             responseData = {"success": False, "reason": "Problem saving the ticket's comment."}
         serializedResponseData = PlainResponseSerializer(responseData)
         return Response(serializedResponseData.data, status=200)
+
 
 class RESTFullTicketHistory(APIView):
     authentication_classes = (TokenAuthentication,)
@@ -181,7 +186,8 @@ class RESTFullTicketHistory(APIView):
                 historyQueryset = TicketHistory.objects.filter(fk_ticket=pk).order_by('-update_date')[:10]
                 historyRedux = list()
                 for hist in historyQueryset.all():
-                    history = {"new_status": hist.fk_ticket_status.label, "update_date": hist.update_date, "update_reason": hist.update_reason}
+                    history = {"new_status": hist.fk_ticket_status.label, "update_date": hist.update_date,
+                               "update_reason": hist.update_reason}
                     historyRedux.append(history)
                 serializedHistory = TicketHistoryDietSerializer(historyRedux, many=True)
                 return Response(serializedHistory.data, status=200)
@@ -191,11 +197,76 @@ class RESTFullTicketHistory(APIView):
             return Response({"success": False, "reason": "Invalid method or request."}, status=500)
 
 
+class RESTCreateBuilding(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        data = request.data
+        serializedBuilding = NewBuildingSerializer(data=request.data)
+        try:
+            if serializedBuilding.is_valid():
+                place = Place()
+                savedBuilding = serializedBuilding.save()
+                place.fk_building = savedBuilding
+                place.fk_owner = request.user
+                place.save()
+                print(request.user)
+                return Response({"success": True, "reason": "Building created."}, status=200)
+            else:
+                reasons = ""
+                print(serializedBuilding.errors)
+                for key, errorMessage in serializedBuilding.errors.items():
+                    reasons += "{} : {}\n".format(key, errorMessage[0])
+                return Response({"success": False, "reason": reasons}, status=200)
+        except IntegrityError as ie:
+            return Response({"success": False, "reason": "{}".format(ie.__cause__)}, status=200)
+
+
+class RESTQueryCategories(APIView):
+    authentication_classes = ()
+    permission_classes = ()
+
+    def get(self, request):
+        result = self.__gatherCategories()
+        return Response(result, status=200)
+
+    def __gatherCategories(self):
+        categories = EventCategory.objects.filter(fk_parent_category=None)
+        subcategories = EventCategory.objects.all().exclude(fk_parent_category=None)
+        result = {"categories": list(), "subcategories": list()}
+        for cat in categories:
+            result["categories"].append(CategorySerializer(cat).data)
+        for subcat in subcategories:
+            result["subcategories"].append(CategorySerializer(subcat).data)
+        return result
+
+
+class RESTQueryAllBuildings(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        buildings = self.__gatherUserBuildings()
+        return Response(buildings, status=200)
+
+
+    def __gatherUserBuildings(self):
+        places = Place.objects.filter(fk_owner=self.request.user).exclude(visible=False)
+        results = {"buildings": list()}
+
+        for place in places.all():
+            serialized = BuildingSerializer(place.fk_building)
+            print(serialized.data)
+            results["buildings"].append(serialized.data)
+        return results
+
+
 # Méthodes communes à toutes les classes
 
 
 def _getTicketPKByCode(ticketCode):
-        if ticketCode is None:
-            return None
-        else:
-            return Ticket.objects.get(ticket_code=ticketCode).pk
+    if ticketCode is None:
+        return None
+    else:
+        return Ticket.objects.get(ticket_code=ticketCode).pk

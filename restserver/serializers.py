@@ -28,8 +28,20 @@ class SimpleTicketSerializer(serializers.ModelSerializer):
 
 
 class BuildingSerializer(serializers.ModelSerializer):
-    #country = CountryField()
+    class Meta:
+        model = Building
+        fields = (
+            'id',
+            'country',
+            'address',
+            'vicinity',
+            'postcode',
+            'building_name',
+            'building_code',
+        )
 
+
+class NewBuildingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Building
         fields = (
@@ -37,6 +49,14 @@ class BuildingSerializer(serializers.ModelSerializer):
             'address',
             'vicinity',
             'postcode',
+            'building_name',
+        )
+
+class DietBuildingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Building
+        fields = (
+            'id',
             'building_name',
             'building_code',
         )
@@ -64,11 +84,13 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = EventCategory
         fields = (
+            'id',
             'fk_parent_category',
             'fk_priority',
             'label',
         )
-        depth = 1
+        depth = 2
+
 
 class CompanySerializer(serializers.ModelSerializer):
     fk_suitableEventCategories = CategorySerializer(many=True, read_only=True)
@@ -89,7 +111,7 @@ class CompanySerializer(serializers.ModelSerializer):
 
 class FullTicketSerializer(serializers.ModelSerializer):
     pk = serializers.IntegerField()
-    fk_building = BuildingSerializer(many=False, read_only=True)
+    fk_building = NewBuildingSerializer(many=False, read_only=True)
     fk_channel = ChannelSerializer(many=False, read_only=True)
     fk_category = CategorySerializer(many=False, read_only=True)
     fk_reporter = UserSerializer(many=False, read_only=True)

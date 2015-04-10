@@ -1,3 +1,4 @@
+import os
 from django.db import models
 from django.utils.translation import ugettext as _
 from django_countries.fields import CountryField
@@ -63,10 +64,10 @@ class Building(models.Model):
     """
     Représente un bâtiment dans lequel un ou plusieurs utilisateurs se trouvent.
     """
-    country = CountryField()
+    country = CountryField(null=False)
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
-    vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
-    postcode = models.CharField(verbose_name=_("Postcode"), null=False, blank=False, default="", max_length=10)
+    vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=True, null=True, default="")
+    postcode = models.CharField(verbose_name=_("Postcode"), null=True, blank=True, default="", max_length=10)
     building_name = models.CharField(verbose_name=_("Building name"), max_length=45, blank=False, null=False,
                                      unique=True, default="")
     building_code = models.CharField(verbose_name=_("Building code"), max_length=10, null=False, blank=True,
@@ -75,10 +76,14 @@ class Building(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
+
         super().save(force_insert, force_update, using, update_fields)
+
         while self.building_code == "":
             self.building_code = self.createCode()
             self.save()
+
+        return self
 
     def createCode(self):
         result = self.building_code
@@ -103,8 +108,8 @@ class Place(models.Model):
     """
     Fais le lien entre un utilisateur et un bâtiment.
     """
-    fk_building = models.ForeignKey(Building)
-    fk_owner = models.OneToOneField(TicketsUser)
+    fk_building = models.ForeignKey(Building, unique=False, null=False, blank=False)
+    fk_owner = models.ForeignKey(TicketsUser, unique=False, null=False, blank=False)
     visible = models.BooleanField(verbose_name=_("Is visible?"), default=True, null=False, blank=False)
 
     def __str__(self):
@@ -240,6 +245,7 @@ class Ticket(models.Model):
                                    blank=True)
     fk_company = models.ForeignKey(Company, verbose_name=_("Company"), null=True, blank=True)
 
+    image_folder_name = models.CharField(verbose_name=_("Name of this ticket's images folder"), max_length=128, null=True, blank=True)
     ticket_code = models.CharField(verbose_name=_("Ticket code"), max_length=10, null=False, blank=True, unique=True)
     floor = models.CharField(max_length=45, null=True, blank=True, default="")
     office = models.CharField(max_length=45, null=True, blank=True, default="")
@@ -259,6 +265,9 @@ class Ticket(models.Model):
         if not self.ticket_code:
             self.ticket_code = self.__generateTicketCode()
 
+        if self.image_folder_name == "":
+            self.createTicketImageFolder()
+
         super(Ticket, self).save(*args, **kwargs)
 
         th = TicketHistory()
@@ -270,6 +279,11 @@ class Ticket(models.Model):
         if reason != None:
             th.update_reason = reason
         th.save()
+
+    def createTicketImageFolder(self):
+        newFolderName = "{}{}".format(settings.MY_ANDROID_PICTURES_PATH, self.ticket_code)
+        os.makedirs(newFolderName, exist_ok=True)
+        self.image_folder_name = newFolderName
 
 
     def __generateTicketCode(self):

@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.templatetags.static import static
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 from django.contrib.messages import constants as messages_constants
@@ -154,4 +156,4 @@ MY_EMAIL_SITE_LINK = "127.0.0.1/home/"
 # Est-ce que les nouveaux comptes créés manuellement sont acceptés? (défaut: False)
 MY_REGISTRATION_ENABLED = False
 # PATH du dossier racine pour les images tickets postées via Android
-MY_ANDROID_PICTURES_PATH = "restserver/static/restserver/android/pictures"
+MY_ANDROID_PICTURES_PATH = static('ticketing/tickets-media/')
