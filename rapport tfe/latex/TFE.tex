@@ -1,7 +1,6 @@
 
 \documentclass[12pt,table,a4paper]{report}
 \usepackage{lmodern}
-\usepackage[tmargin=1.25in,bmargin=1.25in,lmargin=1.25in,rmargin=1.25in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fancyhdr}
@@ -156,26 +155,59 @@ Il est donc sage de penser à la migration depuis une base de donnée type SQLit
 \section{Solution de gestion des tickets existante}
 
 \subsection{Présentation du système de ticketing}
+Cette plateforme de ticketing a été réalisée lors de mon stage en entreprise.
+
+Son utilité principale consiste en la mise en relation de différents protagonistes pour la résolution de problèmes présents sur le lieu d'habitation des utilisateurs de cette plateforme.
+
+Son implémentation a été pensée de telle sorte que l'utilisateur de la plateforme puisse trouver une entreprise susceptible de pouvoir résoudre son problème.
 
 \subsection{Structure organisationnelle de l'application}
 
-\subsection{Étude de la plateforme existante}
-
 \subsection{Critique de la plateforme existante}
+Cette plateforme ne se basait que sur des catégories et sous-catégories d'incidents, et souvent, une entreprise assignée à tel incident se trouvait beaucoup plus loin géographiquement qu'une autre entreprise pouvant résoudre le même type de problème.
+
+De plus, les performances au niveau de la vitesse d'exécution de la plateforme laissait à désirer, il fallait souvent attendre plusieurs secondes avant de pouvoir accéder à la page web désirée.
+
+Finalement, l'architecture mise en place côté plateforme web nous a bloqué lorsque le client nous a demandé de développer un webservice, dans le but de créer une application Android travaillant de paire avec le site web.
 
 \section{Conception de la nouvelle solution}
-
-\subsection{Dictionnaire de données}
+C'est avec les différents problèmes énoncés lors de la section précédente en tête que je me suis mis à développer un système de ticketing et son application Android, tout en utilisant une approche différente de celle adoptée lors de mon stage en entreprise.
 
 \subsection{Flux d'information}
+Je vais diviser cette section en deux parties distinctes, car il existe deux flux distincts d'informations: Le flux d'information interne au site web, et celui utilisé par l'application Android via le webservice implémenté aux côtés du site web.
+
+\subsubsection{Flux d'information du site web}
+
+\subsubsection{Flux d'information entre le webservice et l'application Android}
 
 \subsection{Analyse UML de l'application conçue}
 
-\subsection{La base de données utilisées par les applications}
+\subsection{La base de données utilisée par les applications}
 
-\subsection{Analyse de l'application Android}
+\subsubsection{Dictionnaire de données}
+Cette partie va vous présenter les différentes données utilisées dans la base de données unique de l'application.
+
+\subsubsection{Schéma de la base de données}
+
+\section{Analyse de l'application Android}
+
+\subsection{Pourquoi une application Android?}
+Dans un monde où la population bouge beaucoup, il est important pour une application de pouvoir être disponible n'importe où, et à n'importe quel moment.
+
+Cette application permet aux utilisateurs de la plateforme de pouvoir gérer et être mis à jour de l'avancement de son ou ses ticket(s) en cours.
+
+\subsection{Flow de l'application Android}
+Cette section va parler du flow suivi par un utilisateur et par un gestionnaire lorsqu'il utilise l'application Android.
+
+\subsection{Client REST}
+Le client REST est implémenté côté application Android afin de communiquer avec un webservice, qui est le plus souvent un serveur REST implémenté à côté d'un site web.
+
+\subsection{Mise en place d'un bus d'évènements}
 
 \chapter{Conclusion}
+J'ai énormément appris lors de mon stage, ainsi que lors de l'implémentation de ce site web et de son application Android.
+
+Je n'avais jamais essayé d'implémenter un site web en python, ni implémenté de web service. Android était aussi pour moi une grande inconnue.
 
 
 \end{document}

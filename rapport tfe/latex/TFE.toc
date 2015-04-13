@@ -1,31 +1,37 @@
 \select@language {french}
 \contentsline {chapter}{\numberline {1}Introduction}{2}
 \contentsline {section}{\numberline {1.1}\IeC {\'E}tat de la question}{2}
-\contentsline {section}{\numberline {1.2}D\IeC {\'e}limitation du projet}{2}
+\contentsline {section}{\numberline {1.2}D\IeC {\'e}limitation du projet}{3}
 \contentsline {section}{\numberline {1.3}D\IeC {\'e}finition de quelques concepts}{3}
 \contentsline {chapter}{\numberline {2}Approche th\IeC {\'e}orique et technique}{4}
 \contentsline {section}{\numberline {2.1}Outils et m\IeC {\'e}thodes utilis\IeC {\'e}s}{4}
 \contentsline {section}{\numberline {2.2}Langage de programmation utilis\IeC {\'e}: Python}{4}
-\contentsline {section}{\numberline {2.3}Le framework utilis\IeC {\'e}: Django}{4}
+\contentsline {section}{\numberline {2.3}Le framework utilis\IeC {\'e}: Django}{5}
 \contentsline {subsection}{\numberline {2.3.1}Pourquoi Django?}{5}
 \contentsline {subsection}{\numberline {2.3.2}Fonctionnement de Django}{5}
 \contentsline {subsubsection}{D\IeC {\'e}ploiement rapide d'application}{5}
 \contentsline {subsubsection}{Architecture web d\IeC {\'e}coupl\IeC {\'e}e}{5}
-\contentsline {subsubsection}{Architecture MVC}{5}
+\contentsline {subsubsection}{Architecture MVC}{6}
 \contentsline {subsubsection}{Les mod\IeC {\`e}les: Un ORM tr\IeC {\`e}s efficace}{6}
 \contentsline {subsubsection}{Les vues}{6}
 \contentsline {subsubsection}{Les contr\IeC {\^o}leurs}{6}
-\contentsline {subsection}{\numberline {2.3.3}SQLite versus MySQL}{6}
-\contentsline {chapter}{\numberline {3}Impl\IeC {\'e}mentation des diff\IeC {\'e}rentes applications}{7}
-\contentsline {section}{\numberline {3.1}Solution de gestion des tickets existante}{7}
-\contentsline {subsection}{\numberline {3.1.1}Pr\IeC {\'e}sentation du syst\IeC {\`e}me de ticketing}{7}
-\contentsline {subsection}{\numberline {3.1.2}Structure organisationnelle de l'application}{7}
-\contentsline {subsection}{\numberline {3.1.3}\IeC {\'E}tude de la plateforme existante}{7}
-\contentsline {subsection}{\numberline {3.1.4}Critique de la plateforme existante}{7}
-\contentsline {section}{\numberline {3.2}Conception de la nouvelle solution}{7}
-\contentsline {subsection}{\numberline {3.2.1}Dictionnaire de donn\IeC {\'e}es}{7}
-\contentsline {subsection}{\numberline {3.2.2}Flux d'information}{7}
-\contentsline {subsection}{\numberline {3.2.3}Analyse UML de l'application con\IeC {\c c}ue}{7}
-\contentsline {subsection}{\numberline {3.2.4}La base de donn\IeC {\'e}es utilis\IeC {\'e}es par les applications}{7}
-\contentsline {subsection}{\numberline {3.2.5}Analyse de l'application Android}{7}
-\contentsline {chapter}{\numberline {4}Conclusion}{8}
+\contentsline {subsection}{\numberline {2.3.3}SQLite versus MySQL}{7}
+\contentsline {chapter}{\numberline {3}Impl\IeC {\'e}mentation des diff\IeC {\'e}rentes applications}{8}
+\contentsline {section}{\numberline {3.1}Solution de gestion des tickets existante}{8}
+\contentsline {subsection}{\numberline {3.1.1}Pr\IeC {\'e}sentation du syst\IeC {\`e}me de ticketing}{8}
+\contentsline {subsection}{\numberline {3.1.2}Structure organisationnelle de l'application}{8}
+\contentsline {subsection}{\numberline {3.1.3}Critique de la plateforme existante}{8}
+\contentsline {section}{\numberline {3.2}Conception de la nouvelle solution}{9}
+\contentsline {subsection}{\numberline {3.2.1}Flux d'information}{9}
+\contentsline {subsubsection}{Flux d'information du site web}{9}
+\contentsline {subsubsection}{Flux d'information entre le webservice et l'application Android}{9}
+\contentsline {subsection}{\numberline {3.2.2}Analyse UML de l'application con\IeC {\c c}ue}{9}
+\contentsline {subsection}{\numberline {3.2.3}La base de donn\IeC {\'e}es utilis\IeC {\'e}e par les applications}{9}
+\contentsline {subsubsection}{Dictionnaire de donn\IeC {\'e}es}{9}
+\contentsline {subsubsection}{Sch\IeC {\'e}ma de la base de donn\IeC {\'e}es}{9}
+\contentsline {section}{\numberline {3.3}Analyse de l'application Android}{9}
+\contentsline {subsection}{\numberline {3.3.1}Pourquoi une application Android?}{9}
+\contentsline {subsection}{\numberline {3.3.2}Flow de l'application Android}{10}
+\contentsline {subsection}{\numberline {3.3.3}Client REST}{10}
+\contentsline {subsection}{\numberline {3.3.4}Mise en place d'un bus d'\IeC {\'e}v\IeC {\`e}nements}{10}
+\contentsline {chapter}{\numberline {4}Conclusion}{11}

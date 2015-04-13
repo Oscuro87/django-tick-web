@@ -110,7 +110,7 @@ class CompanySerializer(serializers.ModelSerializer):
 
 
 class FullTicketSerializer(serializers.ModelSerializer):
-    pk = serializers.IntegerField()
+    id = serializers.IntegerField()
     fk_building = NewBuildingSerializer(many=False, read_only=True)
     fk_channel = ChannelSerializer(many=False, read_only=True)
     fk_category = CategorySerializer(many=False, read_only=True)
@@ -123,7 +123,7 @@ class FullTicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
         fields = (
-            'pk',
+            'id',
             'fk_building',
             'fk_channel',
             'fk_category',
@@ -136,6 +136,15 @@ class FullTicketSerializer(serializers.ModelSerializer):
             'floor',
             'office',
             'description',
+        )
+
+
+class NewTicketSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ticket
+        fields = (
+            'fk_category',
+
         )
 
 

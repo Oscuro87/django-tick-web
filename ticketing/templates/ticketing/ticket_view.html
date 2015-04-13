@@ -93,6 +93,14 @@
                             {% endif %}
                         </td>
                     </tr>
+                    {% if ticket.fk_company != None %}
+                    <tr>
+                        <td>{% trans "Company phone number" %}</td>
+                    <td>
+                        {{ ticket.fk_company.phone_number }}
+                    </td>
+                    </tr>
+                    {% endif %}
                     <tr>
                         <td>{% trans "Way of creation" %}</td>
                         <td>{{ ticket.fk_channel.label }}</td>
@@ -115,10 +123,10 @@
 
                 <p><input type="submit" name="ticket-release" value="{% trans "Release ticket management" %}"
                           class="btn btn-sm btn-danger"></p>
-                {% if ticket.fk_status_id == 1 %}
+                {% if ticket.fk_status.label == "Open" %}
                     <p><input type="submit" name="ticket-to-inProgress" value="{% trans "Put ticket in progress" %}"
                               class="btn btn-sm btn-info"></p>
-                {% elif ticket.fk_status_id == 2 %}
+                {% elif ticket.fk_status.label == "In progress" %}
                     <p><input type="submit" name="ticket-to-closed" value="{% trans "Close ticket" %}"
                               class="btn btn-sm btn-info"></p>
                 {% endif %}

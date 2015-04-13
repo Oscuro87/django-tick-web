@@ -264,6 +264,8 @@ class Ticket(models.Model):
 
         if not self.ticket_code:
             self.ticket_code = self.__generateTicketCode()
+            if reason is None:
+                reason = _("Creating new ticket")
 
         if self.image_folder_name == "":
             self.createTicketImageFolder()
@@ -373,7 +375,7 @@ class Ticket(models.Model):
 
         # Ensuite filtrer les entreprises en fonction de la distance en utilisant geopy
         for company in preselection_subcat.all():
-            if self.fk_building != None:
+            if self.fk_building is not None:
                 if company.address is None:
                     result.append((company, unavailableAddressWeight))
                 else:

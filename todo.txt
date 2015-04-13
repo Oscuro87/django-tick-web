@@ -28,8 +28,9 @@ GeoPy
 SITE
 ****
 
-- Permettre de changer l'assignation d'une entreprise à un ticket via vue ticket (manager+ only)
-    * Besoin de l'intégration de GeoPy (google api) pour la distance
+- Ajouter numero de telephone à:
+	* Utilisateurs
+	* Entreprises
 - Permettre le changement de catégorie sur la vue ticket
     * Attention à la sous catégorie... (la mettre à null si catégorie parente est changée)
 - Faire en sorte que le formulaire de contact fonctionne vraiment
@@ -40,6 +41,8 @@ SITE
     * Backend
 - Débroussailler le code en général (best practices, etc...)
 
+V Permettre de changer l'assignation d'une entreprise à un ticket via vue ticket (manager+ only)
+    * Besoin de l'intégration de GeoPy (google api) pour la distance
 V Préparer le serveur REST pour Android
     * Pistes:
         V --> django rest framework : http://www.django-rest-framework.org/
