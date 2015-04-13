@@ -1,7 +1,5 @@
 {% extends 'common/base.html' %}
-
 {% load staticfiles %}
-
 {% load django_bootstrap_breadcrumbs %}
 
 {% block title %}
@@ -46,9 +44,11 @@
                         <td>{{ loginform.password }}</td>
                     </tr>
                     <tr>
+                        {% if registrationActive %}
                         <td>
                             <input type="button" value="Register" name="registerSwitch" class="btn btn-info" />
                         </td>
+                        {% endif %}
                         <td>
                             <input type="submit" value="Connection" name="loginGo"
                                    class="btn btn-success" />

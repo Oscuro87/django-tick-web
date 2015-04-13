@@ -4,6 +4,8 @@ from login.forms import LoginForm
 from django.contrib import auth
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from tickets import settings
+
 
 class LoginView(TemplateView):
     template_name = "login/login.html"
@@ -31,6 +33,7 @@ class LoginView(TemplateView):
         data = dict()
         loginForm = LoginForm()
 
+        data['registrationActive'] = settings.MY_REGISTRATION_ENABLED
         data['user_feedback'] = []
         data['loginform'] = loginForm
 
