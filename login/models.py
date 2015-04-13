@@ -55,6 +55,7 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
                                     help_text=_(
                                         'Designates whether this user should be treated as active. Unselect this instead of deleting accounts.'))
     date_joined = models.DateTimeField(verbose_name=_('date joined'), default=timezone.now)
+    phone_number = models.CharField(verbose_name="User phone number", max_length=64, null=True, blank=True)
     receive_newsletter = models.BooleanField(verbose_name=_('receive newsletter'), default=False)
 
     USERNAME_FIELD = 'email'

@@ -108,8 +108,8 @@ class Place(models.Model):
     """
     Fais le lien entre un utilisateur et un bâtiment.
     """
-    fk_building = models.ForeignKey(Building, unique=False, null=False, blank=False)
-    fk_owner = models.ForeignKey(TicketsUser, unique=False, null=False, blank=False)
+    fk_building = models.ForeignKey(Building, verbose_name="Building", unique=False, null=False, blank=False)
+    fk_owner = models.ForeignKey(TicketsUser, verbose_name="Owner", unique=False, null=False, blank=False)
     visible = models.BooleanField(verbose_name=_("Is visible?"), default=True, null=False, blank=False)
 
     def __str__(self):
@@ -149,7 +149,7 @@ class Company(models.Model):
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
 
     def __str__(self):
-        return "{} ({})".format(self.name, self.vat_number)
+        return "{} | VAT: {} | Phone: {}".format(self.name, self.vat_number, self.phone_number)
 
     class Meta:
         verbose_name_plural = "Companies"
@@ -159,8 +159,8 @@ class EventCategory(models.Model):
     """
     Représente soit une catégorie, soit une sous-catégorie d'évènement.
     """
-    fk_parent_category = models.ForeignKey('self', null=True, blank=True, default=None)
-    fk_priority = models.ForeignKey(TicketPriority, null=False)
+    fk_parent_category = models.ForeignKey('self', verbose_name="Parent category", null=True, blank=True, default=None)
+    fk_priority = models.ForeignKey(TicketPriority, verbose_name="Priority", null=False)
     label = models.CharField(verbose_name=_("Incident label"), max_length=45, blank=False, null=False)
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
 

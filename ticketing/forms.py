@@ -4,7 +4,7 @@ from django import forms
 from django.utils.translation import ugettext as _
 from django_countries.widgets import CountrySelectWidget
 from login.models import TicketsUserManager
-from ticketing.models import CompanyManager, BuildingManager
+from ticketing.models import CompanyManager, BuildingManager, EventCategory
 from ticketing.models import Building
 
 
@@ -34,6 +34,7 @@ class BuildingCreationForm(forms.ModelForm):
             'building_name': _('Name of the building'),
         }
 
+############### Admin forms ######################
 class TicketAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -42,3 +43,9 @@ class TicketAdminForm(forms.ModelForm):
         compMan = CompanyManager()
         self.fields['fk_manager'].queryset = tum.get_managers_only()
         #self.fields['fk_reporter'].queryset = bm.get_users_for_building(self.fields['fk_building'])
+
+
+class EventCategoryAdminForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['fk_parent_category'].queryset = EventCategory.objects.filter(fk_parent_category=None)
