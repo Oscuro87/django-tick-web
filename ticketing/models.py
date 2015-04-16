@@ -148,7 +148,7 @@ class Company(models.Model):
     """
     fk_suitableEventCategories = models.ManyToManyField("EventCategory", verbose_name=_("Suitable Event Categories"),
                                                         blank=True)
-    country = CountryField()
+    country = CountryField(verbose_name=_("Country"))
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=True, null=True, default="")
     city = models.CharField(verbose_name=_("City name"), max_length=60, blank=False, null=False, default="")

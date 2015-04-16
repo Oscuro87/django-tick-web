@@ -2,27 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="fc2e5f00-34be-4d62-aa84-8c5c858a7b92" name="Default" comment="" />
-    <list default="true" id="b83010bc-e56a-4afa-b633-3d4a49d52834" name="Registration system" comment="Registration system fonctionnel">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rapport tfe/latex/images/ticket-routeur-racine.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rapport tfe/latex/images/ticket-routeur-secondaire.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/login/migrations/0006_auto_20150416_2028.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/login/migrations/0007_ticketsuser_fk_entreprise.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/login/migrations/0008_auto_20150416_2133.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ticketing/migrations/0021_auto_20150416_2148.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ticketing/templates/ticketing/update_company_view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rapport tfe/latex/TFE.dvi" afterPath="$PROJECT_DIR$/rapport tfe/latex/TFE.dvi" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rapport tfe/latex/TFE.tex" afterPath="$PROJECT_DIR$/rapport tfe/latex/TFE.tex" />
+    <list default="true" id="b83010bc-e56a-4afa-b633-3d4a49d52834" name="Registration system" comment="Fichiers fous">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ticketing/migrations/0022_auto_20150416_2233.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rapport tfe/latex/TFE.aux" afterPath="$PROJECT_DIR$/rapport tfe/latex/TFE.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rapport tfe/latex/TFE.log" afterPath="$PROJECT_DIR$/rapport tfe/latex/TFE.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rapport tfe/latex/TFE.toc" afterPath="$PROJECT_DIR$/rapport tfe/latex/TFE.toc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/forms.py" afterPath="$PROJECT_DIR$/ticketing/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/templates/ticketing/index.html" afterPath="$PROJECT_DIR$/ticketing/templates/ticketing/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/models.py" afterPath="$PROJECT_DIR$/login/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/templates/login/login.html" afterPath="$PROJECT_DIR$/login/templates/login/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/models.py" afterPath="$PROJECT_DIR$/ticketing/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tickets/settings.py" afterPath="$PROJECT_DIR$/tickets/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/urls.py" afterPath="$PROJECT_DIR$/ticketing/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/views.py" afterPath="$PROJECT_DIR$/ticketing/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/templates/login/register.html" afterPath="$PROJECT_DIR$/login/templates/login/register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tickets.iws" />
@@ -77,11 +66,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ticketing/views.py">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ticketing/templates/ticketing/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21367522" vertical-offset="6123" max-vertical-offset="7315">
-              <caret line="369" column="91" selection-start-line="369" selection-start-column="91" selection-end-line="369" selection-end-column="91" />
+            <state vertical-scroll-proportion="-12.961538" vertical-offset="921" max-vertical-offset="3265">
+              <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/templates/login/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.692307" vertical-offset="510" max-vertical-offset="1769">
+              <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="django.po" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.44444445" vertical-offset="1371" max-vertical-offset="13826">
+              <caret line="99" column="15" selection-start-line="99" selection-start-column="15" selection-end-line="99" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/templates/login/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.730769" vertical-offset="136" max-vertical-offset="1654">
+              <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ticketing/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2067">
+              <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -90,61 +121,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticketing/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6395" max-vertical-offset="8629">
-              <caret line="395" column="104" selection-start-line="395" selection-start-column="104" selection-end-line="395" selection-end-column="104" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticketing/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="1880">
-              <caret line="52" column="69" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update_company_view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticketing/templates/ticketing/update_company_view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.346153" vertical-offset="305" max-vertical-offset="1582">
-              <caret line="46" column="71" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="71" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticketing/templates/ticketing/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.384615" vertical-offset="241" max-vertical-offset="3112">
-              <caret line="27" column="130" selection-start-line="27" selection-start-column="130" selection-end-line="27" selection-end-column="130" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="530" max-vertical-offset="2492">
-              <caret line="47" column="14" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticketing/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="877">
-              <caret line="4" column="54" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2264" max-vertical-offset="8629">
+              <caret line="150" column="53" selection-start-line="150" selection-start-column="53" selection-end-line="150" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -201,19 +179,19 @@
         <option value="$PROJECT_DIR$/geolocation/GeoPyInterface.py" />
         <option value="$PROJECT_DIR$/ticketing/templates/ticketing/ticket_view.html" />
         <option value="$PROJECT_DIR$/login/urls.py" />
-        <option value="$PROJECT_DIR$/login/templates/login/register.html" />
-        <option value="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po" />
         <option value="$PROJECT_DIR$/login/views.py" />
-        <option value="$PROJECT_DIR$/login/templates/login/login.html" />
         <option value="$PROJECT_DIR$/login/migrations/0007_ticketsuser_fk_entreprise.py" />
         <option value="$PROJECT_DIR$/login/models.py" />
         <option value="$PROJECT_DIR$/ticketing/urls.py" />
-        <option value="$PROJECT_DIR$/ticketing/templates/ticketing/index.html" />
-        <option value="$PROJECT_DIR$/ticketing/forms.py" />
         <option value="$PROJECT_DIR$/ticketing/templates/ticketing/update_company_view.html" />
-        <option value="$PROJECT_DIR$/ticketing/models.py" />
         <option value="$PROJECT_DIR$/ticketing/views.py" />
         <option value="$PROJECT_DIR$/tickets/settings.py" />
+        <option value="$PROJECT_DIR$/ticketing/templates/ticketing/index.html" />
+        <option value="$PROJECT_DIR$/ticketing/models.py" />
+        <option value="$PROJECT_DIR$/ticketing/forms.py" />
+        <option value="$PROJECT_DIR$/login/templates/login/register.html" />
+        <option value="$PROJECT_DIR$/login/templates/login/login.html" />
+        <option value="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po" />
       </list>
     </option>
   </component>
@@ -314,7 +292,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="SearchEverywhereHistoryKey" value="settings&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/settings.py&#10;getsuitable&#9;null&#9;null&#10;urls&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/urls.py&#10;company&#9;null&#9;null&#10;ticketsuser&#9;null&#9;null&#10;forms&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/forms.py&#10;models&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/models.py&#10;index&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;djangopo&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;django.po&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;ticketview&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;view&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;creat&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_location.html&#10;fuzzy&#9;null&#9;null&#10;views&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/views.py&#10;building&#9;null&#9;null&#10;tests&#9;null&#9;null&#10;login&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/login/login.html&#10;place&#9;null&#9;null&#10;admin&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/admin.py&#10;eventcategory&#9;null&#9;null&#10;ticket&#9;null&#9;null&#10;Company&#9;null&#9;null&#10;urls.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/restserver/urls.py&#10;categoryserializer&#9;null&#9;null&#10;createticket&#9;null&#9;null&#10;static&#9;null&#9;null&#10;tickethis&#9;null&#9;null&#10;history&#9;null&#9;null&#10;seria&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/restserver/serializers.py&#10;rest&#9;null&#9;null&#10;forms.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/forms.py&#10;create&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_ticket.html&#10;getallsuitable&#9;null&#9;null&#10;suitable&#9;null&#9;null&#10;createloc&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_location.html&#10;todo&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/todo.txt&#10;index.html&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;indexhtml&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;basehtml&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/common/base.html&#10;ticke&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_ticket.html&#10;ticket_view&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;contact&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/contact.html&#10;base.html&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/common/base.html&#10;django&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;ticketing/models&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/models.py&#10;tickets/__init&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/__init__.py&#10;settings.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/settings.py&#10;ticketing/views&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/views.py" />
+    <property name="SearchEverywhereHistoryKey" value="djangopo&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;register&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/login/register.html&#10;login&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/login/login.html&#10;forms&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/forms.py&#10;django.po&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;settings&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/settings.py&#10;getsuitable&#9;null&#9;null&#10;urls&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/urls.py&#10;company&#9;null&#9;null&#10;ticketsuser&#9;null&#9;null&#10;models&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/models.py&#10;index&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;ticketview&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;view&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;creat&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_location.html&#10;fuzzy&#9;null&#9;null&#10;views&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/views.py&#10;building&#9;null&#9;null&#10;tests&#9;null&#9;null&#10;place&#9;null&#9;null&#10;admin&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/admin.py&#10;eventcategory&#9;null&#9;null&#10;ticket&#9;null&#9;null&#10;Company&#9;null&#9;null&#10;urls.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/restserver/urls.py&#10;categoryserializer&#9;null&#9;null&#10;createticket&#9;null&#9;null&#10;static&#9;null&#9;null&#10;tickethis&#9;null&#9;null&#10;history&#9;null&#9;null&#10;seria&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/restserver/serializers.py&#10;rest&#9;null&#9;null&#10;forms.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/forms.py&#10;create&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_ticket.html&#10;getallsuitable&#9;null&#9;null&#10;suitable&#9;null&#9;null&#10;createloc&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_location.html&#10;todo&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/todo.txt&#10;index.html&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;indexhtml&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;basehtml&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/common/base.html&#10;ticke&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_ticket.html&#10;ticket_view&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;contact&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/contact.html&#10;base.html&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/common/base.html&#10;django&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;ticketing/models&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/models.py&#10;tickets/__init&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/__init__.py&#10;settings.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/settings.py&#10;ticketing/views&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/views.py" />
     <property name="options.lastSelected" value="preferences.lookFeel" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -737,18 +715,6 @@
       <option name="number" value="Default" />
       <updated>1429197272194</updated>
     </task>
-    <task id="LOCAL-00002" summary="Update creation ticket">
-      <created>1421259075214</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1421259075214</updated>
-    </task>
-    <task id="LOCAL-00003" summary="No more managers.">
-      <created>1421260256598</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1421260256598</updated>
-    </task>
     <task id="LOCAL-00004" summary="Update vues -&gt; utilisation dataTables.js">
       <created>1421434366721</created>
       <option name="number" value="00004" />
@@ -1033,7 +999,19 @@
       <option name="project" value="LOCAL" />
       <updated>1429202071009</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Une entreprise peut être aussi utilisatrice de la plateforme, sous un régime spécial (ne peut pas créer de ticket, mais peut gérer ses informations d'entreprise)">
+      <created>1429215876748</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1429215876748</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Fichiers fous">
+      <created>1429215897024</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1429215897025</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <option name="createBranch" value="false" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
@@ -1082,8 +1060,6 @@
       <TodoPanelSettings />
     </option>
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="Formulaire création bâtiment pour soi" />
-    <MESSAGE value="Push migration files" />
     <MESSAGE value="GeoPy API integration" />
     <MESSAGE value="GeoPy class rename" />
     <MESSAGE value="Divers bugfixes" />
@@ -1107,7 +1083,9 @@
     <MESSAGE value="Registration system" />
     <MESSAGE value="Fix client side + update rapport" />
     <MESSAGE value="Registration system fonctionnel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registration system fonctionnel" />
+    <MESSAGE value="Une entreprise peut être aussi utilisatrice de la plateforme, sous un régime spécial (ne peut pas créer de ticket, mais peut gérer ses informations d'entreprise)" />
+    <MESSAGE value="Fichiers fous" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fichiers fous" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1396,14 +1374,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38330975" vertical-offset="1055" max-vertical-offset="12437">
-          <caret line="78" column="27" selection-start-line="78" selection-start-column="27" selection-end-line="78" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="241" max-vertical-offset="1795">
@@ -1448,22 +1418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/templates/login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.307693" vertical-offset="0" max-vertical-offset="1752">
-          <caret line="54" column="109" selection-start-line="54" selection-start-column="109" selection-end-line="54" selection-end-column="109" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/templates/login/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5186441" vertical-offset="306" max-vertical-offset="1769">
-          <caret line="45" column="67" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tickets/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24045262" vertical-offset="0" max-vertical-offset="877">
@@ -1492,14 +1446,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17288135" vertical-offset="0" max-vertical-offset="3384">
           <caret line="9" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="148" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticketing/templates/ticketing/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.384615" vertical-offset="241" max-vertical-offset="3316">
-          <caret line="27" column="130" selection-start-line="27" selection-start-column="130" selection-end-line="27" selection-end-column="130" />
           <folding />
         </state>
       </provider>
@@ -1539,22 +1485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticketing/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6395" max-vertical-offset="8629">
-          <caret line="395" column="104" selection-start-line="395" selection-start-column="104" selection-end-line="395" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticketing/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="1880">
-          <caret line="52" column="69" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tickets/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43847242" vertical-offset="2308" max-vertical-offset="3376">
@@ -1565,8 +1495,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ticketing/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21367522" vertical-offset="6123" max-vertical-offset="7315">
-          <caret line="369" column="91" selection-start-line="369" selection-start-column="91" selection-end-line="369" selection-end-column="91" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="5970" max-vertical-offset="7524">
+          <caret line="364" column="0" selection-start-line="364" selection-start-column="0" selection-end-line="364" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticketing/templates/ticketing/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.961538" vertical-offset="921" max-vertical-offset="3265">
+          <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticketing/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2264" max-vertical-offset="8629">
+          <caret line="150" column="53" selection-start-line="150" selection-start-column="53" selection-end-line="150" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticketing/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2067">
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/templates/login/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="136" max-vertical-offset="1654">
+          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/templates/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.692307" vertical-offset="510" max-vertical-offset="1769">
+          <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44444445" vertical-offset="1371" max-vertical-offset="13826">
+          <caret line="99" column="15" selection-start-line="99" selection-start-column="15" selection-end-line="99" selection-end-column="15" />
           <folding />
         </state>
       </provider>

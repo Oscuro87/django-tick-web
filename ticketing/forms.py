@@ -47,10 +47,21 @@ class RegistrationForm(forms.ModelForm):
 class CompanyUpdateForm(forms.ModelForm):
     class Meta:
         model = Company
-        fields = ['fk_suitableEventCategories', 'country', 'address', 'vicinity',
-                  'city', 'postcode', 'phone_number', 'name', 'vat_number']
+        fields = ['name', 'address', 'vicinity', 'postcode', 'city', 'country',
+                   'phone_number', 'vat_number', 'fk_suitableEventCategories']
         required = ['fk_suitableEventCategories', 'country', 'address', 'city', 'postcode', 'phone_number', 'name']
         widgets = {'fk_suitableEventCategories': forms.SelectMultiple}
+        labels = {
+            'fk_suitableEventCategories': _("Suitable event categories (hold CTRL and click to select multiple options)"),
+            'country': _("Country"),
+            'address': _("Address"),
+            'vicinity': _("Vicinity"),
+            'city': _("City"),
+            'postcode': _("Postcode"),
+            'phone_number': _("Phone number"),
+            'name': _("Name"),
+            'vat_number': _("VAT number"),
+        }
 
 
 ############### Admin forms ######################

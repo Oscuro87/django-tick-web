@@ -72,6 +72,15 @@
 
     <div class="row">
         <div id="margin-right" class="col-md-1"></div>
+        <div class="col-md-10">
+            {% if user.isUserACompany %}
+                <h3>{% trans "Tickets assigned to your company:" %}</h3>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="margin-right" class="col-md-1"></div>
         <div class="well well-sm col-md-10">
             {% if all_queried_tickets %}
                 <table class="table table-responsive center-block" style="width: 90%;" id="tickets_table">

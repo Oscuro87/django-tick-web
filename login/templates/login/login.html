@@ -1,6 +1,7 @@
 {% extends 'common/base.html' %}
 {% load staticfiles %}
 {% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
 
 {% block title %}
     Tickets - Login
@@ -36,11 +37,11 @@
                 <table class="table table-responsive">
                     <tbody>
                     <tr>
-                        <td>Your email:</td>
+                        <td>{% trans "Your email" %}:</td>
                         <td>{{ loginform.email }}</td>
                     </tr>
                     <tr>
-                        <td>Your password:</td>
+                        <td>{% trans "Your password" %}:</td>
                         <td>{{ loginform.password }}</td>
                     </tr>
                     <tr>
@@ -52,7 +53,7 @@
                         <td>
                             <input type="submit" value="Connection" name="loginGo"
                                    class="btn btn-success" />
-                            <input type="submit" value="Register" name="goToRegister" class="btn btn-info" />
+                            <input type="submit" value={% trans "Register" %} name="goToRegister" class="btn btn-info" />
                         </td>
                     </tr>
                     </tbody>

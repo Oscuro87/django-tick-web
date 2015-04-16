@@ -27,6 +27,10 @@
 
     <div class="row">
         <div name="login" class="well-sm col-md-4" >
+            <div style="color: red" class="well well-sm">
+                {% trans "ATTENTION: if you are a company and want to link your account to your company in our database, please use the contact form and include the following informations:<br>- Company name<br/>- A proof that you own or are part of the company<br/>" %}
+            </div>
+
 
             <div name="login-title" class="text-center">
                 <h3>{% trans "Register" %}</h3>
@@ -42,8 +46,10 @@
                         <!-- Empty -->
                     </td>
                     <td>
-                        <input type="submit" name="cancelRegistration" value="{% trans "Cancel registration" %}" class="btn btn-danger">
                         <input type="submit" name="sendRegistration" value="{% trans "Register now" %}" class="btn btn-success">
+                        </td>
+                    <td>
+                        <input type="submit" name="cancelRegistration" value="{% trans "Cancel registration" %}" class="btn btn-danger">
                     </td>
                 </table>
             </form>
