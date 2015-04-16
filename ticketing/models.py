@@ -270,13 +270,14 @@ class Ticket(models.Model):
         if self.image_folder_name == "":
             self.createTicketImageFolder()
 
+        if self.fk_priority_id == None:
+            self.fk_priority_id = self.fk_category.fk_priority_id
+
         super(Ticket, self).save(*args, **kwargs)
 
         th = TicketHistory()
         th.fk_manager = self.fk_manager
         th.fk_ticket = self
-        print(self.fk_status_id)
-        print(self.fk_status)
         th.fk_ticket_status = self.fk_status
         if reason != None:
             th.update_reason = reason

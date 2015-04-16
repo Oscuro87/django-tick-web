@@ -1,11 +1,11 @@
 from django.test import TestCase, RequestFactory
-from login.models import TicketsUser, TicketsUserManager
+from login.models import TicketsUser
 from django.contrib.sessions.middleware import SessionMiddleware
 from django.contrib import auth
 
 
 class LoginTest(TestCase):
-    __test_email = "cornholio@gmail.com"
+    __test_email = "testuser@gmail.com"
     __test_pass = "cornholio"
     __test_first_name = "Corn"
     __test_last_name = "Holio"
@@ -24,7 +24,7 @@ class LoginTest(TestCase):
             self.__test_user_object.first_name = self.__test_first_name
             self.__test_user_object.last_name = self.__test_last_name
 
-    def __addSessionToRqst(self, request):
+    def __addSessionToRequest(self, request):
         middleware = SessionMiddleware()
         middleware.process_request(request)
         request.session.save()
@@ -33,7 +33,7 @@ class LoginTest(TestCase):
         assert isinstance(self.__test_user_object, TicketsUser)
 
         crafted_request = self.__request_factory.post(path='', data={'email': self.__test_email, 'password': self.__test_pass})
-        self.__addSessionToRqst(crafted_request)
+        self.__addSessionToRequest(crafted_request)
 
         self.__test_user_object = auth.authenticate(email=crafted_request.POST.get('email'), password=crafted_request.POST.get('password'))
         auth.login(crafted_request, self.__test_user_object)
