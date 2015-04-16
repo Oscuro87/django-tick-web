@@ -101,17 +101,21 @@
                             {% endif %}
 
                             {% if user_info.isAdmin %}
-                                <td>
                                 {% if ticket.fk_manager == None %}
-                                        <form action="{% url 'assigntickettome' %}" method="post">
+                                    <td>
+                                    <form action="{% url 'assigntickettome' %}" method="post">
                                             {% csrf_token %}
                                             <input type="hidden" name="ticket_code" value="{{ ticket.ticket_code }}"/>
                                             <input type="submit" name="assigntickettome"
                                                    value="{% trans "Assign to me" %}"
                                                    class="btn btn-xs btn-info"/>
                                         </form>
+                                    </td>
+                                {% else %}
+                                    <td></td>
                                 {% endif %}
                             {% endif %}
+                            <td>
                                 <form action="{% url 'ticketdetailview' ticket.pk %}" method="post">
                                     {% csrf_token %}
                                     <input type="hidden" name="ticket_id" value="{{ ticket.pk }}">

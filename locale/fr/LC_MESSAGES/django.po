@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-13 18:04+0200\n"
+"POT-Creation-Date: 2015-04-16 15:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,29 +73,29 @@ msgstr ""
 msgid "date joined"
 msgstr "Date d'inscription"
 
-#: .\login\models.py:58
+#: .\login\models.py:59
 msgid "receive newsletter"
 msgstr "Envoyer les newsletters"
 
 #: .\login\templates\common\base.html:72
 msgid "Language"
-msgstr ""
+msgstr "Langue"
 
-#: .\login\views.py:48
+#: .\login\views.py:51
 msgid "Successfully logged in."
 msgstr "Connection réussie."
 
-#: .\login\views.py:51
+#: .\login\views.py:54
 msgid "This user is banned."
 msgstr "Cet utilisateur est banni."
 
-#: .\login\views.py:53
+#: .\login\views.py:56
 msgid "You entered the wrong credentials, please try again."
 msgstr ""
 "Vous n'avez pas entré les bonnes informations de connection, veuillez "
 "réessayer."
 
-#: .\login\views.py:55
+#: .\login\views.py:58
 msgid "Please fill the form correctly."
 msgstr "Veuillez remplir le formulaire correctement."
 
@@ -119,19 +119,23 @@ msgstr "Pays"
 msgid "Address"
 msgstr "Adresse email"
 
-#: .\ticketing\forms.py:32 .\ticketing\models.py:69 .\ticketing\models.py:143
+#: .\ticketing\forms.py:32
+msgid "City"
+msgstr "Ville"
+
+#: .\ticketing\forms.py:33 .\ticketing\models.py:69 .\ticketing\models.py:150
 msgid "Vicinity name"
 msgstr "Commune"
 
-#: .\ticketing\forms.py:33 .\ticketing\models.py:70 .\ticketing\models.py:144
+#: .\ticketing\forms.py:34 .\ticketing\models.py:71 .\ticketing\models.py:151
 msgid "Postcode"
 msgstr "Code postal"
 
-#: .\ticketing\forms.py:34
+#: .\ticketing\forms.py:35
 msgid "Name of the building"
 msgstr "Nom du bâtiment"
 
-#: .\ticketing\models.py:18 .\ticketing\models.py:243
+#: .\ticketing\models.py:18 .\ticketing\models.py:250
 #: .\ticketing\templates\ticketing\index.html:78
 #: .\ticketing\templates\ticketing\ticket_view.html:37
 msgid "Status"
@@ -141,7 +145,7 @@ msgstr "Statut"
 msgid "Ticket statuses"
 msgstr "Statuts ticket"
 
-#: .\ticketing\models.py:33 .\ticketing\models.py:242
+#: .\ticketing\models.py:33 .\ticketing\models.py:249
 msgid "Priority"
 msgstr "Priorité"
 
@@ -153,174 +157,175 @@ msgstr "Priorités ticket"
 msgid "Way of ticket creation"
 msgstr "Moyen de création du ticket"
 
-#: .\ticketing\models.py:68 .\ticketing\models.py:142
+#: .\ticketing\models.py:68 .\ticketing\models.py:149
 msgid "Street"
 msgstr "Rue"
 
-#: .\ticketing\models.py:71
+#: .\ticketing\models.py:70
+#| msgid "first name"
+msgid "City name"
+msgstr "Nom de la ville"
+
+#: .\ticketing\models.py:72
 msgid "Building name"
 msgstr "Nom du bâtiment"
 
-#: .\ticketing\models.py:73
+#: .\ticketing\models.py:74
 msgid "Building code"
 msgstr "Code du bâtiment"
 
-#: .\ticketing\models.py:75 .\ticketing\models.py:113
-#: .\ticketing\models.py:149 .\ticketing\models.py:165
-#: .\ticketing\models.py:252
+#: .\ticketing\models.py:76 .\ticketing\models.py:120
+#: .\ticketing\models.py:156 .\ticketing\models.py:172
+#: .\ticketing\models.py:259
 msgid "Is visible?"
 msgstr "Est visible?"
 
-#: .\ticketing\models.py:103
+#: .\ticketing\models.py:110
 msgid "Buildings"
 msgstr "Bâtiments"
 
-#: .\ticketing\models.py:140
-#| msgid "Event categories"
+#: .\ticketing\models.py:147
 msgid "Suitable Event Categories"
 msgstr "Catégories d'évènements disponibles"
 
-#: .\ticketing\models.py:145
+#: .\ticketing\models.py:152
 msgid "Telephone number"
 msgstr "Numéro de tel."
 
-#: .\ticketing\models.py:147
+#: .\ticketing\models.py:154
 msgid "Company name"
 msgstr "Nom de l'entreprise"
 
-#: .\ticketing\models.py:148
+#: .\ticketing\models.py:155
 msgid "VAT Number"
 msgstr "Numéro de TVA"
 
-#: .\ticketing\models.py:164
+#: .\ticketing\models.py:171
 msgid "Incident label"
 msgstr "Label de l'incident"
 
-#: .\ticketing\models.py:178
+#: .\ticketing\models.py:185
 msgid "This is not a parent category and therefore can't have sub-categories!"
 msgstr ""
 "Ceci n'est pas une catégorie parente et ne peut donc pas avoir de sous-"
 "catégories!"
 
-#: .\ticketing\models.py:187
+#: .\ticketing\models.py:194
 msgid "Event categories"
 msgstr "Catégories d'évènement"
 
-#: .\ticketing\models.py:195
+#: .\ticketing\models.py:202
 #: .\ticketing\templates\ticketing\ticket_view.html:158
 msgid "Commenter"
 msgstr "Posteur"
 
-#: .\ticketing\models.py:196
+#: .\ticketing\models.py:203
 msgid "Comment date"
 msgstr "Date du commentaire"
 
-#: .\ticketing\models.py:197
+#: .\ticketing\models.py:204
 msgid "Comment"
 msgstr "Commentaire"
 
-#: .\ticketing\models.py:213
-#| msgid "The comment has been posted."
+#: .\ticketing\models.py:220
 msgid "A comment has been posted on one of your tickets"
 msgstr "Un commentaire a été posté sur un de vos tickets"
 
-#: .\ticketing\models.py:214
+#: .\ticketing\models.py:221
 msgid ""
 "<p>The following ticket has a new comment: {}</p></p>The comment is: \"{}\"</"
 "p><p><a href=\"{}\">Ticketing platform</a></p>"
-msgstr ""
+msgstr "<p>Le ticket suivant a un nouveau commentaire: {}</p></p>Le commentaire est: \"{}\"</"
+"p><p><a href=\"{}\">Platforme de ticketing</a></p>"
 
-#: .\ticketing\models.py:237
+#: .\ticketing\models.py:244
 #: .\ticketing\templates\ticketing\ticket_view.html:53
 msgid "Building"
 msgstr "Bâtiment"
 
-#: .\ticketing\models.py:238
+#: .\ticketing\models.py:245
 msgid "Channel"
 msgstr "Canal"
 
-#: .\ticketing\models.py:239 .\ticketing\templates\ticketing\index.html:79
+#: .\ticketing\models.py:246 .\ticketing\templates\ticketing\index.html:79
 #: .\ticketing\templates\ticketing\ticket_view.html:45
 msgid "Category"
 msgstr "Catégorie"
 
-#: .\ticketing\models.py:240 .\ticketing\templates\ticketing\index.html:77
+#: .\ticketing\models.py:247 .\ticketing\templates\ticketing\index.html:77
 #: .\ticketing\templates\ticketing\ticket_view.html:41
 msgid "Reporter"
 msgstr "Reporteur"
 
-#: .\ticketing\models.py:244 .\ticketing\templates\ticketing\index.html:81
+#: .\ticketing\models.py:251 .\ticketing\templates\ticketing\index.html:81
 msgid "Manager"
 msgstr "Gestionnaire"
 
-#: .\ticketing\models.py:246
+#: .\ticketing\models.py:253
 msgid "Company"
 msgstr "Entreprise"
 
-#: .\ticketing\models.py:248
+#: .\ticketing\models.py:255
 msgid "Name of this ticket's images folder"
-msgstr ""
+msgstr "Nom du dossier contenant les images du ticket"
 
-#: .\ticketing\models.py:249 .\ticketing\templates\ticketing\index.html:76
+#: .\ticketing\models.py:256 .\ticketing\templates\ticketing\index.html:76
 msgid "Ticket code"
 msgstr "Code du ticket"
 
-#: .\ticketing\models.py:253
+#: .\ticketing\models.py:260
 msgid "Date of intervention"
 msgstr "Date d'intervention"
 
-#: .\ticketing\models.py:254
+#: .\ticketing\models.py:261
 msgid "Event description"
 msgstr "Description de l'évènement"
 
-#: .\ticketing\models.py:255
+#: .\ticketing\models.py:262
 msgid "No description available."
 msgstr "Pas de description disponible."
 
-#: .\ticketing\models.py:268
-#| msgid "Creating new ticket."
+#: .\ticketing\models.py:275
 msgid "Creating new ticket"
 msgstr "Création d'un nouveau ticket"
 
-#: .\ticketing\models.py:333
+#: .\ticketing\models.py:341
 msgid "Assigned to manager: {}"
 msgstr "Assigné au gestionnaire: {}"
 
-#: .\ticketing\models.py:341
+#: .\ticketing\models.py:349
 msgid "Manager released ticket management."
 msgstr "Le gestionnaire ne gère plus ce ticket."
 
-#: .\ticketing\models.py:349
+#: .\ticketing\models.py:357
 msgid "Ticket status changed to {}"
 msgstr "Statut du ticket changé en {}"
 
-#: .\ticketing\models.py:360
-#| msgid "The comment has been posted."
+#: .\ticketing\models.py:368
 msgid "A comment has been posted."
 msgstr "Le commentaire a été posté."
 
-#: .\ticketing\models.py:414
+#: .\ticketing\models.py:422
 msgid "Assigned a new company to the ticket."
-msgstr ""
+msgstr "Entreprise assignée au ticket."
 
-#: .\ticketing\models.py:416
-#| msgid "No comment for this ticket."
+#: .\ticketing\models.py:424
 msgid "Unassigned company from this ticket."
 msgstr "L'entreprise a été désassignée de ce ticket."
 
-#: .\ticketing\models.py:435
+#: .\ticketing\models.py:443
 msgid "Who changed the status"
 msgstr "Qui a changé le statut"
 
-#: .\ticketing\models.py:438
+#: .\ticketing\models.py:446
 msgid "Updated on..."
 msgstr "Mis à jour le..."
 
-#: .\ticketing\models.py:439
+#: .\ticketing\models.py:447
 msgid "Update reason"
 msgstr "Raison de la mise à jour"
 
-#: .\ticketing\models.py:440
+#: .\ticketing\models.py:448
 msgid "No reason given."
 msgstr "Pas de raison spécifiée."
 
@@ -392,7 +397,6 @@ msgid "Submit your message"
 msgstr "Envoyer votre message"
 
 #: .\ticketing\templates\ticketing\create_location.html:13
-#| msgid "Create a new location for you"
 msgid "Creation of a location"
 msgstr "Création d'un nouveau lieu"
 
@@ -401,7 +405,6 @@ msgid "Create this building for you"
 msgstr "Créer ce lieu pour vous"
 
 #: .\ticketing\templates\ticketing\create_location.html:44
-#| msgid "Create this building for you"
 msgid "Create this building then go to ticket creation"
 msgstr "Créer ce lieu et aller à la création d'un ticket"
 
@@ -518,12 +521,10 @@ msgid "Assigned to"
 msgstr "Assigné à"
 
 #: .\ticketing\templates\ticketing\ticket_view.html:69
-#| msgid "Assigned to"
 msgid "Assigned company"
 msgstr "Entreprise assignée"
 
 #: .\ticketing\templates\ticketing\ticket_view.html:98
-#| msgid "Company name"
 msgid "Company phone number"
 msgstr "Numéro de téléphone de l'entreprise"
 
@@ -638,15 +639,15 @@ msgstr "Ticket mis à jour avec succès."
 
 #: .\ticketing\views.py:302
 msgid "You successfully changed the company assigned to this ticket."
-msgstr ""
+msgstr "Vous avez changé l'entreprise assignée au ticket."
 
 #: .\ticketing\views.py:346
 msgid "The building was created successfully."
-msgstr ""
+msgstr "Le bâtiment a été créé avec succès."
 
 #: .\ticketing\views.py:349
 msgid "There were errors in the form you filled, please try again."
-msgstr ""
+msgstr "Le formulaire n'est pas rempli correctement, veuillez réessayer."
 
 #~ msgid "Building (optional)"
 #~ msgstr "Bâtiment (optionnel)"

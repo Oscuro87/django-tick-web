@@ -9,6 +9,7 @@
 \usepackage{listings}
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage{todonotes}
+\usepackage{amssymb}
 
 \title{TFE: Plateforme de ticketing}
 \author{Emmanuel CAPELLE}
@@ -139,7 +140,11 @@ Ce système, très efficace, permet le développement de "plugins"\footnote{Plug
 Par exemple, il est possible qu'une entreprise ai créé son propre système de login sécurisé et réutilisable, il lui est donc très facile d'intégrer ce module dans un projet déjà existant, permettant ainsi de développer plus rapidement de nouveaux modules.
 
 \subsubsection{Architecture MVC}
-À vrai dire, les développeurs de Django appellent l'architecture utilisée par Django "`architecture MTV"' qui, selon leur dires \footnote{https://docs.djangoproject.com/en/1.8/faq/general/ : "`Django appears to be a MVC framework, but you call the Controller the 'view', and the View the 'template'. How come you don’t use the standard names?"'}, diffère par le fait que 
+À vrai dire, les développeurs de Django appellent l'architecture utilisée par Django "`architecture MTV"' (Model-Template-View) qui, selon leur dires \footnote{https://docs.djangoproject.com/en/1.8/faq/general/ : "`Django appears to be a MVC framework, but you call the Controller the 'view', and the View the 'template'. How come you don’t use the standard names?"'}, diffère par le fait que la vue "<décrit quelles données l'on voit, et non pas comment celles-ci sont visibles">.
+
+La vue est, somme toute, un fonction appelant un template. La vue passe alors des données au template, qui lui se chargera de les représenter "<graphiquement"> à l'écran pour l'utilisateur final.
+
+Personnellement, je n'ai pas trouvé cette architecture différente de celle utilisée par MVC, il existe juste cette subtilité décrite ci-dessus, qui ne change au final pas grand chose dans le workflow de développement du site web.
 
 Qu'est-ce que MVC?
 
@@ -167,14 +172,26 @@ Il est par exemple possible de redéfinir la méthode "`delete()"' dans le but d
 Cette méthode de découpe des modèles en classes python permet aussi une certaine facilité dans l'écriture de bateries de tests, j'y reviendrai un peu plus tard dans la section consacrée aux tests.
 
 \subsubsection{Les vues}
-TODO
-Il y a deux façons d'aborder la création de vues avec Django (fonctionnel et classes)
+Il y a deux façons d'aborder la création de vues avec Django:
 
+\begin{itemize}
+	\item{Vues fonctionnelles: la vue est alors créée sous la forme d'une fonction, retournant une URL pointant vers un template à faire apparaître à l'écran.}
+	\item{Classes vue: La vue est une classe dérivant de la classe parente "<ModelView">, la vue devient alors un objet python à part entière, et son comportement peut-être modifié via la redéfinition des méthodes de la classe parente.}
+\end{itemize}
+
+Étant donné que les vues dites "<fonctionnelles"> sont plutôt adaptées aux petits sites web, j'ai choisi d'utiliser exclusivement les classes de vue. En effet, elles donnent accès à l'avantage certain de la flexibilité possible uniquement avec l'orienté objet.
+
+Comment ces vues fonctionnent-elles?
+
+Chaque classe de vue est couplée à un template. La différence entre la vue et le template est que la vue se charge de communiquer les données entre le ou les modèle(s) et le template. La fonction de la classe de vue est finalement celle d'un contrôleur normal dans une architecture MVC.
+
+\todo{TODO: Les vues}
 
 \subsubsection{Les contrôleurs}
-TODO
+\todo{TODO: Les contrôleurs}
 
 \subsection{L'ORM de Django}
+\todo{TODO: L'ORM de Django}
 Après avoir écrit les classes modèles, il faut traduire lesdites classes en tables et champs dans la/les base(s) de données utilisée(s) par l'application.
 
 \subsection{SQLite versus MySQL}
@@ -199,7 +216,7 @@ Son utilité principale consiste en la mise en relation de différents protagoni
 Son implémentation a été pensée de telle sorte que l'utilisateur de la plateforme puisse trouver une entreprise susceptible de pouvoir résoudre son problème.
 
 \subsection{Structure organisationnelle de l'application}
-
+\todo{TODO: structure organisationnelle de l'application (YII)}
 
 \subsection{Critique de la plateforme existante}
 Cette plateforme ne se basait que sur des catégories et sous-catégories d'incidents, et souvent, une entreprise assignée à tel incident se trouvait beaucoup plus loin géographiquement qu'une autre entreprise pouvant résoudre le même type de problème.
@@ -230,34 +247,46 @@ Voici les principales règles métier mises en place:
 Je vais diviser cette section en deux parties distinctes, car il existe deux flux distincts d'informations: Le flux d'information interne au site web, et celui utilisé par l'application Android via le webservice implémenté aux côtés du site web.
 
 \subsubsection{Flux d'information du site web}
+\todo{Flux d'information site web}
 
 \subsubsection{Flux d'information entre le webservice et l'application Android}
+\todo{Flux d'information android}
 
 \subsection{Analyse UML de l'application conçue}
+\todo{Analyse UML de la plateforme}
+\missingfigure{UML}
 
 \subsection{La base de données utilisée par les applications}
 
 \subsubsection{Dictionnaire de données}
 Cette partie va vous présenter les différentes données utilisées dans la base de données unique de l'application.
+\todo{dictionnaire de données}
 
 \subsubsection{Schéma de la base de données}
+\todo{Schéma de la BDD}
 
 \section{Analyse de l'application Android}
 
 \subsection{Pourquoi une application Android?}
+\todo{Pourquoi une application android?}
 Dans un monde où la population bouge beaucoup, il est important pour une application de pouvoir être disponible n'importe où, et à n'importe quel moment.
 
 Cette application permet aux utilisateurs de la plateforme de pouvoir gérer et être mis à jour de l'avancement de son ou ses ticket(s) en cours.
 
 \subsection{Flow de l'application Android}
+\todo{flow de l'application android}
+\missingfigure{Flow app android}
 Cette section va parler du flow suivi par un utilisateur et par un gestionnaire lorsqu'il utilise l'application Android.
 
 \subsection{Client REST}
 Le client REST est implémenté côté application Android afin de communiquer avec un webservice, qui est le plus souvent un serveur REST implémenté à côté d'un site web.
+\todo{Analyse client REST}
 
 \subsection{Mise en place d'un bus d'évènements}
+\todo{Analyse bus d'évènements}
 
 \chapter{Conclusion}
+\todo{conclusion}
 J'ai énormément appris lors de mon stage, ainsi que lors de l'implémentation de ce site web et de son application Android.
 
 Je n'avais jamais essayé d'implémenter un site web en python, ni implémenté de web service. Android était aussi pour moi une grande inconnue.

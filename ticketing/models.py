@@ -67,15 +67,21 @@ class Building(models.Model):
     country = CountryField(null=False)
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=True, null=True, default="")
+    city = models.CharField(verbose_name=_("City name"), max_length=45, blank=True, null=True, default="")
     postcode = models.CharField(verbose_name=_("Postcode"), null=True, blank=True, default="", max_length=10)
     building_name = models.CharField(verbose_name=_("Building name"), max_length=45, blank=False, null=False,
                                      unique=True, default="")
-    building_code = models.CharField(verbose_name=_("Building code"), max_length=10, null=False, blank=True,
+    building_code = models.CharField(verbose_name=_("Building code"), max_length=20, null=False, blank=True,
                                      unique=True, default="")
     visible = models.BooleanField(verbose_name=_("Is visible?"), null=False, blank=False, default=True)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
+
+        checkBuildingNameExists = Building.objects.filter(building_name=self.building_name)
+
+        if len(checkBuildingNameExists) > 0 and self.building_name == "":
+            self.building_name = self.getFullAddress()
 
         super().save(force_insert, force_update, using, update_fields)
 
@@ -84,6 +90,9 @@ class Building(models.Model):
             self.save()
 
         return self
+
+    def getFullAddress(self):
+        return "{} {} {} {}".format(self.address, self.city, self.postcode, self.country)
 
     def createCode(self):
         result = self.building_code
@@ -137,7 +146,8 @@ class Company(models.Model):
     """
     Représente une entreprise pouvant être appelée par un gestionnaire de ticket pour résoudre un problème.
     """
-    fk_suitableEventCategories = models.ManyToManyField("EventCategory", verbose_name=_("Suitable Event Categories"), blank=True)
+    fk_suitableEventCategories = models.ManyToManyField("EventCategory", verbose_name=_("Suitable Event Categories"),
+                                                        blank=True)
     country = CountryField()
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
     vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
@@ -245,7 +255,8 @@ class Ticket(models.Model):
                                    blank=True)
     fk_company = models.ForeignKey(Company, verbose_name=_("Company"), null=True, blank=True)
 
-    image_folder_name = models.CharField(verbose_name=_("Name of this ticket's images folder"), max_length=128, null=True, blank=True)
+    image_folder_name = models.CharField(verbose_name=_("Name of this ticket's images folder"), max_length=128,
+                                         null=True, blank=True)
     ticket_code = models.CharField(verbose_name=_("Ticket code"), max_length=10, null=False, blank=True, unique=True)
     floor = models.CharField(max_length=45, null=True, blank=True, default="")
     office = models.CharField(max_length=45, null=True, blank=True, default="")
@@ -270,7 +281,7 @@ class Ticket(models.Model):
         if self.image_folder_name == "":
             self.createTicketImageFolder()
 
-        if self.fk_priority_id == None:
+        if self.fk_priority_id is None:
             self.fk_priority_id = self.fk_category.fk_priority_id
 
         super(Ticket, self).save(*args, **kwargs)
@@ -278,8 +289,8 @@ class Ticket(models.Model):
         th = TicketHistory()
         th.fk_manager = self.fk_manager
         th.fk_ticket = self
-        th.fk_ticket_status = self.fk_status
-        if reason != None:
+        th.fk_ticket_status_id = self.fk_status_id
+        if reason is not None:
             th.update_reason = reason
         th.save()
 

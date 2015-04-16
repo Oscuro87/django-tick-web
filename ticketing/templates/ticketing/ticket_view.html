@@ -126,7 +126,7 @@
                 {% if ticket.fk_status.label == "Open" %}
                     <p><input type="submit" name="ticket-to-inProgress" value="{% trans "Put ticket in progress" %}"
                               class="btn btn-sm btn-info"></p>
-                {% elif ticket.fk_status.label == "In progress" %}
+                {% elif ticket.fk_status.label == "In Progress" %}
                     <p><input type="submit" name="ticket-to-closed" value="{% trans "Close ticket" %}"
                               class="btn btn-sm btn-info"></p>
                 {% endif %}

@@ -23,12 +23,13 @@ class TicketCommentForm(forms.Form):
 class BuildingCreationForm(forms.ModelForm):
     class Meta:
         model = Building
-        fields = ('country', 'address', 'vicinity', 'postcode', 'building_name')
+        fields = ('country', 'address', 'city', 'vicinity', 'postcode', 'building_name')
         widgets = {'country': CountrySelectWidget}
-        required = ('country', 'address', 'postcode', 'building_name')
+        required = ('country', 'address', 'city', 'postcode', 'building_name')
         labels = {
             'country': _('Country'),
             'address': _('Address'),
+            'city': _('City'),
             'vicinity': _('Vicinity name'),
             'postcode': _('Postcode'),
             'building_name': _('Name of the building'),

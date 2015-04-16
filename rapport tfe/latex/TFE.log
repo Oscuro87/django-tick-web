@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.3.18)  16 APR 2015 15:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.3.18)  16 APR 2015 17:10
 entering extended mode
 **TFE.tex
 ("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.tex"
@@ -680,61 +680,79 @@ LaTeX Info: Redefining \addtolength on input line 77.
 \calc@Cskip=\skip57
 )
 \c@@todonotes@numberoftodonotes=\count124
-)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks34
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
    defining Unicode char U+00A0 (decimal 160)
- ("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 28.
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
+
+("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 29.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-LaTeX Info: Redefining \degres on input line 28.
-LaTeX Info: Redefining \dots on input line 28.
-LaTeX Info: Redefining \up on input line 28.
+LaTeX Info: Redefining \degres on input line 29.
+LaTeX Info: Redefining \dots on input line 29.
+LaTeX Info: Redefining \up on input line 29.
 \c@lstlisting=\count125
- ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 30.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
+ABD: EveryShipout initializing macros
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 31.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 30.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 31.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 30.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 31.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 30.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 31.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 30.
+(Font)              <14.4> on input line 31.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 30.
+(Font)              <10> on input line 31.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 30.
- [1
+(Font)              <7> on input line 31.
+LaTeX Font Info:    Try loading font information for U+msa on input line 31.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 31.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 34.
-
-("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.toc"
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 35.
+ ("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.toc"
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -757,46 +775,46 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [2]
 Chapitre 1.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 40.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 41.
 
-Overfull \hbox (2.99593pt too wide) in paragraph at lines 43--44
+Overfull \hbox (2.99593pt too wide) in paragraph at lines 44--45
 \T1/phv/m/n/12 qui ré-pondent à la de-mande de lo-gi-ciel de ges-tion de ser-vices d'as-sis-tance. 
  []
 
 
-Overfull \hbox (10.64017pt too wide) in paragraph at lines 47--48
+Overfull \hbox (10.64017pt too wide) in paragraph at lines 48--49
 \T1/phv/m/n/12 Bug Tra-cker"[], qui se fo-ca-lise quant à elle sur l'as-sis-tance au dé-ve-lop-pe-ment
  []
 
 
-Overfull \hbox (12.18707pt too wide) in paragraph at lines 51--52
+Overfull \hbox (12.18707pt too wide) in paragraph at lines 52--53
 [][]\T1/phv/m/n/12 La vi-tesse d'exé-cu-tion du fra-me-work uti-lisé lors de mon stage[] s'avé-rait
  []
 
 
-Overfull \hbox (23.77829pt too wide) in paragraph at lines 51--52
+Overfull \hbox (23.77829pt too wide) in paragraph at lines 52--53
 \T1/phv/m/n/12 être très lent, mal-gré l'uti-li-sa-tion ri-gou-reuse des best-practices pré-co-ni-sés
  []
 
 
-Overfull \hbox (18.31892pt too wide) in paragraph at lines 52--53
+Overfull \hbox (18.31892pt too wide) in paragraph at lines 53--54
 [][]\T1/phv/m/n/12 La flexi-bi-lité de ces dif-fé-rentes pla-te-formes reste as-sez li-mi-tée, j'ai-me-rais
  []
 
 
-Overfull \hbox (19.12244pt too wide) in paragraph at lines 52--53
+Overfull \hbox (19.12244pt too wide) in paragraph at lines 53--54
 \T1/phv/m/n/12 créer une pla-te-forme ex-ten-sible à sou-hait, pou-vant se "`mé-ta-mor-pho-ser"'
  []
 
 [3
 
 ]
-Overfull \hbox (28.31465pt too wide) in paragraph at lines 65--66
+Overfull \hbox (28.31465pt too wide) in paragraph at lines 66--67
 \T1/phv/m/n/12 pla-te-forme pour mettre en re-la-tion uti-li-sa-teurs de la-dite pla-te-forme et en-tre-prises
  []
 
 
-Overfull \hbox (0.96802pt too wide) in paragraph at lines 69--70
+Overfull \hbox (0.96802pt too wide) in paragraph at lines 70--71
 \T1/phv/m/n/12 la/les per-sonnes en charge du ba-ckend de l'ap-pli-ca-tion. (Base de don-nées,
  []
 
@@ -809,51 +827,51 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [4]
 Chapitre 2.
 
-Overfull \hbox (22.5191pt too wide) in paragraph at lines 82--83
+Overfull \hbox (22.5191pt too wide) in paragraph at lines 83--84
 [][]\T1/phv/m/n/12 Développement du site web : IDE Py-Charm  com-mu-nity edi-tion de Jet-Brains.[] 
  []
 
 
-Overfull \hbox (1.47491pt too wide) in paragraph at lines 86--86
+Overfull \hbox (1.47491pt too wide) in paragraph at lines 87--87
 []\T1/phv/b/n/17.28 Langage de pro-gram-ma-tion uti-lisé : Py-thon 
  []
 
 
-Overfull \hbox (25.49568pt too wide) in paragraph at lines 87--88
+Overfull \hbox (25.49568pt too wide) in paragraph at lines 88--89
 [][]\T1/phv/m/n/12 Créé en 1990 par Guido van Ros-sum, Py-thon est un lan-gage de pro-gram-ma-tion
  []
 
 
-Overfull \hbox (16.13478pt too wide) in paragraph at lines 87--88
+Overfull \hbox (16.13478pt too wide) in paragraph at lines 88--89
 \T1/phv/m/n/12 de haut ni-veau à ty-page dy-na-mique, orienté ob-jet et est un lan-gage in-ter-prété,
  []
 
 [5
 
 ]
-Overfull \hbox (6.4997pt too wide) in paragraph at lines 112--113
+Overfull \hbox (6.4997pt too wide) in paragraph at lines 113--114
 [][]\T1/phv/m/n/12 Dans un contexte de po-pu-la-rité du fra-me-work par rap-port à ses concur-rents,
  []
 
 
-Overfull \hbox (3.63182pt too wide) in paragraph at lines 116--117
+Overfull \hbox (3.63182pt too wide) in paragraph at lines 117--118
 [][]\T1/phv/m/n/12 Finalement, j'ai choisi Django car j'ai voulu ap-prendre une nou-velle ma-nière
  []
 
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 118.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 119.
 
-Overfull \hbox (9.81926pt too wide) in paragraph at lines 123--124
+Overfull \hbox (9.81926pt too wide) in paragraph at lines 124--125
 \T1/phv/m/n/12 sa ver-sion 3.x vu les per-for-mances amé-lio-rées dans cette nou-velle ver-sion 
  []
 
 
-Overfull \hbox (2.13866pt too wide) in paragraph at lines 124--125
+Overfull \hbox (2.13866pt too wide) in paragraph at lines 125--126
 [][]\T1/phv/m/n/12 Les dé-pen-dances de li-brai-ries py-thon, fa-ci-le-ment ins-tal-lées grâce à l'ou-til
  []
 
 
-Overfull \hbox (1.99942pt too wide) in paragraph at lines 127--128
+Overfull \hbox (1.99942pt too wide) in paragraph at lines 128--129
 \T1/phv/m/n/12 reste qu'à soit clo-ner un pro-jet Django de-puis votre hé-ber-geur git, mer-cu-rial
  []
 
@@ -864,28 +882,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6]
-Overfull \hbox (0.73994pt too wide) in paragraph at lines 136--137
+Overfull \hbox (0.73994pt too wide) in paragraph at lines 137--138
 \T1/phv/m/n/12 web, et la non-nécéssité de de-voir "ré-in-ven-ter la roue" à chaque dé-mar-rage
  []
 
 
-Overfull \hbox (10.11188pt too wide) in paragraph at lines 138--140
+Overfull \hbox (10.11188pt too wide) in paragraph at lines 139--141
 \T1/phv/m/n/12 il est pos-sible qu'une en-tre-prise ai créé son propre sys-tème de lo-gin sé-cu-risé
  []
 
 
-Overfull \hbox (1.6276pt too wide) in paragraph at lines 138--140
+Overfull \hbox (1.6276pt too wide) in paragraph at lines 139--141
 \T1/phv/m/n/12 déjà exis-tant, per-met-tant ainsi de dé-ve-lop-per plus ra-pi-de-ment de nou-veaux
- []
-
-
-Overfull \hbox (5.5755pt too wide) in paragraph at lines 148--149
-[][]\T1/phv/m/n/12 La vue quant à elle sert à dé-fi-nir l'in-ter-face homme-machine de l'ap-pli-ca-tion,
- []
-
-
-Overfull \hbox (0.12743pt too wide) in paragraph at lines 152--153
-\T1/phv/m/n/12 par contre la vue s'ap-pe-lera "tem-plate", et le contrô-leur s'ap-pel-lera "views",
  []
 
 
@@ -895,33 +903,33 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7]
-Overfull \hbox (21.35597pt too wide) in paragraph at lines 155--156
+Overfull \hbox (5.5755pt too wide) in paragraph at lines 153--154
+[][]\T1/phv/m/n/12 La vue quant à elle sert à dé-fi-nir l'in-ter-face homme-machine de l'ap-pli-ca-tion,
+ []
+
+
+Overfull \hbox (0.12743pt too wide) in paragraph at lines 157--158
+\T1/phv/m/n/12 par contre la vue s'ap-pe-lera "tem-plate", et le contrô-leur s'ap-pel-lera "views",
+ []
+
+
+Overfull \hbox (21.35597pt too wide) in paragraph at lines 160--161
 [][]\T1/phv/m/n/12 Les mo-dèles en Django sont tous conte-nus dans un fi-chier ap-pelé "mo-dels.py".
  []
 
 
-Overfull \hbox (2.07256pt too wide) in paragraph at lines 157--158
+Overfull \hbox (2.07256pt too wide) in paragraph at lines 162--163
 [][]\T1/phv/m/n/12 Les mo-dèles sont re-pré-sen-tés par une classe. Ces classes sont consi-tuées
  []
 
 
-Overfull \hbox (13.21964pt too wide) in paragraph at lines 159--160
+Overfull \hbox (13.21964pt too wide) in paragraph at lines 164--165
 [][]\T1/phv/m/n/12 La créa-tion d'ob-jets se fait dans le contrô-leur. (voir sec-tion sur les contrô-leurs,
  []
 
 
-Overfull \hbox (18.60779pt too wide) in paragraph at lines 161--162
+Overfull \hbox (18.60779pt too wide) in paragraph at lines 166--167
 [][]\T1/phv/m/n/12 Chacune des classes mo-dèle dé-rive d'une classe "`Mo-del"' pa-rente, conte-nant
- []
-
-
-Overfull \hbox (22.81927pt too wide) in paragraph at lines 170--172
-[][]\T1/phv/m/n/12 TODO Il y a deux fa-çons d'abor-der la créa-tion de vues avec Django (fonc-tion-nel
- []
-
-
-Overfull \hbox (7.33978pt too wide) in paragraph at lines 178--179
-\T1/phv/m/n/12 tables et champs dans la/les base(s) de don-nées uti-li-sée(s) par l'ap-pli-ca-tion. 
  []
 
 
@@ -931,7 +939,157 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8]
-Overfull \hbox (10.63977pt too wide) in paragraph at lines 181--182
+Overfull \hbox (3.42142pt too wide) in paragraph at lines 178--179
+\T1/phv/m/n/12 re-tour-nant une URL poin-tant vers un tem-plate à faire ap-pa-raître à l'écran. 
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 188--188
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (1.38542pt too wide) in paragraph at lines 188--188
+\T1/phv/m/n/12 vues  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 188--188
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (1.38542pt too wide) in paragraph at lines 188--188
+\T1/phv/m/n/12 vues  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 188--188
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (1.38542pt too wide) in paragraph at lines 188--188
+\T1/phv/m/n/12 vues  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 188--188
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (1.38542pt too wide) in paragraph at lines 188--188
+\T1/phv/m/n/12 vues  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 191--191
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (35.39293pt too wide) in paragraph at lines 191--191
+\T1/phv/m/n/12 contrô-leurs  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 191--191
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (35.39293pt too wide) in paragraph at lines 191--191
+\T1/phv/m/n/12 contrô-leurs  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 191--191
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (35.39293pt too wide) in paragraph at lines 191--191
+\T1/phv/m/n/12 contrô-leurs  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 191--191
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (35.39293pt too wide) in paragraph at lines 191--191
+\T1/phv/m/n/12 contrô-leurs  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 194--194
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (11.45326pt too wide) in paragraph at lines 194--194
+\T1/phv/m/n/12 L'ORM 
+ []
+
+
+Overfull \hbox (14.05717pt too wide) in paragraph at lines 194--194
+\T1/phv/m/n/12 Django  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 194--194
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (11.45326pt too wide) in paragraph at lines 194--194
+\T1/phv/m/n/12 L'ORM 
+ []
+
+
+Overfull \hbox (14.05717pt too wide) in paragraph at lines 194--194
+\T1/phv/m/n/12 Django  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 194--194
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (11.45326pt too wide) in paragraph at lines 194--194
+\T1/phv/m/n/12 L'ORM 
+ []
+
+
+Overfull \hbox (14.05717pt too wide) in paragraph at lines 194--194
+\T1/phv/m/n/12 Django  
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 194--194
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (11.45326pt too wide) in paragraph at lines 194--194
+\T1/phv/m/n/12 L'ORM 
+ []
+
+
+Overfull \hbox (14.05717pt too wide) in paragraph at lines 194--194
+\T1/phv/m/n/12 Django  
+ []
+
+
+Overfull \hbox (7.33978pt too wide) in paragraph at lines 194--196
+\T1/phv/m/n/12 tables et champs dans la/les base(s) de don-nées uti-li-sée(s) par l'ap-pli-ca-tion. 
+ []
+
+
+Overfull \hbox (10.63977pt too wide) in paragraph at lines 198--199
 \T1/phv/m/n/12 re-lo-ca-lise. C'est une très bonne base de don-nées pour tes-ter les ap-pli-ca-tions
  []
 
@@ -942,63 +1100,159 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9]
-Chapitre 3.
-
-Overfull \hbox (3.47546pt too wide) in paragraph at lines 195--196
-[][]\T1/phv/m/n/12 Cette pla-te-forme de ti-cke-ting a été réa-li-sée lors de mon stage en en-tre-prise. 
- []
-
-
-Overfull \hbox (18.31917pt too wide) in paragraph at lines 197--198
-[][]\T1/phv/m/n/12 Son uti-lité prin-ci-pale consiste en la mise en re-la-tion de dif-fé-rents pro-ta-go-nistes
- []
-
-
-Overfull \hbox (21.2234pt too wide) in paragraph at lines 197--198
-\T1/phv/m/n/12 pour la ré-so-lu-tion de pro-blèmes pré-sents sur le lieu d'ha-bi-ta-tion des uti-li-sa-teurs
- []
-
-
-Overfull \hbox (17.72003pt too wide) in paragraph at lines 207--208
-[][]\T1/phv/m/n/12 De plus, les per-for-mances au ni-veau de la vi-tesse d'exé-cu-tion de la pla-te-forme
- []
-
-
-Overfull \hbox (3.16377pt too wide) in paragraph at lines 209--210
-[][]\T1/phv/m/n/12 Finalement, l'ar-chi-tec-ture mise en place côté pla-te-forme web nous a blo-qué
- []
-
-[10
-
-]
-Overfull \hbox (12.97893pt too wide) in paragraph at lines 212--213
-\T1/phv/m/n/12 ap-pli-ca-tion An-droid, tout en uti-li-sant une ap-proche dif-fé-rente de celle adop-tée
- []
-
-
-Overfull \hbox (7.23209pt too wide) in paragraph at lines 215--216
-[][]\T1/phv/m/n/12 Il est né-cés-saire dans ce genre d'ap-pli-ca-tions tra-vaillant avec di-vers ac-teurs,
- []
-
-
-Overfull \hbox (21.90215pt too wide) in paragraph at lines 221--222
-\T1/phv/m/n/12 pla-te-forme. Ob-jec-tif : Fil-trage d'éven-tuelles créa-tion de compte in-tem-pes-tive. 
- []
-
-
-Overfull \hbox (0.78256pt too wide) in paragraph at lines 226--227
-\T1/phv/m/n/12 en-tiè-re-ment don-née au ges-tion-naire de ti-cket. Il sera ce-pen-dant pos-sible
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 15.57593pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11]
-Overfull \hbox (13.459pt too wide) in paragraph at lines 256--257
-[][]\T1/phv/m/n/12 Le client REST est im-plé-menté côté ap-pli-ca-tion An-droid afin de com-mu-ni-quer
+[10]
+Chapitre 3.
+
+Overfull \hbox (3.47546pt too wide) in paragraph at lines 212--213
+[][]\T1/phv/m/n/12 Cette pla-te-forme de ti-cke-ting a été réa-li-sée lors de mon stage en en-tre-prise. 
+ []
+
+
+Overfull \hbox (18.31917pt too wide) in paragraph at lines 214--215
+[][]\T1/phv/m/n/12 Son uti-lité prin-ci-pale consiste en la mise en re-la-tion de dif-fé-rents pro-ta-go-nistes
+ []
+
+
+Overfull \hbox (21.2234pt too wide) in paragraph at lines 214--215
+\T1/phv/m/n/12 pour la ré-so-lu-tion de pro-blèmes pré-sents sur le lieu d'ha-bi-ta-tion des uti-li-sa-teurs
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 219--219
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (22.90088pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 struc-ture 
+ []
+
+
+Overfull \hbox (66.74844pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 or-ga-ni-sa-tion-nelle 
+ []
+
+
+Overfull \hbox (38.72876pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 l'ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 219--219
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (22.90088pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 struc-ture 
+ []
+
+
+Overfull \hbox (66.74844pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 or-ga-ni-sa-tion-nelle 
+ []
+
+
+Overfull \hbox (38.72876pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 l'ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 219--219
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (22.90088pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 struc-ture 
+ []
+
+
+Overfull \hbox (66.74844pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 or-ga-ni-sa-tion-nelle 
+ []
+
+
+Overfull \hbox (38.72876pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 l'ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (17.56483pt too wide) in paragraph at lines 219--219
+[][][]\T1/phv/m/n/12 TODO : 
+ []
+
+
+Overfull \hbox (22.90088pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 struc-ture 
+ []
+
+
+Overfull \hbox (66.74844pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 or-ga-ni-sa-tion-nelle 
+ []
+
+
+Overfull \hbox (38.72876pt too wide) in paragraph at lines 219--219
+\T1/phv/m/n/12 l'ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (17.72003pt too wide) in paragraph at lines 224--225
+[][]\T1/phv/m/n/12 De plus, les per-for-mances au ni-veau de la vi-tesse d'exé-cu-tion de la pla-te-forme
+ []
+
+
+Overfull \hbox (3.16377pt too wide) in paragraph at lines 226--227
+[][]\T1/phv/m/n/12 Finalement, l'ar-chi-tec-ture mise en place côté pla-te-forme web nous a blo-qué
+ []
+
+[11
+
+]
+Overfull \hbox (12.97893pt too wide) in paragraph at lines 229--230
+\T1/phv/m/n/12 ap-pli-ca-tion An-droid, tout en uti-li-sant une ap-proche dif-fé-rente de celle adop-tée
+ []
+
+
+Overfull \hbox (7.23209pt too wide) in paragraph at lines 232--233
+[][]\T1/phv/m/n/12 Il est né-cés-saire dans ce genre d'ap-pli-ca-tions tra-vaillant avec di-vers ac-teurs,
+ []
+
+
+Overfull \hbox (21.90215pt too wide) in paragraph at lines 238--239
+\T1/phv/m/n/12 pla-te-forme. Ob-jec-tif : Fil-trage d'éven-tuelles créa-tion de compte in-tem-pes-tive. 
+ []
+
+
+Overfull \hbox (0.78256pt too wide) in paragraph at lines 243--244
+\T1/phv/m/n/12 en-tiè-re-ment don-née au ges-tion-naire de ti-cket. Il sera ce-pen-dant pos-sible
+ []
+
+
+Overfull \hbox (44.6687pt too wide) in paragraph at lines 250--250
+\T1/phv/m/n/12 d'in-for-ma-tion 
+ []
+
+
+Overfull \hbox (44.6687pt too wide) in paragraph at lines 250--250
+\T1/phv/m/n/12 d'in-for-ma-tion 
+ []
+
+
+Overfull \hbox (44.6687pt too wide) in paragraph at lines 250--250
+\T1/phv/m/n/12 d'in-for-ma-tion 
+ []
+
+
+Overfull \hbox (44.6687pt too wide) in paragraph at lines 250--250
+\T1/phv/m/n/12 d'in-for-ma-tion 
  []
 
 
@@ -1008,36 +1262,474 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [12]
-Chapitre 4.
-
-Overfull \hbox (9.06772pt too wide) in paragraph at lines 261--262
-[][]\T1/phv/m/n/12 J'ai énor-mé-ment ap-pris lors de mon stage, ainsi que lors de l'im-plé-men-ta-tion
+Overfull \hbox (44.6687pt too wide) in paragraph at lines 253--253
+\T1/phv/m/n/12 d'in-for-ma-tion 
  []
 
 
-Overfull \hbox (12.72818pt too wide) in paragraph at lines 263--264
+Overfull \hbox (16.0611pt too wide) in paragraph at lines 253--253
+\T1/phv/m/n/12 an-droid  
+ []
+
+
+Overfull \hbox (44.6687pt too wide) in paragraph at lines 253--253
+\T1/phv/m/n/12 d'in-for-ma-tion 
+ []
+
+
+Overfull \hbox (16.0611pt too wide) in paragraph at lines 253--253
+\T1/phv/m/n/12 an-droid  
+ []
+
+
+Overfull \hbox (44.6687pt too wide) in paragraph at lines 253--253
+\T1/phv/m/n/12 d'in-for-ma-tion 
+ []
+
+
+Overfull \hbox (16.0611pt too wide) in paragraph at lines 253--253
+\T1/phv/m/n/12 an-droid  
+ []
+
+
+Overfull \hbox (44.6687pt too wide) in paragraph at lines 253--253
+\T1/phv/m/n/12 d'in-for-ma-tion 
+ []
+
+
+Overfull \hbox (16.0611pt too wide) in paragraph at lines 253--253
+\T1/phv/m/n/12 an-droid  
+ []
+
+
+LaTeX Warning: Marginpar on page 13 moved.
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 256--256
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (1.37341pt too wide) in paragraph at lines 256--256
+\T1/phv/m/n/12 UML 
+ []
+
+
+Overfull \hbox (32.66887pt too wide) in paragraph at lines 256--256
+\T1/phv/m/n/12 pla-te-forme  
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 256--256
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (1.37341pt too wide) in paragraph at lines 256--256
+\T1/phv/m/n/12 UML 
+ []
+
+
+Overfull \hbox (32.66887pt too wide) in paragraph at lines 256--256
+\T1/phv/m/n/12 pla-te-forme  
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 256--256
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (1.37341pt too wide) in paragraph at lines 256--256
+\T1/phv/m/n/12 UML 
+ []
+
+
+Overfull \hbox (32.66887pt too wide) in paragraph at lines 256--256
+\T1/phv/m/n/12 pla-te-forme  
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 256--256
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (1.37341pt too wide) in paragraph at lines 256--256
+\T1/phv/m/n/12 UML 
+ []
+
+
+Overfull \hbox (32.66887pt too wide) in paragraph at lines 256--256
+\T1/phv/m/n/12 pla-te-forme  
+ []
+
+
+LaTeX Warning: Marginpar on page 13 moved.
+
+
+Overfull \hbox (2.0pt too wide) in paragraph at lines 257--258
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+
+ []
+
+
+Overfull \hbox (37.3968pt too wide) in paragraph at lines 263--263
+[][][][]\T1/phv/m/n/12 dictionnaire 
+ []
+
+
+Overfull \hbox (22.0731pt too wide) in paragraph at lines 263--263
+\T1/phv/m/n/12 don-nées  
+ []
+
+
+Overfull \hbox (37.3968pt too wide) in paragraph at lines 263--263
+[][][]\T1/phv/m/n/12 dictionnaire 
+ []
+
+
+Overfull \hbox (22.0731pt too wide) in paragraph at lines 263--263
+\T1/phv/m/n/12 don-nées  
+ []
+
+
+Overfull \hbox (37.3968pt too wide) in paragraph at lines 263--263
+[][][]\T1/phv/m/n/12 dictionnaire 
+ []
+
+
+Overfull \hbox (22.0731pt too wide) in paragraph at lines 263--263
+\T1/phv/m/n/12 don-nées  
+ []
+
+
+Overfull \hbox (37.3968pt too wide) in paragraph at lines 263--263
+[][][]\T1/phv/m/n/12 dictionnaire 
+ []
+
+
+Overfull \hbox (22.0731pt too wide) in paragraph at lines 263--263
+\T1/phv/m/n/12 don-nées  
+ []
+
+
+Overfull \hbox (20.0572pt too wide) in paragraph at lines 266--266
+[][][]\T1/phv/m/n/12 Schéma 
+ []
+
+
+Overfull \hbox (1.3734pt too wide) in paragraph at lines 266--266
+\T1/phv/m/n/12 BDD  
+ []
+
+
+Overfull \hbox (20.0572pt too wide) in paragraph at lines 266--266
+[][][]\T1/phv/m/n/12 Schéma 
+ []
+
+
+Overfull \hbox (1.3734pt too wide) in paragraph at lines 266--266
+\T1/phv/m/n/12 BDD  
+ []
+
+
+Overfull \hbox (20.0572pt too wide) in paragraph at lines 266--266
+[][][]\T1/phv/m/n/12 Schéma 
+ []
+
+
+Overfull \hbox (1.3734pt too wide) in paragraph at lines 266--266
+\T1/phv/m/n/12 BDD  
+ []
+
+
+Overfull \hbox (20.0572pt too wide) in paragraph at lines 266--266
+[][][]\T1/phv/m/n/12 Schéma 
+ []
+
+
+Overfull \hbox (1.3734pt too wide) in paragraph at lines 266--266
+\T1/phv/m/n/12 BDD  
+ []
+
+
+Overfull \hbox (23.465pt too wide) in paragraph at lines 271--271
+[][][]\T1/phv/m/n/12 Pourquoi 
+ []
+
+
+Overfull \hbox (33.40085pt too wide) in paragraph at lines 271--271
+\T1/phv/m/n/12 ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (24.73308pt too wide) in paragraph at lines 271--271
+\T1/phv/m/n/12 an-droid?  
+ []
+
+
+Overfull \hbox (23.465pt too wide) in paragraph at lines 271--271
+[][][]\T1/phv/m/n/12 Pourquoi 
+ []
+
+
+Overfull \hbox (33.40085pt too wide) in paragraph at lines 271--271
+\T1/phv/m/n/12 ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (24.73308pt too wide) in paragraph at lines 271--271
+\T1/phv/m/n/12 an-droid?  
+ []
+
+
+Overfull \hbox (23.465pt too wide) in paragraph at lines 271--271
+[][][]\T1/phv/m/n/12 Pourquoi 
+ []
+
+
+Overfull \hbox (33.40085pt too wide) in paragraph at lines 271--271
+\T1/phv/m/n/12 ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (24.73308pt too wide) in paragraph at lines 271--271
+\T1/phv/m/n/12 an-droid?  
+ []
+
+
+Overfull \hbox (23.465pt too wide) in paragraph at lines 271--271
+[][][]\T1/phv/m/n/12 Pourquoi 
+ []
+
+
+Overfull \hbox (33.40085pt too wide) in paragraph at lines 271--271
+\T1/phv/m/n/12 ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (24.73308pt too wide) in paragraph at lines 271--271
+\T1/phv/m/n/12 an-droid?  
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 15.57593pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13]
+Overfull \hbox (38.72876pt too wide) in paragraph at lines 277--277
+\T1/phv/m/n/12 l'ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (16.0611pt too wide) in paragraph at lines 277--277
+\T1/phv/m/n/12 an-droid  
+ []
+
+
+Overfull \hbox (38.72876pt too wide) in paragraph at lines 277--277
+\T1/phv/m/n/12 l'ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (16.0611pt too wide) in paragraph at lines 277--277
+\T1/phv/m/n/12 an-droid  
+ []
+
+
+Overfull \hbox (38.72876pt too wide) in paragraph at lines 277--277
+\T1/phv/m/n/12 l'ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (16.0611pt too wide) in paragraph at lines 277--277
+\T1/phv/m/n/12 an-droid  
+ []
+
+
+Overfull \hbox (38.72876pt too wide) in paragraph at lines 277--277
+\T1/phv/m/n/12 l'ap-pli-ca-tion 
+ []
+
+
+Overfull \hbox (16.0611pt too wide) in paragraph at lines 277--277
+\T1/phv/m/n/12 an-droid  
+ []
+
+
+Overfull \hbox (2.0pt too wide) in paragraph at lines 278--280
+[]
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 283--283
+[][][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (4.04921pt too wide) in paragraph at lines 283--283
+\T1/phv/m/n/12 client 
+ []
+
+
+Overfull \hbox (8.04533pt too wide) in paragraph at lines 283--283
+\T1/phv/m/n/12 REST  
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 283--283
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (4.04921pt too wide) in paragraph at lines 283--283
+\T1/phv/m/n/12 client 
+ []
+
+
+Overfull \hbox (8.04533pt too wide) in paragraph at lines 283--283
+\T1/phv/m/n/12 REST  
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 283--283
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (4.04921pt too wide) in paragraph at lines 283--283
+\T1/phv/m/n/12 client 
+ []
+
+
+Overfull \hbox (8.04533pt too wide) in paragraph at lines 283--283
+\T1/phv/m/n/12 REST  
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 283--283
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (4.04921pt too wide) in paragraph at lines 283--283
+\T1/phv/m/n/12 client 
+ []
+
+
+Overfull \hbox (8.04533pt too wide) in paragraph at lines 283--283
+\T1/phv/m/n/12 REST  
+ []
+
+
+Overfull \hbox (13.459pt too wide) in paragraph at lines 282--284
+[][]\T1/phv/m/n/12 Le client REST est im-plé-menté côté ap-pli-ca-tion An-droid afin de com-mu-ni-quer
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 286--286
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (50.74081pt too wide) in paragraph at lines 286--286
+\T1/phv/m/n/12 d'évè-ne-ments  
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 286--286
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (50.74081pt too wide) in paragraph at lines 286--286
+\T1/phv/m/n/12 d'évè-ne-ments  
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 286--286
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (50.74081pt too wide) in paragraph at lines 286--286
+\T1/phv/m/n/12 d'évè-ne-ments  
+ []
+
+
+Overfull \hbox (18.7252pt too wide) in paragraph at lines 286--286
+[][][]\T1/phv/m/n/12 Analyse 
+ []
+
+
+Overfull \hbox (50.74081pt too wide) in paragraph at lines 286--286
+\T1/phv/m/n/12 d'évè-ne-ments  
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 15.57593pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14]
+Chapitre 4.
+
+Overfull \hbox (32.7291pt too wide) in paragraph at lines 289--289
+[][][]\T1/phv/m/n/12 conclusion  
+ []
+
+
+Overfull \hbox (32.7291pt too wide) in paragraph at lines 289--289
+[][][]\T1/phv/m/n/12 conclusion  
+ []
+
+
+Overfull \hbox (32.7291pt too wide) in paragraph at lines 289--289
+[][][]\T1/phv/m/n/12 conclusion  
+ []
+
+
+Overfull \hbox (32.7291pt too wide) in paragraph at lines 289--289
+[][][]\T1/phv/m/n/12 conclusion  
+ []
+
+
+Overfull \hbox (9.06772pt too wide) in paragraph at lines 289--291
+[][][]\T1/phv/m/n/12 J'ai énor-mé-ment ap-pris lors de mon stage, ainsi que lors de l'im-plé-men-ta-tion
+ []
+
+
+Overfull \hbox (12.72818pt too wide) in paragraph at lines 292--293
 [][]\T1/phv/m/n/12 Je n'avais ja-mais es-sayé d'im-plé-men-ter un site web en py-thon, ni im-plé-menté
  []
 
-[13
+[15
 
 ]
 Chapitre 5.
 
-Overfull \hbox (24.64941pt too wide) in paragraph at lines 267--268
+Overfull \hbox (24.64941pt too wide) in paragraph at lines 296--297
 [][]\T1/phv/m/n/12 site web : http ://en.wikibooks.org/wiki/LaTeX/List_-Struc-tures 
  []
 
-[14
+[16
 
 ] ("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.aux") ) 
 Here is how much of TeX's memory you used:
- 13770 strings out of 493922
- 265818 string characters out of 3147302
- 303899 words of memory out of 3000000
- 16791 multiletter control sequences out of 15000+200000
- 47024 words of font info for 47 fonts, out of 3000000 for 9000
+ 14228 strings out of 493922
+ 273036 string characters out of 3147302
+ 347694 words of memory out of 3000000
+ 17232 multiletter control sequences out of 15000+200000
+ 49494 words of font info for 59 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 62i,12n,56p,448b,314s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,12n,76p,516b,704s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on TFE.dvi (15 pages, 45780 bytes).
+Output written on TFE.dvi (17 pages, 95224 bytes).

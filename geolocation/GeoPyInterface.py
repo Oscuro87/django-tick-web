@@ -26,18 +26,9 @@ class GeoPyInterface:
             resultData["location"] = self.geolocator.geocode(fullAddress)
             resultData["result"] = ResultType.OK
             return resultData
-        except exc.ConfigurationError:
-            print("Configuration de l'adresse incorrecte, ou adresse non existante: \n{}".format(exc.ConfigurationError.__str__()))
-            return resultData
-        except exc.GeocoderQuotaExceeded:
-            print("Quota d'utilisation de GeoPy dépassé!")
-            return resultData
-        except exc.GeocoderUnavailable:
-            print("Impossible de se connecter au geocoder: \n{}".format(exc.GeocoderUnavailable.__str__()))
-            return resultData
-        except exc.GeocoderServiceError:
-            print("Impossible de se connecter au geocoder: \n{}".format(exc.GeocoderServiceError.__str__()))
-            return resultData
+        except exc.GeopyError as ge:
+            print("{}\n".format(ge.__str__()))
+            return {"result": ResultType.KO, "location:": None,}
 
     def getDistanceBetweenTwoCoordinates(self, lat1, long1, lat2, long2):
         # Cette methode est "offline" donc pas besoin de gérer les exceptions de connection, quota, etc...

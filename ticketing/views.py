@@ -9,7 +9,7 @@ from django.utils.translation import ugettext as _
 from ticketing.custom_exceptions.TicketCreationException import TicketCreationException
 
 from ticketing.forms import ContactForm, TicketCommentForm, BuildingCreationForm
-from ticketing.models import EventCategory, Ticket, TicketStatus, Building, Place
+from ticketing.models import EventCategory, Ticket, TicketStatus, Building, Place, Channel
 
 
 class ContactView(TemplateView):
@@ -98,8 +98,8 @@ class CreateTicketView(TemplateView):
             raise TicketCreationException(_("The main category cannot be empty!"))
         subcategoryID = self.request.POST.get('subcategory')
         creatorID = self.request.user.pk
-        channelID = 1  # Web
-        statusID = 1  # open
+        channelID = Channel.objects.get_or_create(label="Web")  # Web
+        statusID = TicketStatus.objects.first()  # open
         if subcategoryID != 'empty':
             priorityID = EventCategory.objects.get(pk=subcategoryID).fk_priority.pk
         else:
