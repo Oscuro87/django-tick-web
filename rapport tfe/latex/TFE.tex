@@ -6,6 +6,9 @@
 \usepackage{fancyhdr}
 \usepackage[french]{babel}
 \usepackage[none]{hyphenat}
+\usepackage{listings}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{todonotes}
 
 \title{TFE: Plateforme de ticketing}
 \author{Emmanuel CAPELLE}
@@ -13,7 +16,7 @@
 
 \DeclareUnicodeCharacter{00A0}{ }
 \pagestyle{fancy}
-\lhead{Plateforme de ticketing}
+\lhead{}
 \renewcommand{\rmdefault}{phv}
 \renewcommand{\sfdefault}{phv}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -46,7 +49,7 @@ Il existe d’autres exemple de plateformes déjà existantes, tel que "Mantis B
 J’ai abordé ce sujet de TFE avec plusieurs problêmes en tête:
 \begin{enumerate}
 \item{La vitesse d’exécution du framework utilisé lors de mon stage\footnote{YII: http://www.yiiframework.com/} s’avérait être très lent, malgré l’utilisation rigoureuse des best-practices préconisés par les créateurs dudit framework.}
-\item{La flexibilité de ces différentes plateformes reste assez limitée, j’aimerais créer une plateforme extensible à souhait, pouvant se métamorphoser en une plateforme adaptée aux besoins de ses utilisateurs.}
+\item{La flexibilité de ces différentes plateformes reste assez limitée, j’aimerais créer une plateforme extensible à souhait, pouvant se "`métamorphoser"' en une plateforme adaptée aux besoins de ses utilisateurs, via une interface administrateur.}
 \item{J’aimerais ajouter une capacité d’ubiquité à ma plateforme en lui ajoutant une application Android permettant de créer et/ou gérer des tickets, peu importe la localisation de ses utilisateurs.}
 \end{enumerate}
 
@@ -54,15 +57,14 @@ J’ai abordé ce sujet de TFE avec plusieurs problêmes en tête:
 \section{Délimitation du projet}
 Le projet est constitué de deux parties: d'une part l'application web qui servira d'interface principale à ses utilisateurs, leur permettra de gérer leur compte utilisateur et les paramètres associés à celui-ci ainsi que la création de tickets directement sur le site.
 
-L'accent sera mis sur l'interaction entre les divers protagonistes du site et la communication entre ceux-ci.
+L'accent sera mis sur la communication entre les différents protagonistes pour la résolution de problèmes des utilisateurs de la plateforme. Les différents protagonistes sont les utilisateurs, les gestionnaires de tickets, et les entreprises susceptibles de pouvoir résoudre le problème lié au ticket.
 
 D'autre part, une application android a été créée en tant que support pour l'application web principale. Sa valeur ajoutée est qu'elle permet aux utilisateurs de créer un ticket où qu'ils soient, sans devoir avoir accès à un ordinateur.
-
 
 \section{Définition de quelques concepts}
 \textbf{Service d'assistance}: service offert par l'entreprise propriétaire de la plateforme pour mettre en relation utilisateurs de ladite plateforme et entreprises étant susceptible de résoudre le problème rencontré par l'utilisateur.
 
-\textbf{Ticket}: Un ticket est une demande d'assistance émise par l'utilisateur de la plateforme.
+\textbf{Ticket}: Un ticket est une demande d'assistance émise par l'utilisateur de la plateforme. Celui-ci est ensuite pris en charge par un gestionnaire de ticket, qui servira d'intermédiaire entre l'utilisateur et une ou plusieurs entreprises.
 
 \textbf{Administrateur}: Dans le cas de cette application, l'administrateur est la/les personnes en charge du backend de l'application. (Base de données, code, ...)
 
@@ -79,10 +81,18 @@ Environnements de travail:
 
 Développement du site web: IDE PyCharm – community edition de JetBrains.\footnote{https://www.jetbrains.com/pycharm/}
 
-Développement de l'app Android: IDE Intellij IDEA – community edition de JetBrains.\footnote{https://www.jetbrains.com/idea/}
+Développement de l'app Android: Android studio de JetBrains.\footnote{http://developer.android.com/tools/studio/index.html}
 
 \section{Langage de programmation utilisé: Python}
-"Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development [...]"\footnote{https://www.python.org/doc/essays/blurb/}
+Créé en 1990 par Guido van Rossum, Python est un langage de programmation de haut niveau à typage dynamique, orienté objet et est un langage interprété, plutôt que compilé.
+
+Ce langage à l'avantage d'être portable, et peut fonctionner sur quasiment toutes les systèmes d'exploitation disponibles sur le marché. Si j'ai envie de porter mon application de ticketing sur linux, il est tout à fait possible de le faire, et ce assez facilement.
+
+Python est aussi un langage qui a pris beaucoup de maturité, ce qui a pour avantage d'avoir une assez grande communauté, et par conséquent un choix de librairies assez conséquent.
+
+Simple et direct, Python est particulièrement bien adapté au dévelopement rapide d'applications (RAD).
+
+Il est possible aussi d'interfacer python avec d'autres langages comme C++, java, c\#, etc... Son utilisation est alors plus orientée vers le scripting de comportements.
 
 Pourquoi ai-je choisi Python? 
 
@@ -95,7 +105,8 @@ Django est un framework orienté web créé en Python.
 
 Ce framework permet le développement non seulement rapide, mais aussi modulaire d'applications web, enlevant à cette occasion la nécéssité de "réinventer la roue".
 
-\subsection{Pourquoi Django?}
+Pourquoi Django?
+
 Dans le domaine des frameworks web pour développement rapide de sites web, Django a beaucoup de concurrence (CodeIgniter, Laravel, Yii, ruby on rails, ASP.NET,... Pour ne citer que quelques uns des frameworks les plus connus dans le milieu).
 
 Dans un contexte de popularité du framework par rapport à ses concurrents, Django se place dans le haut du classement (Au moment de l'écriture de ce rapport).\footnote{http://hotframeworks.com/\#top-frameworks}
@@ -106,7 +117,16 @@ Finalement, j'ai choisi Django car j'ai voulu apprendre une nouvelle manière de
 
 \subsection{Fonctionnement de Django}
 \subsubsection{Déploiement rapide d'application}
-TODO
+Le déploiement d'une application Django requiert deux choses:
+
+\begin{itemize}
+	\item{Une distribution python correctement installée, et préférablement dans sa version 3.x vu les performances améliorées dans cette nouvelle version}
+	\item{Les dépendances de librairies python, facilement installées grâce à l'outil PIP qui installe Django et ses dépendances en une seule commande console.}
+\end{itemize}
+
+Après avoir installé python, la librairie Django et ses dépendances, il ne reste qu'à soit cloner un projet Django depuis votre hébergeur git, mercurial ou autre, soit créer un nouveau projet Django.
+
+Django utilise son propre serveur web, pas besoin d'apache pour livrer les pages web aux utilisateurs de la plateforme.
 
 \subsubsection{Architecture web découplée}
 Django à comme spécificité d'être modulable à l'extrème. En effet, il est très facile avec ce framework de pouvoir ajouter un nouveau module à la volée, et avec un minimum de configuration.
@@ -115,11 +135,13 @@ La seule exigence du framework est que l'application web doit posséder un modul
 
 Ce système apporte beaucoup de choses bénéfiques au développement web, et la non-nécéssité de devoir "réinventer la roue" à chaque démarrage de projet.
 
-Ce système, très efficace, permet le développement de "plugins"\footnote{Plugin : Extension que l'on peut ajouter à une application principale pour en étendre les fonctionnalités.} et une utilisation rapide de ceux-ci dans des applications existantes.
+Ce système, très efficace, permet le développement de "plugins"\footnote{Plugin : Extension d'une application principale pour en étendre les fonctionnalités.} et une utilisation rapide de ceux-ci dans des applications existantes.
 Par exemple, il est possible qu'une entreprise ai créé son propre système de login sécurisé et réutilisable, il lui est donc très facile d'intégrer ce module dans un projet déjà existant, permettant ainsi de développer plus rapidement de nouveaux modules.
 
 \subsubsection{Architecture MVC}
-L'architecture suivie par Django est le modèle MVC.
+À vrai dire, les développeurs de Django appellent l'architecture utilisée par Django "`architecture MTV"' qui, selon leur dires \footnote{https://docs.djangoproject.com/en/1.8/faq/general/ : "`Django appears to be a MVC framework, but you call the Controller the 'view', and the View the 'template'. How come you don’t use the standard names?"'}, diffère par le fait que 
+
+Qu'est-ce que MVC?
 
 Cette architecture sépare l'application en trois grandes parties, le modèle qui s'occupe de la partie applicative logique, ainsi que des interactions entre la base de données et l'application.
 
@@ -129,16 +151,31 @@ Pour terminer, le contrôlleur, qui s'occupe de la gestion et de la validation d
 
 Il est à noter que Django utilise une nomenclature propre pour désigner les différentes parties du modèle MVC: Le modèle s'appelle toujours modèle, par contre la vue s'appelera "template", et le contrôleur s'appellera "views", pour cause, le fichier s'occupant de la partie contrôlleur de l'application s'appelle... "views.py". C'est d'ailleurs ce que j'ai trouvé déroutant lorsque j'ai découvert le framework.
 
-\subsubsection{Les modèles: Un ORM très efficace}
-Avec Django, un modèle est obligatoirement représenté par une classe.
+\subsubsection{Les modèles}
+Les modèles en Django sont tous contenus dans un fichier appelé "models.py". Ce fichier existe dans chacuns des modules existant dans l'application Django.
 
-Ceci est dû à l'ORM propre à Django
+Les modèles sont représentés par une classe. Ces classes sont consituées de champs (primary key, foreign key, champs normaux,...), mais aussi de méthodes définissant le comportement du modèle, et qui seront appelées par les contrôleurs afin de pouvoir travailler, modifier ou supprimer ces objets.
+
+La création d'objets se fait dans le contrôleur. (voir section sur les contrôleurs, plus bas)
+
+Chacune des classes modèle dérive d'une classe "`Model"' parente, contenant tous les comportements de base d'un modèle. Par exemple: sauvegarde de l'objet dans la DB (via l'ORM), suppression d'un objet, entre autres.
+
+Tous ces comportements sont bien entendu redéfinissables afin de se comporter de la manière la plus adaptée aux besoins du développeur, et donc ultimement aux besoins des utilisateurs.
+
+Il est par exemple possible de redéfinir la méthode "`delete()"' dans le but de passer un champ "`visible"' à faux, au lieu de supprimer la donnée de la base de données. Cette technique est appelée "`soft delete"', et je l'utilise dans mon application.
+
+Cette méthode de découpe des modèles en classes python permet aussi une certaine facilité dans l'écriture de bateries de tests, j'y reviendrai un peu plus tard dans la section consacrée aux tests.
 
 \subsubsection{Les vues}
+TODO
 Il y a deux façons d'aborder la création de vues avec Django (fonctionnel et classes)
+
 
 \subsubsection{Les contrôleurs}
 TODO
+
+\subsection{L'ORM de Django}
+Après avoir écrit les classes modèles, il faut traduire lesdites classes en tables et champs dans la/les base(s) de données utilisée(s) par l'application.
 
 \subsection{SQLite versus MySQL}
 SQLite est un type de base de données léger, stocké dans un fichier ".db", ce qui rend cette base de données portable: Un simple copier-coller la relocalise. C'est une très bonne base de données pour tester les applications en développement.
@@ -163,6 +200,7 @@ Son implémentation a été pensée de telle sorte que l'utilisateur de la plate
 
 \subsection{Structure organisationnelle de l'application}
 
+
 \subsection{Critique de la plateforme existante}
 Cette plateforme ne se basait que sur des catégories et sous-catégories d'incidents, et souvent, une entreprise assignée à tel incident se trouvait beaucoup plus loin géographiquement qu'une autre entreprise pouvant résoudre le même type de problème.
 
@@ -172,6 +210,21 @@ Finalement, l'architecture mise en place côté plateforme web nous a bloqué lo
 
 \section{Conception de la nouvelle solution}
 C'est avec les différents problèmes énoncés lors de la section précédente en tête que je me suis mis à développer un système de ticketing et son application Android, tout en utilisant une approche différente de celle adoptée lors de mon stage en entreprise.
+
+\subsection{Business rules}
+Il est nécéssaire dans ce genre d'applications travaillant avec divers acteurs, qui eux-mêmes travaillent en harmonie pour atteindre un objectif commun (la résolution de problèmes de particuliers), de définir des règles métiers qui assureront le bon fonctionnement de l'application.
+
+Voici les principales règles métier mises en place:
+
+\subsubsection{Administration de la plateforme}
+\begin{itemize}
+	\item{L'administrateur de la plateforme pourra choisir s'il est possible pour les utilisateurs de la plateforme de s'enregistrer manuellement sur ladite plateforme. Objectif: Filtrage d'éventuelles création de compte intempestive.}
+\end{itemize}
+
+\subsubsection{Gestion des tickets}
+\begin{itemize}
+	\item{Une fois la création d'un ticket effectuée, la gestion de celui-ci sera entièrement donnée au gestionnaire de ticket. Il sera cependant possible pour l'utilisateur de communiquer avec son gestionnaire de ticket via la section commentaire dudit ticket, ou via la fonctionnalité de contact disponible sur la page principale "`Home"' de la plateforme.}
+\end{itemize}
 
 \subsection{Flux d'information}
 Je vais diviser cette section en deux parties distinctes, car il existe deux flux distincts d'informations: Le flux d'information interne au site web, et celui utilisé par l'application Android via le webservice implémenté aux côtés du site web.
@@ -209,5 +262,12 @@ J'ai énormément appris lors de mon stage, ainsi que lors de l'implémentation 
 
 Je n'avais jamais essayé d'implémenter un site web en python, ni implémenté de web service. Android était aussi pour moi une grande inconnue.
 
+\begin{thebibliography}{breitestes Label}
+	\bibitem{How to tango with Django}
+	site web: http://en.wikibooks.org/wiki/LaTeX/List\_Structures
+	
+	\bibitem{Documentation Django online}
+		site web: https://docs.djangoproject.com/en/1.8/
+\end{thebibliography}
 
 \end{document}

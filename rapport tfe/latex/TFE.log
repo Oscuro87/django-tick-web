@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.3.18)  10 APR 2015 21:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.3.18)  16 APR 2015 15:37
 entering extended mode
 **TFE.tex
 ("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.tex"
@@ -332,61 +332,407 @@ Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
 \langwohyphens=\language69
 LaTeX Info: Redefining \_ on input line 43.
 )
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
+\lst@mode=\count91
+\lst@gtempboxa=\box26
+\lst@token=\toks17
+\lst@length=\count92
+\lst@currlwidth=\dimen106
+\lst@column=\count93
+\lst@pos=\count94
+\lst@lostspace=\dimen107
+\lst@width=\dimen108
+\lst@newlines=\count95
+\lst@lineno=\count96
+\lst@maxwidth=\dimen109
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+\c@lstnumber=\count97
+\lst@skipnumbers=\count98
+\lst@framebox=\box27
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+File: listings.cfg 2014/09/06 1.5e listings configuration
+))
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\tocbibind\tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\todonotes\todonotes.sty
+Package: todonotes 2012/07/25 .dtx Todonotes source and documentation.
+Package: todonotes 2012/07/25
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+\XKV@toks=\toks18
+\XKV@tempa@toks=\toks19
+\XKV@depth=\count99
+File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
+))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: dvips.def on input line 225.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvips.def"
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+) (C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\colortbl\colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen110
+\extrarowheight=\dimen111
+\NC@list=\toks20
+\extratabsurround=\skip52
+\backup@length=\skip53
+)
+\everycr=\toks21
+\minrowclearance=\skip54
+)
+\rownum=\count100
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\frontendlayer\tikz.sty
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgf.sty
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfrcs.sty
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks22
+\pgfutil@tempdima=\dimen112
+\pgfutil@tempdimb=\dimen113
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-common-lists.tex))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-latex.def
+\pgfutil@abb=\box28
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfrcs.code.tex
+Package: pgfrcs 2013/12/20 v3.0.0 (rcs-revision 1.28)
+))
+Package: pgf 2013/12/18 v3.0.0 (rcs-revision 1.14)
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgfcore.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 91.
+)
+\Gin@req@height=\dimen114
+\Gin@req@width=\dimen115
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\systemlayer\pgfsys.sty
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex
+Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks23
+\pgfkeys@temptoks=\toks24
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks25
+))
+\pgf@x=\dimen116
+\pgf@y=\dimen117
+\pgf@xa=\dimen118
+\pgf@ya=\dimen119
+\pgf@xb=\dimen120
+\pgf@yb=\dimen121
+\pgf@xc=\dimen122
+\pgf@yc=\dimen123
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count101
+\c@pgf@countb=\count102
+\c@pgf@countc=\count103
+\c@pgf@countd=\count104
+\t@pgf@toka=\toks26
+\t@pgf@tokb=\toks27
+\t@pgf@tokc=\toks28
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-dvips.def
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-dvips.def
+File: pgfsys-dvips.def 2013/07/16  (rcs-revision 1.23)
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-common-postscript.def
+File: pgfsys-common-postscript.def 2008/10/01  (rcs-revision 1.22)
+\pgf@objectcount=\count105
+)))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count106
+\pgfsyssoftpath@bigbuffer@items=\count107
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.tex
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathcalc.code.tex
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathutil.code.tex)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen124
+\pgfmath@count=\count108
+\pgfmath@box=\box29
+\pgfmath@toks=\toks29
+\pgfmath@stack@operand=\toks30
+\pgfmath@stack@operation=\toks31
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometric.code.tex)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.random.code.tex)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.code.tex)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.tex)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.tex)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.integerarithmetics.code.tex)))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count109
+))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen125
+\pgf@picmaxx=\dimen126
+\pgf@picminy=\dimen127
+\pgf@picmaxy=\dimen128
+\pgf@pathminx=\dimen129
+\pgf@pathmaxx=\dimen130
+\pgf@pathminy=\dimen131
+\pgf@pathmaxy=\dimen132
+\pgf@xx=\dimen133
+\pgf@xy=\dimen134
+\pgf@yx=\dimen135
+\pgf@yy=\dimen136
+\pgf@zx=\dimen137
+\pgf@zy=\dimen138
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen139
+\pgf@path@lasty=\dimen140
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
+\pgf@shorten@end@additional=\dimen141
+\pgf@shorten@start@additional=\dimen142
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
+\pgfpic=\box30
+\pgf@hbox=\box31
+\pgf@layerbox@main=\box32
+\pgf@picture@serial@count=\count110
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
+\pgflinewidth=\dimen143
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
+\pgf@pt@x=\dimen144
+\pgf@pt@y=\dimen145
+\pgf@pt@temp=\dimen146
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
+\pgfarrowsep=\dimen147
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen148
+\pgf@sys@shading@range@num=\count111
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2013/07/15  (rcs-revision 1.20)
+\pgfexternal@startupbox=\box33
+))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2013/10/31  (rcs-revision 1.34)
+\pgfnodeparttextbox=\box34
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2013/07/31  (rcs-revision 1.12)
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.0 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen149
+\pgf@nodesepend=\dimen150
+)
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.0 (rcs-revision 1.1)
+))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgffor.sty
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfkeys.sty
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.code.tex))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\math\pgfmath.sty
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.tex))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.0 (rcs-revision 1.25)
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.tex)
+\pgffor@iter=\dimen151
+\pgffor@skip=\dimen152
+\pgffor@stack=\toks32
+\pgffor@toks=\toks33
+))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex
+Package: tikz 2013/12/13 v3.0.0 (rcs-revision 1.142)
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
+\pgf@plot@mark@count=\count112
+\pgfplotmarksize=\dimen153
+)
+\tikz@lastx=\dimen154
+\tikz@lasty=\dimen155
+\tikz@lastxsaved=\dimen156
+\tikz@lastysaved=\dimen157
+\tikzleveldistance=\dimen158
+\tikzsiblingdistance=\dimen159
+\tikz@figbox=\box35
+\tikz@figbox@bg=\box36
+\tikz@tempbox=\box37
+\tikz@tempbox@bg=\box38
+\tikztreelevel=\count113
+\tikznumberofchildren=\count114
+\tikznumberofcurrentchild=\count115
+\tikz@fig@count=\count116
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count117
+\pgfmatrixcurrentcolumn=\count118
+\pgf@matrix@numberofcolumns=\count119
+)
+\tikz@expandcount=\count120
+
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
+)))
+(C:\Users\oscuro\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.0 (rcs-revision 1.7)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count121
+\calc@Bcount=\count122
+\calc@Adimen=\dimen160
+\calc@Bdimen=\dimen161
+\calc@Askip=\skip55
+\calc@Bskip=\skip56
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count123
+\calc@Cskip=\skip57
+)
+\c@@todonotes@numberoftodonotes=\count124
+)
    defining Unicode char U+00A0 (decimal 160)
-
-
-LaTeX Warning: Unused global option(s):
-    [table].
-
-("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 25.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
+ ("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 28.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-LaTeX Info: Redefining \degres on input line 25.
-LaTeX Info: Redefining \dots on input line 25.
-LaTeX Info: Redefining \up on input line 25.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 27.
+LaTeX Info: Redefining \degres on input line 28.
+LaTeX Info: Redefining \dots on input line 28.
+LaTeX Info: Redefining \up on input line 28.
+\c@lstlisting=\count125
+ ABD: EveryShipout initializing macros
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 30.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 27.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 30.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 27.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 30.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 27.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 30.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 27.
+(Font)              <14.4> on input line 30.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 27.
+(Font)              <10> on input line 30.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 27.
+(Font)              <7> on input line 30.
  [1
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 31.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 34.
 
 ("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.toc"
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
@@ -397,53 +743,60 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 3.
-)
-\tf@toc=\write3
  [1
 
-]
+])
+\tf@toc=\write4
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 15.57593pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[2]
 Chapitre 1.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 37.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 40.
 
-Overfull \hbox (2.99593pt too wide) in paragraph at lines 40--41
+Overfull \hbox (2.99593pt too wide) in paragraph at lines 43--44
 \T1/phv/m/n/12 qui ré-pondent à la de-mande de lo-gi-ciel de ges-tion de ser-vices d'as-sis-tance. 
  []
 
 
-Overfull \hbox (10.64017pt too wide) in paragraph at lines 44--45
+Overfull \hbox (10.64017pt too wide) in paragraph at lines 47--48
 \T1/phv/m/n/12 Bug Tra-cker"[], qui se fo-ca-lise quant à elle sur l'as-sis-tance au dé-ve-lop-pe-ment
  []
 
 
-Overfull \hbox (12.18707pt too wide) in paragraph at lines 48--49
+Overfull \hbox (12.18707pt too wide) in paragraph at lines 51--52
 [][]\T1/phv/m/n/12 La vi-tesse d'exé-cu-tion du fra-me-work uti-lisé lors de mon stage[] s'avé-rait
  []
 
 
-Overfull \hbox (23.77829pt too wide) in paragraph at lines 48--49
+Overfull \hbox (23.77829pt too wide) in paragraph at lines 51--52
 \T1/phv/m/n/12 être très lent, mal-gré l'uti-li-sa-tion ri-gou-reuse des best-practices pré-co-ni-sés
  []
 
 
-Overfull \hbox (18.31892pt too wide) in paragraph at lines 49--50
+Overfull \hbox (18.31892pt too wide) in paragraph at lines 52--53
 [][]\T1/phv/m/n/12 La flexi-bi-lité de ces dif-fé-rentes pla-te-formes reste as-sez li-mi-tée, j'ai-me-rais
  []
 
 
-Overfull \hbox (5.27472pt too wide) in paragraph at lines 49--50
-\T1/phv/m/n/12 créer une pla-te-forme ex-ten-sible à sou-hait, pou-vant se mé-ta-mor-pho-ser
+Overfull \hbox (19.12244pt too wide) in paragraph at lines 52--53
+\T1/phv/m/n/12 créer une pla-te-forme ex-ten-sible à sou-hait, pou-vant se "`mé-ta-mor-pho-ser"'
  []
 
-[2
+[3
 
 ]
-Overfull \hbox (28.31465pt too wide) in paragraph at lines 63--64
+Overfull \hbox (28.31465pt too wide) in paragraph at lines 65--66
 \T1/phv/m/n/12 pla-te-forme pour mettre en re-la-tion uti-li-sa-teurs de la-dite pla-te-forme et en-tre-prises
  []
 
 
-Overfull \hbox (0.96802pt too wide) in paragraph at lines 67--68
+Overfull \hbox (0.96802pt too wide) in paragraph at lines 69--70
 \T1/phv/m/n/12 la/les per-sonnes en charge du ba-ckend de l'ap-pli-ca-tion. (Base de don-nées,
  []
 
@@ -453,135 +806,238 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3]
+[4]
 Chapitre 2.
 
-Overfull \hbox (22.5191pt too wide) in paragraph at lines 80--81
+Overfull \hbox (22.5191pt too wide) in paragraph at lines 82--83
 [][]\T1/phv/m/n/12 Développement du site web : IDE Py-Charm  com-mu-nity edi-tion de Jet-Brains.[] 
  []
 
 
-Overfull \hbox (1.47491pt too wide) in paragraph at lines 84--84
+Overfull \hbox (1.47491pt too wide) in paragraph at lines 86--86
 []\T1/phv/b/n/17.28 Langage de pro-gram-ma-tion uti-lisé : Py-thon 
  []
 
 
-Overfull \hbox (5.86305pt too wide) in paragraph at lines 85--86
-[][]\T1/phv/m/n/12 "Python is an in-ter-pre-ted, object-oriented, high-level pro-gram-ming lan-guage
+Overfull \hbox (25.49568pt too wide) in paragraph at lines 87--88
+[][]\T1/phv/m/n/12 Créé en 1990 par Guido van Ros-sum, Py-thon est un lan-gage de pro-gram-ma-tion
  []
 
-[4
+
+Overfull \hbox (16.13478pt too wide) in paragraph at lines 87--88
+\T1/phv/m/n/12 de haut ni-veau à ty-page dy-na-mique, orienté ob-jet et est un lan-gage in-ter-prété,
+ []
+
+[5
 
 ]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 98.
-
-Overfull \hbox (6.4997pt too wide) in paragraph at lines 101--102
+Overfull \hbox (6.4997pt too wide) in paragraph at lines 112--113
 [][]\T1/phv/m/n/12 Dans un contexte de po-pu-la-rité du fra-me-work par rap-port à ses concur-rents,
  []
 
 
-Overfull \hbox (3.63182pt too wide) in paragraph at lines 105--106
+Overfull \hbox (3.63182pt too wide) in paragraph at lines 116--117
 [][]\T1/phv/m/n/12 Finalement, j'ai choisi Django car j'ai voulu ap-prendre une nou-velle ma-nière
  []
 
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 118.
 
-Overfull \hbox (0.73994pt too wide) in paragraph at lines 116--117
-\T1/phv/m/n/12 web, et la non-nécéssité de de-voir "ré-in-ven-ter la roue" à chaque dé-mar-rage
+Overfull \hbox (9.81926pt too wide) in paragraph at lines 123--124
+\T1/phv/m/n/12 sa ver-sion 3.x vu les per-for-mances amé-lio-rées dans cette nou-velle ver-sion 
  []
 
 
-Overfull \hbox (10.11188pt too wide) in paragraph at lines 118--120
-\T1/phv/m/n/12 il est pos-sible qu'une en-tre-prise ai créé son propre sys-tème de lo-gin sé-cu-risé
+Overfull \hbox (2.13866pt too wide) in paragraph at lines 124--125
+[][]\T1/phv/m/n/12 Les dé-pen-dances de li-brai-ries py-thon, fa-ci-le-ment ins-tal-lées grâce à l'ou-til
  []
 
 
-Overfull \hbox (1.6276pt too wide) in paragraph at lines 118--120
-\T1/phv/m/n/12 déjà exis-tant, per-met-tant ainsi de dé-ve-lop-per plus ra-pi-de-ment de nou-veaux
+Overfull \hbox (1.99942pt too wide) in paragraph at lines 127--128
+\T1/phv/m/n/12 reste qu'à soit clo-ner un pro-jet Django de-puis votre hé-ber-geur git, mer-cu-rial
  []
 
 
-Package Fancyhdr Warning: \headheight is too small (14.49998pt): 
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 15.57593pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5]
-Overfull \hbox (5.5755pt too wide) in paragraph at lines 126--127
+[6]
+Overfull \hbox (0.73994pt too wide) in paragraph at lines 136--137
+\T1/phv/m/n/12 web, et la non-nécéssité de de-voir "ré-in-ven-ter la roue" à chaque dé-mar-rage
+ []
+
+
+Overfull \hbox (10.11188pt too wide) in paragraph at lines 138--140
+\T1/phv/m/n/12 il est pos-sible qu'une en-tre-prise ai créé son propre sys-tème de lo-gin sé-cu-risé
+ []
+
+
+Overfull \hbox (1.6276pt too wide) in paragraph at lines 138--140
+\T1/phv/m/n/12 déjà exis-tant, per-met-tant ainsi de dé-ve-lop-per plus ra-pi-de-ment de nou-veaux
+ []
+
+
+Overfull \hbox (5.5755pt too wide) in paragraph at lines 148--149
 [][]\T1/phv/m/n/12 La vue quant à elle sert à dé-fi-nir l'in-ter-face homme-machine de l'ap-pli-ca-tion,
  []
 
 
-Overfull \hbox (0.12743pt too wide) in paragraph at lines 130--131
+Overfull \hbox (0.12743pt too wide) in paragraph at lines 152--153
 \T1/phv/m/n/12 par contre la vue s'ap-pe-lera "tem-plate", et le contrô-leur s'ap-pel-lera "views",
  []
 
 
-Overfull \hbox (10.63977pt too wide) in paragraph at lines 144--145
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 15.57593pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7]
+Overfull \hbox (21.35597pt too wide) in paragraph at lines 155--156
+[][]\T1/phv/m/n/12 Les mo-dèles en Django sont tous conte-nus dans un fi-chier ap-pelé "mo-dels.py".
+ []
+
+
+Overfull \hbox (2.07256pt too wide) in paragraph at lines 157--158
+[][]\T1/phv/m/n/12 Les mo-dèles sont re-pré-sen-tés par une classe. Ces classes sont consi-tuées
+ []
+
+
+Overfull \hbox (13.21964pt too wide) in paragraph at lines 159--160
+[][]\T1/phv/m/n/12 La créa-tion d'ob-jets se fait dans le contrô-leur. (voir sec-tion sur les contrô-leurs,
+ []
+
+
+Overfull \hbox (18.60779pt too wide) in paragraph at lines 161--162
+[][]\T1/phv/m/n/12 Chacune des classes mo-dèle dé-rive d'une classe "`Mo-del"' pa-rente, conte-nant
+ []
+
+
+Overfull \hbox (22.81927pt too wide) in paragraph at lines 170--172
+[][]\T1/phv/m/n/12 TODO Il y a deux fa-çons d'abor-der la créa-tion de vues avec Django (fonc-tion-nel
+ []
+
+
+Overfull \hbox (7.33978pt too wide) in paragraph at lines 178--179
+\T1/phv/m/n/12 tables et champs dans la/les base(s) de don-nées uti-li-sée(s) par l'ap-pli-ca-tion. 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 15.57593pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8]
+Overfull \hbox (10.63977pt too wide) in paragraph at lines 181--182
 \T1/phv/m/n/12 re-lo-ca-lise. C'est une très bonne base de don-nées pour tes-ter les ap-pli-ca-tions
  []
 
-[6] [7]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 15.57593pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9]
 Chapitre 3.
 
-Overfull \hbox (3.47546pt too wide) in paragraph at lines 158--159
+Overfull \hbox (3.47546pt too wide) in paragraph at lines 195--196
 [][]\T1/phv/m/n/12 Cette pla-te-forme de ti-cke-ting a été réa-li-sée lors de mon stage en en-tre-prise. 
  []
 
 
-Overfull \hbox (18.31917pt too wide) in paragraph at lines 160--161
+Overfull \hbox (18.31917pt too wide) in paragraph at lines 197--198
 [][]\T1/phv/m/n/12 Son uti-lité prin-ci-pale consiste en la mise en re-la-tion de dif-fé-rents pro-ta-go-nistes
  []
 
 
-Overfull \hbox (21.2234pt too wide) in paragraph at lines 160--161
+Overfull \hbox (21.2234pt too wide) in paragraph at lines 197--198
 \T1/phv/m/n/12 pour la ré-so-lu-tion de pro-blèmes pré-sents sur le lieu d'ha-bi-ta-tion des uti-li-sa-teurs
  []
 
 
-Overfull \hbox (17.72003pt too wide) in paragraph at lines 169--170
+Overfull \hbox (17.72003pt too wide) in paragraph at lines 207--208
 [][]\T1/phv/m/n/12 De plus, les per-for-mances au ni-veau de la vi-tesse d'exé-cu-tion de la pla-te-forme
  []
 
 
-Overfull \hbox (3.16377pt too wide) in paragraph at lines 171--172
+Overfull \hbox (3.16377pt too wide) in paragraph at lines 209--210
 [][]\T1/phv/m/n/12 Finalement, l'ar-chi-tec-ture mise en place côté pla-te-forme web nous a blo-qué
  []
 
-[8
+[10
 
 ]
-Overfull \hbox (12.97893pt too wide) in paragraph at lines 174--175
+Overfull \hbox (12.97893pt too wide) in paragraph at lines 212--213
 \T1/phv/m/n/12 ap-pli-ca-tion An-droid, tout en uti-li-sant une ap-proche dif-fé-rente de celle adop-tée
  []
 
-[9]
-Overfull \hbox (13.459pt too wide) in paragraph at lines 203--204
+
+Overfull \hbox (7.23209pt too wide) in paragraph at lines 215--216
+[][]\T1/phv/m/n/12 Il est né-cés-saire dans ce genre d'ap-pli-ca-tions tra-vaillant avec di-vers ac-teurs,
+ []
+
+
+Overfull \hbox (21.90215pt too wide) in paragraph at lines 221--222
+\T1/phv/m/n/12 pla-te-forme. Ob-jec-tif : Fil-trage d'éven-tuelles créa-tion de compte in-tem-pes-tive. 
+ []
+
+
+Overfull \hbox (0.78256pt too wide) in paragraph at lines 226--227
+\T1/phv/m/n/12 en-tiè-re-ment don-née au ges-tion-naire de ti-cket. Il sera ce-pen-dant pos-sible
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 15.57593pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[11]
+Overfull \hbox (13.459pt too wide) in paragraph at lines 256--257
 [][]\T1/phv/m/n/12 Le client REST est im-plé-menté côté ap-pli-ca-tion An-droid afin de com-mu-ni-quer
  []
 
-[10]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 15.57593pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12]
 Chapitre 4.
 
-Overfull \hbox (9.06772pt too wide) in paragraph at lines 208--209
+Overfull \hbox (9.06772pt too wide) in paragraph at lines 261--262
 [][]\T1/phv/m/n/12 J'ai énor-mé-ment ap-pris lors de mon stage, ainsi que lors de l'im-plé-men-ta-tion
  []
 
 
-Overfull \hbox (12.72818pt too wide) in paragraph at lines 210--211
+Overfull \hbox (12.72818pt too wide) in paragraph at lines 263--264
 [][]\T1/phv/m/n/12 Je n'avais ja-mais es-sayé d'im-plé-men-ter un site web en py-thon, ni im-plé-menté
  []
 
-[11
+[13
+
+]
+Chapitre 5.
+
+Overfull \hbox (24.64941pt too wide) in paragraph at lines 267--268
+[][]\T1/phv/m/n/12 site web : http ://en.wikibooks.org/wiki/LaTeX/List_-Struc-tures 
+ []
+
+[14
 
 ] ("J:\CODING\repos\git\py\tickets\rapport tfe\latex\TFE.aux") ) 
 Here is how much of TeX's memory you used:
- 1680 strings out of 493922
- 20809 string characters out of 3147302
- 77051 words of memory out of 3000000
- 4966 multiletter control sequences out of 15000+200000
+ 13770 strings out of 493922
+ 265818 string characters out of 3147302
+ 303899 words of memory out of 3000000
+ 16791 multiletter control sequences out of 15000+200000
  47024 words of font info for 47 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 29i,10n,43p,448b,292s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,12n,56p,448b,314s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on TFE.dvi (12 pages, 29752 bytes).
+Output written on TFE.dvi (15 pages, 45780 bytes).
