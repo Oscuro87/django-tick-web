@@ -55,7 +55,7 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
                                     help_text=_(
                                         'Designates whether this user should be treated as active. Unselect this instead of deleting accounts.'))
     date_joined = models.DateTimeField(verbose_name=_('date joined'), default=timezone.now)
-    phone_number = models.CharField(verbose_name="User phone number", max_length=64, null=True, blank=True)
+    phone_number = models.CharField(verbose_name=_("Phone number"), max_length=64, null=True, blank=True)
     receive_newsletter = models.BooleanField(verbose_name=_('receive newsletter'), default=False)
 
     USERNAME_FIELD = 'email'
@@ -63,7 +63,14 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
     def save(self, *args, **kwargs):
         if not self.password.__contains__("sha256$"):
             self.set_password(self.password)
+
         super(TicketsUser, self).save(*args, **kwargs)
+
+        print(self.groups.all())
+        if len(self.groups.all()) == 0:
+            userGroup = Group.objects.get(name='User')
+            self.groups.add(userGroup)
+            self.save()
 
     def get_full_name(self):
         full_name = '%s %s' % (self.first_name, self.last_name)
@@ -89,8 +96,4 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
         return True if (g_name == "Manager" or g_name == "Administrator" or g_name == "Root") else False
 
     def __str__(self):
-        try:
-            group_name = self.groups.values_list('name', flat=True)[0]
-            return "{} ({}) (Group name = {})".format(self.get_full_name(), self.email, group_name)
-        except IndexError:
-            return "Ungrouped!: " + self.get_full_name() + " (" + self.email + ")"
+        return "{} ({})".format(self.get_full_name(), self.email)

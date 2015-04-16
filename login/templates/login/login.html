@@ -46,37 +46,19 @@
                     <tr>
                         {% if registrationActive %}
                         <td>
-                            <input type="button" value="Register" name="registerSwitch" class="btn btn-info" />
+                        <!-- empty -->
                         </td>
                         {% endif %}
                         <td>
                             <input type="submit" value="Connection" name="loginGo"
                                    class="btn btn-success" />
+                            <input type="submit" value="Register" name="goToRegister" class="btn btn-info" />
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </form>
         </div>
-
-        <div class="register" class="well-sm">
-
-        </div>
     </div>
-{% endblock %}
-
-{% block footer %}
-    {{ block.super }}
-{% endblock %}
-
-{% block scriptBlock %}
-    {{ block.super }}
-
-    <script>
-    function switchLoginRegister()
-    {
-        //TODO switch login register js
-    }
-    </script>
 {% endblock %}
 

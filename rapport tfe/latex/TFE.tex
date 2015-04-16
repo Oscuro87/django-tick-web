@@ -176,7 +176,7 @@ Il y a deux façons d'aborder la création de vues avec Django:
 
 \begin{itemize}
 	\item{Vues fonctionnelles: la vue est alors créée sous la forme d'une fonction, retournant une URL pointant vers un template à faire apparaître à l'écran.}
-	\item{Classes vue: La vue est une classe dérivant de la classe parente "<ModelView">, la vue devient alors un objet python à part entière, et son comportement peut-être modifié via la redéfinition des méthodes de la classe parente.}
+	\item{Classes vue: La vue est une classe dérivant de la classe parente "<TemplateView">, la vue devient alors un objet python à part entière, et son comportement peut-être modifié via la redéfinition des méthodes de la classe parente.}
 \end{itemize}
 
 Étant donné que les vues dites "<fonctionnelles"> sont plutôt adaptées aux petits sites web, j'ai choisi d'utiliser exclusivement les classes de vue. En effet, elles donnent accès à l'avantage certain de la flexibilité possible uniquement avec l'orienté objet.

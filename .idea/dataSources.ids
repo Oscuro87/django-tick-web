@@ -155,12 +155,13 @@
     <table name="ticketing_building" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="address" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="vicinity" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="postcode" sqlType="VARCHAR(10)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="building_name" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="building_code" sqlType="VARCHAR(10)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="visible" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="country" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="vicinity" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="building_code" sqlType="VARCHAR(20)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
       <exported-key name="#FAKE_ticketing_place_2" table="ticketing_place" schema="" catalog="" columns="fk_building_id"/>
       <exported-key name="#FAKE_ticketing_ticket_8" table="ticketing_ticket" schema="" catalog="" columns="fk_building_id"/>

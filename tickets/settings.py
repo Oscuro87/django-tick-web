@@ -154,6 +154,6 @@ REST_FRAMEWORK = {
 # Définit le lien inclus dans les emails envoyés par le site aux users. (défaut: "127.0.0.1/home/")
 MY_EMAIL_SITE_LINK = "127.0.0.1/home/"
 # Est-ce que les nouveaux comptes créés manuellement sont acceptés? (défaut: False)
-MY_REGISTRATION_ENABLED = False
+MY_REGISTRATION_ENABLED = True
 # PATH du dossier racine pour les images tickets postées via Android
 MY_ANDROID_PICTURES_PATH = static('ticketing/tickets-media/')

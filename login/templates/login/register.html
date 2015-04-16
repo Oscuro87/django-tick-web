@@ -1,0 +1,53 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block title %}
+    Tickets - Register
+{% endblock %}
+
+{% block navbar-contents %}
+    {{ block.super }}
+    <li><a href="{% url 'register-view' %}">{% trans "Registration" %}</a></li>
+{% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% if not user.is_authenticated %}
+        {% breadcrumb "Register" "register-view" %}
+    {% else %}
+        More to come...
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <div name="left-margin" class="col-md-4"><!-- Empty --></div>
+
+    <div class="row">
+        <div name="login" class="well-sm col-md-4" >
+
+            <div name="login-title" class="text-center">
+                <h3>{% trans "Register" %}</h3>
+            </div>
+
+            <form action="" method="post" name="loginForm">
+                {% csrf_token %}
+                <table class="table table-responsive">
+                    <tbody>
+                    {{ registrationForm.as_table }}
+                    </tbody>
+                    <td>
+                        <!-- Empty -->
+                    </td>
+                    <td>
+                        <input type="submit" name="cancelRegistration" value="{% trans "Cancel registration" %}" class="btn btn-danger">
+                        <input type="submit" name="sendRegistration" value="{% trans "Register now" %}" class="btn btn-success">
+                    </td>
+                </table>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+

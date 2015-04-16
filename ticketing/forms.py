@@ -3,7 +3,7 @@ from simplemathcaptcha.fields import MathCaptchaField
 from django import forms
 from django.utils.translation import ugettext as _
 from django_countries.widgets import CountrySelectWidget
-from login.models import TicketsUserManager
+from login.models import TicketsUserManager, TicketsUser
 from ticketing.models import CompanyManager, BuildingManager, EventCategory
 from ticketing.models import Building
 
@@ -34,6 +34,15 @@ class BuildingCreationForm(forms.ModelForm):
             'postcode': _('Postcode'),
             'building_name': _('Name of the building'),
         }
+
+
+class RegistrationForm(forms.ModelForm):
+    class Meta:
+        model = TicketsUser
+        fields=['email', 'password', 'first_name', 'last_name', 'phone_number']
+        required=['email', 'password', 'first_name', 'last_name']
+        widgets = {'password': forms.PasswordInput}
+
 
 ############### Admin forms ######################
 class TicketAdminForm(forms.ModelForm):

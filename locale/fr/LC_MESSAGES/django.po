@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-16 15:59+0200\n"
+"POT-Creation-Date: 2015-04-16 18:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,6 +73,11 @@ msgstr ""
 msgid "date joined"
 msgstr "Date d'inscription"
 
+#: .\login\models.py:58
+#| msgid "Telephone number"
+msgid "Phone number"
+msgstr "Numéro de téléphone"
+
 #: .\login\models.py:59
 msgid "receive newsletter"
 msgstr "Envoyer les newsletters"
@@ -81,23 +86,49 @@ msgstr "Envoyer les newsletters"
 msgid "Language"
 msgstr "Langue"
 
-#: .\login\views.py:51
+#: .\login\templates\login\register.html:12
+#, fuzzy
+#| msgid "Description"
+msgid "Registration"
+msgstr "Description"
+
+#: .\login\templates\login\register.html:32
+#, fuzzy
+#| msgid "Reporter"
+msgid "Register"
+msgstr "Reporteur"
+
+#: .\login\templates\login\register.html:45
+msgid "Cancel registration"
+msgstr ""
+
+#: .\login\templates\login\register.html:46
+msgid "Register now"
+msgstr ""
+
+#: .\login\views.py:54
 msgid "Successfully logged in."
 msgstr "Connection réussie."
 
-#: .\login\views.py:54
+#: .\login\views.py:57
 msgid "This user is banned."
 msgstr "Cet utilisateur est banni."
 
-#: .\login\views.py:56
+#: .\login\views.py:59
 msgid "You entered the wrong credentials, please try again."
 msgstr ""
 "Vous n'avez pas entré les bonnes informations de connection, veuillez "
 "réessayer."
 
-#: .\login\views.py:58
+#: .\login\views.py:61
 msgid "Please fill the form correctly."
 msgstr "Veuillez remplir le formulaire correctement."
+
+#: .\login\views.py:88
+#, fuzzy
+#| msgid "Description"
+msgid "Registration failed:\n"
+msgstr "Description"
 
 #: .\ticketing\forms.py:13
 msgid "Subject: "
@@ -123,11 +154,11 @@ msgstr "Adresse email"
 msgid "City"
 msgstr "Ville"
 
-#: .\ticketing\forms.py:33 .\ticketing\models.py:69 .\ticketing\models.py:150
+#: .\ticketing\forms.py:33 .\ticketing\models.py:69 .\ticketing\models.py:153
 msgid "Vicinity name"
 msgstr "Commune"
 
-#: .\ticketing\forms.py:34 .\ticketing\models.py:71 .\ticketing\models.py:151
+#: .\ticketing\forms.py:34 .\ticketing\models.py:71 .\ticketing\models.py:154
 msgid "Postcode"
 msgstr "Code postal"
 
@@ -135,7 +166,7 @@ msgstr "Code postal"
 msgid "Name of the building"
 msgstr "Nom du bâtiment"
 
-#: .\ticketing\models.py:18 .\ticketing\models.py:250
+#: .\ticketing\models.py:18 .\ticketing\models.py:253
 #: .\ticketing\templates\ticketing\index.html:78
 #: .\ticketing\templates\ticketing\ticket_view.html:37
 msgid "Status"
@@ -145,7 +176,7 @@ msgstr "Statut"
 msgid "Ticket statuses"
 msgstr "Statuts ticket"
 
-#: .\ticketing\models.py:33 .\ticketing\models.py:249
+#: .\ticketing\models.py:33 .\ticketing\models.py:252
 msgid "Priority"
 msgstr "Priorité"
 
@@ -157,12 +188,11 @@ msgstr "Priorités ticket"
 msgid "Way of ticket creation"
 msgstr "Moyen de création du ticket"
 
-#: .\ticketing\models.py:68 .\ticketing\models.py:149
+#: .\ticketing\models.py:68 .\ticketing\models.py:152
 msgid "Street"
 msgstr "Rue"
 
 #: .\ticketing\models.py:70
-#| msgid "first name"
 msgid "City name"
 msgstr "Nom de la ville"
 
@@ -174,158 +204,159 @@ msgstr "Nom du bâtiment"
 msgid "Building code"
 msgstr "Code du bâtiment"
 
-#: .\ticketing\models.py:76 .\ticketing\models.py:120
-#: .\ticketing\models.py:156 .\ticketing\models.py:172
-#: .\ticketing\models.py:259
+#: .\ticketing\models.py:76 .\ticketing\models.py:122
+#: .\ticketing\models.py:159 .\ticketing\models.py:175
+#: .\ticketing\models.py:263
 msgid "Is visible?"
 msgstr "Est visible?"
 
-#: .\ticketing\models.py:110
+#: .\ticketing\models.py:112
 msgid "Buildings"
 msgstr "Bâtiments"
 
-#: .\ticketing\models.py:147
+#: .\ticketing\models.py:149
 msgid "Suitable Event Categories"
 msgstr "Catégories d'évènements disponibles"
 
-#: .\ticketing\models.py:152
+#: .\ticketing\models.py:155
 msgid "Telephone number"
 msgstr "Numéro de tel."
 
-#: .\ticketing\models.py:154
+#: .\ticketing\models.py:157
 msgid "Company name"
 msgstr "Nom de l'entreprise"
 
-#: .\ticketing\models.py:155
+#: .\ticketing\models.py:158
 msgid "VAT Number"
 msgstr "Numéro de TVA"
 
-#: .\ticketing\models.py:171
+#: .\ticketing\models.py:174
 msgid "Incident label"
 msgstr "Label de l'incident"
 
-#: .\ticketing\models.py:185
+#: .\ticketing\models.py:188
 msgid "This is not a parent category and therefore can't have sub-categories!"
 msgstr ""
 "Ceci n'est pas une catégorie parente et ne peut donc pas avoir de sous-"
 "catégories!"
 
-#: .\ticketing\models.py:194
+#: .\ticketing\models.py:197
 msgid "Event categories"
 msgstr "Catégories d'évènement"
 
-#: .\ticketing\models.py:202
+#: .\ticketing\models.py:205
 #: .\ticketing\templates\ticketing\ticket_view.html:158
 msgid "Commenter"
 msgstr "Posteur"
 
-#: .\ticketing\models.py:203
+#: .\ticketing\models.py:206
 msgid "Comment date"
 msgstr "Date du commentaire"
 
-#: .\ticketing\models.py:204
+#: .\ticketing\models.py:207
 msgid "Comment"
 msgstr "Commentaire"
 
-#: .\ticketing\models.py:220
+#: .\ticketing\models.py:223
 msgid "A comment has been posted on one of your tickets"
 msgstr "Un commentaire a été posté sur un de vos tickets"
 
-#: .\ticketing\models.py:221
+#: .\ticketing\models.py:224
 msgid ""
 "<p>The following ticket has a new comment: {}</p></p>The comment is: \"{}\"</"
 "p><p><a href=\"{}\">Ticketing platform</a></p>"
-msgstr "<p>Le ticket suivant a un nouveau commentaire: {}</p></p>Le commentaire est: \"{}\"</"
-"p><p><a href=\"{}\">Platforme de ticketing</a></p>"
+msgstr ""
+"<p>Le ticket suivant a un nouveau commentaire: {}</p></p>Le commentaire est: "
+"\"{}\"</p><p><a href=\"{}\">Platforme de ticketing</a></p>"
 
-#: .\ticketing\models.py:244
+#: .\ticketing\models.py:247
 #: .\ticketing\templates\ticketing\ticket_view.html:53
 msgid "Building"
 msgstr "Bâtiment"
 
-#: .\ticketing\models.py:245
+#: .\ticketing\models.py:248
 msgid "Channel"
 msgstr "Canal"
 
-#: .\ticketing\models.py:246 .\ticketing\templates\ticketing\index.html:79
+#: .\ticketing\models.py:249 .\ticketing\templates\ticketing\index.html:79
 #: .\ticketing\templates\ticketing\ticket_view.html:45
 msgid "Category"
 msgstr "Catégorie"
 
-#: .\ticketing\models.py:247 .\ticketing\templates\ticketing\index.html:77
+#: .\ticketing\models.py:250 .\ticketing\templates\ticketing\index.html:77
 #: .\ticketing\templates\ticketing\ticket_view.html:41
 msgid "Reporter"
 msgstr "Reporteur"
 
-#: .\ticketing\models.py:251 .\ticketing\templates\ticketing\index.html:81
+#: .\ticketing\models.py:254 .\ticketing\templates\ticketing\index.html:81
 msgid "Manager"
 msgstr "Gestionnaire"
 
-#: .\ticketing\models.py:253
+#: .\ticketing\models.py:256
 msgid "Company"
 msgstr "Entreprise"
 
-#: .\ticketing\models.py:255
+#: .\ticketing\models.py:258
 msgid "Name of this ticket's images folder"
 msgstr "Nom du dossier contenant les images du ticket"
 
-#: .\ticketing\models.py:256 .\ticketing\templates\ticketing\index.html:76
+#: .\ticketing\models.py:260 .\ticketing\templates\ticketing\index.html:76
 msgid "Ticket code"
 msgstr "Code du ticket"
 
-#: .\ticketing\models.py:260
+#: .\ticketing\models.py:264
 msgid "Date of intervention"
 msgstr "Date d'intervention"
 
-#: .\ticketing\models.py:261
+#: .\ticketing\models.py:265
 msgid "Event description"
 msgstr "Description de l'évènement"
 
-#: .\ticketing\models.py:262
+#: .\ticketing\models.py:266
 msgid "No description available."
 msgstr "Pas de description disponible."
 
-#: .\ticketing\models.py:275
+#: .\ticketing\models.py:279
 msgid "Creating new ticket"
 msgstr "Création d'un nouveau ticket"
 
-#: .\ticketing\models.py:341
+#: .\ticketing\models.py:345
 msgid "Assigned to manager: {}"
 msgstr "Assigné au gestionnaire: {}"
 
-#: .\ticketing\models.py:349
+#: .\ticketing\models.py:353
 msgid "Manager released ticket management."
 msgstr "Le gestionnaire ne gère plus ce ticket."
 
-#: .\ticketing\models.py:357
+#: .\ticketing\models.py:361
 msgid "Ticket status changed to {}"
 msgstr "Statut du ticket changé en {}"
 
-#: .\ticketing\models.py:368
+#: .\ticketing\models.py:372
 msgid "A comment has been posted."
 msgstr "Le commentaire a été posté."
 
-#: .\ticketing\models.py:422
+#: .\ticketing\models.py:426
 msgid "Assigned a new company to the ticket."
 msgstr "Entreprise assignée au ticket."
 
-#: .\ticketing\models.py:424
+#: .\ticketing\models.py:428
 msgid "Unassigned company from this ticket."
 msgstr "L'entreprise a été désassignée de ce ticket."
 
-#: .\ticketing\models.py:443
+#: .\ticketing\models.py:447
 msgid "Who changed the status"
 msgstr "Qui a changé le statut"
 
-#: .\ticketing\models.py:446
+#: .\ticketing\models.py:450
 msgid "Updated on..."
 msgstr "Mis à jour le..."
 
-#: .\ticketing\models.py:447
+#: .\ticketing\models.py:451
 msgid "Update reason"
 msgstr "Raison de la mise à jour"
 
-#: .\ticketing\models.py:448
+#: .\ticketing\models.py:452
 msgid "No reason given."
 msgstr "Pas de raison spécifiée."
 
@@ -500,7 +531,7 @@ msgstr "Aucun(e)"
 msgid "Assign to me"
 msgstr "Gérer ce ticket"
 
-#: .\ticketing\templates\ticketing\index.html:119
+#: .\ticketing\templates\ticketing\index.html:123
 msgid "View ticket detail"
 msgstr "Voir les détails du ticket"
 
