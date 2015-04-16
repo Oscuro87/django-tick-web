@@ -45,8 +45,9 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _('users')
 
     objects = TicketsUserManager()
-    first_name = models.CharField(verbose_name=_('first name'), max_length=30, blank=False, null=False, default="")
-    last_name = models.CharField(verbose_name=_('last name'), max_length=30, blank=False, null=False, default="")
+    fk_company = models.ForeignKey("ticketing.Company", verbose_name=_("Linked company"), blank=True, null=True, default=None)
+    first_name = models.CharField(verbose_name=_('first name'), max_length=30, blank=True, null=True, default="")
+    last_name = models.CharField(verbose_name=_('last name'), max_length=30, blank=True, null=True, default="")
     email = models.EmailField(verbose_name=_('email address'), max_length=255, null=False, blank=False, default="",
                               unique=True)
     is_staff = models.BooleanField(verbose_name=_('staff status'), default=False,
@@ -72,6 +73,9 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
             self.groups.add(userGroup)
             self.save()
 
+    def isUserACompany(self):
+        return self.fk_company is not None
+
     def get_full_name(self):
         full_name = '%s %s' % (self.first_name, self.last_name)
         return full_name.strip()
@@ -96,4 +100,7 @@ class TicketsUser(AbstractBaseUser, PermissionsMixin):
         return True if (g_name == "Manager" or g_name == "Administrator" or g_name == "Root") else False
 
     def __str__(self):
-        return "{} ({})".format(self.get_full_name(), self.email)
+        string = "{} ({})".format(self.get_full_name(), self.email)
+        if self.isUserACompany():
+            string += " (Company Account)"
+        return string

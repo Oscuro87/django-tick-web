@@ -4,7 +4,7 @@ from django import forms
 from django.utils.translation import ugettext as _
 from django_countries.widgets import CountrySelectWidget
 from login.models import TicketsUserManager, TicketsUser
-from ticketing.models import CompanyManager, BuildingManager, EventCategory
+from ticketing.models import CompanyManager, BuildingManager, EventCategory, Company
 from ticketing.models import Building
 
 
@@ -42,6 +42,15 @@ class RegistrationForm(forms.ModelForm):
         fields=['email', 'password', 'first_name', 'last_name', 'phone_number']
         required=['email', 'password', 'first_name', 'last_name']
         widgets = {'password': forms.PasswordInput}
+
+
+class CompanyUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Company
+        fields = ['fk_suitableEventCategories', 'country', 'address', 'vicinity',
+                  'city', 'postcode', 'phone_number', 'name', 'vat_number']
+        required = ['fk_suitableEventCategories', 'country', 'address', 'city', 'postcode', 'phone_number', 'name']
+        widgets = {'fk_suitableEventCategories': forms.SelectMultiple}
 
 
 ############### Admin forms ######################

@@ -25,11 +25,15 @@
     <!-- <li><a href="#">{% trans "Options" %}</a></li> --> <!-- Pas encore utilisé -->
     <li><a href="#">{% trans "Dashboard" %}</a></li>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle bg-success" data-toggle="dropdown" role="button" aria-expanded="false">{% trans "Create..." %}<span
+        <a href="#" class="dropdown-toggle bg-success" data-toggle="dropdown" role="button" aria-expanded="false">{% trans "Action..." %}<span
                 class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
-            <li><a href="{% url 'createticketview' %}">{% trans "Create a new ticket" %}</a></li>
-            <li><a href="{% url 'createlocationview' %}">{% trans "Create a new location for you" %}</a></li>
+            {% if request.user.isUserACompany != True %}
+                <li><a href="{% url 'createticketview' %}">{% trans "Create a new ticket" %}</a></li>
+                <li><a href="{% url 'createlocationview' %}">{% trans "Create a new location for you" %}</a></li>
+            {% else %}
+                <li><a href="{% url 'updatecompanyinfos' %}">{% trans "Update your company's informations" %}</a></li>
+            {% endif %}
         </ul>
     </li>
 

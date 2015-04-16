@@ -10,6 +10,7 @@
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage{todonotes}
 \usepackage{amssymb}
+\usepackage{footmisc}
 
 \title{TFE: Plateforme de ticketing}
 \author{Emmanuel CAPELLE}
@@ -140,9 +141,9 @@ Ce système, très efficace, permet le développement de "plugins"\footnote{Plug
 Par exemple, il est possible qu'une entreprise ai créé son propre système de login sécurisé et réutilisable, il lui est donc très facile d'intégrer ce module dans un projet déjà existant, permettant ainsi de développer plus rapidement de nouveaux modules.
 
 \subsubsection{Architecture MVC}
-À vrai dire, les développeurs de Django appellent l'architecture utilisée par Django "`architecture MTV"' (Model-Template-View) qui, selon leur dires \footnote{https://docs.djangoproject.com/en/1.8/faq/general/ : "`Django appears to be a MVC framework, but you call the Controller the 'view', and the View the 'template'. How come you don’t use the standard names?"'}, diffère par le fait que la vue "<décrit quelles données l'on voit, et non pas comment celles-ci sont visibles">.
+À vrai dire, les développeurs de Django appellent l'architecture utilisée par Django "`architecture MTV"' (Model-Template-View) qui, selon leur dires \footnote{https://docs.djangoproject.com/en/1.8/faq/general/ : "`Django appears to be a MVC framework, but you call the Controller the 'view', and the View the 'template'. How come you don’t use the standard names?"'}, diffère par le fait que la vue "décrit quelles données l'on voit, et non pas comment celles-ci sont visibles".
 
-La vue est, somme toute, un fonction appelant un template. La vue passe alors des données au template, qui lui se chargera de les représenter "<graphiquement"> à l'écran pour l'utilisateur final.
+La vue est, somme toute, un fonction appelant un template. La vue passe alors des données au template, qui lui se chargera de les représenter "graphiquement" à l'écran pour l'utilisateur final.
 
 Personnellement, je n'ai pas trouvé cette architecture différente de celle utilisée par MVC, il existe juste cette subtilité décrite ci-dessus, qui ne change au final pas grand chose dans le workflow de développement du site web.
 
@@ -176,14 +177,37 @@ Il y a deux façons d'aborder la création de vues avec Django:
 
 \begin{itemize}
 	\item{Vues fonctionnelles: la vue est alors créée sous la forme d'une fonction, retournant une URL pointant vers un template à faire apparaître à l'écran.}
-	\item{Classes vue: La vue est une classe dérivant de la classe parente "<TemplateView">, la vue devient alors un objet python à part entière, et son comportement peut-être modifié via la redéfinition des méthodes de la classe parente.}
+	\item{Classes vue: La vue est une classe dérivant de la classe parente "TemplateView", la vue devient alors un objet python à part entière, et son comportement peut-être modifié via la redéfinition des méthodes de la classe parente.}
 \end{itemize}
 
-Étant donné que les vues dites "<fonctionnelles"> sont plutôt adaptées aux petits sites web, j'ai choisi d'utiliser exclusivement les classes de vue. En effet, elles donnent accès à l'avantage certain de la flexibilité possible uniquement avec l'orienté objet.
+Étant donné que les vues dites "fonctionnelles" sont plutôt adaptées aux petits sites web, j'ai choisi d'utiliser exclusivement les classes de vue. En effet, elles donnent accès à l'avantage certain de la flexibilité possible uniquement avec l'orienté objet.
 
-Comment ces vues fonctionnent-elles?
+\subsubsection{Comment ces vues fonctionnent-elles?}
 
 Chaque classe de vue est couplée à un template. La différence entre la vue et le template est que la vue se charge de communiquer les données entre le ou les modèle(s) et le template. La fonction de la classe de vue est finalement celle d'un contrôleur normal dans une architecture MVC.
+
+Pour que les utilisateurs puissent atteindre les différentes vues qui composent la plateforme, il est nécéssaire de les lier à une URL unique, c'est alors que le "routeur", aussi appelé "URL dispatcher".
+
+Il existe dans le module racine un routeur de base contenant les instructions de routage de base. L'URL passe d'abord par ce premier routeur qui s'occupe, lui, d'importer la partie de site web requise par l'URL.
+
+Voici le routeur "racine" utilisé par mon application web:
+\begin{figure}
+	\centering
+		\includegraphics[width=0.8\textwidth,natwidth=377,natheight=144]{images/ticket-routeur-racine.png}
+	\caption{Exemple de routeur racine}
+	\label{fig:ticket-routeur-racine}
+\end{figure}
+
+Les autres modules contiennent aussi un routeur, secondaire celui-ci, qui se charge de déterminer le endpoint\footnote{Endpoint: Destination finale à atteindre \label{endpointFootnote}} à atteindre. Une fois cet endpoint\footref{endpointFootnote} déterminé, la vue passe par la méthode d'appel adéquate (GET ou POST), passe les données nécéssaires au template, s'il y en a, qui, lui, affichera la page finale dans le navigateur de l'utilisateur.
+
+Voici à quoi ressemble un routeur secondaire:
+\begin{figure}
+	\centering
+		\includegraphics[width=0.8\textwidth,natwidth=737,natheight=136]{images/ticket-routeur-secondaire.png}
+	\caption{Exemple de routeur secondaire}
+	\label{fig:ticket-routeur-secondaire}
+\end{figure}
+
 
 \todo{TODO: Les vues}
 

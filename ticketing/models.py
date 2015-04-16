@@ -150,7 +150,8 @@ class Company(models.Model):
                                                         blank=True)
     country = CountryField()
     address = models.CharField(verbose_name=_("Street"), max_length=45, blank=False, null=False, unique=True)
-    vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=False, null=False, default="")
+    vicinity = models.CharField(verbose_name=_("Vicinity name"), max_length=45, blank=True, null=True, default="")
+    city = models.CharField(verbose_name=_("City name"), max_length=60, blank=False, null=False, default="")
     postcode = models.IntegerField(verbose_name=_("Postcode"), null=False, blank=False, default="0")
     phone_number = models.CharField(verbose_name=_("Telephone number"), max_length=45, blank=True, null=True,
                                     default="")
@@ -391,8 +392,8 @@ class Ticket(models.Model):
                 if company.address is None:
                     result.append((company, unavailableAddressWeight))
                 else:
-                    companyAddress = "{} {} {}".format(company.address, company.postcode, company.country)
-                    ticketAddress = "{} {} {}".format(self.fk_building.address, self.fk_building.postcode,
+                    companyAddress = "{} {} {} {}".format(company.address, company.city, company.postcode, company.country)
+                    ticketAddress = "{} {} {} {}".format(self.fk_building.address, self.fk_building.city, self.fk_building.postcode,
                                                       self.fk_building.country)
                     companyCoords = geopy.findLocationByAddress(companyAddress)
                     ticketCoords = geopy.findLocationByAddress(ticketAddress)

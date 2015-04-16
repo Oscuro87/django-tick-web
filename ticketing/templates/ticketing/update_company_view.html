@@ -1,0 +1,54 @@
+{% extends 'common/base.html' %}
+
+{% load staticfiles %}
+{% load create_ticket_extras %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Ticket - Creation" %}
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% breadcrumb "Home" "homeview" %}
+    {% breadcrumb "Update" "#" %}
+    {% breadcrumb "Company Informations" "updatecompanyinfos" %}
+{% endblock %}
+
+{% block navbar-contents %}
+    <li class="bg-info"><a href="{% url 'homeview' %}">{% trans "Home" %}</a></li>
+    <li><a href="{% url 'contactview' %}">{% trans "Contact" %}</a></li>
+    <li><a href="#">{% trans "Options" %}</a></li>
+    {% if user_info.isAdmin %}
+        <li><a href="/admin/">{% trans "Admin Panel" %}</a></li>
+    {% endif %}
+    <li class="bg-danger"><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="center-block" style="width: 90%; display: block;">
+        <div class="well well-sm">
+            <h2>{% trans "Update your company informations" %}</h2>
+        </div>
+
+        <form action="{% url 'updatecompanyinfos' %}" method="post" style="display: block; width: 50%;" class="center-block" name="updateCompanyForm">
+            {% csrf_token %}
+            <table class="table table-responsive">
+                {{ updateForm.as_table }}
+                <td>
+                    <input type="submit" name="doUpdateCompanyInfos" value="{% trans "Update company informations" %}" class="btn btn-success">
+                </td>
+                <td>
+                    <input type="submit" name="cancelUpdateCompanyInfos" value="{% trans "Cancel update company informations" %}" class="btn btn-danger" />
+                </td>
+            </table>
+        </form>
+
+    </div>
+
+{% endblock %}

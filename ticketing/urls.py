@@ -8,4 +8,5 @@ urlpatterns = patterns('',
     url(r'^contact/$', views.ContactView.as_view(), {}, 'contactview'),
     url(r'^create/ticket/$', views.CreateTicketView.as_view(), {}, 'createticketview'),
     url(r'^create/location/$', views.CreateLocationView.as_view(), {}, 'createlocationview'),
+    url(r'^account/entreprise/update/$', views.UpdateCompanyView.as_view(), {}, 'updatecompanyinfos'),
 )

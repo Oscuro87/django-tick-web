@@ -13,9 +13,10 @@
 \contentsline {subsubsection}{Architecture MVC}{7}
 \contentsline {subsubsection}{Les mod\IeC {\`e}les}{8}
 \contentsline {subsubsection}{Les vues}{9}
-\contentsline {subsubsection}{Les contr\IeC {\^o}leurs}{9}
-\contentsline {subsection}{\numberline {2.3.2}L'ORM de Django}{9}
-\contentsline {subsection}{\numberline {2.3.3}SQLite versus MySQL}{9}
+\contentsline {subsubsection}{Comment ces vues fonctionnent-elles?}{9}
+\contentsline {subsubsection}{Les contr\IeC {\^o}leurs}{10}
+\contentsline {subsection}{\numberline {2.3.2}L'ORM de Django}{10}
+\contentsline {subsection}{\numberline {2.3.3}SQLite versus MySQL}{10}
 \contentsline {chapter}{\numberline {3}Impl\IeC {\'e}mentation des diff\IeC {\'e}rentes applications}{11}
 \contentsline {section}{\numberline {3.1}Solution de gestion des tickets existante}{11}
 \contentsline {subsection}{\numberline {3.1.1}Pr\IeC {\'e}sentation du syst\IeC {\`e}me de ticketing}{11}

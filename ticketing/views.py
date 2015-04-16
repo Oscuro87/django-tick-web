@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.utils.translation import ugettext as _
 from ticketing.custom_exceptions.TicketCreationException import TicketCreationException
 
-from ticketing.forms import ContactForm, TicketCommentForm, BuildingCreationForm
+from ticketing.forms import ContactForm, TicketCommentForm, BuildingCreationForm, CompanyUpdateForm
 from ticketing.models import EventCategory, Ticket, TicketStatus, Building, Place, Channel
 
 
@@ -174,15 +174,20 @@ class HomeView(TemplateView):
             if not self.request.session.get('show_closed_tickets'):
                 fk_status_closed = TicketStatus.objects.get(label="Closed")
                 selection = selection.exclude(fk_status__exact=fk_status_closed)
+
             data['all_queried_tickets'] = selection
         else:
             selection = Ticket.objects.filter(visible__exact=True)
-            selection = selection.filter(fk_reporter__exact=self.request.user)
+            if not self.request.user.isUserACompany():
+                selection = selection.filter(fk_reporter__exact=self.request.user)
+            else:
+                selection = selection.filter(fk_company__exact=self.request.user.fk_company)
             data['all_queried_tickets'] = selection
 
             if not self.request.session.get('show_closed_tickets'):
                 fk_status_closed = TicketStatus.objects.get(label="Closed")
                 selection = selection.exclude(fk_status__exact=fk_status_closed)
+
             data['all_queried_tickets'] = selection
 
         return render_to_response(self.template_name, data, RequestContext(self.request))
@@ -347,4 +352,40 @@ class CreateLocationView(TemplateView):
             return redirect("homeview")
         else:
             messages.error(self.request, _("There were errors in the form you filled, please try again."))
+            return self.show()
+
+
+class UpdateCompanyView(TemplateView):
+    template_name = 'ticketing/update_company_view.html'
+
+    def get(self, request, *args, **kwargs):
+        return self.show()
+
+    def post(self, request, *args, **kwargs):
+
+        if "doUpdateCompanyInfos" in self.request.POST:
+            return self.processUpdate()
+
+        if "cancelUpdateCompanyInfos" in self.request.POST:
+            messages.info(request, _("You cancelled updating the company's informations."))
+            return redirect("homeview")
+
+        return self.show()
+
+    def show(self):
+        data = {}
+
+        data['updateForm'] = CompanyUpdateForm(instance=self.request.user.fk_company)
+
+        return render_to_response(self.template_name, data, RequestContext(self.request))
+
+    def processUpdate(self):
+        companyInstance = self.request.user.fk_company
+        retrieveForm = CompanyUpdateForm(self.request.POST, instance=companyInstance)
+        if retrieveForm.is_valid():
+            retrieveForm.save()
+            messages.success(self.request, _("You updated your company informations successfully."))
+            return redirect("homeview")
+        else:
+            messages.error(self.request, _("Error in the form, please fill it in correctly."))
             return self.show()
