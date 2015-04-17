@@ -17,6 +17,8 @@ urlpatterns = [
     url(r'tickets/createticket', views.RESTCreateTicket.as_view(), name="REST-create-ticket"),
     url(r'tickets/updatedetails$', views.RESTUpdateDetails.as_view(), name="REST-update-ticket-details"),
     url(r'tickets/updatedetails/nextprogression', views.RESTUpdateTicketProgression.as_view(), name="REST-update-ticket-progression"),
+    url(r'tickets/updatedetails/getlistofcompanies', views.RESTGetListOfCompanies.as_view(), name="REST-get-list-of-companies"),
+    url(r'tickets/updatedetails/updateticketcompany', views.RESTUpdateTicketCompany.as_view(), name="REST-update-ticket-company"),
 
     # Config
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),

@@ -97,6 +97,7 @@ class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
         fields = (
+            'pk',
             'fk_suitableEventCategories',
             'country',
             'address',
@@ -105,6 +106,18 @@ class CompanySerializer(serializers.ModelSerializer):
             'phone_number',
             'name',
             'vat_number',
+        )
+
+
+class CompanyListEntrySerializer(serializers.ModelSerializer):
+    distance = serializers.FloatField()
+
+    class Meta:
+        model = Company
+        fields = (
+            'pk',
+            'name',
+            'distance',
         )
 
 
@@ -191,3 +204,14 @@ class TicketHistorySerializer(serializers.ModelSerializer):
 class PlainResponseSerializer(serializers.Serializer):
     success = serializers.BooleanField()
     reason = serializers.CharField()
+
+
+class UpdateTicketProgressionSerializer(serializers.Serializer):
+    success = serializers.BooleanField()
+    reason = serializers.CharField()
+    new_ticket_status = serializers.CharField()
+
+
+class SuitableCompanySerializer(serializers.Serializer):
+    company = CompanySerializer(many=False, read_only=True)
+    distance = serializers.FloatField()

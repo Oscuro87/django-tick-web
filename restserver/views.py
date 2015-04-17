@@ -11,7 +11,7 @@ from rest_framework.views import APIView
 from login.models import TicketsUser
 from restserver.serializers import UserSerializer, SimpleTicketSerializer, FullTicketSerializer, \
     TicketCommentDietSerializer, TicketHistoryDietSerializer, TicketCommentSerializer, PlainResponseSerializer, \
-    NewBuildingSerializer, CategorySerializer, BuildingSerializer
+    NewBuildingSerializer, CategorySerializer, BuildingSerializer, TicketStatusSerializer, CompanyListEntrySerializer
 from ticketing.models import Ticket, TicketComment, TicketHistory, Place, EventCategory, Channel, TicketStatus, Company
 
 
@@ -354,18 +354,34 @@ class RESTUpdateTicketProgression(APIView):
     def processNextTicketStatus(self, ticketCode):
         try:
             ticketInstance = Ticket.objects.get(ticket_code=ticketCode)
+
             ticketStatuses = TicketStatus.objects.all()
-            newTicketStatusLabel = ticketInstance.fk_status.label
+            newTicketStatusInstance = ticketInstance.fk_status
+            changeNext = False
             for status in ticketStatuses.all():
+                if changeNext:
+                    newTicketStatusInstance = status
+                    break
                 if ticketInstance.fk_status == status:
-                    print(status)
+                    changeNext = True
 
-            # ticketInstance.save("")
-            return Response({'success': True, 'reason': 'Ticket status updated', 'new_ticket_status': newTicketStatusLabel}, status=200)
+            ticketInstance.fk_status = newTicketStatusInstance
+
+            print(ticketInstance.fk_status.label)
+
+            ticketInstance.save(reason="Updated ticket status via REST")
+
+            answer = {
+                "success": True,
+                "reason": "Ticket status updated",
+                "new_ticket_status": TicketStatusSerializer(newTicketStatusInstance).data
+            }
+
+            return Response(answer, status=200)
         except ObjectDoesNotExist as odne:
-            return Response({'success':False, 'reason':odne.__str__()}, status=200)
+            return Response({'success': False, 'reason': odne.__str__()}, status=200)
 
-        # print(ticketCode)
+            # print(ticketCode)
 
 
 ################ Méthodes communes à toutes les classes ####################"
@@ -375,3 +391,78 @@ def _getTicketPKByCode(ticketCode):
         return None
     else:
         return Ticket.objects.get(ticket_code=ticketCode).pk
+
+
+class RESTGetListOfCompanies(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+
+        ticketCode = request.data.get('ticketCode', None)
+
+        if ticketCode is not None:
+            return self.buildCompaniesList(ticketCode)
+        else:
+            answer = {
+                'succes': False,
+                'reason': 'Ticket code was not provided!',
+            }
+            return Response(answer, status=200)
+
+    def buildCompaniesList(self, ticketCode):
+        ticketInstance = Ticket.objects.get(ticket_code=ticketCode)
+        companies = ticketInstance.getAllSuitableCompanies()
+
+        serializedCompanies = [{'pk': -1, 'name': "", 'distance': 0}]
+
+        for entry in companies:
+            company = CompanyListEntrySerializer({'pk': entry[0].pk, 'name': entry[0].name, 'distance': entry[1]})
+            serializedCompanies.append(company.data)
+
+        answer = {
+            "success": True,
+            "reason": "Retrieved companies list",
+            "companies": serializedCompanies,
+        }
+
+        return Response(answer, status=200)
+
+
+class RESTUpdateTicketCompany(APIView):
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
+
+    def post(self, request):
+        ticketCode = request.data.get('ticketCode', None)
+        companyPK = CompanyListEntrySerializer(request.data.get('company', None)).data.pk
+
+        self.processAssociation(ticketCode, companyPK)
+
+    def processAssociation(self, ticketCode, companyPK):
+        try:
+            ticketInstance = Ticket.objects.get(ticket_code=ticketCode)
+            companyInstance = None
+            if companyPK is not None:
+                if companyPK != -1:
+                    companyInstance = Company.objects.get(pk=companyPK)
+
+            ticketInstance.fk_company = companyInstance
+
+            if companyInstance is not None:
+                ticketInstance.save("Changed assigned company to {}".format(companyInstance.name))
+            else:
+                ticketInstance.save("Unassigned company from ticket")
+
+            answer = {
+                'success': True,
+                'reason': 'Company successfully assigned to ticket',
+            }
+
+            return Response(answer, status=200)
+        except ObjectDoesNotExist as error:
+            answer = {
+                'success': False,
+                'reason': error.__str__(),
+            }
+            return Response(answer, status=200)
