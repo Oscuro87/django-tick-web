@@ -340,6 +340,34 @@ class RESTUpdateDetails(APIView):
         return Response({"success": True, "reason": "Ticket details updated"}, status=200)
 
 
+class RESTUpdateTicketProgression(APIView):
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
+
+    def post(self, request):
+        ticketCode = request.data.get('ticketCode', None)
+        if ticketCode is not None:
+            return self.processNextTicketStatus(ticketCode)
+        else:
+            return Response({'success': False, 'reason': 'Ticket code provided was not correct'}, status=200)
+
+    def processNextTicketStatus(self, ticketCode):
+        try:
+            ticketInstance = Ticket.objects.get(ticket_code=ticketCode)
+            ticketStatuses = TicketStatus.objects.all()
+            newTicketStatusLabel = ticketInstance.fk_status.label
+            for status in ticketStatuses.all():
+                if ticketInstance.fk_status == status:
+                    print(status)
+
+            # ticketInstance.save("")
+            return Response({'success': True, 'reason': 'Ticket status updated', 'new_ticket_status': newTicketStatusLabel}, status=200)
+        except ObjectDoesNotExist as odne:
+            return Response({'success':False, 'reason':odne.__str__()}, status=200)
+
+        # print(ticketCode)
+
+
 ################ Méthodes communes à toutes les classes ####################"
 
 def _getTicketPKByCode(ticketCode):
