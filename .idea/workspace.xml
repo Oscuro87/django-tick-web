@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="fc2e5f00-34be-4d62-aa84-8c5c858a7b92" name="Default" comment="" />
-    <list default="true" id="b83010bc-e56a-4afa-b633-3d4a49d52834" name="Registration system" comment="Fichiers fous">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ticketing/migrations/0022_auto_20150416_2233.py" />
+    <list default="true" id="b83010bc-e56a-4afa-b633-3d4a49d52834" name="Registration system" comment="Traduction registration system">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ticket-database-schema.uml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/forms.py" afterPath="$PROJECT_DIR$/ticketing/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/templates/ticketing/index.html" afterPath="$PROJECT_DIR$/ticketing/templates/ticketing/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/templates/login/login.html" afterPath="$PROJECT_DIR$/login/templates/login/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rapport tfe/latex/TFE.tps" afterPath="$PROJECT_DIR$/rapport tfe/latex/TFE.tps" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticketing/models.py" afterPath="$PROJECT_DIR$/ticketing/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/templates/login/register.html" afterPath="$PROJECT_DIR$/login/templates/login/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/restserver/serializers.py" afterPath="$PROJECT_DIR$/restserver/serializers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tickets/settings.py" afterPath="$PROJECT_DIR$/tickets/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/views.py" afterPath="$PROJECT_DIR$/login/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/restserver/views.py" afterPath="$PROJECT_DIR$/restserver/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tickets.iws" />
@@ -66,53 +67,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticketing/templates/ticketing/index.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/restserver/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.961538" vertical-offset="921" max-vertical-offset="3265">
-              <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/templates/login/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.692307" vertical-offset="510" max-vertical-offset="1769">
-              <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="django.po" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44444445" vertical-offset="1371" max-vertical-offset="13826">
-              <caret line="99" column="15" selection-start-line="99" selection-start-column="15" selection-end-line="99" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/templates/login/register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769" vertical-offset="136" max-vertical-offset="1654">
-              <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticketing/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2067">
-              <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.60522497" vertical-offset="5278" max-vertical-offset="6588">
+              <caret line="335" column="36" selection-start-line="335" selection-start-column="36" selection-end-line="335" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -121,8 +80,28 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticketing/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2264" max-vertical-offset="8629">
-              <caret line="150" column="53" selection-start-line="150" selection-start-column="53" selection-end-line="150" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4470" max-vertical-offset="8590">
+              <caret line="290" column="24" selection-start-line="290" selection-start-column="24" selection-end-line="290" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/restserver/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
+              <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tickets/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1615" max-vertical-offset="3354">
+              <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -170,8 +149,6 @@
         <option value="$PROJECT_DIR$/todo.txt" />
         <option value="$PROJECT_DIR$/ticketing/test.py" />
         <option value="$PROJECT_DIR$/restserver/urls.py" />
-        <option value="$PROJECT_DIR$/restserver/serializers.py" />
-        <option value="$PROJECT_DIR$/restserver/views.py" />
         <option value="$PROJECT_DIR$/ticketing/admin.py" />
         <option value="$PROJECT_DIR$/login/tests.py" />
         <option value="$PROJECT_DIR$/ticketing/tests.py" />
@@ -179,19 +156,21 @@
         <option value="$PROJECT_DIR$/geolocation/GeoPyInterface.py" />
         <option value="$PROJECT_DIR$/ticketing/templates/ticketing/ticket_view.html" />
         <option value="$PROJECT_DIR$/login/urls.py" />
-        <option value="$PROJECT_DIR$/login/views.py" />
         <option value="$PROJECT_DIR$/login/migrations/0007_ticketsuser_fk_entreprise.py" />
         <option value="$PROJECT_DIR$/login/models.py" />
         <option value="$PROJECT_DIR$/ticketing/urls.py" />
         <option value="$PROJECT_DIR$/ticketing/templates/ticketing/update_company_view.html" />
         <option value="$PROJECT_DIR$/ticketing/views.py" />
-        <option value="$PROJECT_DIR$/tickets/settings.py" />
         <option value="$PROJECT_DIR$/ticketing/templates/ticketing/index.html" />
-        <option value="$PROJECT_DIR$/ticketing/models.py" />
         <option value="$PROJECT_DIR$/ticketing/forms.py" />
         <option value="$PROJECT_DIR$/login/templates/login/register.html" />
         <option value="$PROJECT_DIR$/login/templates/login/login.html" />
         <option value="$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po" />
+        <option value="$PROJECT_DIR$/login/views.py" />
+        <option value="$PROJECT_DIR$/restserver/serializers.py" />
+        <option value="$PROJECT_DIR$/tickets/settings.py" />
+        <option value="$PROJECT_DIR$/ticketing/models.py" />
+        <option value="$PROJECT_DIR$/restserver/views.py" />
       </list>
     </option>
   </component>
@@ -227,6 +206,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -255,7 +235,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ticketing" />
+              <option name="myItemId" value="tickets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -269,21 +249,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ticketing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ticketing" />
+              <option name="myItemId" value="restserver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -292,12 +263,13 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="SearchEverywhereHistoryKey" value="djangopo&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;register&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/login/register.html&#10;login&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/login/login.html&#10;forms&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/forms.py&#10;django.po&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;settings&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/settings.py&#10;getsuitable&#9;null&#9;null&#10;urls&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/urls.py&#10;company&#9;null&#9;null&#10;ticketsuser&#9;null&#9;null&#10;models&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/models.py&#10;index&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;ticketview&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;view&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;creat&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_location.html&#10;fuzzy&#9;null&#9;null&#10;views&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/views.py&#10;building&#9;null&#9;null&#10;tests&#9;null&#9;null&#10;place&#9;null&#9;null&#10;admin&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/admin.py&#10;eventcategory&#9;null&#9;null&#10;ticket&#9;null&#9;null&#10;Company&#9;null&#9;null&#10;urls.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/restserver/urls.py&#10;categoryserializer&#9;null&#9;null&#10;createticket&#9;null&#9;null&#10;static&#9;null&#9;null&#10;tickethis&#9;null&#9;null&#10;history&#9;null&#9;null&#10;seria&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/restserver/serializers.py&#10;rest&#9;null&#9;null&#10;forms.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/forms.py&#10;create&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_ticket.html&#10;getallsuitable&#9;null&#9;null&#10;suitable&#9;null&#9;null&#10;createloc&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_location.html&#10;todo&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/todo.txt&#10;index.html&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;indexhtml&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;basehtml&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/common/base.html&#10;ticke&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_ticket.html&#10;ticket_view&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;contact&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/contact.html&#10;base.html&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/common/base.html&#10;django&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;ticketing/models&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/models.py&#10;tickets/__init&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/__init__.py&#10;settings.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/settings.py&#10;ticketing/views&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/views.py" />
+    <property name="SearchEverywhereHistoryKey" value="urls&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/restserver/urls.py&#10;views&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/views.py&#10;djangopo&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;register&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/login/register.html&#10;login&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/login/login.html&#10;forms&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/forms.py&#10;django.po&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;settings&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/settings.py&#10;getsuitable&#9;null&#9;null&#10;company&#9;null&#9;null&#10;ticketsuser&#9;null&#9;null&#10;models&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/models.py&#10;index&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;ticketview&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;view&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;creat&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_location.html&#10;fuzzy&#9;null&#9;null&#10;building&#9;null&#9;null&#10;tests&#9;null&#9;null&#10;place&#9;null&#9;null&#10;admin&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/admin.py&#10;eventcategory&#9;null&#9;null&#10;ticket&#9;null&#9;null&#10;Company&#9;null&#9;null&#10;urls.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/restserver/urls.py&#10;categoryserializer&#9;null&#9;null&#10;createticket&#9;null&#9;null&#10;static&#9;null&#9;null&#10;tickethis&#9;null&#9;null&#10;history&#9;null&#9;null&#10;seria&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/restserver/serializers.py&#10;rest&#9;null&#9;null&#10;forms.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/forms.py&#10;create&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_ticket.html&#10;getallsuitable&#9;null&#9;null&#10;suitable&#9;null&#9;null&#10;createloc&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_location.html&#10;todo&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/todo.txt&#10;index.html&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;indexhtml&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/index.html&#10;basehtml&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/common/base.html&#10;ticke&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/create_ticket.html&#10;ticket_view&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/ticket_view.html&#10;contact&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/templates/ticketing/contact.html&#10;base.html&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/login/templates/common/base.html&#10;django&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/locale/fr/LC_MESSAGES/django.po&#10;ticketing/models&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/models.py&#10;tickets/__init&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/__init__.py&#10;settings.py&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/tickets/settings.py&#10;ticketing/views&#9;FILE&#9;file://J:/CODING/repos/git/py/tickets/ticketing/views.py" />
     <property name="options.lastSelected" value="preferences.lookFeel" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -321,7 +293,7 @@
       <recent name="J:\CODING\repos\git\py\tickets\login\static\common" />
     </key>
   </component>
-  <component name="RunManager" selected="Django server.tickets">
+  <component name="RunManager" selected="Django server.tickets open">
     <configuration default="false" name="Test: ticketing.tests" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -609,8 +581,8 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="DJANGO_SETTINGS_MODULE" value="tickets.settings" />
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="tickets.settings" />
       </envs>
       <option name="SDK_HOME" value="C:\Python34\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -635,7 +607,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="tickets open" type="Python.DjangoServer" factoryName="Django server">
+    <configuration default="false" name="tickets open" type="Python.DjangoServer" factoryName="Django server" singleton="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -691,10 +663,10 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Django server.tickets" />
       <item index="1" class="java.lang.String" itemvalue="Django server.tickets open" />
-      <item index="2" class="java.lang.String" itemvalue="Django tests.Test: ticketing.tests" />
-      <item index="3" class="java.lang.String" itemvalue="Django tests.Test: login.tests" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test" />
-      <item index="5" class="java.lang.String" itemvalue="Python tests.Test Geolocation" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Test Geolocation" />
+      <item index="3" class="java.lang.String" itemvalue="Django tests.Test: ticketing.tests" />
+      <item index="4" class="java.lang.String" itemvalue="Django tests.Test: login.tests" />
+      <item index="5" class="java.lang.String" itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list size="3">
@@ -714,12 +686,6 @@
       <created>1420473414789</created>
       <option name="number" value="Default" />
       <updated>1429197272194</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Update vues -&gt; utilisation dataTables.js">
-      <created>1421434366721</created>
-      <option name="number" value="00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1421434366721</updated>
     </task>
     <task id="LOCAL-00005" summary="Creation des vues pour creation">
       <created>1421437722969</created>
@@ -975,7 +941,6 @@
       <updated>1429197272295</updated>
     </task>
     <task id="LOCAL-00047" summary="tests">
-      <changelist id="" name="tests" comment="" />
       <created>1428962882703</created>
       <option name="number" value="00047" />
       <option name="project" value="LOCAL" />
@@ -1011,7 +976,13 @@
       <option name="project" value="LOCAL" />
       <updated>1429215897025</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Traduction registration system">
+      <created>1429219025365</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1429219025365</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <option name="createBranch" value="false" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
@@ -1022,25 +993,25 @@
     <layout>
       <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2228145" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26477024" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.32932165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="627" y="310" width="648" height="301" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21748401" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25906184" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19387755" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16135204" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26339287" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272921" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2176039" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27869898" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272921" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1060,7 +1031,6 @@
       <TodoPanelSettings />
     </option>
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="GeoPy API integration" />
     <MESSAGE value="GeoPy class rename" />
     <MESSAGE value="Divers bugfixes" />
     <MESSAGE value="Divers bugfixes #2 +mailing lors de commentaires sur ticket" />
@@ -1085,7 +1055,8 @@
     <MESSAGE value="Registration system fonctionnel" />
     <MESSAGE value="Une entreprise peut être aussi utilisatrice de la plateforme, sous un régime spécial (ne peut pas créer de ticket, mais peut gérer ses informations d'entreprise)" />
     <MESSAGE value="Fichiers fous" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fichiers fous" />
+    <MESSAGE value="Traduction registration system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Traduction registration system" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1097,121 +1068,20 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="62" />
+      <option name="time" value="75" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Python34/Lib/site-packages/rest_framework/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7415" max-vertical-offset="8474">
-          <caret line="448" column="0" selection-start-line="448" selection-start-column="0" selection-end-line="448" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/site-packages/django/views/decorators/csrf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="751" max-vertical-offset="1589">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/site-packages/django/views/generic/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="955" max-vertical-offset="4309">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..django_session">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2448" vertical-offset="0" max-vertical-offset="778">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2390">
-          <caret line="68" column="29" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..ticketing_tickethistory">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..ticketing_ticketcomment">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/site-packages/rest_framework/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0752" vertical-offset="2376" max-vertical-offset="24272">
-          <caret line="137" column="8" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/site-packages/celery/tests/app/test_builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328" vertical-offset="2410" max-vertical-offset="4297">
-          <caret line="154" column="14" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..authtoken_token">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restserver/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5708013" vertical-offset="4784" max-vertical-offset="6640">
-          <caret line="312" column="50" selection-start-line="312" selection-start-column="50" selection-end-line="312" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restserver/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3172338" vertical-offset="0" max-vertical-offset="1251">
-          <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
-          <folding />
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1240,7 +1110,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="894">
           <caret line="0" column="46" selection-start-line="0" selection-start-column="46" selection-end-line="0" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1248,19 +1117,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07464325" vertical-offset="0" max-vertical-offset="979">
           <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..ticketing_eventcategory">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1283,7 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9862745" vertical-offset="194" max-vertical-offset="1904">
           <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,7 +1158,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="1567" max-vertical-offset="23094">
           <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,20 +1165,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.730769" vertical-offset="452" max-vertical-offset="1385">
           <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..ticketing_building">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1320,7 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1215">
           <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1328,41 +1191,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.192307" vertical-offset="1885" max-vertical-offset="4075">
           <caret line="128" column="55" selection-start-line="128" selection-start-column="55" selection-end-line="128" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..ticketing_ticket">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..ticketing_ticketstatus">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restserver/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4467618" vertical-offset="1378" max-vertical-offset="4175">
-          <caret line="105" column="27" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="27" />
-          <folding />
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1370,17 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1603">
           <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="241" max-vertical-offset="1795">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding>
-            <element signature="e#517#2367#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1388,33 +1217,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12022631" vertical-offset="0" max-vertical-offset="826">
           <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..login_ticketsuser">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..ticketing_company">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1422,7 +1248,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24045262" vertical-offset="0" max-vertical-offset="877">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1430,7 +1255,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1489">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1438,7 +1262,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1302">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1446,7 +1269,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17288135" vertical-offset="0" max-vertical-offset="3384">
           <caret line="9" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="148" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1454,15 +1276,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3182461" vertical-offset="64" max-vertical-offset="1030">
           <caret line="17" column="91" selection-start-line="17" selection-start-column="91" selection-end-line="17" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="530" max-vertical-offset="2492">
-          <caret line="47" column="14" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1470,7 +1283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="877">
           <caret line="4" column="54" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1478,75 +1290,421 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.346153" vertical-offset="305" max-vertical-offset="1582">
           <caret line="46" column="71" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="71" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tickets/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43847242" vertical-offset="2308" max-vertical-offset="3376">
-          <caret line="154" column="58" selection-start-line="154" selection-start-column="58" selection-end-line="154" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticketing/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5970" max-vertical-offset="7524">
-          <caret line="364" column="0" selection-start-line="364" selection-start-column="0" selection-end-line="364" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ticketing/templates/ticketing/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.961538" vertical-offset="921" max-vertical-offset="3265">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1258" max-vertical-offset="2635">
           <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/templates/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="1139">
+          <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3172338" vertical-offset="1479" max-vertical-offset="14035">
+          <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/templates/login/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.061926607" vertical-offset="439" max-vertical-offset="1858">
+          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticketing/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06915478" vertical-offset="787" max-vertical-offset="2271">
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restserver/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..ticketing_ticket">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/a63504df/dcbcefa5-85e6-48ca-860b-84df85619a98/..ticketing_tickethistory">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/views/generic/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="989" max-vertical-offset="4802">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/views/decorators/csrf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="768" max-vertical-offset="1606">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3556" max-vertical-offset="5312">
+          <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="7415" max-vertical-offset="8474">
+          <caret line="448" column="0" selection-start-line="448" selection-start-column="0" selection-end-line="448" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.986733" vertical-offset="323" max-vertical-offset="1674">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticketing/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6171" max-vertical-offset="7216">
+          <caret line="383" column="43" selection-start-line="383" selection-start-column="43" selection-end-line="383" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/rest_framework/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="2723" max-vertical-offset="24250">
+          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/dcbcefa5-85e6-48ca-860b-84df85619a98">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>dcbcefa5-85e6-48ca-860b-84df85619a98</OriginalElement>
+          <nodes>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketpriority</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:sqlite_sequence</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketcomment</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:django_admin_log</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_place</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:django_session</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:django_migrations</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser_user_permissions</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:auth_group_permissions</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:auth_permission</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser_groups</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_tickethistory</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:django_content_type</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:auth_group</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:authtoken_token</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketstatus</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_channel</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:countries_plus_country</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_building</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketconfig_ticketingplatformconfiguration</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company_fk_suitableEventCategories</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.42748815165876775" x="1048.0" y="997.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/dcbcefa5-85e6-48ca-860b-84df85619a98.table:django_session">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>dcbcefa5-85e6-48ca-860b-84df85619a98.table:django_session</OriginalElement>
+          <nodes>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_tickethistory</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:django_content_type</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketpriority</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:auth_group</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketcomment</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketstatus</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_channel</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:countries_plus_country</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_place</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_building</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:django_session</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser_user_permissions</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketconfig_ticketingplatformconfiguration</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:auth_permission</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company_fk_suitableEventCategories</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser_groups</node>
+            <node x="" y="">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.1002773155851362" x="846.0" y="1317.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company</OriginalElement>
+          <nodes>
+            <node x="879.1041666666667" y="1079.0">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_tickethistory</node>
+            <node x="1067.2708333333333" y="84.0">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketpriority</node>
+            <node x="162.95689825811542" y="292.7862232779097">dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser</node>
+            <node x="0.0" y="405.5">dcbcefa5-85e6-48ca-860b-84df85619a98.table:auth_group</node>
+            <node x="250.27083333333326" y="1115.5047505938244">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketcomment</node>
+            <node x="999.3541666666667" y="330.27197149643706">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketstatus</node>
+            <node x="685.8958333333333" y="0.0">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company</node>
+            <node x="855.2829077593034" y="326.5570071258907">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_channel</node>
+            <node x="494.1041666666666" y="789.0">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_place</node>
+            <node x="526.9568982581154" y="338.50118764845604">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_building</node>
+            <node x="17.646080760095003" y="945.6532066508313">dcbcefa5-85e6-48ca-860b-84df85619a98.table:django_session</node>
+            <node x="1211.0026227236735" y="397.2185273159145">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory</node>
+            <node x="1270.583333333333" y="799.5">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company_fk_suitableEventCategories</node>
+            <node x="22.0" y="799.5">dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser_groups</node>
+            <node x="712.375" y="663.0">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_building">
+              <point x="-75.74999999999989" y="-183.0" />
+              <point x="838.625" y="613.0" />
+              <point x="749.1041666666665" y="613.0" />
+              <point x="66.0" y="109.5" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketpriority">
+              <point x="0.0" y="-67.5" />
+              <point x="1208.2710312747424" y="312.7220902612827" />
+              <point x="1173.4483867775139" y="280.2161520190024" />
+              <point x="37.25" y="36.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_place" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser">
+              <point x="-41.0" y="-57.0" />
+              <point x="535.1041666666665" y="643.0" />
+              <point x="387.7708333333332" y="643.0" />
+              <point x="28.666666666666686" y="151.5" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_tickethistory" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket">
+              <point x="-1.1368683772161603E-13" y="-78.0" />
+              <point x="981.1041666666665" y="1059.0" />
+              <point x="1015.375" y="1059.0" />
+              <point x="101.0" y="183.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketcomment" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket">
+              <point x="46.0" y="-67.5" />
+              <point x="389.19957442596984" y="1078.5035629453682" />
+              <point x="809.6600356294538" y="1076.646080760095" />
+              <point x="-101.0" y="183.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory">
+              <point x="-61.333333333333314" y="67.5" />
+              <point x="1241.6692893903403" y="552.2185273159146" />
+              <point x="1191.0026227236735" y="552.2185273159146" />
+              <point x="1191.0026227236735" y="464.7185273159145" />
+              <point x="-92.0" y="-0.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company_fk_suitableEventCategories" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory">
+              <point x="-68.25" y="-46.5" />
+              <point x="1338.833333333333" y="643.0" />
+              <point x="1333.6875" y="643.0" />
+              <point x="61.33333333333326" y="67.5" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser_groups" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:auth_group">
+              <point x="-40.0" y="-46.5" />
+              <point x="0.0" y="36.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser">
+              <point x="-176.7499999999999" y="-183.0" />
+              <point x="699.5466152019003" y="632.0712589073635" />
+              <point x="445.1041666666666" y="633.0" />
+              <point x="86.00000000000006" y="151.5" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_channel">
+              <point x="25.250000000000114" y="-183.0" />
+              <point x="939.625" y="643.0" />
+              <point x="916.3541666666667" y="643.0" />
+              <point x="0.0" y="36.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_tickethistory" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketstatus">
+              <point x="67.99999999999989" y="-78.0" />
+              <point x="1049.1041666666665" y="1059.0" />
+              <point x="1177.5" y="1059.0" />
+              <point x="1177.5" y="633.0" />
+              <point x="1105.1041666666667" y="633.0" />
+              <point x="35.25" y="36.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketstatus">
+              <point x="126.25000000000011" y="-183.0" />
+              <point x="1040.625" y="643.0" />
+              <point x="1034.6041666666667" y="643.0" />
+              <point x="-35.25" y="36.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser_groups" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser">
+              <point x="40.0" y="-46.5" />
+              <point x="142.0" y="643.0" />
+              <point x="215.77083333333314" y="643.0" />
+              <point x="-143.33333333333334" y="151.5" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketpriority">
+              <point x="75.75000000000011" y="-183.0" />
+              <point x="990.125" y="643.0" />
+              <point x="988.8541666666667" y="643.0" />
+              <point x="988.8541666666667" y="270.0" />
+              <point x="1104.5208333333333" y="270.0" />
+              <point x="-37.25" y="36.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_tickethistory" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser">
+              <point x="-68.00000000000011" y="-78.0" />
+              <point x="913.1041666666665" y="1049.0" />
+              <point x="307.2708333333333" y="1049.0" />
+              <point x="307.2708333333333" y="643.0" />
+              <point x="330.4374999999999" y="643.0" />
+              <point x="-28.66666666666663" y="151.5" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_place" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_building">
+              <point x="41.0" y="-57.0" />
+              <point x="-66.0" y="109.5" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketcomment" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser">
+              <point x="-46.0" y="-67.5" />
+              <point x="296.27083333333326" y="1059.0" />
+              <point x="272.83333333333326" y="1059.0" />
+              <point x="-86.0" y="151.5" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company">
+              <point x="-25.249999999999886" y="-183.0" />
+              <point x="889.125" y="643.0" />
+              <point x="843.8541666666667" y="643.0" />
+              <point x="843.8541666666667" y="270.0" />
+              <point x="827.8958333333333" y="270.0" />
+              <point x="0.0" y="120.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company">
+              <point x="0.0" y="-151.5" />
+              <point x="359.1041666666665" y="270.0" />
+              <point x="733.2291666666667" y="270.0" />
+              <point x="-94.66666666666663" y="120.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company_fk_suitableEventCategories" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company">
+              <point x="68.25" y="-46.5" />
+              <point x="1475.333333333333" y="643.0" />
+              <point x="1475.9612034837687" y="647.6437054631829" />
+              <point x="1481.5336500395883" y="259.0712589073635" />
+              <point x="922.5625" y="260.0" />
+              <point x="94.66666666666663" y="120.0" />
+            </edge>
+            <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory">
+              <point x="176.7500000000001" y="-183.0" />
+              <point x="1091.125" y="643.0" />
+              <point x="1272.3541666666665" y="643.0" />
+              <point x="0.0" y="67.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0767263427109974" x="526.0" y="1152.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restserver/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
+          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.96556884" vertical-offset="1274" max-vertical-offset="2453">
+          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restserver/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4159">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ticketing/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2264" max-vertical-offset="8629">
-          <caret line="150" column="53" selection-start-line="150" selection-start-column="53" selection-end-line="150" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4470" max-vertical-offset="8590">
+          <caret line="290" column="24" selection-start-line="290" selection-start-column="24" selection-end-line="290" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticketing/forms.py">
+    <entry file="file://$PROJECT_DIR$/tickets/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2067">
-          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1113" max-vertical-offset="3597">
+          <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/templates/login/register.html">
+    <entry file="file://$PROJECT_DIR$/restserver/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769" vertical-offset="136" max-vertical-offset="1654">
-          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/templates/login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307" vertical-offset="510" max-vertical-offset="1769">
-          <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/locale/fr/LC_MESSAGES/django.po">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44444445" vertical-offset="1371" max-vertical-offset="13826">
-          <caret line="99" column="15" selection-start-line="99" selection-start-column="15" selection-end-line="99" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.60522497" vertical-offset="5278" max-vertical-offset="6588">
+          <caret line="335" column="36" selection-start-line="335" selection-start-column="36" selection-end-line="335" selection-end-column="36" />
           <folding />
         </state>
       </provider>

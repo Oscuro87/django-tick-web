@@ -12,7 +12,7 @@ from login.models import TicketsUser
 from restserver.serializers import UserSerializer, SimpleTicketSerializer, FullTicketSerializer, \
     TicketCommentDietSerializer, TicketHistoryDietSerializer, TicketCommentSerializer, PlainResponseSerializer, \
     NewBuildingSerializer, CategorySerializer, BuildingSerializer
-from ticketing.models import Ticket, TicketComment, TicketHistory, Place, EventCategory, Channel, TicketStatus
+from ticketing.models import Ticket, TicketComment, TicketHistory, Place, EventCategory, Channel, TicketStatus, Company
 
 
 class RESTLogin(APIView):
@@ -135,7 +135,6 @@ class RESTFullTicket(APIView):
             try:
                 ticketObject = Ticket.objects.get(ticket_code=str(ticketCode))
                 serializedTicket = FullTicketSerializer(ticketObject)
-                print(serializedTicket.data)
                 return Response(serializedTicket.data, status=200)
             except ObjectDoesNotExist:
                 return Response({"success": False, "reason": "Ticket not found"}, status=404)
@@ -202,8 +201,8 @@ class RESTFullTicketHistory(APIView):
                     historyRedux.append(history)
                 serializedHistory = TicketHistoryDietSerializer(historyRedux, many=True)
                 return Response(serializedHistory.data, status=200)
-            except ObjectDoesNotExist:
-                return Response({'success': False, 'reason': 'Ticket does not exist.'}, status=404)
+            except ObjectDoesNotExist as odne:
+                return Response({'success': False, 'reason': odne.__str__()}, status=404)
         else:
             return Response({"success": False, "reason": "Invalid method or request."}, status=500)
 
@@ -222,11 +221,9 @@ class RESTCreateBuilding(APIView):
                 place.fk_building = savedBuilding
                 place.fk_owner = request.user
                 place.save()
-                print(request.user)
                 return Response({"success": True, "reason": "Building created."}, status=200)
             else:
                 reasons = ""
-                print(serializedBuilding.errors)
                 for key, errorMessage in serializedBuilding.errors.items():
                     reasons += "{} : {}\n".format(key, errorMessage[0])
                 return Response({"success": False, "reason": reasons}, status=200)
@@ -268,7 +265,6 @@ class RESTQueryAllBuildings(APIView):
 
         for place in places.all():
             serialized = BuildingSerializer(place.fk_building)
-            print(serialized.data)
             results["buildings"].append(serialized.data)
         return results
 
@@ -278,7 +274,6 @@ class RESTCreateTicket(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        print(request.data)
         t = Ticket()
 
         channel = Channel.objects.get(label="Android")
@@ -322,11 +317,26 @@ class RESTUpdateDetails(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        ticketID = request.data.get('id')
-        existingTicket = Ticket.objects.get(id=ticketID)
-        existingTicket.fk_manager_id = request.data.get('fk_manager', None)
-        existingTicket.fk_company_id = request.data.get('fk_company', None)
-        existingTicket.save(reason="Updating ticket informations via REST")
+        print(request.data)
+        ticketCode = request.data.get('ticket_code')
+        ticket = Ticket.objects.get(ticket_code=ticketCode)
+
+        newManager = request.data.get('fk_manager', None)
+        if newManager is not None:
+            ticketsUser = TicketsUser.objects.get(pk=newManager['pk'])
+            ticket.fk_manager = ticketsUser
+        else:
+            ticket.fk_manager = None
+
+        newCompany = request.data.get('fk_company', None)
+        if newCompany is not None:
+            companyInstance = Company.objects.get(pk=newCompany['pk'])
+            ticket.fk_company = companyInstance
+        else:
+            ticket.fk_company = None
+
+        ticket.save()
+
         return Response({"success": True, "reason": "Ticket details updated"}, status=200)
 
 

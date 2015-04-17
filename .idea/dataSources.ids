@@ -178,14 +178,14 @@
     <table name="ticketing_company" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="address" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="vicinity" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="postcode" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="phone_number" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="name" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="vat_number" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="visible" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="country" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="city" sqlType="VARCHAR(60)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="vicinity" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="country" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
       <exported-key name="#FAKE_login_ticketsuser_1" table="login_ticketsuser" schema="" catalog="" columns="fk_company_id"/>
       <exported-key name="#FAKE_ticketing_company_fk_suitableEventCategories_2" table="ticketing_company_fk_suitableEventCategories" schema="" catalog="" columns="company_id"/>

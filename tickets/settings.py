@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     'ticketing',
     'dashboard',
     'restserver',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -1,4 +1,3 @@
-from django_countries.fields import CountryField
 from login.models import TicketsUser
 from rest_framework import serializers
 from ticketing.models import Ticket, TicketStatus, Building, Channel, EventCategory, TicketPriority, Company, \
@@ -8,7 +7,7 @@ from ticketing.models import Ticket, TicketStatus, Building, Channel, EventCateg
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = TicketsUser
-        fields = ('pk', 'first_name', 'last_name', 'email', 'is_active', 'is_staff')
+        fields = ('pk', 'fk_company', 'first_name', 'last_name', 'email', 'is_active', 'is_staff', 'phone_number')
 
 
 class TicketStatusSerializer(serializers.ModelSerializer):

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company</OriginalElement>
+  <nodes>
+    <node x="879.1041666666667" y="1079.0">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_tickethistory</node>
+    <node x="1067.2708333333333" y="84.0">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketpriority</node>
+    <node x="162.95689825811542" y="292.7862232779097">dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser</node>
+    <node x="0.0" y="405.5">dcbcefa5-85e6-48ca-860b-84df85619a98.table:auth_group</node>
+    <node x="250.27083333333326" y="1115.5047505938244">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketcomment</node>
+    <node x="999.3541666666667" y="330.27197149643706">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketstatus</node>
+    <node x="685.8958333333333" y="0.0">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company</node>
+    <node x="855.2829077593034" y="326.5570071258907">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_channel</node>
+    <node x="494.1041666666666" y="789.0">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_place</node>
+    <node x="526.9568982581154" y="338.50118764845604">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_building</node>
+    <node x="17.646080760095003" y="945.6532066508313">dcbcefa5-85e6-48ca-860b-84df85619a98.table:django_session</node>
+    <node x="1211.0026227236735" y="397.2185273159145">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory</node>
+    <node x="1270.583333333333" y="799.5">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company_fk_suitableEventCategories</node>
+    <node x="22.0" y="799.5">dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser_groups</node>
+    <node x="712.375" y="663.0">dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_building">
+      <point x="-75.74999999999989" y="-183.0" />
+      <point x="838.625" y="613.0" />
+      <point x="749.1041666666665" y="613.0" />
+      <point x="66.0" y="109.5" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketpriority">
+      <point x="0.0" y="-67.5" />
+      <point x="1208.2710312747424" y="312.7220902612827" />
+      <point x="1173.4483867775139" y="280.2161520190024" />
+      <point x="37.25" y="36.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_place" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser">
+      <point x="-41.0" y="-57.0" />
+      <point x="535.1041666666665" y="643.0" />
+      <point x="387.7708333333332" y="643.0" />
+      <point x="28.666666666666686" y="151.5" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_tickethistory" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket">
+      <point x="-1.1368683772161603E-13" y="-78.0" />
+      <point x="981.1041666666665" y="1059.0" />
+      <point x="1015.375" y="1059.0" />
+      <point x="101.0" y="183.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketcomment" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket">
+      <point x="46.0" y="-67.5" />
+      <point x="389.19957442596984" y="1078.5035629453682" />
+      <point x="809.6600356294538" y="1076.646080760095" />
+      <point x="-101.0" y="183.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory">
+      <point x="-61.333333333333314" y="67.5" />
+      <point x="1241.6692893903403" y="552.2185273159146" />
+      <point x="1191.0026227236735" y="552.2185273159146" />
+      <point x="1191.0026227236735" y="464.7185273159145" />
+      <point x="-92.0" y="-0.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company_fk_suitableEventCategories" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory">
+      <point x="-68.25" y="-46.5" />
+      <point x="1338.833333333333" y="643.0" />
+      <point x="1333.6875" y="643.0" />
+      <point x="61.33333333333326" y="67.5" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser_groups" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:auth_group">
+      <point x="-40.0" y="-46.5" />
+      <point x="0.0" y="36.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser">
+      <point x="-176.7499999999999" y="-183.0" />
+      <point x="699.5466152019003" y="632.0712589073635" />
+      <point x="445.1041666666666" y="633.0" />
+      <point x="86.00000000000006" y="151.5" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_channel">
+      <point x="25.250000000000114" y="-183.0" />
+      <point x="939.625" y="643.0" />
+      <point x="916.3541666666667" y="643.0" />
+      <point x="0.0" y="36.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_tickethistory" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketstatus">
+      <point x="67.99999999999989" y="-78.0" />
+      <point x="1049.1041666666665" y="1059.0" />
+      <point x="1177.5" y="1059.0" />
+      <point x="1177.5" y="633.0" />
+      <point x="1105.1041666666667" y="633.0" />
+      <point x="35.25" y="36.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketstatus">
+      <point x="126.25000000000011" y="-183.0" />
+      <point x="1040.625" y="643.0" />
+      <point x="1034.6041666666667" y="643.0" />
+      <point x="-35.25" y="36.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser_groups" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser">
+      <point x="40.0" y="-46.5" />
+      <point x="142.0" y="643.0" />
+      <point x="215.77083333333314" y="643.0" />
+      <point x="-143.33333333333334" y="151.5" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketpriority">
+      <point x="75.75000000000011" y="-183.0" />
+      <point x="990.125" y="643.0" />
+      <point x="988.8541666666667" y="643.0" />
+      <point x="988.8541666666667" y="270.0" />
+      <point x="1104.5208333333333" y="270.0" />
+      <point x="-37.25" y="36.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_tickethistory" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser">
+      <point x="-68.00000000000011" y="-78.0" />
+      <point x="913.1041666666665" y="1049.0" />
+      <point x="307.2708333333333" y="1049.0" />
+      <point x="307.2708333333333" y="643.0" />
+      <point x="330.4374999999999" y="643.0" />
+      <point x="-28.66666666666663" y="151.5" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_place" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_building">
+      <point x="41.0" y="-57.0" />
+      <point x="-66.0" y="109.5" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticketcomment" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser">
+      <point x="-46.0" y="-67.5" />
+      <point x="296.27083333333326" y="1059.0" />
+      <point x="272.83333333333326" y="1059.0" />
+      <point x="-86.0" y="151.5" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company">
+      <point x="-25.249999999999886" y="-183.0" />
+      <point x="889.125" y="643.0" />
+      <point x="843.8541666666667" y="643.0" />
+      <point x="843.8541666666667" y="270.0" />
+      <point x="827.8958333333333" y="270.0" />
+      <point x="0.0" y="120.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:login_ticketsuser" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company">
+      <point x="0.0" y="-151.5" />
+      <point x="359.1041666666665" y="270.0" />
+      <point x="733.2291666666667" y="270.0" />
+      <point x="-94.66666666666663" y="120.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company_fk_suitableEventCategories" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_company">
+      <point x="68.25" y="-46.5" />
+      <point x="1475.333333333333" y="643.0" />
+      <point x="1475.9612034837687" y="647.6437054631829" />
+      <point x="1481.5336500395883" y="259.0712589073635" />
+      <point x="922.5625" y="260.0" />
+      <point x="94.66666666666663" y="120.0" />
+    </edge>
+    <edge source="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_ticket" target="dcbcefa5-85e6-48ca-860b-84df85619a98.table:ticketing_eventcategory">
+      <point x="176.7500000000001" y="-183.0" />
+      <point x="1091.125" y="643.0" />
+      <point x="1272.3541666666665" y="643.0" />
+      <point x="0.0" y="67.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0767263427109974" x="526.3479809976247" y="1151.5035629453682" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

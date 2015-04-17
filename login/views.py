@@ -101,7 +101,6 @@ class RegisterView(TemplateView):
                 message = message + key + ": " + valErr.__str__() + "\n"
             messages.error(self.request, message)
 
-        print("TODO processRegistration")
         return self.show()
 
     def show(self):

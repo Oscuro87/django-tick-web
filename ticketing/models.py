@@ -288,7 +288,7 @@ class Ticket(models.Model):
         super(Ticket, self).save(*args, **kwargs)
 
         th = TicketHistory()
-        th.fk_manager = self.fk_manager
+        th.fk_manager_id = self.fk_manager_id
         th.fk_ticket = self
         th.fk_ticket_status_id = self.fk_status_id
         if reason is not None:
