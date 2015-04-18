@@ -279,7 +279,7 @@ class Ticket(models.Model):
             if reason is None:
                 reason = _("Creating new ticket")
 
-        if self.image_folder_name == "":
+        if self.image_folder_name == "" or self.image_folder_name is None:
             self.createTicketImageFolder()
 
         if self.fk_priority_id is None:
@@ -295,11 +295,18 @@ class Ticket(models.Model):
             th.update_reason = reason
         th.save()
 
+
     def createTicketImageFolder(self):
-        newFolderName = "{}{}".format(settings.MY_ANDROID_PICTURES_PATH, self.ticket_code)
-        os.makedirs(newFolderName, exist_ok=True)
+        newFolderName = "{}\\{}\\".format(settings.MY_ANDROID_PICTURES_PATH, self.ticket_code)
+        if not os.path.exists(os.path.dirname(newFolderName)):
+            os.makedirs(os.path.dirname(newFolderName))
         self.image_folder_name = newFolderName
 
+
+    def addImageToTicket(self, receivedImage):
+        ticketImagePath = "{}\\{}\\".format(settings.MY_ANDROID_PICTURES_PATH, self.ticket_code)
+        # http://stackoverflow.com/questions/20303252/django-rest-framework-imagefield
+        # TODO: ajouter un image au ticket
 
     def __generateTicketCode(self):
         """

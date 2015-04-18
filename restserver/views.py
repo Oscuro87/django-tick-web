@@ -11,7 +11,8 @@ from rest_framework.views import APIView
 from login.models import TicketsUser
 from restserver.serializers import UserSerializer, SimpleTicketSerializer, FullTicketSerializer, \
     TicketCommentDietSerializer, TicketHistoryDietSerializer, TicketCommentSerializer, PlainResponseSerializer, \
-    NewBuildingSerializer, CategorySerializer, BuildingSerializer, TicketStatusSerializer, CompanyListEntrySerializer
+    NewBuildingSerializer, CategorySerializer, BuildingSerializer, TicketStatusSerializer, CompanyListEntrySerializer, \
+    CompanySerializer
 from ticketing.models import Ticket, TicketComment, TicketHistory, Place, EventCategory, Channel, TicketStatus, Company
 
 
@@ -384,15 +385,6 @@ class RESTUpdateTicketProgression(APIView):
             # print(ticketCode)
 
 
-################ Méthodes communes à toutes les classes ####################"
-
-def _getTicketPKByCode(ticketCode):
-    if ticketCode is None:
-        return None
-    else:
-        return Ticket.objects.get(ticket_code=ticketCode).pk
-
-
 class RESTGetListOfCompanies(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
@@ -435,28 +427,30 @@ class RESTUpdateTicketCompany(APIView):
 
     def post(self, request):
         ticketCode = request.data.get('ticketCode', None)
-        companyPK = CompanyListEntrySerializer(request.data.get('company', None)).data.pk
+        companyPK = request.data.get('companyPK', None)
 
-        self.processAssociation(ticketCode, companyPK)
+        return self.processAssociation(ticketCode, companyPK)
 
     def processAssociation(self, ticketCode, companyPK):
         try:
             ticketInstance = Ticket.objects.get(ticket_code=ticketCode)
             companyInstance = None
             if companyPK is not None:
-                if companyPK != -1:
+                if companyPK != '-1':
+                    print(companyPK)
                     companyInstance = Company.objects.get(pk=companyPK)
 
             ticketInstance.fk_company = companyInstance
 
             if companyInstance is not None:
-                ticketInstance.save("Changed assigned company to {}".format(companyInstance.name))
+                ticketInstance.save(reason="Changed assigned company to {}.".format(companyInstance.name))
             else:
-                ticketInstance.save("Unassigned company from ticket")
+                ticketInstance.save(reason="Unassigned company from ticket.")
 
             answer = {
                 'success': True,
                 'reason': 'Company successfully assigned to ticket',
+                'companyInstance': CompanySerializer(companyInstance).data,
             }
 
             return Response(answer, status=200)
@@ -464,5 +458,16 @@ class RESTUpdateTicketCompany(APIView):
             answer = {
                 'success': False,
                 'reason': error.__str__(),
+                'companyInstance': None,
             }
             return Response(answer, status=200)
+
+
+
+################ Méthodes communes à toutes les classes ####################"
+
+def _getTicketPKByCode(ticketCode):
+    if ticketCode is None:
+        return None
+    else:
+        return Ticket.objects.get(ticket_code=ticketCode).pk

@@ -157,4 +157,5 @@ MY_EMAIL_SITE_LINK = "http://ticketplatform.no-ip.org:2337"
 # Est-ce que les nouveaux comptes créés manuellement sont acceptés? (défaut: False)
 MY_REGISTRATION_ENABLED = True
 # PATH du dossier racine pour les images tickets postées via Android
-MY_ANDROID_PICTURES_PATH = static('ticketing/tickets-media/')
+MY_ANDROID_PICTURES_PATH = os.path.join(BASE_DIR, "media")
+# print(MY_ANDROID_PICTURES_PATH)
