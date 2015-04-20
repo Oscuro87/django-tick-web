@@ -6,6 +6,7 @@ from django.db.models import Q
 from django.contrib.auth.models import AnonymousUser
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from login.models import TicketsUserManager
 from ticketing.custom_exceptions.TicketCreationException import TicketCreationException
 
 from ticketing.forms import ContactForm, TicketCommentForm, BuildingCreationForm, CompanyUpdateForm
@@ -25,14 +26,29 @@ class ContactView(TemplateView):
         if isinstance(request.user, AnonymousUser):
             return redirect('loginview')
 
+        if "contactSend" in request.POST:
+            return self.__processSendContactMessage()
+
         return self.showPlainContactForm()
 
     def showPlainContactForm(self):
         data = dict()
         data['contact_form'] = ContactForm()
-        data['user_info'] = self.request.user
 
         return render_to_response(self.template_name, data, RequestContext(self.request))
+
+    def __processSendContactMessage(self):
+        print("Processing contact message")
+        cf = ContactForm(data=self.request.POST)
+
+        if cf.is_valid():
+            messages.success(self.request, _("Your message has been sent to the administrators."))
+            tum = TicketsUserManager()
+            tum.sendContactMessageToAdmins(cf.cleaned_data['subject'], cf.cleaned_data['content'])
+            return redirect("homeview")
+        else:
+            messages.error(self.request, _("Please fill the contact form completely."))
+            return self.showPlainContactForm()
 
 
 class CreateTicketView(TemplateView):

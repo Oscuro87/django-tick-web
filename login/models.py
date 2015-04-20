@@ -30,9 +30,22 @@ class TicketsUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def get_managers_only(self):
+    def getManagersOnly(self):
         findgroup = ["Manager", "Root"]
         return TicketsUser.objects.filter(groups__name__in=findgroup)
+
+    def sendContactMessageToAdmins(self, messageSubject, messageContent):
+        recipients = self.getManagersOnly()
+        for person in recipients:
+            assert isinstance(person, TicketsUser)
+            subject = _("An user has sent a message through the contact form")
+            message = _("<p>Message subject: {}</p><p>Content: {}</p>".format(messageSubject, messageContent))
+            try:
+                send_mail(subject, "", "ticketing.platform@gmail.com", [person.email], fail_silently=False,
+                          html_message=message)
+            except ConnectionRefusedError as e:
+                print("Cannot send email to commenters, connection to email provider is impossible: \n{}".format(
+                    e.__str__()))
 
 
 class TicketsUser(AbstractBaseUser, PermissionsMixin):

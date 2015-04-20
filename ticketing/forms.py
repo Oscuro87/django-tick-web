@@ -10,9 +10,11 @@ from ticketing.models import Building
 
 class ContactForm(forms.Form):
     # Email field is read only & pre filled
-    subject = forms.CharField(max_length=128, min_length=3, required=True, label=_("Subject: "))
-    content = forms.CharField(max_length=500, min_length=3, required=True, label=_("Your message: "))
+    subject = forms.CharField(max_length=128, min_length=5, required=True, label=_("Subject: "))
+    content = forms.CharField(max_length=500, min_length=5, required=True, label=_("Your message: "))
     captcha = MathCaptchaField()
+
+    widgets = {"content": forms.TextInput}
 
 
 class TicketCommentForm(forms.Form):
@@ -71,7 +73,7 @@ class TicketAdminForm(forms.ModelForm):
         tum = TicketsUserManager()
         bm = BuildingManager()
         compMan = CompanyManager()
-        self.fields['fk_manager'].queryset = tum.get_managers_only()
+        self.fields['fk_manager'].queryset = tum.getManagersOnly()
         #self.fields['fk_reporter'].queryset = bm.get_users_for_building(self.fields['fk_building'])
 
 
