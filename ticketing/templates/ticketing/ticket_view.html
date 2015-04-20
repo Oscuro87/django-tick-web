@@ -34,12 +34,28 @@
                 <h4>{% trans "View ticket details" %}: {{ ticket.ticket_code }}</h4>
                 <table class="table table-responsive center-block" id="tickets_table">
                     <tr>
+                        <td><h4>{% trans "Status" %}</h4></td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>{% trans "Status" %}</td>
                         <td>{% trans ticket.fk_status.label %}</td>
                     </tr>
                     <tr>
                         <td>{% trans "Reporter" %}</td>
                         <td>{{ ticket.fk_reporter.get_full_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Assigned to" %}</td>
+                        <td>{{ ticket.fk_manager.get_full_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Way of creation" %}</td>
+                        <td>{{ ticket.fk_channel.label }}</td>
+                    </tr>
+                    <tr>
+                        <td><h4>{% trans "Cagegory" %}</h4></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>{% trans "Category" %}</td>
@@ -50,20 +66,28 @@
                         <td>{{ ticket.fk_category.label }}</td>
                     </tr>
                     <tr>
-                        <td>{% trans "Building" %}</td>
-                        <td>
-                            {{ ticket.fk_building.building_name }}
-                            {% if ticket.floor != "" %}
-                                | {% trans "Floor" %} : {{ ticket.floor }}
-                            {% endif %}
-                            {% if ticket.office != "" %}
-                                | {% trans "Office" %} : {{ ticket.office }}
-                            {% endif %}
-                        </td>
+                        <td><h4>{% trans "Geographic location" %}</h4></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td>{% trans "Assigned to" %}</td>
-                        <td>{{ ticket.fk_manager.get_full_name }}</td>
+                        <td>{% trans "Building" %}</td>
+                        <td>{{ ticket.fk_building.building_name }}</td>
+                    </tr>
+                    {% if ticket.floor != "" %}
+                    <tr>
+                        <td>{% trans "Floor" %}</td>
+                        <td>{{ ticket.floor }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if ticket.office != "" %}
+                    <tr>
+                        <td>{% trans "Office" %}</td>
+                        <td>{{ ticket.office }}</td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <td><h4>{% trans "Resolution" %}</h4></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>{% trans "Assigned company" %}</td>
@@ -101,10 +125,6 @@
                     </td>
                     </tr>
                     {% endif %}
-                    <tr>
-                        <td>{% trans "Way of creation" %}</td>
-                        <td>{{ ticket.fk_channel.label }}</td>
-                    </tr>
                     <tr>
                         <td>{% trans "Description / Notes" %}</td>
                         <td>{{ ticket.description }}</td>

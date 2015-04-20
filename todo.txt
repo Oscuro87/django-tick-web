@@ -1,4 +1,4 @@
-Changes to do
+﻿Changes to do
 *************
 
 Légende
@@ -28,19 +28,21 @@ GeoPy
 SITE
 ****
 
-- Ajouter numero de telephone à:
-	* Utilisateurs
-	* Entreprises
+- Si un utilisateur veut créer un bâtiment qui existe déjà, lier cet utilisateur au bâtiment trouvé dans la DB et ne rien créer.
 - Permettre le changement de catégorie sur la vue ticket
     * Attention à la sous catégorie... (la mettre à null si catégorie parente est changée)
 - Faire en sorte que le formulaire de contact fonctionne vraiment
     - Ce formulaire doit envoyer un mail à tous les gestionnaires et admins
-- Création manuelle de compte ? (risque de spam et de faux comptes)
+- Débroussailler le code en général
+
+
+V Création manuelle de compte ? (risque de spam et de faux comptes)
     * Solution alternative: rendre cette création de compte optionnelle. (toggle dans les options)
     * Faire le formulaire
     * Backend
-- Débroussailler le code en général (best practices, etc...)
-
+V Ajouter numero de telephone à:
+	* Utilisateurs
+	* Entreprises
 V Permettre de changer l'assignation d'une entreprise à un ticket via vue ticket (manager+ only)
     * Besoin de l'intégration de GeoPy (google api) pour la distance
 V Préparer le serveur REST pour Android
