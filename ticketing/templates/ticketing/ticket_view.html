@@ -70,6 +70,12 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>{% trans "Address" %}</td>
+                        <td>
+                            {{ ticket.fk_building.address }}, {{ ticket.fk_building.postcode }} {{ ticket.fk_building.city }}, {{ ticket.fk_building.country }}
+                        </td>
+                    </tr>
+                    <tr>
                         <td>{% trans "Building" %}</td>
                         <td>{{ ticket.fk_building.building_name }}</td>
                     </tr>
@@ -92,7 +98,6 @@
                     <tr>
                         <td>{% trans "Assigned company" %}</td>
                         <td>
-                            <!-- TODO afficher le menu déroulant (remplacer les lignes ci-dessous par un for si entreprise trouvée pendant le for, la mettre comme sélection par défaut -->
                             {% if ticket.fk_manager == request.user %}
                                 <form action="{% url 'ticketdetailview' ticket.pk %}" method="post">
                                     {% csrf_token %}
@@ -123,6 +128,10 @@
                     <td>
                         {{ ticket.fk_company.phone_number }}
                     </td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Address" %}</td>
+                        <td>{{ ticket.fk_company.address }}, {{ ticket.fk_company.postcode }} {{ ticket.fk_company.city }}, {{ ticket.fk_company.country }}</td>
                     </tr>
                     {% endif %}
                     <tr>
@@ -185,7 +194,7 @@
                                 <tr>
                                     <td>{{ comm.fk_commenter.get_full_name }}</td>
                                     <td>{{ comm.date_created }}</td>
-                                    <td>{{ comm.comment }}</td>
+                                    <td>{{ comm.comment|linebreaks }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>

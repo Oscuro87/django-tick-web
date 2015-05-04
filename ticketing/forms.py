@@ -66,6 +66,19 @@ class CompanyUpdateForm(forms.ModelForm):
         }
 
 
+class UpdateBuildingForm(forms.ModelForm):
+    class Meta:
+        model = Building
+        fields = ('building_code', 'country', 'address', 'vicinity', 'city', 'postcode')
+        widgets = {'building_code': forms.HiddenInput()}
+
+
+class UpdateBuildingSelectorForm(forms.Form):
+    def __init__(self, buildings=(), *args, **kwargs):
+        super().__init__()
+        self.fields['building_selector'] = forms.ChoiceField(choices=buildings)
+
+
 ############### Admin forms ######################
 class TicketAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):

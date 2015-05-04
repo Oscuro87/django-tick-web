@@ -106,15 +106,18 @@ class RESTSimpleTicketList(APIView):
 
             for unmanagedTicket in unmanaged:
                 serialized = SimpleTicketSerializer(unmanagedTicket)
+                # serialized = FullTicketSerializer(unmanagedTicket)
                 answer["unmanaged"].append(serialized.data)
 
             for managedTicket in managedByUser:
                 serialized = SimpleTicketSerializer(managedTicket)
+                # serialized = FullTicketSerializer(managedTicket)
                 answer["managed_by_user"].append(serialized.data)
 
         result = allTickets.filter(fk_reporter__exact=user)
         for tick in result:
             tickRedux = SimpleTicketSerializer(tick)
+            # tickRedux = FullTicketSerializer(tick)
             answer["user_tickets"].append(tickRedux.data)
 
         # return data with tickets corresponding to user position

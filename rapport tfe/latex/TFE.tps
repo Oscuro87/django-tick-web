@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1313
+NormalPos.right=1319
 NormalPos.bottom=905
 Class=LaTeXView
 Document=TFE.tex
 
 [Frame0_View0,0]
-TopLine=443
-Cursor=28032
+TopLine=120
+Cursor=7354
 
 [SessionInfo]
 FrameCount=1

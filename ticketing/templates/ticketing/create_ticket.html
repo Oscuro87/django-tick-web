@@ -22,7 +22,6 @@
 {% block navbar-contents %}
     <li class="bg-info"><a href="{% url 'homeview' %}">{% trans "Home" %}</a></li>
     <li><a href="{% url 'contactview' %}">{% trans "Contact" %}</a></li>
-    <li><a href="#">{% trans "Options" %}</a></li>
     {% if user_info.isAdmin %}
         <li><a href="/admin/">{% trans "Admin Panel" %}</a></li>
     {% endif %}

@@ -1,6 +1,7 @@
 import os
 from django.db import models
 from django.utils.translation import ugettext as _
+from django.utils.safestring import mark_safe
 from django_countries.fields import CountryField
 from django.core.mail import send_mail
 from django.conf import settings
@@ -209,6 +210,7 @@ class TicketComment(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
+        #self.comment = mark_safe(self.comment.replace("\n", "<br>"))
         super().save(force_insert, force_update, using, update_fields)
         self.__sendEmailToCommenters()
 
@@ -251,7 +253,7 @@ class Ticket(models.Model):
     fk_reporter = models.ForeignKey(TicketsUser, verbose_name=_("Reporter"), related_name="rapporteur", null=False,
                                     blank=False)
     fk_priority = models.ForeignKey(TicketPriority, verbose_name=_("Priority"), null=False, blank=False)
-    fk_status = models.ForeignKey(TicketStatus, verbose_name=_("Status"), null=False, blank=False, default=1)
+    fk_status = models.ForeignKey(TicketStatus, verbose_name=_("Status"), null=False, blank=False)
     fk_manager = models.ForeignKey(TicketsUser, verbose_name=_("Manager"), related_name="gestionnaire", null=True,
                                    blank=True)
     fk_company = models.ForeignKey(Company, verbose_name=_("Company"), null=True, blank=True)
@@ -272,11 +274,11 @@ class Ticket(models.Model):
         self.save(reason="Ticket soft deletion.")
 
     def save(self, *args, **kwargs):
-        reason = kwargs.pop('reason', None)
+        reason = kwargs.pop('reason', "")
 
         if not self.ticket_code:
             self.ticket_code = self.__generateTicketCode()
-            if reason is None:
+            if reason == "":
                 reason = _("Creating new ticket")
 
         if self.image_folder_name == "" or self.image_folder_name is None:
@@ -291,8 +293,7 @@ class Ticket(models.Model):
         th.fk_manager_id = self.fk_manager_id
         th.fk_ticket = self
         th.fk_ticket_status_id = self.fk_status_id
-        if reason is not None:
-            th.update_reason = reason
+        th.update_reason = reason
         th.save()
 
 
@@ -404,7 +405,7 @@ class Ticket(models.Model):
                                                       self.fk_building.country)
                     companyCoords = geopy.findLocationByAddress(companyAddress)
                     ticketCoords = geopy.findLocationByAddress(ticketAddress)
-                    if companyCoords["result"] == ResultType.OK and ticketCoords["result"] == ResultType.OK:
+                    if companyCoords["location"] is not None and ticketCoords["location"] is not None:
                         distanceInKM = geopy.getDistanceBetweenTwoCoordinates(
                             ticketCoords["location"].latitude,
                             ticketCoords["location"].longitude,

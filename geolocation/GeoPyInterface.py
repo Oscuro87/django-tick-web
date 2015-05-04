@@ -23,15 +23,23 @@ class GeoPyInterface:
         }
         # Gestion des exceptions
         try:
-            resultData["location"] = self.geolocator.geocode(fullAddress)
+            resultData["location"] = self.geolocator.geocode(fullAddress, timeout=5)
             resultData["result"] = ResultType.OK
             return resultData
         except exc.GeopyError as ge:
             print("{}\n".format(ge.__str__()))
             return {"result": ResultType.KO, "location:": None,}
+        except ValueError as ve:
+            print("Value error: {}".format(ve.__str__()))
+            return {
+                "result": ResultType.KO,
+                "location": None
+            }
 
     def getDistanceBetweenTwoCoordinates(self, lat1, long1, lat2, long2):
-        # Cette methode est "offline" donc pas besoin de gérer les exceptions de connection, quota, etc...
+        """
+        Calcule la distance entre deux points en comparant leur latitude et longitude.
+        """
         location1 = (lat1, long1)
         location2 = (lat2, long2)
         distance = vincenty(location1, location2).kilometers
