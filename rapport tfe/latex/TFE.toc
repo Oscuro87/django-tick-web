@@ -1,68 +1,135 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
 \select@language {french}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{3}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.1}\IeC {\'E}tat de la question}{3}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.2}D\IeC {\'e}limitation du projet}{4}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.3}Public cible de l'application}{4}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.4}D\IeC {\'e}finition de quelques concepts}{5}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Approche th\IeC {\'e}orique et technique}{6}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.1}Outils et m\IeC {\'e}thodes utilis\IeC {\'e}s}{6}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.2}Langage de programmation utilis\IeC {\'e}: Python}{6}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.3}Le framework utilis\IeC {\'e}: Django}{7}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.1}Pourquoi Django?}{8}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.2}Fonctionnement de Django}{8}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.2.1}D\IeC {\'e}ploiement rapide d'application}{8}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.2.2}Architecture web d\IeC {\'e}coupl\IeC {\'e}e}{9}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.2.3}Architecture MTV}{9}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.2.4}Les mod\IeC {\`e}les}{10}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.2.5}Les vues}{11}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.2.6}Comment ces vues fonctionnent-elles?}{11}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.2.7}Les templates}{12}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.3}L'ORM de Django}{13}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.4}SQLite versus MySQL}{14}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Impl\IeC {\'e}mentation des diff\IeC {\'e}rentes applications}{15}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Solution de gestion des tickets existante}{15}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.1.1}Pr\IeC {\'e}sentation du syst\IeC {\`e}me de ticketing}{15}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.1.2}Critique de la plateforme existante}{15}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.2}Conception de la nouvelle solution}{16}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.1}Approche utilis\IeC {\'e}e lors de la conception de ces applications}{16}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.2}R\IeC {\`e}gles m\IeC {\'e}tier}{16}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.2.2.1}Administration de la plateforme}{17}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.2.2.2}Gestion des tickets}{17}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.3}Flux d'activit\IeC {\'e} de l'application}{19}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.4}La base de donn\IeC {\'e}es utilis\IeC {\'e}e par les applications}{19}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.2.4.1}Dictionnaire de donn\IeC {\'e}es}{19}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.2.4.2}Sch\IeC {\'e}ma de la base de donn\IeC {\'e}es}{20}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.3}Analyse de l'application Web}{20}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.1}Librairies utilis\IeC {\'e}es lors du d\IeC {\'e}veloppement de l'application web}{20}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.1.1}Design de base avec bootstrap}{20}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.1.2}JQuery}{21}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.1.3}Geolocalisation}{21}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.2}Analyse de l'architecture logicielle}{23}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.2.1}Les mod\IeC {\`e}les utilis\IeC {\'e}s par l'application}{23}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.3}Le web service avec REST}{23}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.3.1}Qu'est-ce que l'architecture REST?}{23}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.3.2}Impl\IeC {\'e}mentation du web service aux c\IeC {\^o}t\IeC {\'e}s Django}{24}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.3.3}Dissection d'une requ\IeC {\^e}te REST}{25}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.4}Analyse de l'application Android}{25}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.1}Pourquoi une application Android?}{25}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.2}Analyse de l'application con\IeC {\c c}ue}{25}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.2.1}Architecture g\IeC {\'e}n\IeC {\'e}rale}{25}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.2.2}Syst\IeC {\`e}me de pseudo-cookie pour le login}{26}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.2.3}Syst\IeC {\`e}me de cache en m\IeC {\'e}moire}{26}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.2.4}Mise en place d'un bus d'\IeC {\'e}v\IeC {\`e}nements}{28}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.3}Flux d'information entre le webservice et l'application Android}{29}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.3.1}Minimisation de l'utilisation r\IeC {\'e}seau des requ\IeC {\^e}tes REST}{29}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.3.2}Compression de requ\IeC {\^e}te REST}{29}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.3.3}Utilisation de "mod\IeC {\`e}les r\IeC {\'e}duits"}{30}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.4}Flow de l'application Android}{31}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.5}Client REST}{31}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.5.1}Comment fonctionne la librairie "Retrofit"}{31}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.5}Autocritique de la nouvelle solution mise en place}{32}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.5.1}R\IeC {\'e}solution des probl\IeC {\`e}mes pos\IeC {\'e}s}{32}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.5.1.1}Performances du site web et de l'application Android}{32}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.5.1.2}Flexibilit\IeC {\'e} de l'application}{32}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.5.1.3}Accessibilit\IeC {\'e} \IeC {\`a} la plateforme}{32}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Conclusion}{33}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Annexes}{34}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.1}Sch\IeC {\'e}ma de la base de donn\IeC {\'e}es}{34}
-\contentsline {chapter}{Bibliographie}{36}

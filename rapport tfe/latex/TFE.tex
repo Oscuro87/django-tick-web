@@ -17,7 +17,7 @@
 \usepackage{rotating}
 \usepackage{epstopdf}
 
-\title{TFE: Plateforme de ticketing}
+\title{Travail de fin d'études: Plateforme de ticketing}
 \author{Emmanuel CAPELLE}
 \date{}
 
@@ -92,20 +92,25 @@ L'utilisateur peut aussi utiliser la plateforme depuis son smartphone Android, p
 
 \textbf{Django}: Le framework utilisé pour construire la nouvelle plateforme de ticketing.
 
+\textbf{Otto}: Librairie de gestion de bus d'évènements utilisé dans l'application Android.
+
+\textbf{Retrofit}: Librairie client REST du côté de l'application Android.
+
+\textbf{REST}: REpresentational State Transfer: Architecture utilisée pour la communication client-serveur.
 
 \chapter{Approche théorique et technique}
 \section{Outils et méthodes utilisés}
 Environnements de travail:
 
-Développement du site web: IDE PyCharm – community edition de JetBrains\footnote{https://www.jetbrains.com/pycharm/}
+Développement du site web: IDE PyCharm – community edition de JetBrains\footnote{https://www.jetbrains.com/pycharm/}.
 
-Développement de l'app Android: Android studio de JetBrains\footnote{http://developer.android.com/tools/studio/index.html}
+Développement de l'app Android: Android studio de JetBrains\footnote{http://developer.android.com/tools/studio/index.html}.
 
-Maquettes du site et de l'application Android: Draw.io de JGraph LTD\footnote{https://www.draw.io/}
+Maquettes du site et de l'application Android: Draw.io de JGraph LTD\footnote{https://www.draw.io/}.
 
-Diagrammes UML, de séquence, ... : Visual paradigm - community edition de l'entreprise du même nom\footnote{http://www.visual-paradigm.com/}
+Diagrammes UML, de séquence, ... : Visual paradigm - community edition de l'entreprise du même nom\footnote{http://www.visual-paradigm.com/}.
 
-Écriture de ce rapport: LaTeX\footnote{http://www.latex-project.org/}
+Écriture de ce rapport: LaTeX\footnote{http://www.latex-project.org/} et ShareLatex\footnote{https://www.sharelatex.com/}, site d'écriture de documents en LaTeX en ligne.
 
 \section{Langage de programmation utilisé: Python}
 Créé en 1990 par Guido van Rossum, Python est un langage de programmation de haut niveau à typage dynamique, orienté objet et est un langage interprété.
@@ -563,15 +568,40 @@ M'est alors venue l'idée d'implémenter un système de requête REST lancées d
 C'est alors que j'ai trouvé la librairie "Otto"\footnote{http://square.github.io/otto/}, permettant la communication asynchrone entre différentes parties de l'application Android, ainsi qu'une communication avec la librairie "Retrofit" permettant d'émettre des requêtes REST vers le web service.
 
 \begin{center}
+Qu'est-ce qu'un bus d'évènement?
+\end{center}
+
+Un bus d'évènement est une infrastructure mise en place tout au long du développement de l'application Android, et permet une communication plus aisée entre les différentes activités et fragments qui compose cette application. Ce bus repose, comme son nom l'indique, sur des évènements émis par les activités à destination des activités qui implémentent une fonction réceptrice de cet évènement.
+
+\begin{center}
 Comment fonctionne Otto?
 \end{center}
 
-\todo{}
-% http://vinsol.com/blog/2014/11/04/communication-patterns-for-application-components/
+Afin d'utiliser Otto dans une application Android, il est nécéssaire de créer un singleton permettant la gestion des bus d'évènements. À partir de ce moment, toutes les activités et fragments de l'application Android pourront utiliser ce singleton afin de poster des évènements. (voir exemple de la figure \ref{fig:bus-post-example})
+
+\begin{figure}
+\centering
+\includegraphics{images/code-snippets/bus-post-example.png}
+\caption{Exemple d'instruction de post d'un nouvel event via Otto}
+\label{fig:bus-post-example}
+\end{figure}
+
+Ces évènements seront ensuite interceptés par les classes possédant une méthode dont la signature est annotée de \textit{@subscribe}. (voir figure \ref{fig:class-intercept-event-example})
+
+\begin{figure}
+\centering
+\includegraphics{images/code-snippets/class-intercept-event-example.png}
+\caption{Interception d'un évènement par une méthode de classe. Notez l'annotation @Subscribe.}
+\label{fig:class-intercept-event-example}
+\end{figure}
+
+Il ne reste plus qu'à l'activité réceptrice de l'évènement de réagir à cet évènement en conséquence.
+
+Ce système très flexible m'a été très utile lors du développement de mon application Android.
 
 
 \subsection{Flux d'information entre le webservice et l'application Android}
-\todo{Flux d'information android}
+Voir la figure \ref{fig:dataflow-android-webservice} dans les annexes.
 
 
 \subsubsection{Minimisation de l'utilisation réseau des requêtes REST} \label{sssec:minimisation-utilisation-reseau}
@@ -612,10 +642,7 @@ Il y a par contre un petit désavantage à cette pratique, c'est la multiplicati
 \end{figure}
 
 \subsection{Flow de l'application Android}
-\todo{flow de l'application android}
-Cette section va parler du flow suivi par un utilisateur et par un gestionnaire lorsqu'il utilise l'application Android.
-
-\missingfigure{Flow app android}
+Voir figure \ref{fig:flow-application-android} dans les annexes.
 
 
 \subsection{Client REST}
@@ -639,7 +666,6 @@ Je vous invite à lire la sous-section "Qu'est-ce que l'architecture REST?", vou
 
 \chapter{Annexes}
 
-
 \section{Schéma de la base de données}
 Attention: Ce schéma ne reprend que les tables importantes pour l'application développée. Il existe d'autres tables propres à Django, mais je ne les ai pas incluses car le schéma serait bien trop imposant.
 
@@ -650,7 +676,19 @@ Attention: Ce schéma ne reprend que les tables importantes pour l'application d
 \label{fig:schema-database}
 \end{sidewaysfigure}
 
+\begin{sidewaysfigure}
+\centering
+\includegraphics{images/schemas/communication-django-webservice-android.png}
+\caption{Flux d'informations entre l'application Android et le web service.}
+\label{fig:dataflow-android-webservice}
+\end{sidewaysfigure}
 
+\begin{sidewaysfigure}
+\centering
+\includegraphics{images/schemas/state_machine_activites_android.PNG}
+\caption{State machine des activités de l'application Android.}
+\label{fig:flow-application-android}
+\end{sidewaysfigure}
 
 \begin{thebibliography}{breitestes Label}
 	\bibitem{How to tango with Django}
@@ -679,6 +717,11 @@ Attention: Ce schéma ne reprend que les tables importantes pour l'application d
 			Wikipedia
 			
 			http://en.wikipedia.org/wiki/Django\_\%28web\_framework\%29
+			
+	\bibitem{Event Bus Implementation}
+	Bus d'évènements pour les applications Android
+	
+	http://vinsol.com/blog/2014/11/04/communication-patterns-for-application-components/
 \end{thebibliography}
 
 \end{document}
